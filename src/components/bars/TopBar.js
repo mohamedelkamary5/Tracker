@@ -121,7 +121,7 @@ const TopBar = ({ title }) => {
                                         filterSearch.map((item, index) => {
                                             return (
                                                 <div className='click-Search' key={index}>
-                                                    <Link to={`/restaurants/${item.id}`} onClick={handelLink}><p>{item.en_name}</p> </Link>
+                                                    <Link to={`/admin/restaurants/${item.id}`} onClick={handelLink}><p>{item.en_name}</p> </Link>
                                                 </div>
 
                                             )
@@ -260,7 +260,6 @@ margin-left: 20px;
     overflow: auto;
     padding: 4px 0;
     .click-Search{
-        padding: 2px 20px;
         transition: 0.2s;
         :hover{
                 background-color: var(--background-color);
@@ -268,6 +267,9 @@ margin-left: 20px;
             }
         a{
             color: black;
+            display: block;
+            padding: 2px 20px;
+
 
         }
     }
