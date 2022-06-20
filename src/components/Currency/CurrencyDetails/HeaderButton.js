@@ -20,7 +20,7 @@ const HeaderButton = ({ id, status }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/currencies";
+    const from = location.state?.from?.pathname || "/admin/currencies";
 
 
     const statusVal = status == 1 ? true : false;
@@ -115,7 +115,7 @@ const HeaderButton = ({ id, status }) => {
                 </button>
                 <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف العملة</button>
             </MainButtonClint>
-            <ButtonReturn title="/currencies" />
+            <ButtonReturn title="/admin/currencies" />
 
         </MainHeaderClint>
     )

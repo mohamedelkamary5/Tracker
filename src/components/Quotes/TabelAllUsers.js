@@ -114,9 +114,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         {resultData.map((user, index) => {
                                             return (
                                                 <tr key={index}>
-                                                    <td><Link className='my-2' to={`/quotes/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
+                                                    <td><Link className='my-2' to={`/admin/quotes/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                                                     <td>
-                                                        <Link className='text-link' to={`/quotes/${user.id}`}>{user.id}#</Link>
+                                                        <Link className='text-link' to={`/admin/quotes/${user.id}`}>{user.id}#</Link>
                                                     </td>
                                                     <td>
                                                         <span>{user.en_title}</span>
@@ -136,8 +136,8 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                     <td >
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                                         <div className='select-clint'>
-                                                            <Link to={`/quotes/${user.id}`}> التفاصيل</Link>
-                                                            <Link to={`/quotes/${user.id}`}>بيانات العميل</Link>
+                                                            <Link to={`/admin/quotes/${user.id}`}> التفاصيل</Link>
+                                                            <Link to={`/admin/quotes/${user.id}`}>بيانات العميل</Link>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -154,7 +154,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                             <div className="card">
                                                 <div className="card-body text-center">
                                                     <h6 className="card-title mb-1">
-                                                        <Link to={`/quotes/${user.id}`}>{user.en_title}</Link>
+                                                        <Link to={`/admin/quotes/${user.id}`}>{user.en_title}</Link>
                                                     </h6>
                                                     <p className='mt-2'>
                                                         <span>{user.sequence}</span>
@@ -164,12 +164,12 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                             <span>
                                                                 <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 24 24" className="BiDotsHorizontalRounded" height="30" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
                                                                 <div className='select-clint'>
-                                                                    <Link to={`/quotes/${user.id}`}>التفاصيل</Link>
+                                                                    <Link to={`/admin/quotes/${user.id}`}>التفاصيل</Link>
                                                                 </div>
                                                             </span>
                                                         </div>
                                                         <div className='col p-0'>
-                                                            <Link to={`/quotes/${user.id}`} className="btn btn-main">التفاصيل</Link>
+                                                            <Link to={`/admin/quotes/${user.id}`} className="btn btn-main">التفاصيل</Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,7 +214,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 </div>
 
 
-                {statusBlackList ? <ButtonReturn title='/quotes' />
+                {statusBlackList ? <ButtonReturn title='/admin/quotes' />
                     : <ButtonAdd HandelShowCustomer={HandelShowCustomer} />}
 
             </div>

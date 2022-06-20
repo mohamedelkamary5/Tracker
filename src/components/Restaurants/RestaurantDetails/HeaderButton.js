@@ -9,30 +9,30 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 // import { ShowStop } from '../../store/StateSlice';
 // import { ShowDelete } from '../../store/StateSlice';
-import {deleteClient, changeStatusClient} from '../../../store/ClintSlice2'
+import { deleteClient, changeStatusClient } from '../../../store/ClintSlice2'
 
 
 
 
 
 
-const HeaderButton = ({HandelShowCustomer, id, status }) => {
-   const dispatch = useDispatch()
-   const navigate = useNavigate();
-   const location = useLocation();
-   const from = location.state?.from?.pathname || "/restaurants";
+const HeaderButton = ({ HandelShowCustomer, id, status }) => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/admin/restaurants";
 
 
-const statusVal = status == 1 ? true : false;
+    const statusVal = status == 1 ? true : false;
 
-const [handelStatus, setHandelStatus] = useState(statusVal);
+    const [handelStatus, setHandelStatus] = useState(statusVal);
 
-const handelStatusClient = () => {
+    const handelStatusClient = () => {
 
 
-    const text = handelStatus ? 'من ايقاف هذا المطعم' : 'من اعادة تشغيل هذا المطعم'
+        const text = handelStatus ? 'من ايقاف هذا المطعم' : 'من اعادة تشغيل هذا المطعم'
 
-    swal({
+        swal({
             title: 'هل أنت واثق؟',
             text: text,
             icon: "warning",
@@ -45,37 +45,37 @@ const handelStatusClient = () => {
             },
             dangerMode: true,
         })
-        .then((willDelete) => {
-            if (willDelete) {
-                dispatch(changeStatusClient(id))
-                setHandelStatus(!handelStatus)
-                swal("تم تنفيذ الامر بنجاح", {
-                    icon: "success",
-                    button: 'موافق'
-                });
-            } else {
-                swal("تم الغاء الامر", {
-                    icon: "error",
-                    button: 'موافق'
-                });
-            }
-        });
-        
-}
-const handelDeleteClient = () => {
+            .then((willDelete) => {
+                if (willDelete) {
+                    dispatch(changeStatusClient(id))
+                    setHandelStatus(!handelStatus)
+                    swal("تم تنفيذ الامر بنجاح", {
+                        icon: "success",
+                        button: 'موافق'
+                    });
+                } else {
+                    swal("تم الغاء الامر", {
+                        icon: "error",
+                        button: 'موافق'
+                    });
+                }
+            });
+
+    }
+    const handelDeleteClient = () => {
         swal({
-                title: 'هل أنت واثق؟',
-                text: 'من حذف هذا المطعم',
-                icon: "warning",
-                buttons: {
-                    cancel: "الغاء",
-                    catch: {
-                        text: "موافق",
-                        value: "catch",
-                    },
+            title: 'هل أنت واثق؟',
+            text: 'من حذف هذا المطعم',
+            icon: "warning",
+            buttons: {
+                cancel: "الغاء",
+                catch: {
+                    text: "موافق",
+                    value: "catch",
                 },
-                dangerMode: true,
-            })
+            },
+            dangerMode: true,
+        })
             .then((willDelete) => {
                 if (willDelete) {
                     dispatch(deleteClient(id))
@@ -92,33 +92,33 @@ const handelDeleteClient = () => {
                 }
             });
 
-}
+    }
 
 
 
 
-  return (
-    <MainHeaderClint>
-        <MainButtonClint>
-            <button onClick={handelStatusClient}>
-            {
-                handelStatus ?
-                <Fragment>
-                    <FiPause className='icon-button' />أقاف مؤقت
-                </Fragment>
-                : 
-                <Fragment>
-                    <GrPlay className='icon-button' /> اعادة تفيعل
-                </Fragment>
-            }
-                
-            </button>
-            <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف المطعم</button>
-        </MainButtonClint>
-        <ButtonReturn title="/restaurants" />
-        
-    </MainHeaderClint>
-  )
+    return (
+        <MainHeaderClint>
+            <MainButtonClint>
+                <button onClick={handelStatusClient}>
+                    {
+                        handelStatus ?
+                            <Fragment>
+                                <FiPause className='icon-button' />أقاف مؤقت
+                            </Fragment>
+                            :
+                            <Fragment>
+                                <GrPlay className='icon-button' /> اعادة تفيعل
+                            </Fragment>
+                    }
+
+                </button>
+                <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف المطعم</button>
+            </MainButtonClint>
+            <ButtonReturn title="/admin/restaurants" />
+
+        </MainHeaderClint>
+    )
 }
 const MainHeaderClint = styled.div`
 padding: 20px;

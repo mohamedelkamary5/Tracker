@@ -101,18 +101,19 @@ function App() {
           <AddQuotes />
 
           <Routes>
-            {/* public routes */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            {/* Start Routes Admin */}
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/register" element={<Register />} />
             <Route element={<ProtectedRoutesAdmin />}>
+
               <Route element={<SidebarLayout HandelShow={HandelShow} show={show} />}>
-                {/* User routes */}
-                <Route path="/" element={<Home HandelShow={HandelShow} />} />
-                <Route path="Triple-zero" element={<Home HandelShow={HandelShow} />} />
-                <Route path="/setting" element={<Setting />} />
+
+                <Route path="/admin" element={<Home HandelShow={HandelShow} />} />
+                <Route path="admin/Triple-zero" element={<Home HandelShow={HandelShow} />} />
+                <Route path="admin/setting" element={<Setting />} />
 
                 {/* Start Restaurants Routes */}
-                <Route path="restaurants">
+                <Route path="admin/restaurants">
                   <Route path="" element={<Restaurants
                     HandelShow={HandelShow}
                     showBar={showBar}
@@ -142,7 +143,7 @@ function App() {
                 {/* End Restaurants Routes */}
 
                 {/* Start shipping Routes */}
-                <Route path="shipping-companies">
+                <Route path="admin/shipping-companies">
                   <Route path="" element={<Shipping
                     HandelShow={HandelShow}
                     showBar={showBar}
@@ -165,7 +166,7 @@ function App() {
                 {/* End shipping Routes */}
 
                 {/* Start Managers Routes */}
-                <Route path="managers">
+                <Route path="admin/managers">
                   <Route path="" element={<Managers
                     HandelShow={HandelShow}
                     showBar={showBar}
@@ -188,7 +189,7 @@ function App() {
                 {/* End Managers Routes */}
 
                 {/* Start Drivers Routes */}
-                <Route path="drivers">
+                <Route path="admin/drivers">
                   <Route path="" element={<Drivers
                     HandelShow={HandelShow}
                     showBar={showBar}
@@ -211,7 +212,7 @@ function App() {
                 {/* End Drivers Routes */}
 
                 {/* Start Currencies Routes */}
-                <Route path="currencies">
+                <Route path="admin/currencies">
                   <Route path="" element={<Currencies
                     HandelShow={HandelShow}
                     showBar={showBar}
@@ -234,7 +235,7 @@ function App() {
                 {/* End Currencies Routes */}
 
                 {/* Start Quotes Routes */}
-                <Route path="quotes">
+                <Route path="admin/quotes">
                   <Route path="" element={<Quotes
                     HandelShow={HandelShow}
                     showBar={showBar}
@@ -257,7 +258,7 @@ function App() {
                 {/* End Quotes Routes */}
 
                 {/* My Account */}
-                <Route path="my-account">
+                <Route path="admin/my-account">
                   <Route path="" element={<MyAccount
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />}
@@ -268,6 +269,7 @@ function App() {
 
 
             </Route>
+            {/* End Routes Admin */}
 
           </Routes>
         </BrowserRouter>

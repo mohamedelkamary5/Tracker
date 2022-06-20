@@ -16,7 +16,7 @@ const useAuth = () => {
   const isAuth = useAuth();
   // console.log('isAuth', isAuth);
   // console.log('e', e);
-  return isAuth ? <Outlet /> : <Navigate to="/login" />;
+  return isAuth ? <Outlet /> : <Navigate to="admin/login" />;
 };
 
 // const ProtectedRoutes = (e) => {

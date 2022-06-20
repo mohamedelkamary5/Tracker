@@ -18,7 +18,7 @@ const HeaderButton = ({ id, status }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/drivers";
+    const from = location.state?.from?.pathname || "/admin/drivers";
 
 
     const statusVal = status == 1 ? true : false;
@@ -113,7 +113,7 @@ const HeaderButton = ({ id, status }) => {
                 </button>
                 <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف السائق</button>
             </MainButtonClint>
-            <ButtonReturn title="/drivers" />
+            <ButtonReturn title="/admin/drivers" />
 
         </MainHeaderClint>
     )

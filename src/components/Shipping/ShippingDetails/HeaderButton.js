@@ -20,7 +20,7 @@ const HeaderButton = ({id, status }) => {
    const dispatch = useDispatch()
    const navigate = useNavigate();
    const location = useLocation();
-   const from = location.state?.from?.pathname || "/shipping-companies";
+   const from = location.state?.from?.pathname || "/admin/shipping-companies";
 
 
 const statusVal = status == 1 ? true : false;
@@ -115,7 +115,7 @@ const handelDelete = () => {
             </button>
             <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف الشركة</button>
         </MainButtonClint>
-        <ButtonReturn title="/shipping-companies" />
+        <ButtonReturn title="/admin/shipping-companies" />
         
     </MainHeaderClint>
   )

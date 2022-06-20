@@ -72,7 +72,7 @@ const LoginFrom = () => {
             localStorage.setItem("token", response.data.data.token)
             localStorage.setItem("authData", JSON.stringify(response.data.data))
             localStorage.setItem("loggedIn", true)
-            window.location.href = '/Triple-zero'
+            window.location.href = '/admin/Triple-zero'
 
 
 

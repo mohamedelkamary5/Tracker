@@ -28,63 +28,63 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:1 ,
                 name: "الرئيسية" ,
-                link: "/Triple-zero" ,
+                link: "/admin/Triple-zero" ,
                 icon: AiOutlineAppstore,
             
             },
             {
                 id:2 ,
                 name : "المطاعم" ,
-                link: "/restaurants" ,
+                link: "/admin/restaurants" ,
                 icon: MdSupervisorAccount,
             
             },
             {
                 id:8 ,
                 name : "المشرفين" ,
-                link: "/managers",
+                link: "/admin/managers",
                 icon: BsPerson,
             
             },
             {
                 id:3 ,
                 name : "شركات الشحن" ,
-                link: "/shipping-companies" ,
+                link: "/admin/shipping-companies" ,
                 icon: FaShoppingCart,
             
             },
             {
                 id:6 ,
                 name : "السائقين" ,
-                link: "/drivers",
+                link: "/admin/drivers",
                 icon: MdDirectionsCar,
             
             },
             {
                 id:7 ,
                 name : "العملات" ,
-                link: "/currencies",
+                link: "/admin/currencies",
                 icon: HiCurrencyDollar,
             
             },
             {
                 id:11 ,
                 name : "الاقتباسات" ,
-                link: "/quotes",
+                link: "/admin/quotes",
                 icon: RiDoubleQuotesR,
             
             },
             {
                 id:9 ,
                 name : "حسابي" ,
-                link: "/my-account" ,
+                link: "/admin/my-account" ,
                 icon: BsPersonCircle,
             
             },
             {
                 id:10 ,
                 name : "الأعدادات" ,
-                link: "/setting" ,
+                link: "/admin/setting" ,
                 icon: MdOutlineSettings,
             
             },
