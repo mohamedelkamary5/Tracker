@@ -73,10 +73,10 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
             setResultData(UserData)
         } else {
             const searchString = e.target.value.toLowerCase();
-            const filteredFood = UserData.filter((food) => {
-                return food.en_name.toLowerCase().includes(searchString);
+            const filteredItems = UserData.filter((item) => {
+                return item.en_name.toLowerCase().includes(searchString);
             });
-            setResultData(filteredFood)
+            setResultData(filteredItems)
         }
 
 

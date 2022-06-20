@@ -50,11 +50,11 @@ const TopBar = ({ title }) => {
             setTextResultSearch('لا يوجد نتائج بحث')
         } else {
             const searchString = valueInput.toLowerCase();
-            const filteredFood = UserData.filter((food) => {
-                return food.en_name.toLowerCase().includes(searchString);
+            const filteredItems = UserData.filter((item) => {
+                return item.en_name.toLowerCase().includes(searchString);
             });
-            setfilterSearch(filteredFood)
-            if (filteredFood.length == 0) {
+            setfilterSearch(filteredItems)
+            if (filteredItems.length == 0) {
                 setTextResultSearch('لا يوجد نتائج بحث')
             }
         }
