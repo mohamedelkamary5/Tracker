@@ -58,7 +58,7 @@ import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
 import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
-import SidebarLayoutRestaurant from "./components/bars/NotBar";
+import SidebarLayoutRestaurant from "./components/Restaurants-Managment/Restaurants-Components/bars/NotBar";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par

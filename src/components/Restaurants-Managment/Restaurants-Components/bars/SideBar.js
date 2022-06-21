@@ -1,7 +1,8 @@
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
-import logo from "../../photo/glopal/logo.svg"
-import logout from "../../photo/icons/logout.svg"
+import logo from "../../../../photo/glopal/logo.svg"
+// import logo from "../../../../photo//"
+import logout from "../../../../photo/icons/logout.svg"
 import { AiOutlineAppstore  } from 'react-icons/ai';
 import {  BsPerson } from 'react-icons/bs';
 import {  NavLink, useLocation, useNavigate } from 'react-router-dom'
@@ -13,7 +14,7 @@ import {  BsPersonCircle } from 'react-icons/bs';
 import {  HiCurrencyDollar } from 'react-icons/hi';
 import { RiDoubleQuotesR } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
-import { HideSlider } from '../../store/StateSlice';
+import { HideSlider } from '../../../../store/StateSlice';
 
 
 const SideBar = ({showBar,HandelClose }) => {
@@ -27,7 +28,7 @@ const SideBar = ({showBar,HandelClose }) => {
         NavBar : [
             {
                 id:1 ,
-                name: "الرئيسية" ,
+                name: "11" ,
                 link: "/admin/Triple-zero" ,
                 icon: AiOutlineAppstore,
             
