@@ -20,14 +20,14 @@ const Clint = ({HandelShow }) => {
   
   // console.log('clientDetails____1', clientDetails);
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
     <TopBar title={"السائق"} HandelShow={HandelShow} />
     
-    <StyleFlex>
+    <div className='style-flex-page'>
      <ClintInformation clientDetails={clientDetails}  />
-    </StyleFlex>
+    </div>
     
-    </MarginPages>
+    </div>
   
   )
 }

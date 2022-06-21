@@ -9,13 +9,13 @@ const DisActiveBlackList = () => {
   return (
     
         
-        <MarginPages>
+        <div className='lay-out-wrapp'>
         <TopBar title={"القائمه السوداء"}  />
-            <StyleFlex>
+            <div className='style-flex-page'>
               <TabelBlackList />
-            </StyleFlex>
+            </div>
              
-        </MarginPages>
+        </div>
 
   )
 }

@@ -9,13 +9,13 @@ const Home = ({ HandelShow }) => {
 
 
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
       <TopBar title="الرئيسية" HandelShow={HandelShow} />
-      <StyleFlex>
+      <div className='style-flex-page'>
         <TabelUsers />
         <Widgets />
-      </StyleFlex>
-    </MarginPages>
+      </div>
+    </div>
   )
 }
 

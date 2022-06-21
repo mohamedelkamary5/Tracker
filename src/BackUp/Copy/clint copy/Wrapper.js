@@ -12,16 +12,16 @@ const WrapperContainer = ({children, HandelShow , showCustomer ,HandelShowCustom
   // <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
   // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
       <TopBar title={"حسابي"} HandelShow={HandelShow} />
       
       
-      <StyleFlex>
+      <div className='style-flex-page'>
         {children}
 
-      </StyleFlex>
+      </div>
     
-    </MarginPages>
+    </div>
   
   )
 }

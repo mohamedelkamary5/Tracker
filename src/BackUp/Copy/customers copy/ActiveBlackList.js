@@ -10,13 +10,13 @@ const ActiveBlackList = ({HandelShow ,HandelShowCustomer}) => {
   return (
     
         
-        <MarginPages>
+        <div className='lay-out-wrapp'>
         <TopBar title={"القائمه السوداء"}  />
-            <StyleFlex>
+            <div className='style-flex-page'>
               <TabelBlackList  searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
-            </StyleFlex>
+            </div>
              
-        </MarginPages>
+        </div>
 
   )
 }

@@ -5,9 +5,9 @@ import { MarginPages } from '../styles/MarginPages'
 
 export default function Setting() {
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
         <TopBar title="الاعدادات"   /> 
         <SettingTabs />
-    </MarginPages>
+    </div>
   )
 }

@@ -8,13 +8,13 @@ import {MarginPages} from '../styles/MarginPages'
 const Drivers = ({HandelShow ,HandelShowCustomer }) => {
   const [searchSort , setSortSearch] = useState("") 
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
     <TopBar title={"السائقين"} HandelShow={HandelShow} />
-    <StyleFlex>
+    <div className='style-flex-page'>
         <TabelDrivers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
         
-    </StyleFlex>
-  </MarginPages>
+    </div>
+  </div>
   )
 }
 const StyleFlex = styled.div`

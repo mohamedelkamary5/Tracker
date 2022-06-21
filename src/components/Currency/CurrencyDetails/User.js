@@ -18,14 +18,14 @@ const Clint = ({ HandelShow }) => {
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.currency.CurrencyDetails)
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
       <TopBar title={"العملة"} HandelShow={HandelShow} />
 
-      <StyleFlex>
+      <div className='style-flex-page'>
         <ClintInformation clientDetails={clientDetails} />
-      </StyleFlex>
+      </div>
 
-    </MarginPages>
+    </div>
 
   )
 }

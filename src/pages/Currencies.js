@@ -7,13 +7,13 @@ import { MarginPages } from '../styles/MarginPages'
 const Currencies = ({ HandelShow }) => {
   const [searchSort, setSortSearch] = useState("")
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
       <TopBar title={"العملات"} HandelShow={HandelShow} />
-      <StyleFlex>
+      <div className='style-flex-page'>
         <TabelCurrency searchSort={searchSort} setSortSearch={setSortSearch} />
 
-      </StyleFlex>
-    </MarginPages>
+      </div>
+    </div>
   )
 }
 const StyleFlex = styled.div`

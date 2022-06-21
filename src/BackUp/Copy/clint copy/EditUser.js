@@ -12,13 +12,13 @@ const EditUser = ({ HandelShow }) => {
   return (
 
     <StyleEdit>
-      <MarginPages>
+      <div className='lay-out-wrapp'>
         <TopBar title={"تعديل"} HandelShow={HandelShow} />
         <PageEdit>
           <PrecedentClint />
           <FormEdit />
         </PageEdit>
-      </MarginPages>
+      </div>
     </StyleEdit>
   )
 }

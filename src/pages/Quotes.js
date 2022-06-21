@@ -6,13 +6,13 @@ import { MarginPages } from '../styles/MarginPages'
 const Shipping = ({ HandelShow }) => {
   const [searchSort, setSortSearch] = useState("")
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
       <TopBar title={" الاقتباسات"} HandelShow={HandelShow} />
-      <StyleFlex>
+      <div className='style-flex-page'>
         <TabelShipping searchSort={searchSort} setSortSearch={setSortSearch} />
 
-      </StyleFlex>
-    </MarginPages>
+      </div>
+    </div>
   )
 }
 const StyleFlex = styled.div`

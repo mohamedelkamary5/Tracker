@@ -1,4 +1,15 @@
 .lay-out-wrapp {
+    margin-right: 240px;
+    padding: 20px;
+    width: 100%;
+
+    @media (max-width: 1180px) {
+        margin-right: 0px;
+        padding: 10px;
+    }
+}
+
+.style-flex-page {
     display: flex;
     justify-content: space-between;
 

@@ -18,14 +18,14 @@ const Clint = ({HandelShow }) => {
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.managers.ManagerDetails)
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
     <TopBar title={"المشرف"} HandelShow={HandelShow} />
     
-    <StyleFlex>
+    <div className='style-flex-page'>
      <ClintInformation clientDetails={clientDetails}  />
-    </StyleFlex>
+    </div>
     
-    </MarginPages>
+    </div>
   
   )
 }

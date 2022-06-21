@@ -16,12 +16,12 @@ const Restaurants = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose 
   const UserData = useSelector((state) => state.clint.DataUser)
 
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
         <TopBar title={"المطاعم"} HandelShow={HandelShow} />
         
         <TabelAllUsers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer}  />
         
-    </MarginPages>
+    </div>
   )
 }
 

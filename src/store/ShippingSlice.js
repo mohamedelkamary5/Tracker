@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get, post, postFromData } from '../api/axios'
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 // get data clints Shipping
 export const getShipping = createAsyncThunk('shipping/getShipping', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI

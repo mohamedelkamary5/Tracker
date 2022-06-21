@@ -8,14 +8,14 @@ import {MarginPages} from '../styles/MarginPages'
 const Managers = ({HandelShow }) => {
   const [searchSort , setSortSearch] = useState("") 
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
     <TopBar title={"المشرفين"} HandelShow={HandelShow} />
-    <StyleFlex>
+    <div className='style-flex-page'>
         <TabelManagers searchSort={searchSort} setSortSearch={setSortSearch} />
         
        
-    </StyleFlex>
-  </MarginPages>
+    </div>
+  </div>
   )
 }
 const StyleFlex = styled.div`

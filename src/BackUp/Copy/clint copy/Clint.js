@@ -1,35 +1,35 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styled from "styled-components"
 import TopBar from '../bars/TopBar'
-import {MarginPages} from '../../styles/MarginPages'
+import { MarginPages } from '../../styles/MarginPages'
 import ClintInformation from './ClintInformation'
 import DeleteClint from './DeleteClint'
 import { useSelector, useDispatch } from 'react-redux'
-import {getClientDetails} from './../../store/ClintSlice2'
+import { getClientDetails } from './../../store/ClintSlice2'
 import { useParams } from 'react-router'
 
 
-const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
+const Clint = ({ HandelShow, showCustomer, HandelShowCustomer, HandelClose, HandelStopCustomer, showStopClint }) => {
   const dispatch = useDispatch()
   let { restaurantId } = useParams();
   useEffect(() => {
-      dispatch(getClientDetails(restaurantId))
+    dispatch(getClientDetails(restaurantId))
   }, [getClientDetails])
 
   //TODO: clientDetails
   const clientDetails = useSelector(state => state.clients2.clientDetails)
   return (
-    <MarginPages>
-    <TopBar title={"المطعم"} HandelShow={HandelShow} />
-    
-    <StyleFlex>
-     <ClintInformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />
-     <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
-     {/* <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} /> */}
-    </StyleFlex>
-    
-    </MarginPages>
-  
+    <div className='lay-out-wrapp'>
+      <TopBar title={"المطعم"} HandelShow={HandelShow} />
+
+      <div className='style-flex-page'>
+        <ClintInformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails} />
+        <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
+        {/* <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} /> */}
+      </div>
+
+    </div>
+
   )
 }
 

@@ -8,13 +8,13 @@ const ActiveDrivers = () => {
   return (
     
         
-        <MarginPages>
+        <div className='lay-out-wrapp'>
         <TopBar title={"النشطاء"}  />
-            <StyleFlex>
+            <div className='style-flex-page'>
               <TabelActiveDrivers />  
-            </StyleFlex>
+            </div>
              
-        </MarginPages>
+        </div>
 
   )
 }

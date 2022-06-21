@@ -19,15 +19,15 @@ const Clint = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,Hand
     //TODO: clientDetails
     const clientDetails = useSelector(state => state.managers.ManagersDetails)
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
     <TopBar title={"المشرق"} HandelShow={HandelShow} />
     
-    <StyleFlex>
+    <div className='style-flex-page'>
      <Managerinformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />
 
-    </StyleFlex>
+    </div>
     
-    </MarginPages>
+    </div>
   
   )
 }

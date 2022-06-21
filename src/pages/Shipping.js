@@ -5,12 +5,12 @@ import TabelShipping from '../components/Shipping/TabelAllUsers'
 import {MarginPages} from '../styles/MarginPages'
 const Shipping = ({HandelShow }) => {
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
         <TopBar title={" الشحن"} HandelShow={HandelShow} />
-        <StyleFlex>
+        <div className='style-flex-page'>
             <TabelShipping />
-        </StyleFlex>
-    </MarginPages>
+        </div>
+    </div>
   )
 }
 const StyleFlex = styled.div`

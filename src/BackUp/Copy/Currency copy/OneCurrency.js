@@ -19,15 +19,15 @@ const OneCurrency = ({HandelShow , showCustomer ,HandelShowCustomer ,HandelClose
     //TODO: clientDetails
     const clientDetails = useSelector(state => state.currency.CurrencyDetails)
   return (
-    <MarginPages>
+    <div className='lay-out-wrapp'>
     <TopBar title={"المشرق"} HandelShow={HandelShow} />
     
-    <StyleFlex>
+    <div className='style-flex-page'>
      <Currencyinformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer} clientDetails={clientDetails}  />
 
-    </StyleFlex>
+    </div>
     
-    </MarginPages>
+    </div>
   
   )
 }
