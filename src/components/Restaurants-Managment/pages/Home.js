@@ -1,19 +1,14 @@
 import React from 'react'
 import styled from "styled-components"
-import TopBar from '../components/bars/TopBar'
-import TabelUsers from '../components/home/TabelUsers'
-import Widgets from '../components/home/Widgets'
-import { MarginPages } from '../styles/MarginPages'
+import TopBar from '../Restaurants-Components/bars/TopBar'
 
-const Home = ({ HandelShow }) => {
+const HomeRestaurant = ({ HandelShow }) => {
 
 
   return (
     <div className='lay-out-wrapp'>
       <TopBar title="الرئيسية" HandelShow={HandelShow} />
       <div className='style-flex-page'>
-        <TabelUsers />
-        <Widgets />
       </div>
     </div>
   )
@@ -26,4 +21,4 @@ justify-content: space-between;
   flex-direction: column;
 }
 `
-export default Home
+export default HomeRestaurant

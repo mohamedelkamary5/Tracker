@@ -8,10 +8,10 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { FaSpinner } from 'react-icons/fa';
 import { BsTextParagraph } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux'
-import { getClients2 } from '../../store/ClintSlice2';
+import { getClients2 } from '../../../../store/ClintSlice2';
 import { Link } from "react-router-dom";
-import ButtonsAdd from './ButtonsAdd';
-import { ShowNav } from '../../store/StateSlice';
+// import ButtonsAdd from './ButtonsAdd';
+import { ShowNav } from '../../../../store/StateSlice';
 import swal from 'sweetalert';
 
 const TopBar = ({ title }) => {
@@ -147,7 +147,7 @@ const TopBar = ({ title }) => {
 
                     </button>
                     <MdAddBox className='icon-topbar' onClick={HandelButton} />
-                    <ButtonsAdd buttons={buttons} setbuttons={setbuttons} />
+                    {/* <ButtonsAdd buttons={buttons} setbuttons={setbuttons} /> */}
                 </div>
 
             </StyleRightTopBar>
@@ -295,3 +295,18 @@ align-items: center;
 }
 `
 export default TopBar
+
+
+
+
+// import React from 'react';
+
+// const TopBar = () => {
+//     return (
+//         <div>
+//             <h1>top bar</h1>
+//         </div>
+//     );
+// }
+
+// export default TopBar;

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import OverLay from '../glopal/OverLay';
 import SideBar from "./../bars/SideBar";
 
-const SidebarLayout = () => {
+const SidebarLayoutRestaurant = () => {
 
     return (
         <>
@@ -16,4 +16,4 @@ const SidebarLayout = () => {
     )
 };
 
-export default SidebarLayout
+export default SidebarLayoutRestaurant
