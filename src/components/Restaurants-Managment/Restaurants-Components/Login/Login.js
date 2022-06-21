@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
-import logo from "../../photo/glopal/logo.svg"
-import authImg from "../../photo/auth/img.png"
+import logo from "../../../../photo/glopal/logo.svg"
+import authImg from "../../../../photo/auth/img.png"
 import './Login.scss'
 import LoginFrom from './LoginForm';
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
                 <div className='row'>
                     <div className='col-lg-5 mt-5'>
                         <div className='login-form p-lg-5 text-center '>
-                            <h5> !اهلا بك، قم بتسجيل الدخول </h5>
+                            <h5> (مطعم) !اهلا بك، قم بتسجيل الدخول </h5>
                             <LoginFrom />
                         </div>
                     </div>

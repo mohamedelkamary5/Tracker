@@ -56,6 +56,9 @@ import Setting from "./pages/Setting";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
+import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
+import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
+import SidebarLayoutRestaurant from "./components/bars/NotBar";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
@@ -266,10 +269,19 @@ function App() {
                   <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
                 </Route>
               </Route>
+              {/* End Routes Admin */}
 
+              {/* Start Routes Restaurant */}
+              <Route path="/login" element={<LoginRestaurant />} />
+              <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
+                <Route path="/" element={<HomeRestaurant />} />
+
+              </Route>
+              {/* End Routes Restaurant */}
 
             </Route>
-            {/* End Routes Admin */}
+
+
 
           </Routes>
         </BrowserRouter>

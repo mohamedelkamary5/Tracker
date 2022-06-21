@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginComponent from './../components/Login/Login';
+import LoginComponent from './../Restaurants-Components/Login/Login';
 
-const Login = () => {
+const LoginRestaurant = () => {
     return (
         <div>
             <LoginComponent />
@@ -9,4 +9,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default LoginRestaurant;

@@ -1,14 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
-import useAuth from '../../hooks/useAuth';
+// import useAuth from '../../hooks/useAuth';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import Axios from 'axios';
-import axios from '../../api/axios';
-import {loginM} from './../../store/authSlice'
+// import Axios from 'axios';
+import axios from '../../../../api/axios';
+// import {loginM} from './../../store/authSlice'
 const LOGIN_URL = 'admins/login';
 
 const LoginFrom = () => {
-    const { setAuth } = useAuth(); 
+    // const { setAuth } = useAuth(); 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
