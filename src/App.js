@@ -271,6 +271,8 @@ function App() {
               </Route>
               {/* End Routes Admin */}
 
+            </Route>
+
               {/* Start Routes Restaurant */}
               <Route path="/login" element={<LoginRestaurant />} />
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
@@ -278,9 +280,6 @@ function App() {
 
               </Route>
               {/* End Routes Restaurant */}
-
-            </Route>
-
 
 
           </Routes>
