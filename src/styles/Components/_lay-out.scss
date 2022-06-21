@@ -1,0 +1,8 @@
+.lay-out-wrapp {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width:910px) {
+        flex-direction: column;
+    }
+}

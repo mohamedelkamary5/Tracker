@@ -39,7 +39,7 @@ axiosApi.interceptors.response.use(
   response => response,
   error => {
     if (error.message == 'Request failed with status code 401') {
-      window.location.pathname =  "/login"
+      window.location.pathname =  "/admin/login"
     }
     Promise.reject(error)
   }
@@ -102,4 +102,4 @@ export async function del(url, config = {}) {
     })
 }
 
-export default axios1
+export default axios1 
