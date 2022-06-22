@@ -7,7 +7,7 @@ const SidebarLayoutRestaurant = () => {
 
     return (
         <>
-        <OverLay/>
+          <OverLay/>
           <SideBar  />
           <OverLay />
           <Outlet />

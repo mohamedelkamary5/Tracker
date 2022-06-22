@@ -3,6 +3,20 @@
     display: flex; 
     justify-content: space-between;
     align-items: center;
+
+}
+.rec.rec-carousel-wrapper{
+    direction: rtl;
+}
+.rec.rec-arrow {
+    display: none;
+}
+.rec.rec-pagination{
+   
+    .rec.rec-dot.rec.rec-dot_active{
+        background-color: var(--primary-color); 
+        box-shadow: 0 0 1px 3px white;
+    }
 }
 
 //header cards

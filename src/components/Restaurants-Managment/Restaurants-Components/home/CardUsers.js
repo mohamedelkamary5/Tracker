@@ -3,9 +3,16 @@ import { IoIosArrowDown } from 'react-icons/io';
 import "../../../../styles/Components/_card-users.scss"
 import go from "../../../../photo/glopal/go-to.svg"
 import personLogin from "../../../../photo/slogan/personlogin.jpg"
+import Carousel from 'react-elastic-carousel';
 
 
 const CardUsers = () => {
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 1 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 }
+  ];
   const domydata = [
     {
       id:1,
@@ -73,9 +80,11 @@ const CardUsers = () => {
           </div>
         </div>
         {/*Cards Slider */}
-        <div className='cards'>
+        <div className='cards' >
+        <Carousel breakPoints={breakPoints} >
         {domydata.map(item =>{
           return (
+
             <div className='items-cards'>
             <div className={
             item.typeOrder ==="طلب جديد" ?'header-item black' : 
@@ -127,9 +136,12 @@ const CardUsers = () => {
 
 
           </div>
+          
           )
         })
         }
+        </Carousel>
+  
       </div>
 
         
