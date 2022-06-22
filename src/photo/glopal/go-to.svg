@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.282" height="91.459" viewBox="0 0 16.282 91.459">
+  <g id="Group_29" data-name="Group 29" transform="translate(-318.358 -518)">
+    <line id="Line_4" data-name="Line 4" y2="73" transform="translate(326.5 533.5)" fill="none" stroke="#fba30d" stroke-width="1" stroke-dasharray="5"/>
+    <g id="pickout_icon" data-name="pickout icon" transform="translate(213.034 7.173)">
+      <path id="Oval_Copy" data-name="Oval Copy" d="M6.713,17.459c.681,0,3.924-4.073,4.724-5.371,1.229-1.994,1.988-3.174,1.988-5.376A6.713,6.713,0,1,0,0,6.713C0,8.926.7,10.1,1.929,12.089,2.783,13.476,6.031,17.459,6.713,17.459Z" transform="translate(106.753 584.827)" fill="#fba30d"/>
+      <circle id="Path_Copy" data-name="Path Copy" cx="3.356" cy="3.356" r="3.356" transform="translate(110.105 588.179)" fill="#fff"/>
+    </g>
+    <g id="pickup_icon" data-name="pickup icon" transform="translate(263.358 11)">
+      <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(55 507)" fill="none" stroke="#2a2e33" stroke-width="3">
+        <circle cx="8.141" cy="8.141" r="8.141" stroke="none"/>
+        <circle cx="8.141" cy="8.141" r="6.641" fill="none"/>
+      </g>
+      <circle id="Ellipse_7" data-name="Ellipse 7" cx="2.571" cy="2.571" r="2.571" transform="translate(60.57 512.571)" fill="#2a2e33"/>
+    </g>
+  </g>
+</svg>

@@ -279,6 +279,7 @@ function App() {
                 <Route path="/" element={<HomeRestaurant />} />
 
               </Route>
+              <Route path="/Triple-zero" element={<HomeRestaurant />} />
               {/* End Routes Restaurant */}
 
 

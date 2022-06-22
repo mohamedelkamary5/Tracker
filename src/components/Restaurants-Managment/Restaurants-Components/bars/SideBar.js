@@ -28,67 +28,35 @@ const SideBar = ({showBar,HandelClose }) => {
         NavBar : [
             {
                 id:1 ,
-                name: "11" ,
-                link: "/admin/Triple-zero" ,
+                name: "الرئسيه" ,
+                link: "Triple-zero" ,
                 icon: AiOutlineAppstore,
             
             },
             {
                 id:2 ,
-                name : "المطاعم" ,
-                link: "/admin/restaurants" ,
+                name : "الطلبات" ,
+                link: "restaurants" ,
                 icon: MdSupervisorAccount,
             
             },
             {
-                id:8 ,
-                name : "المشرفين" ,
-                link: "/admin/managers",
-                icon: BsPerson,
-            
-            },
-            {
                 id:3 ,
-                name : "شركات الشحن" ,
-                link: "/admin/shipping-companies" ,
-                icon: FaShoppingCart,
-            
-            },
-            {
-                id:6 ,
                 name : "السائقين" ,
-                link: "/admin/drivers",
+                link: "drivers",
                 icon: MdDirectionsCar,
             
             },
+
+
             {
-                id:7 ,
-                name : "العملات" ,
-                link: "/admin/currencies",
-                icon: HiCurrencyDollar,
-            
-            },
-            {
-                id:11 ,
-                name : "الاقتباسات" ,
-                link: "/admin/quotes",
-                icon: RiDoubleQuotesR,
-            
-            },
-            {
-                id:9 ,
+                id:4 ,
                 name : "حسابي" ,
-                link: "/admin/my-account" ,
+                link: "my-account" ,
                 icon: BsPersonCircle,
             
             },
-            {
-                id:10 ,
-                name : "الأعدادات" ,
-                link: "/admin/setting" ,
-                icon: MdOutlineSettings,
-            
-            },
+
         ]
 
     })

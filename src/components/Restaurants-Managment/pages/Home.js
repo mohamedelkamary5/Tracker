@@ -1,6 +1,6 @@
 import React from 'react'
-import styled from "styled-components"
 import TopBar from '../Restaurants-Components/bars/TopBar'
+import CardUsers from '../Restaurants-Components/home/CardUsers'
 
 const HomeRestaurant = ({ HandelShow }) => {
 
@@ -9,16 +9,12 @@ const HomeRestaurant = ({ HandelShow }) => {
     <div className='lay-out-wrapp'>
       <TopBar title="الرئيسية" HandelShow={HandelShow} />
       <div className='style-flex-page'>
+        <CardUsers />
       </div>
     </div>
   )
 }
 
-const StyleFlex = styled.div`
-display: flex;
-justify-content: space-between;
-@media (max-width:910px) {
-  flex-direction: column;
-}
-`
+
+
 export default HomeRestaurant
