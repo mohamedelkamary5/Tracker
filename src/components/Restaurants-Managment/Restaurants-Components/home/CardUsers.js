@@ -70,8 +70,13 @@ const CardUsers = () => {
           </div>
           <div className='left-header'>
             <div className='date-header'>
-              <p>اليوم</p>
-              <IoIosArrowDown />
+              <select>
+                <option>اليوم</option>
+                <option>الاسبوع</option>
+                <option>الشهر</option>
+                <option>السنه</option>
+              </select>
+
             </div>
             <div className='button-details'>
               <button>عرض التفاصيل</button>
@@ -94,8 +99,8 @@ const CardUsers = () => {
              }>
               <h4>{item.typeOrder}</h4>
                <div className='date-order'>
-                <p>30/3/2022</p>
-                <p>2:00pm</p>
+                <p>{item.dateOrder}</p>
+                <p>{item.timeOrder}</p>
 
                </div>
             </div>
@@ -129,7 +134,6 @@ const CardUsers = () => {
               </div>
               <div className='left-fotter'>
                 <button>عرض الحساب</button>
-
               </div>
             </div>
             </div>
@@ -143,8 +147,6 @@ const CardUsers = () => {
         </Carousel>
   
       </div>
-
-        
       </div>
     )
 }

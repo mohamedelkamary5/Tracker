@@ -1,0 +1,79 @@
+.main-widget-drivers{
+    //status color
+    .success{
+        color: var(--succes-color);
+    }
+    .danger{
+        color: var(--danger-color);
+    }
+    .orange{
+        color: var(--orange-color);
+    }
+    width: 24%;
+    height: 550px;
+    margin: 25px 10px;
+    @media (max-width:670px) {
+        width: 95%;
+        margin: 25px 0x;
+    }
+    table{
+        width: 100%;
+        
+        thead{
+            
+            background-color: var(--secound-color);
+            color: white;
+            height: 50px;
+            tr{
+               th{
+                padding: 10px;
+                svg{
+                    margin-right: 8px;
+                }
+               }
+               th:first-child {
+                border-radius: 0px 12px 0 0;
+              }
+               th:nth-child(2) {
+                border-radius: 0px 0px 0 0;
+              }
+              th:last-child {
+                border-radius: 12px 0px 0px 0 ;
+              }
+            }
+        }
+        tbody{
+            background-color: white;
+            tr{
+                td{
+                 padding: 15px 10px;
+                 font-weight: bold;
+
+                }
+                td:first-child , td:nth-child(2) {
+                    color: var(--font);
+                }
+    
+            }
+        }
+    }
+    .button-details{
+        display: flex;
+        justify-content: center;
+        padding: 18px 0;
+        background-color: var(--secound-color);
+        border-radius: 0 0 12px 12px;
+        button{
+            padding: 15px 10px;
+            width: 70%;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            transition: 0.3s;
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+    }
+    
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import TopBar from '../Restaurants-Components/bars/TopBar'
 import CardUsers from '../Restaurants-Components/home/CardUsers'
+import WidgetsDrivers from '../Restaurants-Components/home/WidgetsDrivers'
 
 const HomeRestaurant = ({ HandelShow }) => {
 
@@ -10,6 +11,7 @@ const HomeRestaurant = ({ HandelShow }) => {
       <TopBar title="الرئيسية" HandelShow={HandelShow} />
       <div className='style-flex-page'>
         <CardUsers />
+        <WidgetsDrivers />
       </div>
     </div>
   )
