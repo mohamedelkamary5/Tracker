@@ -79,6 +79,28 @@ const WidgetsDrivers = () => {
       state: "غير متاح"
 
     },
+    {
+      id: 1,
+      iserid: 2,
+      nameDriver: "جاسم فيصل",
+      state: "غير متاح"
+
+    },
+    {
+      id: 1,
+      iserid: 5,
+      nameDriver: "جاسم فيصل",
+      state: "غير متاح"
+
+    },
+    {
+      id: 1,
+      iserid: 6,
+      nameDriver: "جاسم فيصل",
+      state: "غير متاح"
+
+    },
+
 
 
 
@@ -97,6 +119,7 @@ const WidgetsDrivers = () => {
   }
   return (
     <div className='main-widget-drivers'>
+    <div className='widget'>
       <table>
         <thead>
           <tr>
@@ -124,10 +147,12 @@ const WidgetsDrivers = () => {
           </>
         </tbody>
       </table>
+      </div>
       <div className='button-details'>
         <button>اظهار التفاصيل</button>
 
       </div>
+    
     </div>
   )
 }
