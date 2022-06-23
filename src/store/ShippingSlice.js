@@ -127,15 +127,12 @@ export const ShippingSlice = createSlice({
     [SendShipping.fulfilled]: (state, action) => {
       state.shipping.push(action.payload);
       state.total = state.total + 1;
-      // TODO: ALERT 
-      // swal("تم تنفيذ الامر بنجاح", {
-      //   icon: "success",
-      //   button: 'موافق'
-      // });
-
-
-
+      console.log('action fulfilled', action);
     },
+    [SendShipping.rejected]: (state, action) => {
+      console.log('action', action.payload.response.data);
+    },
+
 
     [changeStatusShipping.fulfilled]: (state, action) => {
       // state.isLoading = false;
