@@ -14,7 +14,7 @@
     margin: 25px 10px;
     @media (max-width:670px) {
         width: 95%;
-        margin: 25px 0x;
+        margin: 25px 8px;
     }
     table{
         width: 100%;
@@ -29,6 +29,8 @@
                 padding: 10px;
                 svg{
                     margin-right: 8px;
+                    color: white;
+                    
                 }
                }
                th:first-child {

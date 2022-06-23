@@ -79,7 +79,7 @@ const CardUsers = () => {
 
             </div>
             <div className='button-details'>
-              <button>عرض التفاصيل</button>
+              <a href='#'>عرض التفاصيل</a>
             </div>
 
           </div>
