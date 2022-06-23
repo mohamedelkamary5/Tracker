@@ -34,13 +34,13 @@ export const SendShipping = createAsyncThunk("shipping/SendShipping", async (dat
   try {
     const response = await postFromData("users/store", dataClint);
     // const data = res
-    // console.log('data added to store', response.data);
-    return response.data
+    console.log('data added to store', response.data);
+    return response
   } catch (err) {
-    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     // console.log('rejectWithValue(err.message)', dataClint);
 
-    return rejectWithValue(err.message)
+    console.log('rejectWithValue(err.message)', rejectWithValue(err));
+    return rejectWithValue(err)
   }
 })
 
@@ -99,7 +99,7 @@ export const ShippingSlice = createSlice({
     },
     [getShipping.fulfilled]: (state, action) => {
       state.shipping = action.payload.data;
-      state.meta= action.payload.meta;
+      state.meta = action.payload.meta;
     },
     [getShipping.rejected]: (state, action) => {
       state.error = action;
@@ -125,12 +125,15 @@ export const ShippingSlice = createSlice({
       state.error = null;
     },
     [SendShipping.fulfilled]: (state, action) => {
-      state.shipping.push(action.payload);
+      state.shipping.push(action.payload.data);
       state.total = state.total + 1;
-      console.log('action fulfilled', action);
+      console.log('action fulfilled', action.payload);
     },
     [SendShipping.rejected]: (state, action) => {
-      console.log('action', action.payload.response.data);
+      // console.log('action rejected rejected rejected 2', typeof (action));
+      console.log('action rejected rejected rejected', action);
+      state.error = action.payload.response.data.errors;
+      console.log('action rejected rejected rejected ()', action.payload.response.data.errors);
     },
 
 
