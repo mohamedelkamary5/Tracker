@@ -24,26 +24,37 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const UserDataSelector = useSelector(state => state.clients2)
     const listView = useSelector(state => state.clients2.listView)
 
+    const [clients2, setClients2] = useState([]);
+
 
     const [UserData, setUserData] = useState([])
 
     useEffect(() => {
         if (statusBlackList) {
-            const BlackList = UserDataSelector.clients2.filter(statusItem => statusItem.status == 0)
+            const BlackList = clients2.filter(statusItem => statusItem.status == 0)
             setUserData(BlackList)
             setSortValue('')
         } else {
-            setUserData(UserDataSelector.clients2)
+            setUserData(clients2)
             setSortValue('')
         }
-    }, [UserDataSelector.clients2, statusBlackList])
+    }, [clients2, statusBlackList])
 
 
     useEffect(() => {
         dispatch(getClients2(1))
     }, [dispatch])
 
+    useEffect(() => {
+        setClients2(UserDataSelector.clients2)
+        console.log('useEffect');
+    }, [UserDataSelector])
+
+   
+
+
     const handlePageClick = (data) => {
+        // setClients2([])
         console.log('handlePageClick', data.selected);
         dispatch(getClients2(data.selected + 1))
     }
