@@ -19,10 +19,13 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
-    const refSearch = useRef()
 
     const UserDataSelector = useSelector(state => state.shipping)
     const listView = useSelector(state => state.shipping.listView)
+
+    const refSearch = useRef()
+
+    
 
 
     const [UserData, setUserData] = useState([])
@@ -44,14 +47,16 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     }, [dispatch])
     
     const handlePageClick = (data) => {
+        console.log('handlePageClick', data.selected);
         dispatch(getShipping(data.selected + 1))
-        refSearch.current.value = ''
+        handleRef(refSearch.current.value)
     }
 
 
 
     const [resultData, setResultData] = useState([])
     const [sortValue, setSortValue] = useState('')
+    const [searchValue, setSearchValue] = useState('')
 
     // perPage: 10,
     //     currentPage: 0
@@ -69,24 +74,36 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     ]
 
     const handleRef = (e) => {
+        setSearchValue(e)
+        console.log('Ruuuuuuuuuuuuuuuuuun');
 
-        if (refSearch.current.value == '') {
+        if (e == '') {
             setResultData(UserData)
         } else {
-            const searchString = refSearch.current.value.toLowerCase();
+            const searchString = e.toLowerCase();
             const filteredItems = UserData.filter((item) => {
                 return item.en_name.toLowerCase().includes(searchString);
             });
             setResultData(filteredItems)
         }
-
-
     }
+
+    // useEffect(() => {
+    //     handleRef(refSearch.current.value)
+    //     console.log('searchValue', searchValue);
+    // }, [UserData])
+    // useEffect(() => {
+    //     console.log('refSearch', refSearch.current);
+    // }, [refSearch])
+
+
+    // const handleRef =() => {
+    //     console.log('refSearch.current.value', refSearch.current.value);
+    // }
 
     const handleSort = (e) => {
         setResultData([...resultData].sort((a, b) => a[e] < b[e] ? 1 : -1))
         setSortValue(e)
-        console.log('sortValue', sortValue);
     }
 
     useEffect(() => {
@@ -205,7 +222,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <form className='form-search'>
                     <input type="search" placeholder='أبحث عن اسم الشركة'
-                        // onChange={inputSearch} 
+                        // onChange={(e) => inputSearch(e.target.value)} 
                         ref={refSearch}
                         onChange={() => handleRef(refSearch.current.value)}
                         />
