@@ -45,10 +45,10 @@ const ClintForm = ({ setShow }) => {
           button: 'موافق',
         });
       }).catch(() => {
-        swal("عفوا لم يتم تنفيذ الامر", {
-          icon: "error",
-          button: 'موافق'
-        });
+        // swal("عفوا لم يتم تنفيذ الامر", {
+        //   icon: "error",
+        //   button: 'موافق'
+        // });
 
       })
 

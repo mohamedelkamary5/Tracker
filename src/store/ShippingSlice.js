@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get, post, postFromData } from '../api/axios'
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
 // get data clints Shipping
 export const getShipping = createAsyncThunk('shipping/getShipping', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
@@ -87,15 +87,15 @@ export const ShippingSlice = createSlice({
   initialState: {
     shipping: [],
     ShippingDetailsDetails: {},
-    error: null,
     listView: true,
+    error: null,
     meta: 0
   },
   extraReducers: {
 
     //get clint drivers
     [getShipping.pending]: (state, action) => {
-      state.error = null;
+      // state.error = null;
     },
     [getShipping.fulfilled]: (state, action) => {
       state.shipping = action.payload.data;
@@ -111,7 +111,7 @@ export const ShippingSlice = createSlice({
 
     //get clint Details
     [getShippingDetails.pending]: (state, action) => {
-      state.error = null;
+      // state.error = null;
     },
     [getShippingDetails.fulfilled]: (state, action) => {
       state.ShippingDetailsDetails = action.payload;
@@ -122,7 +122,7 @@ export const ShippingSlice = createSlice({
     },
     //send data clint  
     [SendShipping.pending]: (state, action) => {
-      state.error = null;
+      // state.error = null;
     },
     [SendShipping.fulfilled]: (state, action) => {
       state.shipping.push(action.payload.data);
@@ -130,10 +130,29 @@ export const ShippingSlice = createSlice({
       console.log('action fulfilled', action.payload);
     },
     [SendShipping.rejected]: (state, action) => {
-      // console.log('action rejected rejected rejected 2', typeof (action));
-      console.log('action rejected rejected rejected', action);
-      state.error = action.payload.response.data.errors;
-      console.log('action rejected rejected rejected ()', action.payload.response.data.errors);
+      const errors = action.payload.response.data.errors
+      state.error = errors;
+      console.log('action rejected rejected rejected ()', errors);
+
+      const errorArray = []
+
+      for (const error in errors) {
+        console.log(`${error}: ${errors[error]}`);
+        errorArray.push(errors[error])
+      }
+      console.log('errorArray', errorArray.join());
+
+
+      // for (var i = 0; i < errors.length; i++) {
+      //   // errors[i]
+      //   console.log(errors[i]);
+      // }
+
+      swal(errorArray.join().replaceAll('.,', '  ///   '), {
+          icon: "error",
+          button: 'موافق'
+        });
+
     },
 
 
