@@ -44,8 +44,8 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     }, [dispatch])
     
     const handlePageClick = (data) => {
-        console.log('handlePageClick', data.selected);
         dispatch(getShipping(data.selected + 1))
+        refSearch.current.value = ''
     }
 
 
