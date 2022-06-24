@@ -21,7 +21,7 @@ const SideBar = ({showBar,HandelClose }) => {
     const dispatch = useDispatch()
     let location = useLocation();
     const navigate = useNavigate();
-    const from = location.state?.from?.pathname || "/login";
+    const from = location.state?.from?.pathname || "/admin/login";
     const [stateNav , setStateNav] = useState({
         activeNav : null ,
         NavBar : [
@@ -120,9 +120,9 @@ const SideBar = ({showBar,HandelClose }) => {
 
 
 const logOut = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem("loggedIn")
-    localStorage.removeItem('authData')
+    localStorage.removeItem('tokenAdmin') 
+    localStorage.removeItem("loggedInAdmin")
+    localStorage.removeItem('authDataAdmin')
     // window.location.hostname('/login')
     navigate(from, { replace: true });
 }

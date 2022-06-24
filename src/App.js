@@ -54,7 +54,7 @@ import EditMyAccount from "./components/MyAccount/EditMyAccoutn/EditUser";
 import './styles/glopal-style.scss'
 import Setting from "./pages/Setting";
 import SidebarLayout from "./components/bars/NotBar";
-import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
+import ProtectedRoutesAdmin, { ProtectedRoutesRestaurant } from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
 import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
@@ -273,14 +273,17 @@ function App() {
 
             </Route>
 
-              {/* Start Routes Restaurant */}
-              <Route path="/login" element={<LoginRestaurant />} />
+            {/* Start Routes Restaurant */}
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<LoginRestaurant />} /> */}
+            <Route element={<ProtectedRoutesRestaurant />}>
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
                 <Route path="/" element={<HomeRestaurant />} />
 
               </Route>
               <Route path="/Triple-zero" element={<HomeRestaurant />} />
-              {/* End Routes Restaurant */}
+            </Route>
+            {/* End Routes Restaurant */}
 
 
           </Routes>

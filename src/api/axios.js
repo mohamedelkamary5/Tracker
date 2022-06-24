@@ -21,7 +21,8 @@ import axios from "axios"
 // import accessToken from "./jwt-token-access/accessToken"
 //pass new generated access token here
 const baseUrl = 'http://tracking.000itkw.com/api/'
-const token = localStorage.getItem('token');
+const isAdmin = window.location.href.includes('admin')
+const token = localStorage.getItem(isAdmin ? 'tokenAdmin' : "tokenRestaurant");
 
 //apply base url for axios
 // const API_URL = "https://jsonplaceholder.typicode.com/"

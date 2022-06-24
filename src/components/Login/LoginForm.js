@@ -5,14 +5,22 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Axios from 'axios';
 import axios from '../../api/axios';
 import {loginM} from './../../store/authSlice'
-const LOGIN_URL = 'admins/login';
+
+// const statusBlackList = location.pathname.includes('black-list')
 
 const LoginFrom = () => {
+    
+    
     const { setAuth } = useAuth(); 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const dispatch = useDispatch();
+    // const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/Customers";
+    // const from = location.state?.from?.pathname || "/Customers";
+
+    const isAdmin = location.pathname.includes('admin')
+
+    const LOGIN_URL = isAdmin ? 'admins/login' : 'restaurants/login'; 
+    console.log('LOGIN_URL', LOGIN_URL);
 
     
     const emailRef = useRef();
@@ -36,26 +44,10 @@ const LoginFrom = () => {
         formData.append('email', email);
         formData.append('password', password);
 
-        // dispatch(loginM(formData))
-
-        // // console.log(email, password);
-
-
-        // // console.log('formData', formData);
-
-        // await Axios.post('http://tracking.000itkw.com/api/admins/login', formData, {
-        //     headers: {
-        //     'Content-Type': 'multipart/form-data'
-        //     }
-        // })
-        // // console.log('JSON.stringify', JSON.stringify({ email, password }));
-        // // console.log('no', {email, password});
-        // // console.log('formData', formData);
 
         try {
             const response = await axios.post(LOGIN_URL,
             formData,
-            // JSON.stringify({ email, password }),
             {
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -63,31 +55,15 @@ const LoginFrom = () => {
                 },
             }
             );
-            // // console.log('res', JSON.stringify(response?.data));
-            //// console.log(JSON.stringify(response));
-            // const token = response?.data?.token;
-            // const roles = response?.data?.roles;
-            // const roles = ['5150', '1984', '2001'];
-            // console.log('response.token', JSON.stringify(response.data.data));
-            localStorage.setItem("token", response.data.data.token)
-            localStorage.setItem("authData", JSON.stringify(response.data.data))
-            localStorage.setItem("loggedIn", true)
-            window.location.href = '/admin/Triple-zero'
-
-
-
-            // navigate(from, { replace: true });
-            // setAuth({
-            //     email,
-            //     password,
-            //     roles,
-            //     token
-            // });
+            localStorage.setItem(isAdmin ? "tokenAdmin" : "tokenRestaurant", response.data.data.token)
+            localStorage.setItem(isAdmin ? "authDataAdmin" : "authDataRestaurant", JSON.stringify(response.data.data))
+            localStorage.setItem(isAdmin ? "loggedInAdmin" : "loggedInRestaurant", true)
+            window.location.href = isAdmin ? '/admin/Triple-zero' : '/'
+          
             setEmail('');
             setPassword('');
         } catch (err) {
             if (!err?.response) {
-                // console.log('err?.response:', err);
                 setErrMsg('email or password is incorrect');
             } else if (err.response?.status === 400) {
                 setErrMsg('Missing Username or Password');
