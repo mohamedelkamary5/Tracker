@@ -26,7 +26,7 @@ const LoginFrom = () => {
     const emailRef = useRef();
     const errRef = useRef();
 
-    const [email, setEmail] = useState('superadmin@info.me');
+    const [email, setEmail] = useState('restaurant@info.me');
     const [password, setPassword] = useState('12345678');
     const [errMsg, setErrMsg] = useState('');
 
