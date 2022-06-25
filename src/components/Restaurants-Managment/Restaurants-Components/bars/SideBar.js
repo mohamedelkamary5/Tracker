@@ -89,9 +89,9 @@ const SideBar = ({showBar,HandelClose }) => {
 
 
 const logOut = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem("loggedIn")
-    localStorage.removeItem('authData')
+    localStorage.removeItem('tokenRestaurant')
+    localStorage.removeItem("loggedInRestaurant")
+    localStorage.removeItem('authDataRestaurant')
     // window.location.hostname('/login')
     navigate(from, { replace: true });
 }
