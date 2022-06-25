@@ -1,17 +1,17 @@
 import React from 'react'
 import { MdPersonAddAlt } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { AddDriver } from '../../../../store/StateSlice';
+import { AddOrder } from '../../../../store/StateSlice';
 const AddClint = () => {
   const dispatch = useDispatch()
-  const AddUsers = () => {
-    dispatch(AddDriver(true))
+  const handleAddOrder = () => {
+    dispatch(AddOrder(true))
   }
   return (
     <div >
-      <button className='btn btn-main' onClick={AddUsers} >
+      <button className='btn btn-main' onClick={handleAddOrder} >
         <MdPersonAddAlt className='MdPersonAddAlt' />
-        <span> إضافة سائق </span>
+        <span> إضافة طلب </span>
       </button>
     </div>
   )

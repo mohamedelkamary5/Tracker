@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 
 import Switch from "react-switch";
-import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
+import LocationSearchInput from './Location';
+import TestSvg from './Map';
+import UploadComponent from '../../../../Shared/Components/Upload/UploadComponent';
 
 const FormAddShipping = ({ values, setValues }) => {
     const [selectedFiles, setselectedFiles] = useState([]);
@@ -25,13 +27,6 @@ const FormAddShipping = ({ values, setValues }) => {
             setValues({ ...values, status: 1 })
         }
     }
-    const staustOnlineSwittch = (e) => {
-        if (values.isOnline == 1) {
-            setValues({ ...values, isOnline: 0 })
-        } else {
-            setValues({ ...values, isOnline: 1 })
-        }
-    }
 
     const formatBytes = (bytes, decimals = 2) => {
         if (bytes === 0) return "0 Bytes";
@@ -44,17 +39,16 @@ const FormAddShipping = ({ values, setValues }) => {
     };
 
     const valueSwitch = values.status == 1 ? true : false
-    const valueOnlineSwitch = values.isOnline == 1 ? true : false
 
     return (
         <div className='main-input px-2'>
             <div className='row'>
                 {/* Block Item */}
-                <div className='col-lg-12'>
+                {/* <div className='col-lg-12'>
                     <div className="mb-3">
                         <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
                     </div>
-                </div>
+                </div> */}
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
@@ -121,31 +115,15 @@ const FormAddShipping = ({ values, setValues }) => {
                         </label>
                     </div>
                 </div>
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="switch-add-shipping" className="form-label d-block"> الحالة الاتصال</label>
-                        <label className="switch-item" htmlFor='switch-add-shipping'>
-                            <Switch
-                                checked={valueOnlineSwitch}
-                                onChange={staustOnlineSwittch}
-                                id='switch-add-shipping'
-                                handleDiameter={28}
-                                offColor="#dfdcdc"
-                                onColor="#f7d294"
-                                offHandleColor="#707070"
-                                onHandleColor="#FB9E00"
-                                height={30}
-                                width={70}
-                                borderRadius={50}
-                                uncheckedIcon={false}
-                                checkedIcon={false}
-                                className="react-switch"
-                            />
-                        </label>
+
+                <div className='col-12'>
+                    <div className="mb-3 position-relative">
+                        <LocationSearchInput values={values} setValues={setValues} />
+
                     </div>
                 </div>
 
-               
+                <TestSvg values={values} />
             </div>
 
         </div>

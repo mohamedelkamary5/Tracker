@@ -1,43 +1,41 @@
 import React from 'react'
 import styled from "styled-components"
 import { AiFillStar } from 'react-icons/ai';
-import request from '../../../photo/icons/requestswedget.svg'
-import delevery from '../../../photo/icons/deleverywedget.svg'
-import Logo3 from "../../../photo/slogan/user-avatar.svg"
+import request from '../../../../../photo/icons/requestswedget.svg'
+import delevery from '../../../../../photo/icons/deleverywedget.svg'
+import Logo3 from "../../../../../photo/slogan/user-avatar.svg"
 const AboutClint = (props) => {
-  const { id, ar_name, en_name, logo, mobile, telephone, idUser } = props
+  const { clientDetails, id, ar_name, en_name, logo, mobile, telephone, idUser } = props
 
+  console.log('clientDetails', clientDetails);
   return (
     <MainStyleAbout key={id}>
       <MainRightAbout>
-        <div className='photo-logo'>
+        {/* <div className='photo-logo'>
           <img src={Logo3} alt="logo" />
-        </div>
+        </div> */}
         <div className='apout'>
 
-          <h5>  الاسم بالانجليزي : {en_name}</h5>
-          <h5>  الاسم بالعربي : {ar_name}</h5>
-
+          <h5>  اسم العميل : {clientDetails.client_name}</h5>
           <p>رقم الموبايل : {mobile}</p>
+          <h5> السعر : {clientDetails.price}</h5>
 
-
-          {/* <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link> */}
         </div>
       </MainRightAbout>
       <MainLiftAbout>
         <div className='item-wedget'>
           <div className='header-wedget'>
             <AiFillStar className='icon-wedget' />
-            <p>نوع الاشتراك</p>
+            <p>حالة الطلب</p>
           </div>
           <div className='type'>
-            <h2 className='text-white'>Basic</h2>
+            <h2 className='text-white'>{clientDetails.status == 'pending' ? 'قيد التوصيل' : 'قيد التوصيل' }</h2>
           </div>
         </div>
         <div className='item-wedget'>
           <div className='header-wedget'>
             <img src={request} />
-            <p>عدد الطلبات</p>
+            {/* <p>عدد الطلبات</p> */}
           </div>
           <div className='type'>
             <h2>350</h2>
@@ -46,7 +44,7 @@ const AboutClint = (props) => {
         <div className='item-wedget'>
           <div className='header-wedget'>
             <img src={delevery} />
-            <p>عدد السائقين</p>
+            {/* <p>عدد السائقين</p> */}
           </div>
           <div className='type'>
             <h2>250</h2>

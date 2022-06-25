@@ -60,6 +60,8 @@ import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
 import SidebarLayoutRestaurant from "./components/Restaurants-Managment/Restaurants-Components/bars/NotBar";
 import Orders from "./components/Restaurants-Managment/pages/Orders";
+import OrderDetails from "./components/Restaurants-Managment/Restaurants-Components/Orders/OrderDetails/User";
+import AddOrderForm from "./components/Restaurants-Managment/Restaurants-Components/Orders/AddForm";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
@@ -103,6 +105,7 @@ function App() {
           <AddManager />
           <AddCurrency />
           <AddQuotes />
+          <AddOrderForm />
 
           <Routes>
             {/* Start Routes Admin */}
@@ -280,7 +283,21 @@ function App() {
             <Route element={<ProtectedRoutesRestaurant />}>
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
                 <Route path="/" element={<HomeRestaurant />} />
-                <Route path="/orders" element={<Orders />} />
+                <Route path="/orders" >
+                  <Route path="" element={<Orders />} 
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow} >
+                  </Route>
+
+                  <Route path=":orderId" element={<OrderDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+
+                </Route>
 
               </Route>
               <Route path="/Triple-zero" element={<HomeRestaurant />} />

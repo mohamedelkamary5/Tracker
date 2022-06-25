@@ -26,6 +26,7 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
           status={clientDetails.status}
         />
         <AboutClint
+          clientDetails={clientDetails}
           id={clientDetails.user_id}
           logo={clientDetails.photo}
           idUser={clientDetails.user_id}
@@ -35,7 +36,7 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
           mobile={clientDetails.mobile}
           telephone={clientDetails.telephone}
         />
-        <TabelClient
+        {/* <TabelClient
           logo={clientDetails.photo}
           id={clientDetails.id}
           name={clientDetails.en_name}
@@ -47,7 +48,7 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
           websitelink={clientDetails.address}
           tradetype={clientDetails.email}
           currencypaid={clientDetails.status}
-        />
+        /> */}
 
 
 

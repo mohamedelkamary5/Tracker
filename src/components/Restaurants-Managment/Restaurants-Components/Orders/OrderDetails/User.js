@@ -1,27 +1,25 @@
 import React, {useEffect} from 'react';
 import styled from "styled-components";
 import TopBar from '../../bars/TopBar';
-import {MarginPages} from '../../../styles/MarginPages';
 import ClintInformation from './Information';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDriverDetails } from '../../../store/DriverSlice';
+import { getOrdreDetails } from '../../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
 import { useParams } from 'react-router';
 
 
-const Clint = ({HandelShow }) => {
+const OrderDetails = ({HandelShow }) => {
   const dispatch = useDispatch()
-  let { driverId } = useParams();
+  let { orderId } = useParams();
   useEffect(() => {
-    dispatch(getDriverDetails(driverId))
-  }, [getDriverDetails])
+    dispatch(getOrdreDetails(orderId))
+  }, [getOrdreDetails])
 
-  //TODO: clientDetails
-  const clientDetails = useSelector(state => state.drivers.driverDetails)
+  const clientDetails = useSelector(state => state.ordersRestauantsSlice.orderDetails)
   
   // console.log('clientDetails____1', clientDetails);
   return (
     <div className='lay-out-wrapp'>
-    <TopBar title={"السائق"} HandelShow={HandelShow} />
+    <TopBar title={"الطلب"} HandelShow={HandelShow} />
     
     <div className='style-flex-page'>
      <ClintInformation clientDetails={clientDetails}  />
@@ -44,4 +42,4 @@ border-radius: 40px;
   margin-top: 13px;
 }
 `
-export default Clint
+export default OrderDetails

@@ -4,10 +4,10 @@ import { FiPause } from 'react-icons/fi';
 import { GrPlay } from 'react-icons/gr';
 import { AiOutlineDelete } from 'react-icons/ai';
 import swal from 'sweetalert';
-import ButtonReturn from '../../glopal/ButtonReturn';
+import ButtonReturn from '../../../../glopal/ButtonReturn';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { deleteDriver, changeStatusDriver } from '../../../store/DriverSlice'
+import { deleteDriver, changeStatusDriver } from '../../../../../store/DriverSlice'
 
 
 
@@ -18,7 +18,7 @@ const HeaderButton = ({ id, status }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/admin/drivers";
+    const from = location.state?.from?.pathname || "/orders";
 
 
     const statusVal = status == 1 ? true : false;
@@ -113,7 +113,7 @@ const HeaderButton = ({ id, status }) => {
                 </button>
                 <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف السائق</button>
             </MainButtonClint>
-            <ButtonReturn title="/admin/drivers" />
+            <ButtonReturn title="/orders" />
 
         </MainHeaderClint>
     )

@@ -118,7 +118,7 @@ export const OrdersRestauantsSlice = createSlice({
       state.error = null;
     },
     [getOrdreDetails.fulfilled]: (state, action) => {
-      state.driverDetails = action.payload;
+      state.orderDetails = action.payload;
     },
     [getOrdreDetails.rejected]: (state, action) => {
       state.error = action;

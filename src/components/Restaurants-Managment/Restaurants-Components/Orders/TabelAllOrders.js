@@ -74,7 +74,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         } else {
             const searchString = e.target.value.toLowerCase();
             const filteredItems = UserData.filter((item) => {
-                return item.en_name.toLowerCase().includes(searchString);
+                return item.client_name.toLowerCase().includes(searchString);
             });
             setResultData(filteredItems)
         }
@@ -100,13 +100,12 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th >الشعار</th>
                                         <th >#</th>
-                                        <th> الأسم بالانجليزي</th>
+                                        <th >رقم الطلب</th>
+                                        <th> اسم العميل </th>
                                         <th>التليفون</th>
-                                        <th>الايميل</th>
+                                        <th>التفاصيل</th>
                                         <th>الحالة</th>
-                                        <th>حالة الاتصال</th>
                                         <th>الخيارات</th>
                                     </tr>
                                 </thead>
@@ -115,30 +114,35 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         {resultData.map((user, index) => {
                                             return (
                                                 <tr key={index}>
-                                                    <td><Link className='my-2' to={`/admin/drivers/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                                                     <td>
-                                                        <Link className='text-link' to={`/admin/drivers/${user.id}`}>{user.id}#</Link>
+                                                        <Link className='text-link' to={`/orders/${user.id}`}>#{user.id}</Link>
                                                     </td>
                                                     <td>
-                                                        <span>{user.en_name}</span>
+                                                        <Link className='my-3 text-link' to={`/orders/${user.order_no}`}>{user.order_no}</Link>
+                                                    </td>
+                                                    <td>
+                                                        <span>{user.client_name}</span>
                                                     </td>
 
                                                     <td>
                                                         <span>{user.mobile}</span>
                                                     </td>
                                                     <td>
-                                                        <span>{user.email}</span>
+                                                        <span>{user.details}</span>
                                                     </td>
 
 
-                                                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status == 1 ? "نشط" : "غير نشط"}</span></td>
-                                                    <td ><span className={user.isOnline === 1 ? "green" : "red"}>{user.isOnline === 1 ? "متصل" : "غير متصل"}</span></td>
+                                                    <td >
+                                                        <span className={user.status !== 'pending' ? "green" : "red"}>
+                                                            {user.status == 'pending' ? "قيد التوصيل" : "غير نشط"}
+                                                        </span>
+                                                    </td>
 
                                                     <td >
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                                         <div className='select-clint'>
-                                                            <Link to={`/admin/drivers/${user.id}`}> التفاصيل</Link>
-                                                            <Link to={`/admin/drivers/${user.id}`}>بيانات العميل</Link>
+                                                            <Link to={`/orders/${user.id}`}> التفاصيل</Link>
+                                                            <Link to={`/orders/${user.id}`}>بيانات العميل</Link>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -203,7 +207,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 </div>
 
                 <form className='form-search'>
-                    <input type="search" placeholder='أبحث عن اسم السائق'
+                    <input type="search" placeholder='أبحث عن اسم العميل'
                         onChange={inputSearch} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
