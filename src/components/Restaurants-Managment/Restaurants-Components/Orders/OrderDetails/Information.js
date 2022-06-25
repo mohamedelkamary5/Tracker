@@ -15,7 +15,7 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
 
       <ItemStyleClint key={clientDetails.idUser} >
 
-        <HeaderButton
+        {/* <HeaderButton
           HandelShowCustomer={HandelShowCustomer}
           HandelStopCustomer={HandelStopCustomer}
           logo={clientDetails.logo}
@@ -24,7 +24,7 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
           compony={clientDetails.compony}
           id={clientDetails.id}
           status={clientDetails.status}
-        />
+        /> */}
         <AboutClint
           clientDetails={clientDetails}
           id={clientDetails.user_id}
