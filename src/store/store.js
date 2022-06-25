@@ -25,9 +25,6 @@ export const store = configureStore({
 
     // restaurantsManagment
     ordersRestauantsSlice: OrdersRestauantsSlice,
-    // restaurantsManagment: {
     //   driverRestauantsSlice: DriverRestauantsSlice,
-    //   ordersRestauantsSlice: OrdersRestauantsSlice
-    // },
   },
 })

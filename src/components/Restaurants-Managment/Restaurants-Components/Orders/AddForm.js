@@ -18,17 +18,16 @@ const AddOrderForm = ({ setShow }) => {
   const dispatch = useDispatch()
 
   const initialState = {
-    photo: null,
-    user_id: 2,
-    en_name: "",
-    ar_name: "",
+    order_no: 0,
+    client_name: '',
+    address: "",
+    price: "",
     mobile: '',
     telephone: '',
     address: "",
     email: "",
-    status: 1,
-    isOnline: 0,
-    password: '',
+    lon: 0,
+    lat: 0
 
   }
 
@@ -44,10 +43,10 @@ const AddOrderForm = ({ setShow }) => {
           button: 'موافق',
         });
       }).catch(() => {
-        swal("عفوا لم يتم تنفيذ الامر", {
-          icon: "error",
-          button: 'موافق'
-        });
+        // swal("عفوا لم يتم تنفيذ الامر", {
+        //   icon: "error",
+        //   button: 'موافق'
+        // });
 
       })
 

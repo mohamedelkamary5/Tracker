@@ -34,14 +34,10 @@ export const SendOrder = createAsyncThunk("orders/SendOrder", async (dataClint, 
   } = thunkApi
   try {
     const response = await postFromData("orders/store", dataClint);
-    // const data = res
-    // console.log('data added to store', response.data);
     return response.data
   } catch (err) {
-    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    // console.log('rejectWithValue(err.message)', dataClint);
 
-    return rejectWithValue(err.message)
+    return rejectWithValue(err)
   }
 })
 
@@ -135,7 +131,18 @@ export const OrdersRestauantsSlice = createSlice({
     },
     [SendOrder.rejected]: (state, action) => {
       state.error = action.payload;
-      // console.log(action);
+      const errors = action.payload.response.data.errors
+      const errorArray = []
+
+      for (const error in errors) {
+        errorArray.push(errors[error])
+      }
+
+
+      swal(errorArray.join().replaceAll('.,', '  ///   '), {
+        icon: "error",
+        button: 'موافق'
+      });
     },
     [deleteDriver.fulfilled]: (state, action) => {
       // state.isLoading = false;

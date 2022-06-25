@@ -52,22 +52,22 @@ const FormAddShipping = ({ values, setValues }) => {
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="email" className="form-label">الايميل<span>*</span> </label>
-                        <input type="email" className="form-control" id="email" placeholder="اكتب الايميل" value={values.email} required onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                        <label htmlFor="order_no" className="form-label">رقم الطلب<span>*</span> </label>
+                        <input type="text" className="form-control" id="order_no" placeholder="اكتب رقم الطلب" value={values.order_no} required onChange={(e) => setValues({ ...values, order_no: e.target.value })} />
                     </div>
                 </div>
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="en_name" className="form-label">الاسم بالانجليزي<span>*</span> </label>
-                        <input type="text" className="form-control" id="en_name" placeholder="اكتب الاسم بالانجليزي" value={values.en_name} required onChange={(e) => setValues({ ...values, en_name: e.target.value })} />
+                        <label htmlFor="client_name" className="form-label">اسم العميل<span>*</span> </label>
+                        <input type="text" className="form-control" id="client_name" placeholder="اكتب اسم العميل" value={values.client_name} required onChange={(e) => setValues({ ...values, client_name: e.target.value })} />
                     </div>
                 </div>
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="ar_name" className="form-label">الاسم بالعربي<span>*</span> </label>
-                        <input type="text" className="form-control" id="ar_name" placeholder="اكتب الاسم بالعربي" value={values.ar_name} required onChange={(e) => setValues({ ...values, ar_name: e.target.value })} />
+                        <label htmlFor="price" className="form-label">السعر<span>*</span> </label>
+                        <input type="text" className="form-control" id="price" placeholder="اكتب السعر" value={values.price} required onChange={(e) => setValues({ ...values, price: e.target.value })} />
                     </div>
                 </div>
                 {/* Block Item */}
@@ -80,42 +80,11 @@ const FormAddShipping = ({ values, setValues }) => {
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="password" className="form-label"> كلة السر<span>*</span> </label>
-                        <input type="password" className="form-control" id="password" placeholder="اكتب  كلة السر" value={values.password} required onChange={(e) => setValues({ ...values, password: e.target.value })} />
+                        <label htmlFor="details" className="form-label"> التفاصيل<span>*</span> </label>
+                        <input type="text" className="form-control" id="details" placeholder="اكتب  التفاصيل" value={values.details} required onChange={(e) => setValues({ ...values, details: e.target.value })} />
                     </div>
                 </div>
-                {/* Block Item */}
-                {/* <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="address" className="form-label"> العنوان<span>*</span> </label>
-                        <input type="text" className="form-control" id="address" placeholder="اكتب  العنوان" value={values.address} required onChange={(e) => setValues({ ...values, address: e.target.value })} />
-                    </div>
-                </div> */}
-                {/* Block Item */}
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="switch-add-shipping" className="form-label d-block">الحالة</label>
-                        <label className="switch-item" htmlFor='switch-add-shipping'>
-                            <Switch
-                                checked={valueSwitch}
-                                onChange={staustSwittch}
-                                id='switch-add-shipping'
-                                handleDiameter={28}
-                                offColor="#dfdcdc"
-                                onColor="#f7d294"
-                                offHandleColor="#707070"
-                                onHandleColor="#FB9E00"
-                                height={30}
-                                width={70}
-                                borderRadius={50}
-                                uncheckedIcon={false}
-                                checkedIcon={false}
-                                className="react-switch"
-                            />
-                        </label>
-                    </div>
-                </div>
-
+              
                 <div className='col-12'>
                     <div className="mb-3 position-relative">
                         <LocationSearchInput values={values} setValues={setValues} />

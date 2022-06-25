@@ -33,13 +33,10 @@ export const SendShipping = createAsyncThunk("shipping/SendShipping", async (dat
   const { rejectWithValue } = thunkApi
   try {
     const response = await postFromData("users/store", dataClint);
-    // const data = res
-    console.log('data added to store', response.data);
     return response
   } catch (err) {
     // console.log('rejectWithValue(err.message)', dataClint);
 
-    console.log('rejectWithValue(err.message)', rejectWithValue(err));
     return rejectWithValue(err)
   }
 })
@@ -132,7 +129,6 @@ export const ShippingSlice = createSlice({
     [SendShipping.rejected]: (state, action) => {
       const errors = action.payload.response.data.errors
       state.error = errors;
-      console.log('action rejected rejected rejected ()', errors);
 
       const errorArray = []
 
@@ -140,13 +136,7 @@ export const ShippingSlice = createSlice({
         console.log(`${error}: ${errors[error]}`);
         errorArray.push(errors[error])
       }
-      console.log('errorArray', errorArray.join());
 
-
-      // for (var i = 0; i < errors.length; i++) {
-      //   // errors[i]
-      //   console.log(errors[i]);
-      // }
 
       swal(errorArray.join().replaceAll('.,', '  ///   '), {
           icon: "error",
