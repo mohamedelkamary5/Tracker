@@ -8,6 +8,7 @@ import ManagersSlice from './ManagersSlice'
 import QuotesSlice from './QuotesSlice'
 import DriverSlice from './DriverSlice'
 import CurrencySlice from './CurrencySlice'
+import { DriverRestauantsSlice } from './Restaurants-Managment/DriverRestauantsSlice'
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,11 @@ export const store = configureStore({
     ShowAndHide: StateSlice,
     managers: ManagersSlice,
     quotes: QuotesSlice,
-    auth: auth
+    auth: auth,
+
+    // restaurantsManagment
+    restaurantsManagment: {
+      driverRestauantsSlice: DriverRestauantsSlice
+    },
   },
 })
