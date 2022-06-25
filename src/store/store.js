@@ -9,6 +9,7 @@ import QuotesSlice from './QuotesSlice'
 import DriverSlice from './DriverSlice'
 import CurrencySlice from './CurrencySlice'
 import { DriverRestauantsSlice } from './Restaurants-Managment/DriverRestauantsSlice'
+import OrdersRestauantsSlice from './Restaurants-Managment/OrdersRestauantsSlice'
 
 export const store = configureStore({
   reducer: {
@@ -23,8 +24,10 @@ export const store = configureStore({
     auth: auth,
 
     // restaurantsManagment
+    ordersRestauantsSlice: OrdersRestauantsSlice,
     restaurantsManagment: {
-      driverRestauantsSlice: DriverRestauantsSlice
+      driverRestauantsSlice: DriverRestauantsSlice,
+      ordersRestauantsSlice: OrdersRestauantsSlice
     },
   },
 })

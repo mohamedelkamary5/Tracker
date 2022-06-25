@@ -36,7 +36,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:2 ,
                 name : "الطلبات" ,
-                link: "restaurants" ,
+                link: "orders" ,
                 icon: MdSupervisorAccount,
             
             },

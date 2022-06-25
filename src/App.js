@@ -56,9 +56,10 @@ import Setting from "./pages/Setting";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin, { ProtectedRoutesRestaurant } from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
-import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
+// import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
 import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
 import SidebarLayoutRestaurant from "./components/Restaurants-Managment/Restaurants-Components/bars/NotBar";
+import Orders from "./components/Restaurants-Managment/pages/Orders";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
@@ -279,6 +280,7 @@ function App() {
             <Route element={<ProtectedRoutesRestaurant />}>
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
                 <Route path="/" element={<HomeRestaurant />} />
+                <Route path="/orders" element={<Orders />} />
 
               </Route>
               <Route path="/Triple-zero" element={<HomeRestaurant />} />
