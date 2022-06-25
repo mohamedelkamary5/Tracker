@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from "styled-components"
 // import { useDispatch, useSelector } from 'react-redux'
 // import { useParams } from 'react-router'
-import pattern from "../../../photo/glopal/pattern-1.png"
+import pattern from "../../../../../photo/glopal/pattern-1.png"
 // import EditUser from './EditUser'
 // import {  editClint } from '../../store/ClintSlice';
 
@@ -21,7 +21,7 @@ const PrecedentClint = ({ dataMyAccount }) => {
         <div className='header-cart'>
           <div className='img'>
             {dataMyAccount['photo'] &&
-              <img src={dataMyAccount['photo']} alt={dataMyAccount['name']} />
+              <img src={dataMyAccount['photo']} alt={dataMyAccount['en_name']} />
             }
             {/* <p>user.idUser</p> */}
           </div>
@@ -31,7 +31,7 @@ const PrecedentClint = ({ dataMyAccount }) => {
             <h3># : <span>{dataMyAccount.id}</span></h3>
           </div>
           <div className='item'>
-            <h3>الاسم : <span>{dataMyAccount.name}</span></h3>
+            <h3>الاسم : <span>{dataMyAccount.en_name}</span></h3>
           </div>
           <div className='item'>
             <h3>الايميل : <span>{dataMyAccount.email}</span></h3>

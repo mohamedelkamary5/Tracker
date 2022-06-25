@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react';
 // import Clint from '../components/RestaurantDetails/Clint';
 // import ClintInformation2 from '../components/clint/ClintInformation2_R_R';
-import WrapperContainer from '../components/Restaurants/RestaurantDetails/Wrapper';
+import WrapperContainer from './../Restaurants-Components/MyAccount/Wrapper';
+// import WrapperContainer from '../components/Restaurants/RestaurantDetails/Wrapper';
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
-import Logo3 from "../photo/slogan/user-avatar.svg"
-// import Logo3 from "../photo"
-// import { CopyToClipboard } from 'react-copy-to-clipboard';
-// import { AiOutlineCopy } from 'react-icons/ai';
-// import { FiPause } from 'react-icons/fi';
-// import OtherClint from './OtherClint'
-// import ButtonComponent from '../Shared/Components/Button/Button';
-import TabelAllUsersMyAccount from '../components/MyAccount/TabelAllUsers';
-// import ButtonOutLine from '../Shared/Components/ButtonOutLine/ButtonOutLine';
-// import { AddManager } from '../store/StateSlice';
-// import { useDispatch } from 'react-redux';
+// import Logo3 from "../../../../../photo/slogan/user-avatar.svg"
 
 
 const Account = ({ HandelShowCustomer }) => {
@@ -31,18 +22,19 @@ const Account = ({ HandelShowCustomer }) => {
 
   const [dataMyAccount, setDataMyAccount] = useState({
     photo: '',
-    name: '',
+    en_name: '',
     id: '',
     email: ''
   })
 
   useEffect(() => {
-    setDataMyAccount(JSON.parse(localStorage.getItem('authData')).user)
+    setDataMyAccount(JSON.parse(localStorage.getItem('authDataRestaurant')).restaurant)
     // // console.log('JSON.parse(localStorage.getItem().user', JSON.parse(localStorage.getItem('authData')).user);
   }, [])
 
 
-  const srcImg = dataMyAccount['photo'] ? dataMyAccount['photo'] : Logo3
+  // const srcImg = dataMyAccount['photo'] ? dataMyAccount['photo'] : Logo3
+  const srcImg = 'Logo3'
 
 
   return (
@@ -51,10 +43,10 @@ const Account = ({ HandelShowCustomer }) => {
         <MainRightAbout>
           <MainStyleAbout>
             <div className='photo-logo'>
-              <img src={srcImg} alt={dataMyAccount['name']} />
+              <img src={srcImg} alt={dataMyAccount['en_name']} />
             </div>
             <div className='apout'>
-              <h3>{dataMyAccount.name}</h3>
+              <h3>{dataMyAccount.en_name}</h3>
               <p>{dataMyAccount.email}</p>
               <Link to={`edit`}><button>تعديل الحساب</button></Link>
 
@@ -68,7 +60,7 @@ const Account = ({ HandelShowCustomer }) => {
         </MainRightAbout>
 
 
-        <TabelAllUsersMyAccount searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
+        {/* <TabelAllUsersMyAccount searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} /> */}
       </WrapperContainer>
 
 

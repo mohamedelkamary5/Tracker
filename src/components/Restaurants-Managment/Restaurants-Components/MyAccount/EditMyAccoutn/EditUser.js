@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import styled from "styled-components"
-import { MarginPages } from '../../../styles/MarginPages'
 import TopBar from '../../bars/TopBar'
 import FormEdit from './FormEdit'
 import PrecedentClint from './PrecedentClint'
 
 const EditUser = ({ HandelShow }) => {
 
-  const dataMyAccount = JSON.parse(localStorage.getItem('authData')).user
+  const dataMyAccount = JSON.parse(localStorage.getItem('authDataRestaurant')).restaurant
 
 
   return (

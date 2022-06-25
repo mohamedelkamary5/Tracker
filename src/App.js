@@ -49,6 +49,10 @@ import AddQuotes from "./components/Quotes/AddForm";
 import MyAccount from "./pages/Account";
 import EditMyAccount from "./components/MyAccount/EditMyAccoutn/EditUser";
 
+// Account restaurent
+import MyAccountRestaurant from "./components/Restaurants-Managment/pages/Account";
+import EditMyAccountRestaurant from "./components/Restaurants-Managment/Restaurants-Components/MyAccount/EditMyAccoutn/EditUser";
+
 
 // import EditUser from "./components/clint copy/EditUser";
 import './styles/glopal-style.scss'
@@ -282,9 +286,10 @@ function App() {
             {/* <Route path="/login" element={<LoginRestaurant />} /> */}
             <Route element={<ProtectedRoutesRestaurant />}>
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
+                <Route path="/Triple-zero" element={<HomeRestaurant />} />
                 <Route path="/" element={<HomeRestaurant />} />
                 <Route path="/orders" >
-                  <Route path="" element={<Orders />} 
+                  <Route path="" element={<Orders />}
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
@@ -299,8 +304,16 @@ function App() {
 
                 </Route>
 
+                {/* My Account */}
+                <Route path="/my-account">
+                  <Route path="" element={<MyAccountRestaurant
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="edit" element={<EditMyAccountRestaurant HandelShow={HandelShow} />} />
+                </Route>
+
               </Route>
-              <Route path="/Triple-zero" element={<HomeRestaurant />} />
             </Route>
             {/* End Routes Restaurant */}
 

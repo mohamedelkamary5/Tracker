@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from "styled-components"
 import { FaUserEdit } from 'react-icons/fa';
-import { postFromData } from './../../../api/axios'
+import { postFromData } from './../../../../../api/axios'
 import swal from 'sweetalert';
 
 const FormEdit = ({ dataMyAccount }) => {
