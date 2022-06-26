@@ -28,7 +28,7 @@ const SideBar = ({showBar,HandelClose }) => {
         NavBar : [
             {
                 id:1 ,
-                name: "الرئسيه" ,
+                name: "الرئيسية" ,
                 link: "" ,
                 icon: AiOutlineAppstore,
             

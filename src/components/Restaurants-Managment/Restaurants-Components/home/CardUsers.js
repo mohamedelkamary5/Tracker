@@ -6,6 +6,7 @@ import personLogin from "../../../../photo/slogan/personlogin.jpg"
 import Carousel from 'react-elastic-carousel';
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrders } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
+import { Link } from 'react-router-dom';
 const CardUsers = () => {
   const dispatch = useDispatch()
   const breakPoints = [
@@ -67,7 +68,7 @@ const CardUsers = () => {
   const orderList = useSelector(state => state.ordersRestauantsSlice.orders)
 
 
-  const  tConvert =(time) => {
+  const tConvert = (time) => {
     // Check correct time format and split into components
     time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
@@ -98,7 +99,7 @@ const CardUsers = () => {
 
           </div>
           <div className='button-details'>
-            <a href='#'>عرض التفاصيل</a>
+            <Link to='/orders'>عرض التفاصيل</Link>
           </div>
 
         </div>
@@ -106,18 +107,18 @@ const CardUsers = () => {
       {/*Cards Slider */}
       <div className='cards' >
 
-        <Carousel breakPoints={breakPoints} enableAutoPlay={false} isRTL={false} outerSpacing={20} >
+        <Carousel breakPoints={breakPoints} enableAutoPlay={false} isRTL={true} outerSpacing={20} >
           {orderList.map(item => {
             return (
 
               <div className='items-cards' key={item.id}>
                 <div className={
-                  item.status === "طلب جديد" ? 'header-item py-2 black' :
+                  item.status === "pending" ? 'header-item py-2 black' :
                     item.status === "طلب مرفوض" ? 'header-item py-2 red' :
-                      item.status === "pending" ? 'header-item py-2 green' : "header-item py-2 yallow"
+                      item.status === "done" ? 'header-item py-2 green' : "header-item py-2 yallow"
 
                 }>
-                  <h4>{item.status}</h4>
+                  <h4>{item.status == 'pending' ? 'طلب جديد' :'' }</h4>
                   <div className='date-order'>
                     <p>{new Date(item.updated_at).toISOString().slice(0, 11).replace('T', ' ')}</p>
                     <p className='tiem'>
@@ -142,22 +143,36 @@ const CardUsers = () => {
                     </div>
                   </div>
                   <div className='fotter-item'>
-                    <div className='right-fotter'>
-                      <div className='img-driver'>
-                        <img src={personLogin} alt="personLogin" />
-                        <div className='about-driver'>
-                          <p>السائق</p>
-                          <h4>سالم سعيد</h4>
-                          <h5>#15</h5>
+                    {item.status === "pending" ?
+                      <>
+                        <div className='right-fotter'>
+                          <p>لم يتم تعيين سائق بعد</p>
+                        </div>
+                        <div className='left-fotter'>
+                          <button className='btn btn-main'>تعيين سائق</button>
+                        </div>
+                      </>
+                      : <>
+                        <div className='right-fotter'>
+                          <div className='img-driver'>
+                            <img src={personLogin} alt="personLogin" />
+                            <div className='about-driver'>
+                              <p>السائق</p>
+                              <h4>سالم سعيد</h4>
+                              <h5>#15</h5>
+
+                            </div>
+                          </div>
 
                         </div>
-                      </div>
-
-                    </div>
-                    <div className='left-fotter'>
-                      <button>عرض الحساب</button>
-                    </div>
+                        <div className='left-fotter'>
+                          <button className='btn btn-dark'>عرض الحساب</button>
+                        </div>
+                      </>
+                    }
                   </div>
+
+
                 </div>
 
 

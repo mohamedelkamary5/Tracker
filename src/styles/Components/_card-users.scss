@@ -8,7 +8,7 @@
 
 //style slider
 .rec.rec-carousel-wrapper {
-    direction: rtl;
+    // direction: rtl;
 
 }
 
@@ -17,7 +17,7 @@
 }
 
 .rec.rec-pagination {
-    direction: ltr;
+    // direction: ltr;
 
     .rec.rec-dot.rec.rec-dot_active {
         background-color: var(--primary-color);
@@ -56,6 +56,9 @@
 
                     option {
                         border: 1px solid var(--font);
+                    }
+                    &:focus-visible{
+                        outline: none;
                     }
                 }
 
@@ -207,20 +210,20 @@
                 }
 
                 .left-fotter {
-                    button {
-                        border: 1px solid var(--font);
-                        padding: 5px 15px;
-                        font-size: 14px;
-                        color: var(--font);
-                        border-radius: 4px;
-                        transition: 0.4s;
+                    // button {
+                    //     border: 1px solid var(--font);
+                    //     padding: 5px 15px;
+                    //     font-size: 14px;
+                    //     color: var(--font);
+                    //     border-radius: 4px;
+                    //     transition: 0.4s;
 
-                        &:hover {
-                            background-color: var(--secound-color);
-                            color: white;
-                        }
+                    //     &:hover {
+                    //         background-color: var(--secound-color);
+                    //         color: white;
+                    //     }
 
-                    }
+                    // }
                 }
             }
         }
