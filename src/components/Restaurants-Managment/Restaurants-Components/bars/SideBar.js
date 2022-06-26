@@ -29,7 +29,7 @@ const SideBar = ({showBar,HandelClose }) => {
             {
                 id:1 ,
                 name: "الرئسيه" ,
-                link: "Triple-zero" ,
+                link: "" ,
                 icon: AiOutlineAppstore,
             
             },

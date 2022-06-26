@@ -1,182 +1,221 @@
 //glopal
 %flex-box {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
+
 //style slider
-.rec.rec-carousel-wrapper{
+.rec.rec-carousel-wrapper {
     direction: rtl;
-    
+
 }
+
 .rec.rec-arrow {
     display: none;
 }
-.rec.rec-pagination{
+
+.rec.rec-pagination {
     direction: ltr;
-   
-    .rec.rec-dot.rec.rec-dot_active{
-        background-color: var(--primary-color); 
+
+    .rec.rec-dot.rec.rec-dot_active {
+        background-color: var(--primary-color);
         box-shadow: 0 0 1px 3px white;
     }
 }
 
 //header cards
-.main-card-users{
+.main-card-users {
     width: 74%;
     margin-top: 20px;
+
     @media (max-width:670px) {
-        width: 100%; 
-     }
-    .header-cards{
-        @extend %flex-box;
-       .right-header{
-        h5{
-            font-weight: bold;
-        }
-       }
-       .left-header{
-        @extend %flex-box;
-        .date-header{
-            margin: 0 8px 0 30px;
-
-            select {
-                border: none;
-                padding: 4px 0;
-                background-color: transparent;
-                option{
-                    border: 1px solid var(--font);
-                }
-            }
-
-        }
-        .button-details{
-            margin: 0 5px ;
-            a{
-                padding: 8px 20px ;
-                border: 1px solid var(--font) ;
-                border-radius:4px ;
-                color: var(--font);
-                transition: 0.4s;
-                &:hover{
-                    background-color: var(--secound-color);
-                    color: white;
-                }
-            }
-        }
-       }
+        width: 100%;
     }
-    
-//cards
-    .cards{
+
+    .header-cards {
+        @extend %flex-box;
+
+        .right-header {
+            h5 {
+                font-weight: bold;
+            }
+        }
+
+        .left-header {
+            @extend %flex-box;
+
+            .date-header {
+                margin: 0 8px 0 30px;
+
+                select {
+                    border: none;
+                    padding: 4px 0;
+                    background-color: transparent;
+
+                    option {
+                        border: 1px solid var(--font);
+                    }
+                }
+
+            }
+
+            .button-details {
+                margin: 0 5px;
+
+                a {
+                    padding: 8px 20px;
+                    border: 1px solid var(--font);
+                    border-radius: 4px;
+                    color: var(--font);
+                    transition: 0.4s;
+
+                    &:hover {
+                        background-color: var(--secound-color);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    //cards
+    .cards {
         display: flex;
         flex-wrap: wrap;
         margin-top: 20px;
-        .items-cards{
+
+        .items-cards {
             width: 350px;
             margin: 10px 10px;
 
             @media (max-width:670px) {
-               width: 100%; 
+                width: 100%;
             }
+
             //start header one item
-            .black{
+            .black {
                 background-color: var(--secound-color);
             }
-            .red{
+
+            .red {
                 background-color: var(--danger-color)
             }
-            .green{
+
+            .green {
                 background-color: var(--succes-color)
             }
-            .yallow{
+
+            .yallow {
                 background-color: var(--orange-color)
             }
-            .header-item{
+
+            .header-item {
                 @extend %flex-box;
 
-                
+
                 padding: 5px 15px;
-               
+
                 color: white;
-                border-radius:14px 14px 0 0 ;
-                h4{
+                border-radius: 14px 14px 0 0;
+
+                h4 {
                     font-size: 17px;
                     font-weight: bold;
 
                 }
-                .date-order{
-                    p{
+
+                .date-order {
+                    p {
                         font-size: 14px;
+                        &.tiem{
+                            direction:ltr;
+                        }
                     }
 
                 }
             }
+
             //end header one item
             //start body one item
-            .body-item{
+            .body-item {
                 padding: 15px 8px;
                 background-color: white;
-                border-radius: 0 0 14px 14px ;
-                .img-go{
+                border-radius: 0 0 14px 14px;
+
+                .img-go {
                     display: flex;
-                    .delivery-point , .pickup-point{
+
+                    .delivery-point,
+                    .pickup-point {
                         margin-right: 10px;
-                        h5{
+
+                        h5 {
                             font-size: 12px;
                             color: var(--font);
                         }
-                        p{
+
+                        p {
                             font-size: 14px;
                         }
                     }
-                    .delivery-point{
+
+                    .delivery-point {
                         margin-top: 30px;
                     }
-                    
+
                 }
             }
+
             //end body one item
             //start fotter one item
-            .fotter-item{
+            .fotter-item {
                 padding: 25px 10px 5px 10px;
                 @extend %flex-box;
-                .right-fotter{
-                    .img-driver{
+
+                .right-fotter {
+                    .img-driver {
                         display: flex;
-                        img{
+
+                        img {
                             width: 40px;
                             height: 40px;
                             border-radius: 50%;
                         }
-                        .about-driver{
+
+                        .about-driver {
                             margin-right: 8px;
-                            p{
+
+                            p {
                                 font-size: 12px;
                                 color: var(--font);
                             }
-                            h4{
+
+                            h4 {
                                 font-size: 14px;
                                 font-weight: bold;
                             }
-                            h5{
+
+                            h5 {
                                 font-size: 12px;
                                 color: var(--font);
-                                font-weight: bold;   
+                                font-weight: bold;
                             }
                         }
                     }
                 }
-                .left-fotter{
-                    button{
+
+                .left-fotter {
+                    button {
                         border: 1px solid var(--font);
                         padding: 5px 15px;
                         font-size: 14px;
                         color: var(--font);
                         border-radius: 4px;
                         transition: 0.4s;
-                        &:hover{
+
+                        &:hover {
                             background-color: var(--secound-color);
                             color: white;
                         }
@@ -188,4 +227,3 @@
     }
 
 }
-

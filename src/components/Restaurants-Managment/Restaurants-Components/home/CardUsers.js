@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { IoIosArrowDown } from 'react-icons/io';
 import "../../../../styles/Components/_card-users.scss"
 import go from "../../../../photo/glopal/go-to.svg"
 import personLogin from "../../../../photo/slogan/personlogin.jpg"
 import Carousel from 'react-elastic-carousel';
-
-
+import { useDispatch, useSelector } from 'react-redux'
+import { getOrders } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
 const CardUsers = () => {
+  const dispatch = useDispatch()
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 1 },
@@ -59,6 +60,24 @@ const CardUsers = () => {
 
 
 
+  useEffect(() => {
+    dispatch(getOrders(1))
+  }, [dispatch])
+
+  const orderList = useSelector(state => state.ordersRestauantsSlice.orders)
+
+
+  const  tConvert =(time) => {
+    // Check correct time format and split into components
+    time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+    if (time.length > 1) { // If time format correct
+      time = time.slice(1);  // Remove full string match value
+      time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join(''); // return adjusted time or original string
+  }
 
 
   return (
@@ -86,18 +105,80 @@ const CardUsers = () => {
       </div>
       {/*Cards Slider */}
       <div className='cards' >
-        <Carousel breakPoints={breakPoints} enableAutoPlay={true}  outerSpacing={50} >
+
+        <Carousel breakPoints={breakPoints} enableAutoPlay={false} isRTL={false} outerSpacing={20} >
+          {orderList.map(item => {
+            return (
+
+              <div className='items-cards' key={item.id}>
+                <div className={
+                  item.status === "طلب جديد" ? 'header-item py-2 black' :
+                    item.status === "طلب مرفوض" ? 'header-item py-2 red' :
+                      item.status === "pending" ? 'header-item py-2 green' : "header-item py-2 yallow"
+
+                }>
+                  <h4>{item.status}</h4>
+                  <div className='date-order'>
+                    <p>{new Date(item.updated_at).toISOString().slice(0, 11).replace('T', ' ')}</p>
+                    <p className='tiem'>
+                      {tConvert(new Date(item.updated_at).toISOString().slice(11, 19).replace('T', ' '))}
+                    </p>
+
+                  </div>
+                </div>
+                <div className='body-item'>
+                  <div className='img-go'>
+                    <img src={go} alt="go-to" />
+                    <div>
+                      <div className='pickup-point'>
+                        <h5>نقطه الالتقاط</h5>
+                        <p>30 شارع ااميثاق - مطعم الاصدقاء</p>
+
+                      </div>
+                      <div className='delivery-point'>
+                        <h5>نقطه التوصيل</h5>
+                        <p>{item.address}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='fotter-item'>
+                    <div className='right-fotter'>
+                      <div className='img-driver'>
+                        <img src={personLogin} alt="personLogin" />
+                        <div className='about-driver'>
+                          <p>السائق</p>
+                          <h4>سالم سعيد</h4>
+                          <h5>#15</h5>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div className='left-fotter'>
+                      <button>عرض الحساب</button>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+            )
+          })
+          }
+        </Carousel>
+        {/* <Carousel breakPoints={breakPoints} enableAutoPlay={false} isRTL={false} outerSpacing={20} >
           {domydata.map(item => {
             return (
 
               <div className='items-cards'>
                 <div className={
-                  item.typeOrder === "طلب جديد" ? 'header-item black' :
-                    item.typeOrder === "طلب مرفوض" ? 'header-item red' :
-                      item.typeOrder === "تم التوصيل" ? 'header-item green' : "header-item yallow"
+                  item.status === "طلب جديد" ? 'header-item black' :
+                    item.status === "طلب مرفوض" ? 'header-item red' :
+                      item.status === "pending" ? 'header-item green' : "header-item yallow"
 
                 }>
-                  <h4>{item.typeOrder}</h4>
+                  <h4>{item.status}</h4>
                   <div className='date-order'>
                     <p>{item.dateOrder}</p>
                     <p>{item.timeOrder}</p>
@@ -144,7 +225,7 @@ const CardUsers = () => {
             )
           })
           }
-        </Carousel>
+        </Carousel> */}
 
       </div>
     </div>
