@@ -80,6 +80,10 @@ const CardUsers = () => {
     return time.join(''); // return adjusted time or original string
   }
 
+  const showDriverToSelect = (orderId) => {
+    console.log(orderId);
+  }
+
 
   return (
 
@@ -149,7 +153,7 @@ const CardUsers = () => {
                           <p>لم يتم تعيين سائق بعد</p>
                         </div>
                         <div className='left-fotter'>
-                          <button className='btn btn-main'>تعيين سائق</button>
+                          <button onClick={() => showDriverToSelect(item.id)} className='btn btn-main'>تعيين سائق</button>
                         </div>
                       </>
                       : <>
