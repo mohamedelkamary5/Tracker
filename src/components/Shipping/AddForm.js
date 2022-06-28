@@ -28,8 +28,10 @@ const ClintForm = ({ setShow }) => {
     email: "",
     status: 0,
     password: '',
-    lon: 0.000000,
     lat: 0.000000,
+    lon: 0.000000,
+    // lat: 29.375859,
+    // lon: 47.9774052,
 
   }
 
