@@ -69,7 +69,7 @@ const SideBar = ({showBar,HandelClose }) => {
             },
             {
                 id:11 ,
-                name : "الاقتباسات" ,
+                name : "الباقات" ,
                 link: "/admin/quotes",
                 icon: RiDoubleQuotesR,
             

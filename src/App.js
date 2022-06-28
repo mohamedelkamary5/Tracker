@@ -94,7 +94,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
-    }, 2000);
+    }, 100);
   }, []);
 
   return (

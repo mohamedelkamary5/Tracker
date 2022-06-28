@@ -30,7 +30,7 @@ const HeaderButton = ({ id, status }) => {
     const handelChangeStatus = () => {
 
 
-        const text = handelStatus ? 'من ايقاف هذا الاقتباس' : 'من اعادة تشغيل هذا الاقتباس'
+        const text = handelStatus ? 'من ايقاف هذا الباقة' : 'من اعادة تشغيل هذا الباقة'
 
         swal({
             title: 'هل أنت واثق؟',
@@ -65,7 +65,7 @@ const HeaderButton = ({ id, status }) => {
     const handelDelete = () => {
         swal({
             title: 'هل أنت واثق؟',
-            text: 'من حذف هذا الاقتباس',
+            text: 'من حذف هذا الباقة',
             icon: "warning",
             buttons: {
                 cancel: "الغاء",
@@ -113,7 +113,7 @@ const HeaderButton = ({ id, status }) => {
                     }
 
                 </button>
-                <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف الاقتباس</button>
+                <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف الباقة</button>
             </MainButtonClint>
             <ButtonReturn title="/admin/quotes" />
 
