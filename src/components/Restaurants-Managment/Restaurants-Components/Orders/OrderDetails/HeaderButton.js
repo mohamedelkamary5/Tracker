@@ -4,12 +4,10 @@ import { FiPause } from 'react-icons/fi';
 import { GrPlay } from 'react-icons/gr';
 import { AiOutlineDelete } from 'react-icons/ai';
 import swal from 'sweetalert';
-import ButtonReturn from '../../glopal/ButtonReturn';
+import ButtonReturn from '../../../../glopal/ButtonReturn';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-// import { ShowStop } from '../../store/StateSlice';
-// import { ShowDelete } from '../../store/StateSlice';
-import { deleteQuote, changeStatusQuotes } from '../../../store/QuotesSlice'
+import { deleteDriver, changeStatusDriver } from '../../../../../store/DriverSlice'
 
 
 
@@ -20,7 +18,7 @@ const HeaderButton = ({ id, status }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/admin/quotes";
+    const from = location.state?.from?.pathname || "/orders";
 
 
     const statusVal = status == 1 ? true : false;
@@ -30,7 +28,7 @@ const HeaderButton = ({ id, status }) => {
     const handelChangeStatus = () => {
 
 
-        const text = handelStatus ? 'من ايقاف هذا الباقة' : 'من اعادة تشغيل هذا الباقة'
+        const text = handelStatus ? 'من ايقاف هذا السائق' : 'من اعادة تشغيل هذا السائق'
 
         swal({
             title: 'هل أنت واثق؟',
@@ -47,7 +45,7 @@ const HeaderButton = ({ id, status }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    dispatch(changeStatusQuotes(id))
+                    dispatch(changeStatusDriver(id))
                     setHandelStatus(!handelStatus)
                     swal("تم تنفيذ الامر بنجاح", {
                         icon: "success",
@@ -65,7 +63,7 @@ const HeaderButton = ({ id, status }) => {
     const handelDelete = () => {
         swal({
             title: 'هل أنت واثق؟',
-            text: 'من حذف هذا الباقة',
+            text: 'من حذف هذا السائق',
             icon: "warning",
             buttons: {
                 cancel: "الغاء",
@@ -78,7 +76,7 @@ const HeaderButton = ({ id, status }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    dispatch(deleteQuote(id))
+                    dispatch(deleteDriver(id))
                     navigate(from, { replace: true });
                     swal("تم تنفيذ الامر بنجاح", {
                         icon: "success",
@@ -113,9 +111,9 @@ const HeaderButton = ({ id, status }) => {
                     }
 
                 </button>
-                <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف الباقة</button>
+                <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف السائق</button>
             </MainButtonClint>
-            <ButtonReturn title="/admin/quotes" />
+            <ButtonReturn title="/orders" />
 
         </MainHeaderClint>
     )

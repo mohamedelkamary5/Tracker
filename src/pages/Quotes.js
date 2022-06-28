@@ -7,7 +7,7 @@ const Shipping = ({ HandelShow }) => {
   const [searchSort, setSortSearch] = useState("")
   return (
     <div className='lay-out-wrapp'>
-      <TopBar title={" الاقتباسات"} HandelShow={HandelShow} />
+      <TopBar title={" الباقات"} HandelShow={HandelShow} />
       <div className='style-flex-page'>
         <TabelShipping searchSort={searchSort} setSortSearch={setSortSearch} />
 

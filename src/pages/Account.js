@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import Clint from '../components/RestaurantDetails/Clint';
 // import ClintInformation2 from '../components/clint/ClintInformation2_R_R';
-import WrapperContainer from '../components/Restaurants/RestaurantDetails/Wrapper';
+import WrapperContainer from '../components/MyAccount/Wrapper';
 import styled from "styled-components"
 import { Link } from 'react-router-dom';
 import Logo3 from "../photo/slogan/user-avatar.svg"
@@ -37,7 +37,7 @@ const Account = ({ HandelShowCustomer }) => {
   })
 
   useEffect(() => {
-    setDataMyAccount(JSON.parse(localStorage.getItem('authData')).user)
+    setDataMyAccount(JSON.parse(localStorage.getItem('authDataAdmin')).user)
     // // console.log('JSON.parse(localStorage.getItem().user', JSON.parse(localStorage.getItem('authData')).user);
   }, [])
 

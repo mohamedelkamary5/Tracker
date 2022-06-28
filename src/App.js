@@ -49,16 +49,23 @@ import AddQuotes from "./components/Quotes/AddForm";
 import MyAccount from "./pages/Account";
 import EditMyAccount from "./components/MyAccount/EditMyAccoutn/EditUser";
 
+// Account restaurent
+import MyAccountRestaurant from "./components/Restaurants-Managment/pages/Account";
+import EditMyAccountRestaurant from "./components/Restaurants-Managment/Restaurants-Components/MyAccount/EditMyAccoutn/EditUser";
+
 
 // import EditUser from "./components/clint copy/EditUser";
 import './styles/glopal-style.scss'
 import Setting from "./pages/Setting";
 import SidebarLayout from "./components/bars/NotBar";
-import ProtectedRoutesAdmin from "./components/Auth/ProtectedRoutes";
+import ProtectedRoutesAdmin, { ProtectedRoutesRestaurant } from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
-import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
+// import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
 import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
 import SidebarLayoutRestaurant from "./components/Restaurants-Managment/Restaurants-Components/bars/NotBar";
+import Orders from "./components/Restaurants-Managment/pages/Orders";
+import OrderDetails from "./components/Restaurants-Managment/Restaurants-Components/Orders/OrderDetails/User";
+import AddOrderForm from "./components/Restaurants-Managment/Restaurants-Components/Orders/AddForm";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
@@ -87,7 +94,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
-    }, 2000);
+    }, 100);
   }, []);
 
   return (
@@ -102,6 +109,7 @@ function App() {
           <AddManager />
           <AddCurrency />
           <AddQuotes />
+          <AddOrderForm />
 
           <Routes>
             {/* Start Routes Admin */}
@@ -273,14 +281,41 @@ function App() {
 
             </Route>
 
-              {/* Start Routes Restaurant */}
-              <Route path="/login" element={<LoginRestaurant />} />
+            {/* Start Routes Restaurant */}
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/login" element={<LoginRestaurant />} /> */}
+            <Route element={<ProtectedRoutesRestaurant />}>
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
+                <Route path="/Triple-zero" element={<HomeRestaurant />} />
                 <Route path="/" element={<HomeRestaurant />} />
+                <Route path="/orders" >
+                  <Route path="" element={<Orders />}
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow} >
+                  </Route>
+
+                  <Route path=":orderId" element={<OrderDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+
+                </Route>
+
+                {/* My Account */}
+                <Route path="/my-account">
+                  <Route path="" element={<MyAccountRestaurant
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="edit" element={<EditMyAccountRestaurant HandelShow={HandelShow} />} />
+                </Route>
 
               </Route>
-              <Route path="/Triple-zero" element={<HomeRestaurant />} />
-              {/* End Routes Restaurant */}
+            </Route>
+            {/* End Routes Restaurant */}
 
 
           </Routes>

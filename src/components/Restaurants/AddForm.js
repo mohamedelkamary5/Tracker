@@ -28,8 +28,10 @@ const ClintForm = ({ showCustomer, HandelClose, show, setShow }) => {
     email: "",
     status: 1,
     password: '',
-    lon:0,
-    lat:0,
+    lat: 0.000000,
+    lon: 0.000000,
+    // lat: 29.375859,
+    // lon: 47.9774052,
   }
 
   const [values, setValues] = useState(initialState)

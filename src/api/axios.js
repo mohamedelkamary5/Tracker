@@ -21,7 +21,8 @@ import axios from "axios"
 // import accessToken from "./jwt-token-access/accessToken"
 //pass new generated access token here
 const baseUrl = 'http://tracking.000itkw.com/api/'
-const token = localStorage.getItem('token');
+const isAdmin = window.location.href.includes('admin')
+const token = localStorage.getItem(isAdmin ? 'tokenAdmin' : "tokenRestaurant");
 
 //apply base url for axios
 // const API_URL = "https://jsonplaceholder.typicode.com/"
@@ -43,7 +44,8 @@ axios1.interceptors.response.use(
   response => response,
   error => {
     if (error.message == 'Request failed with status code 401' || error.message == 'Unauthenticated') {
-      window.location.pathname = "/admin/login"
+      const isAdmin = window.location.pathname.includes('admin')
+      window.location.pathname = isAdmin ? "/admin/login" : '/login'
     }
     // return error
     return Promise.reject(error);

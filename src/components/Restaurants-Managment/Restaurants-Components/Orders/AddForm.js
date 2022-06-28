@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import InputCustomer from './Inputs'
-import { SendShipping } from '../../store/ShippingSlice';
 import { useDispatch, useSelector } from 'react-redux'
-import SliderClint from '../glopal/SliderClint';
+import SliderClint from '../../../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
-import { HideSlider } from '../../store/StateSlice';
+import { HideSlider } from '../../../../store/StateSlice';
+import { SendOrder } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
 
-const ClintForm = ({ setShow }) => {
-  const toogleslider = useSelector((state) => state.ShowAndHide.value.Shipping)
+const AddOrderForm = ({ setShow }) => {
+  const toogleslider = useSelector((state) => state.ShowAndHide.value.order)
 
   //get date today
   const today = new Date();
@@ -18,26 +18,22 @@ const ClintForm = ({ setShow }) => {
   const dispatch = useDispatch()
 
   const initialState = {
-    photo: [],
-    user_id: 2,
-    en_name: "",
-    ar_name: "",
+    order_no: 0,
+    client_name: '',
+    address: "",
+    price: "",
     mobile: '',
     telephone: '',
     address: "",
     email: "",
-    status: 0,
-    password: '',
-    lat: 0.000000,
-    lon: 0.000000,
-    // lat: 29.375859,
-    // lon: 47.9774052,
+    lon: 0,
+    lat: 0
 
   }
 
   const [values, setValues] = useState(initialState)
   const AddUser = () => {
-    dispatch(SendShipping(values))
+    dispatch(SendOrder(values))
       .unwrap()
       .then(() => {
         setValues(initialState)
@@ -54,21 +50,20 @@ const ClintForm = ({ setShow }) => {
 
       })
 
-    // setShow(true)
+    setShow(true)
   }
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
-      <div className='style-form p-3' toogleslider={toogleslider ? "true" : 'false'}>
-        <SliderClint title="إضافة شركة شحن"   >
+      <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
+        <SliderClint title="اضافه طلب"   >
           <InputCustomer values={values} setValues={setValues} />
         </SliderClint>
         <StyleFotter>
           <button onClick={AddUser} className="btn btn-main">
             <MdPersonAddAlt className='MdPersonAddAlt' />
-            <span>إضافة شركة شحن</span>
+            <span>اضافه طلب</span>
           </button>
 
-          {/* <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span> */}
         </StyleFotter>
       </div>
     </StyleForm>
@@ -83,19 +78,9 @@ justify-content: space-between;
 height: 100%;
 padding: 10px 0;
 overflow: auto;
-&::-webkit-scrollbar{
-        width: 4px;
-}
-&::-webkit-scrollbar-thumb {
-        background-color: var(--secound-color);
-        border-radius: 10px;
-}
-&::-webkit-scrollbar-track {
-	background: var(--primary-color);
-}
 
 }
-// padding: 35px;
+padding: 35px;
 position: fixed;
 top: 0;
 bottom: 0;
@@ -131,4 +116,4 @@ a{
 }
 
 `
-export default ClintForm
+export default AddOrderForm

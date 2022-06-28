@@ -4,6 +4,7 @@ import Switch from "react-switch";
 import LocationSearchInput from './Location';
 import TestSvg from './Map';
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
+import GoogleMapComponet from '../../Shared/Components/Google-Map/Map';
 
 const FormAddShipping = ({ values, setValues }) => {
     const [selectedFiles, setselectedFiles] = useState([]);
@@ -38,7 +39,10 @@ const FormAddShipping = ({ values, setValues }) => {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
     };
 
-    const valueSwitch = values.status == 1 ? true : false
+    const valueSwitch = values.status == 1 ? true : false;
+
+    // { lat: 18.5204, lng: 73.8567 }
+    const centerMap = { lat: values.lat, lng: values.lon }
 
     return (
         <div className='main-input px-2'>
@@ -132,12 +136,18 @@ const FormAddShipping = ({ values, setValues }) => {
 
                 <div className='col-12'>
                     <div className="mb-3 position-relative">
-                        <LocationSearchInput values={values} setValues={setValues} />
+                        {/* <LocationSearchInput values={values} setValues={setValues} /> */}
 
+                        <GoogleMapComponet
+                            google={'this.props.google'}
+                            center={centerMap}
+                            height='300px'
+                            zoom={15}
+                        />
                     </div>
                 </div>
 
-                <TestSvg values={values} />
+                {/* <TestSvg values={values} /> */}
             </div>
 
         </div>

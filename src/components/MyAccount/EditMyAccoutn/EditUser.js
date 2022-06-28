@@ -7,7 +7,7 @@ import PrecedentClint from './PrecedentClint'
 
 const EditUser = ({ HandelShow }) => {
 
-  const dataMyAccount = JSON.parse(localStorage.getItem('authData')).user
+  const dataMyAccount = JSON.parse(localStorage.getItem('authDataAdmin')).user
 
 
   return (
