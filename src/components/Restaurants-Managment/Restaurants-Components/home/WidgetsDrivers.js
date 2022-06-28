@@ -134,7 +134,7 @@ const WidgetsDrivers = () => {
         </thead>
 
         <tbody>
-          <>
+          
             {resultData.map(item => {
               return (
                 <tr>
@@ -144,7 +144,7 @@ const WidgetsDrivers = () => {
                 </tr>
               )
             })}
-          </>
+          
         </tbody>
       </table>
       </div>
