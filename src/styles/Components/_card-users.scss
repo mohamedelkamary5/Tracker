@@ -27,15 +27,13 @@
 
 //header cards
 .main-card-users {
-    width: 74%;
+   
     margin-top: 20px;
 
-    @media (max-width:670px) {
-        width: 100%;
-    }
+
 
     .header-cards {
-        @extend %flex-box;
+       
 
         .right-header {
             h5 {
@@ -47,7 +45,7 @@
             @extend %flex-box;
 
             .date-header {
-                margin: 0 8px 0 30px;
+                margin: 0 8px 0 00px;
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 background: transparent;

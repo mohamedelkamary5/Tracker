@@ -118,10 +118,12 @@ const WidgetsDrivers = () => {
     setSortValue(name)
   }
   return (
-    <div className='main-widget-drivers'>
+    <div className='main-widget-drivers col-xs-12  col-xl-4 col-xxl-3   mg-20 '>
     <div className='widget'>
       <table>
+     
         <thead>
+         
           <tr>
             {sortingItems.map((item => {
               return (
@@ -146,8 +148,9 @@ const WidgetsDrivers = () => {
             })}
           
         </tbody>
+        
       </table>
-      </div>
+     </div>
       <div className='button-details'>
         <button>اظهار التفاصيل</button>
 
