@@ -87,7 +87,7 @@ const CardUsers = () => {
 
   return (
 
-    <div className='main-card-users'>
+    <div className='main-card-users col-xs-12 col-lg-7 col-xl-8 col-xxl-9  '>
       <div className='header-cards'>
         <div className='right-header'>
           <h5>توصيلات اليوم</h5>

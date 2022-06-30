@@ -9,7 +9,7 @@ const HomeRestaurant = ({ HandelShow }) => {
   return (
     <div className='lay-out-wrapp'>
       <TopBar title="الرئيسية" HandelShow={HandelShow} />
-      <div className='style-flex-page'>
+      <div className='style-flex-page row p-0'>
         <CardUsers />
         <WidgetsDrivers />
       </div>
