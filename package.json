@@ -30,6 +30,7 @@
     "react-scripts": "5.0.0",
     "react-switch": "^6.0.0",
     "react-toast-notifications": "^2.5.1",
+    "serve": "^13.0.2",
     "short-unique-id": "^4.4.4",
     "styled-components": "^5.3.5",
     "sweetalert": "^2.1.2",
