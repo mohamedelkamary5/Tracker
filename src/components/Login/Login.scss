@@ -15,13 +15,30 @@
                 font-weight: bold;
                 font-size: 17px;
                 color: #2a2e33;
+
             }
         }
         .icon-auth{
+            .text-right{
+                @media (max-width:675px) {
+                    h1 ,h4{
+                        color: white;
+                        font-size: 20px;
+                       
+                        
+                    }
+                }
+            }
             img{
                 height: 75vh;
                 width: 100%;
                 object-fit: contain;
+                @media (max-width:675px) {
+                position: absolute;
+                bottom: 0px;
+                z-index: -1; 
+                }
+
             }
             h1{
                 font-family: Almarai;
@@ -29,12 +46,14 @@
                 font-size: 42px;
                 line-height: 68px;
                 color: #2a2e33;
+
             }
             h5{
                 font-family: Almarai;
                 font-weight: normal;
                 font-size: 25px;
                 color: #2a2e33;
+                
             }
         }
         .parent-input{

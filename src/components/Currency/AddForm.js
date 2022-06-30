@@ -54,7 +54,7 @@ const ClintForm = ({ setShow }) => {
           <InputCustomer values={values} setValues={setValues} />
         </SliderClint>
         <StyleFotter>
-          <button onClick={AddUser} className="btn btn-main">
+          <button onClick={AddUser} className="btn btn-main m-1">
             <MdPersonAddAlt className='MdPersonAddAlt' />
             <span>اضافه عملة</span>
           </button>

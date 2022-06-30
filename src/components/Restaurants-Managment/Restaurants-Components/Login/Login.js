@@ -15,11 +15,11 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <div className='container container-2 py-lg-5'>
+            <div className='container container-2 py-lg-5 '>
                 <div className='row'>
                     <div className='col-lg-5 mt-5'>
-                        <div className='login-form p-lg-5 text-center '>
-                            <h5> (مطعم) !اهلا بك، قم بتسجيل الدخول </h5>
+                        <div className='login-form  p-lg-5  text-center '>
+                            <h5 > (مطعم) !اهلا بك، قم بتسجيل الدخول </h5>
                             <LoginFrom />
                         </div>
                     </div>

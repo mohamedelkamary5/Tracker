@@ -18,10 +18,13 @@
             }
         }
         .icon-auth{
+            position: relative;
             img{
                 height: 75vh;
                 width: 100%;
                 object-fit: contain;
+                position: absolute;
+                top: 0;
             }
             h1{
                 font-family: Almarai;

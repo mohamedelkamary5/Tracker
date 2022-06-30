@@ -7,7 +7,7 @@ import TabelAllUsers from '../components/Restaurants/TabelAllUsers'
 import {MarginPages} from '../styles/MarginPages'
 import { useSelector, useDispatch } from 'react-redux'
 
-const Restaurants = ({HandelShow ,HandelShowCustomer ,showCustomer ,HandelClose ,show,setShow }
+const Restaurants = ({HandelShow ,HandelShowCustomer  }
   
   ) => {
 

@@ -32,7 +32,7 @@ body{
   box-sizing: border-box;
   background-color: var(--background-color);
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
  
 ::-webkit-scrollbar-track {
