@@ -26,8 +26,10 @@ const LoginFrom = () => {
     const emailRef = useRef();
     const errRef = useRef();
 
-    const [email, setEmail] = useState('superadmin@info.me');
-    const [password, setPassword] = useState('12345678');
+    // const [email, setEmail] = useState('superadmin@info.me');
+    // const [password, setPassword] = useState('12345678');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
 
     useEffect(() => {
@@ -64,7 +66,7 @@ const LoginFrom = () => {
             setPassword('');
         } catch (err) {
             if (!err?.response) {
-                setErrMsg('email or password is incorrect');
+                setErrMsg('البريد الالكتروني او كلمة السر غير صحيح');
             } else if (err.response?.status === 400) {
                 setErrMsg('Missing Username or Password');
             } else if (err.response?.status === 401) {
@@ -121,7 +123,8 @@ const LoginFrom = () => {
             <p>
                 
                 <span className="line">
-                    <Link to="/register">انشئ حساب جديد</Link>
+                    {/* <Link to="/register">انشئ حساب جديد</Link> */}
+                    <Link to="#">انشئ حساب جديد</Link>
                 </span>
             </p>
         </>
