@@ -19,7 +19,7 @@ const LoginFrom = () => {
 
     const isAdmin = location.pathname.includes('admin')
 
-    const LOGIN_URL = isAdmin ? 'admins/login' : 'restaurants/login'; 
+    const LOGIN_URL = isAdmin ? 'admins/login' : 'restaurants/_login'; 
     console.log('LOGIN_URL', LOGIN_URL);
 
     
