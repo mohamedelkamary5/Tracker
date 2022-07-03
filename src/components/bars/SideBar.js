@@ -83,7 +83,7 @@ const SideBar = ({showBar,HandelClose }) => {
             },
             {
                 id:10 ,
-                name : "الأعدادات" ,
+                name : "الأعداد ات" ,
                 link: "/admin/setting" ,
                 icon: MdOutlineSettings,
             
