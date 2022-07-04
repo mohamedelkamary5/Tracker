@@ -11,6 +11,7 @@ const Login = () => {
                     <div className='col-lg-4 bg-dark h-100 pt-5 vh-100 text-center'>
                         <div className='img-logo '>
                             <img className='' src={logo} />
+                            <img className='' src={logo} />
                         </div>
                     </div>
                 </div>
@@ -19,7 +20,7 @@ const Login = () => {
                 <div className='row'>
                     <div className='col-lg-5 mt-5'>
                         <div className='login-form  p-4 text-center '>
-                            <h5 className="p-2"> !!!اهلا بك، قم بتسجيل الدخول </h5>
+                            <h5 className="p-2"> !اهلا بك، قم بتسجيل الدخول </h5>
                             <LoginFrom />
                         </div>
                     </div>
