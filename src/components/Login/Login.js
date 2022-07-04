@@ -19,7 +19,7 @@ const Login = () => {
                 <div className='row'>
                     <div className='col-lg-5 mt-5'>
                         <div className='login-form  p-4 text-center '>
-                            <h5 className="p-2"> !اهلا بك، قم بتسجيل الدخول </h5>
+                            <h5 className="p-2"> disabale !اهلا بك، قم بتسجيل الدخول </h5>
                             <LoginFrom />
                         </div>
                     </div>
