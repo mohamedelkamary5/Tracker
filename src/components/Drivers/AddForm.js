@@ -19,7 +19,7 @@ const ClintForm = ({ setShow }) => {
 
   const initialState = {
     photo: null,
-    user_id: 2,
+    user_id: 1,
     en_name: "",
     ar_name: "",
     mobile: '',
@@ -32,7 +32,9 @@ const ClintForm = ({ setShow }) => {
 
   }
 
+
   const [values, setValues] = useState(initialState)
+  console.log(values)
   const AddUser = () => {
     dispatch(SendDirver(values))
       .unwrap()

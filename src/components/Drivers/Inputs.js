@@ -1,9 +1,25 @@
 import React, { useState } from 'react'
-
+import Select from 'react-select'
 import Switch from "react-switch";
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
+import { useSelector, useDispatch } from 'react-redux'
 
 const FormAddShipping = ({ values, setValues }) => {
+
+    //select Shipping 
+    const shippingData = useSelector(state => state.shipping.shipping)
+    //const domyData = [{id:1,en_name:"mohamed"},{id:2,en_name:"ahmed"}]
+    const options = shippingData.map(d => ({
+        "value" : d.id,
+        "label" : d.en_name,
+      }))
+      const [initOption , SetinitOption] = useState(options)
+     
+ 
+ console.log(initOption)
+
+
+
     const [selectedFiles, setselectedFiles] = useState([]);
     const handleAcceptedFiles = (files) => {
         files.map(file =>
@@ -55,6 +71,12 @@ const FormAddShipping = ({ values, setValues }) => {
                         <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
                     </div>
                 </div>
+                <div className='col-lg-12'>
+                <div className="mb-3">
+                <label htmlFor="en_name" className="form-label">اختار شركه شحن<span>*</span> </label>
+                <Select options={initOption} name="اختار"  onChange={(e) => setValues({ ...values, user_id: e.value })}   />
+                </div>
+                </div>
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
@@ -62,6 +84,8 @@ const FormAddShipping = ({ values, setValues }) => {
                         <input type="email" className="form-control" id="email" placeholder="اكتب الايميل" value={values.email} required onChange={(e) => setValues({ ...values, email: e.target.value })} />
                     </div>
                 </div>
+               
+                
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
@@ -98,6 +122,7 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div> */}
                 {/* Block Item */}
+
                 <div className='col-lg-6'>
                     <div className="mb-3">
                         <label htmlFor="switch-add-shipping" className="form-label d-block">الحالة</label>
@@ -144,7 +169,7 @@ const FormAddShipping = ({ values, setValues }) => {
                         </label>
                     </div>
                 </div>
-
+                
                
             </div>
 

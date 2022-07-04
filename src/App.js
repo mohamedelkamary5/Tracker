@@ -115,6 +115,7 @@ function App() {
             {/* Start Routes Admin */}
             <Route path="/admin/login" element={<Login />} />
             <Route path="/admin/register" element={<Register />} />
+            {/*------------*/}
             <Route element={<ProtectedRoutesAdmin />}>
               <Route element={<SidebarLayout HandelShow={HandelShow} show={show} />}>
 
@@ -281,7 +282,20 @@ function App() {
 
 
 
-            </Route>
+{/* My Account */}
+<Route path="admin/my-account">
+  <Route path="" element={<MyAccount
+    HandelShow={HandelShow}
+    HandelClose={HandelClose} />}
+  />
+  <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
+</Route>
+</Route>
+{/* End Routes Admin */}
+            
+            
+            
+   
 
 
 
