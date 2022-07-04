@@ -20,7 +20,7 @@
 import axios from "axios"
 // import accessToken from "./jwt-token-access/accessToken"
 //pass new generated access token here
-const baseUrl = 'http://tracking.000itkw.com/api/'
+const baseUrl = 'http://tracking2.000itkw.com/api/'
 const isAdmin = window.location.href.includes('admin')
 const token = localStorage.getItem(isAdmin ? 'tokenAdmin' : "tokenRestaurant");
 
