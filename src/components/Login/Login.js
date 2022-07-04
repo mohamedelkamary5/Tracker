@@ -11,7 +11,6 @@ const Login = () => {
                     <div className='col-lg-4 bg-dark h-100 pt-5 vh-100 text-center'>
                         <div className='img-logo '>
                             <img className='' src={logo} />
-                            <img className='' src={logo} />
                         </div>
                     </div>
                 </div>
