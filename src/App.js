@@ -115,6 +115,7 @@ function App() {
             {/* Start Routes Admin */}
             <Route path="/admin/login" element={<Login />} />
             <Route path="/admin/register" element={<Register />} />
+            {/*------------*/}
             <Route element={<ProtectedRoutesAdmin />}>
             <Route element={<SidebarLayout HandelShow={HandelShow} show={show} />}>
 
@@ -280,8 +281,8 @@ function App() {
             
             
             
-            
             </Route>
+           {/*------ ----------- */}
 
 
             

@@ -41,9 +41,7 @@ export const getDriverDetails = createAsyncThunk('drivers/getDriverDetails', asy
 })
 // send data  driver Details
 export const SendDirver = createAsyncThunk("drivers/SendDirver", async (dataClint, thunkApi) => {
-  const {
-    rejectWithValue
-  } = thunkApi
+  const { rejectWithValue} = thunkApi
   try {
     const response = await postFromData("admins/drivers/store", dataClint);
     // const data = res
@@ -59,9 +57,7 @@ export const SendDirver = createAsyncThunk("drivers/SendDirver", async (dataClin
 
 // changeStatusDriver
 export const changeStatusDriver = createAsyncThunk('drivers/changeStatusDriver', async (id, thunkAPI) => {
-  const {
-    rejectWithValue
-  } = thunkAPI
+  const { rejectWithValue} = thunkAPI
 
   try {
     const res = await get(`admins/drivers/status/${id}`)
@@ -74,9 +70,7 @@ export const changeStatusDriver = createAsyncThunk('drivers/changeStatusDriver',
 
 // deleteDriver
 export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, thunkAPI) => {
-  const {
-    rejectWithValue
-  } = thunkAPI
+  const { rejectWithValue } = thunkAPI
 
   try {
     const res = await post(`admins/drivers/destroy/${id}`)
