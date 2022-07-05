@@ -14,36 +14,36 @@ import Register from "./pages/Register";
 import Restaurants from "./pages/Restaurants";
 import RestaurantDetails from "./components/Restaurants/RestaurantDetails/User";
 // import RestaurantsBlackList from "./components/Restaurants/BlackList";
-import AddRestaurant from "./components/Restaurants/AddForm";
+
 
 // Shipping
 import Shipping from "./pages/Shipping";
 import ShippingDetails from "./components/Shipping/ShippingDetails/User"
-import AddShipping from "./components/Shipping/AddForm";
+
 
 // Managers
 import Managers from "./pages/Managers";
 import ManagerDetails from "./components/Managers/ManagerDetails/User"
 // import ManagersBlackList from "./components/Managers/BlackList";
-import AddManager from "./components/Managers/AddForm";
+
 
 // Drivers
 import Drivers from "./pages/Drivers";
 import DriverDetails from "./components/Drivers/DriverDetails/User";
 // import DriverBlackList from "./components/Drivers/BlackList";
-import AddDriver from "./components/Drivers/AddForm";
+
 
 // Currencies
 import Currencies from "./pages/Currencies";
 import CurrencyDetails from "./components/Currency/CurrencyDetails/User";
 // import CurrenciesBlackList from "./components/Currency/BlackList";
-import AddCurrency from "./components/Currency/AddForm";
+
 
 // Quotes
 import Quotes from "./pages/Quotes";
 import QuotesDetails from "./components/Quotes/QuotesDetails/User";
 // import QuotesBlackList from "./components/Quotes/BlackList";
-import AddQuotes from "./components/Quotes/AddForm";
+
 
 // Account
 import MyAccount from "./pages/Account";
@@ -65,7 +65,8 @@ import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
 import SidebarLayoutRestaurant from "./components/Restaurants-Managment/Restaurants-Components/bars/NotBar";
 import Orders from "./components/Restaurants-Managment/pages/Orders";
 import OrderDetails from "./components/Restaurants-Managment/Restaurants-Components/Orders/OrderDetails/User";
-import AddOrderForm from "./components/Restaurants-Managment/Restaurants-Components/Orders/AddForm";
+
+import ModelPupup from "./components/Model/ModelPupup";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const [showBar, setShowBar] = useState(false) //side par
@@ -103,14 +104,7 @@ function App() {
       <StyleApp>
         <BrowserRouter>
           {/* public sliders */}
-          <AddRestaurant />
-          <AddShipping />
-          <AddDriver />
-          <AddManager />
-          <AddCurrency />
-          <AddQuotes />
-          <AddOrderForm />
-
+          <ModelPupup />
           <Routes>
             {/* Start Routes Admin */}
             <Route path="/admin/login" element={<Login />} />
@@ -276,8 +270,8 @@ function App() {
                   />
                   <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
                 </Route>
-              </Route>
-              {/* End Routes Admin */}
+               </Route>
+              {/* End    Routes Admin */}
 
 
 
@@ -295,6 +289,7 @@ function App() {
             
             
             
+   
    
 
 
