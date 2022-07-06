@@ -7,11 +7,14 @@ import { getShipping } from '../../store/ShippingSlice';
 
 
 const FormAddShipping = ({ values, setValues  }) => {
-    const UserDataSelector = useSelector(state => state.shipping.shipping)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(getShipping())
-    }, [dispatch ])
+     const UserDataSelector = useSelector(state => state.shipping.shipping)
+     
+     const dispatch = useDispatch()
+
+
+   
+   
+  
     //select Shipping 
     const options = UserDataSelector.map(d => ({
         "value" : d.id,

@@ -25,7 +25,6 @@ const ClintInformation = ({  clientDetails }) => {
         <TabelClient
           id={clientDetails.id}
           user_id={clientDetails.user_id}
-          number={clientDetails.mobile}
           en_desc={clientDetails. en_desc}
           ar_desce={clientDetails.ar_desc}
           sequence={clientDetails.sequence}

@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
 // import AddDrivers from '../components/drivers/AddDrivers'
 import TabelDrivers from '../components/Drivers/TabelAllUsers'
+import { getShipping } from '../store/ShippingSlice'
 import {MarginPages} from '../styles/MarginPages'
 
 const Drivers = ({HandelShow ,HandelShowCustomer }) => {
   const [searchSort , setSortSearch] = useState("") 
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getShipping())
+    
+}, [dispatch ])
   return (
     <div className='lay-out-wrapp'>
     <TopBar title={"السائقين"} HandelShow={HandelShow} />

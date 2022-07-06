@@ -19,7 +19,7 @@ const Clint = ({ HandelShow }) => {
   const clientDetails = useSelector(state => state.quotes.quoteDetails)
   return (
     <div className='lay-out-wrapp'>
-      <TopBar title={"المطعم"} HandelShow={HandelShow} />
+      <TopBar title={"الباقه"} HandelShow={HandelShow} />
 
       <div className='style-flex-page'>
         <ClintInformation clientDetails={clientDetails} />

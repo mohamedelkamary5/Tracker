@@ -11,7 +11,9 @@ import {  MdDirectionsCar } from 'react-icons/md';
 import {  FaShoppingCart } from 'react-icons/fa';
 import {  BsPersonCircle } from 'react-icons/bs';
 import {  HiCurrencyDollar } from 'react-icons/hi';
-import { RiDoubleQuotesR } from 'react-icons/ri';
+import { FiPackage } from 'react-icons/fi';
+
+
 import { useDispatch, useSelector } from 'react-redux';
 import { HideSlider } from '../../store/StateSlice';
 
@@ -71,7 +73,7 @@ const SideBar = ({showBar,HandelClose }) => {
                 id:11 ,
                 name : "الباقات" ,
                 link: "/admin/quotes",
-                icon: RiDoubleQuotesR,
+                icon: FiPackage,
             
             },
             {
