@@ -5,16 +5,19 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import { Link, useLocation } from "react-router-dom";
 import BlackList from './BtnBlackList';
-import Logo3 from "../../photo/slogan/user-avatar.svg"
-import Logo1 from "../../photo/slogan/logo-rest.png"
+import Logo3 from "../../../../photo/slogan/user-avatar.svg"
+import Logo1 from "../../../../photo/slogan/logo-rest.png"
 import { AiOutlineBars } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { AiOutlineAppstore } from 'react-icons/ai';
-import { getDrivers, handleListView } from '../../store/DriverSlice';
-import ButtonReturn from '../glopal/ButtonReturn';
+
+import { getOrders, handleListView } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
+import ButtonReturn from '../../../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
-import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
+
+import PaginateComponent from '../../../../Shared/Components/Paginate/Paginate';
+
 const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
@@ -39,12 +42,12 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
     useEffect(() => {
-        dispatch(getDrivers(1))
+        dispatch(getOrders(1))
     }, [dispatch])
 
     const handlePageClick = (data) => {
         console.log('handlePageClick', data.selected);
-        dispatch(getDrivers(data.selected + 1))
+        dispatch(getOrders(data.selected + 1))
     }
 
 

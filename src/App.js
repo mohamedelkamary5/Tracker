@@ -52,7 +52,8 @@ import EditMyAccount from "./components/MyAccount/EditMyAccoutn/EditUser";
 // Account restaurent
 import MyAccountRestaurant from "./components/Restaurants-Managment/pages/Account";
 import EditMyAccountRestaurant from "./components/Restaurants-Managment/Restaurants-Components/MyAccount/EditMyAccoutn/EditUser";
-
+// divers restaurant
+import DriversRestaurant from "./components/Restaurants-Managment/pages/Drivers";
 
 // import EditUser from "./components/clint copy/EditUser";
 import './styles/glopal-style.scss'
@@ -302,6 +303,7 @@ function App() {
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
                 <Route path="/Triple-zero" element={<HomeRestaurant />} />
                 <Route path="/" element={<HomeRestaurant />} />
+                {/* Start Route orders */}
                 <Route path="/orders" >
                   <Route path="" element={<Orders />}
                     HandelShow={HandelShow}
@@ -317,6 +319,8 @@ function App() {
                   />
 
                 </Route>
+                {/* Start Route Drivers  */}
+                <Route path="drivers" element={<DriversRestaurant />}> </Route>
 
                 {/* My Account */}
                 <Route path="/my-account">

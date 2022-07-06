@@ -59,7 +59,7 @@ const TabelUsers = () => {
             </Tabel>
             <MoreTabel >
                 <b>{counterCustomer} مطعم</b>
-                <Link to="/restaurants">المزيد<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
+                <Link to="/admin/restaurants">المزيد<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
             </MoreTabel>
         </MainTabel>
     )

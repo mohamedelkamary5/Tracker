@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import styled from "styled-components"
-import TopBar from '../components/bars/TopBar'
-// import AddDrivers from '../components/drivers/AddDrivers'
-import TabelDrivers from '../components/Drivers/TabelAllUsers'
-import { MarginPages } from '../styles/MarginPages'
+import TableAllUsers from '../Restaurants-Components/Drivers/TabelAllUsers'
+import TopBar from '../Restaurants-Components/bars/TopBar'
+
+
+
 
 const Drivers = ({ HandelShow, HandelShowCustomer }) => {
   const [searchSort, setSortSearch] = useState("")
@@ -11,8 +12,8 @@ const Drivers = ({ HandelShow, HandelShowCustomer }) => {
     <div className='lay-out-wrapp'>
       <TopBar title={"السائقين"} HandelShow={HandelShow} />
       <div className='style-flex-page'>
-        <TabelDrivers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
-
+        
+    <TableAllUsers/>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdPersonAddAlt } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { AddDriver } from '../../store/StateSlice';
+import { AddDriver } from '../../../../store/StateSlice';
 const AddClint = () => {
   const dispatch = useDispatch()
   const AddUsers = () => {
