@@ -14,13 +14,9 @@ const AboutClint = (props) => {
         <img src={Logo3} alt="logo" />
       </div>
       <div className='apout'>
-        
         <h5>  الاسم بالانجليزي : {en_title}</h5>
         <h5>  الاسم بالعربي : {ar_title}</h5>
-
-        <p>العدد : {drivers_count}</p>
-        
-
+        <p>عدد السائقين : {drivers_count}</p>
        {/* <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link> */}
       </div>
       </MainRightAbout>

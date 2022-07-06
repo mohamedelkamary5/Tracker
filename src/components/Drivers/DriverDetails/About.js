@@ -15,9 +15,8 @@ const AboutClint = (props) => {
         </div>
         <div className='apout'>
 
-          <h5>  الاسم بالانجليزي : {en_name}</h5>
-          <h5>  الاسم بالعربي : {ar_name}</h5>
-
+          <h5> الاسم بالانجليزي : {en_name}</h5>
+          <h5> الاسم بالعربي : {ar_name}</h5>
           <p>رقم الموبايل : {mobile}</p>
 
 

@@ -23,17 +23,14 @@ const ClintInformation = ({  clientDetails }) => {
 
         />
         <TabelClient
-          logo={clientDetails.photo}
           id={clientDetails.id}
-          name={clientDetails.en_name}
-          idUser={clientDetails.user_id}
+          user_id={clientDetails.user_id}
           number={clientDetails.mobile}
-          telephone={clientDetails.telephone}
-          state={clientDetails.status}
-          clintemail={clientDetails.email}
-          websitelink={clientDetails.address}
-          tradetype={clientDetails.email}
-          currencypaid={clientDetails.status}
+          en_desc={clientDetails. en_desc}
+          ar_desce={clientDetails.ar_desc}
+          sequence={clientDetails.sequence}
+          cost={clientDetails.cost}
+          months={clientDetails.months}
         />
 
 

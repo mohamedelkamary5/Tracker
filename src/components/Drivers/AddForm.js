@@ -13,9 +13,6 @@ const ClintForm = ({ setShow }) => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.driver)
   const dispatch = useDispatch()
 
-
- 
-
   const initialState = {
     photo: null,
     user_id: 1,

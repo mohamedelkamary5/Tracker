@@ -5,8 +5,7 @@ import { AiOutlineCopy } from 'react-icons/ai';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const TabelClient = (props) => {
-    const {  name , idUser ,id, number , telephone , paymentDate ,
-          state , clintemail , websitelink  ,currencypaid  } = props
+    const { id  ,en_desc ,ar_desce ,sequence ,cost , months } = props
     
   return (
       
@@ -14,32 +13,28 @@ const TabelClient = (props) => {
     <Tabel>
         <Thead>
             <TrHead>
-                <th >User id</th>
+                
                 <th > id</th>
-                <th>الأسم</th>
-                <th>رقم اخر</th>
-                <th>العنوان</th>
-                <th>الحالة</th>
+                <th>الوصف بالعربي</th>
+                <th>الوصف بالانجليز</th>
+                <th>رقم التسلسل	</th>
+                <th>التكلفه</th>
+                <th>الشهور</th>
+
             </TrHead>
         </Thead>
         <Tbody>
             <TrBody >
-                <CopyToClipboard text={idUser}>
-                <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
-                </CopyToClipboard>
                 <td>{id}</td>
-                <td>{name}</td>         
-                <td>{telephone === null ? "01245456" : telephone}</td>
-                <td>{websitelink}</td>
-                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "نشط" : "غير نشط" }</span></td>
+                <td>{ar_desce}</td>         
+                <td>{en_desc}</td>
+                <td>{sequence}</td>
+                <td>{cost}</td>
+                <td>{months}</td>
             </TrBody>
         </Tbody>
     </Tabel>
-    <OtherClint 
-    clintemail={clintemail}
-     websitelink={websitelink} 
-     currencypaid={currencypaid}
-     />
+
 </StyleTabel>
   )
 }
