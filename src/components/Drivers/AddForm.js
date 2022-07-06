@@ -9,13 +9,13 @@ import { HideSlider } from '../../store/StateSlice';
 import { SendDirver } from '../../store/DriverSlice';
 import { getShipping } from '../../store/ShippingSlice';
 
-const ClintForm = ({ setShow }) => {
+const ClintForm = () => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.driver)
   const dispatch = useDispatch()
 
   const initialState = {
     photo: null,
-    user_id: 1,
+    user_id: null,
     en_name: "",
     ar_name: "",
     mobile: '',
@@ -41,15 +41,8 @@ const ClintForm = ({ setShow }) => {
           icon: "success",
           button: 'موافق',
         });
-      }).catch(() => {
-        swal("عفوا لم يتم تنفيذ الامر", {
-          icon: "error",
-          button: 'موافق'
-        });
-
       })
-
-    setShow(true)
+      
   }
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>

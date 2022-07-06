@@ -46,14 +46,9 @@ export const SendDirver = createAsyncThunk("drivers/SendDirver", async (dataClin
   } = thunkApi
   try {
     const response = await postFromData("admins/drivers/store", dataClint);
-    // const data = res
-    // console.log('data added to store', response.data);
-    return response.data
+    return response
   } catch (err) {
-    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    // console.log('rejectWithValue(err.message)', dataClint);
-
-    return rejectWithValue(err.message)
+    return rejectWithValue(err)
   }
 })
 
@@ -104,7 +99,7 @@ export const DriverSlice = createSlice({
     driverDetails: {},
     error: null,
     listView: true,
-    meta: 0
+    meta: {}
   },
   extraReducers: {
 
@@ -153,18 +148,32 @@ export const DriverSlice = createSlice({
       state.error = null;
     },
     [SendDirver.fulfilled]: (state, action) => {
-      state.drivers.push(action.payload);
-      state.total = state.total + 1;
+      state.drivers.push(action.payload.data);
+      state.meta.total = state.meta.total + 1;
     },
     [SendDirver.rejected]: (state, action) => {
-      state.error = action.payload;
-      // console.log(action);
+      const errors = action.payload.response.data.errors
+      state.error = errors;
+      console.log('errors', errors);
+
+      const errorArray = []
+
+      for (const error in errors) {
+        console.log(`${error}: ${errors[error]}`);
+        errorArray.push(errors[error])
+      }
+
+
+      swal(errorArray.join().replaceAll('.,', '  ///   '), {
+        icon: "error",
+        button: 'موافق'
+      });
     },
     [deleteDriver.fulfilled]: (state, action) => {
       // state.isLoading = false;
       const filter = state.drivers.filter(drivers => drivers.id != action.meta.arg.id);
       state.drivers = filter
-      state.total = state.total - 1;
+      state.meta.total = state.meta.total - 1;
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },

@@ -39,15 +39,7 @@ const ClintForm = ({ setShow }) => {
           icon: "success",
           button: 'موافق',
         });
-      }).catch(() => {
-        swal("عفوا لم يتم تنفيذ الامر", {
-          icon: "error",
-          button: 'موافق'
-        });
-
       })
-
-    setShow(true)
   }
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>

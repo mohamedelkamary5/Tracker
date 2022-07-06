@@ -8,8 +8,8 @@ import Logo3 from "../../photo/slogan/user-avatar.svg"
 import { getClients2 } from './../../store/ClintSlice2'
 import { getDrivers } from "../../store/DriverSlice"
 const TabelUsers = () => {
-    const UserData = useSelector((state) => state.clients2.clients2)
-    const counterCustomer = UserData.length
+    const UserData = useSelector((state) => state.clients2)
+    const counterCustomer = UserData.meta.total 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getClients2())
@@ -32,7 +32,7 @@ const TabelUsers = () => {
                     </TrHead>
                 </Thead>
                 <Tbody>
-                    {UserData.slice(0, 7).map((user, index) => {
+                    {UserData.clients2.slice(0, 7).map((user, index) => {
                         return (
                             <TrBody key={index}>
 
@@ -58,7 +58,7 @@ const TabelUsers = () => {
                 </Tbody>
             </Tabel>
             <MoreTabel >
-                <b>{counterCustomer} مطعم</b>
+                <b>{counterCustomer} مطعم</b> 
                 <Link to="/admin/restaurants">المزيد<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
             </MoreTabel>
         </MainTabel>

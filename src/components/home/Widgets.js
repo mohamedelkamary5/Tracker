@@ -25,7 +25,7 @@ const Widgets = () => {
         <StyleItemWedgetAbout>
             <WedgetAboutRight>
             <img src={Customer}></img>
-            <p>عدد العملاء</p>
+            <p>عدد المطاعم</p>
             <h3>{counterCustomer}</h3>
             </WedgetAboutRight>
             <WedgetAboutLeft>

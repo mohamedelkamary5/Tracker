@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get, post, postFromData } from '../api/axios'
-
+import swal from 'sweetalert';
 
 // get data Currency
 export const getCurrency = createAsyncThunk('currency/getCurrency', async (pageId, thunkAPI) => {
@@ -47,14 +47,10 @@ export const SendCurrency = createAsyncThunk("currency/SendCurrency", async (dat
   } = thunkApi
   try {
     const response = await postFromData("currency/store", dataClint);
-    // const data = res
-    // console.log('data added to store', response.data);
-    return response.data
+    return response
   } catch (err) {
-    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    // console.log('rejectWithValue(err.message)', dataClint);
 
-    return rejectWithValue(err.message)
+    return rejectWithValue(err)
   }
 })
 
@@ -116,7 +112,7 @@ export const CurrencySlice = createSlice({
     },
     [getCurrency.fulfilled]: (state, action) => {
       state.currencies = action.payload.data;
-      state.meta= action.payload.meta;
+      state.meta = action.payload.meta;
     },
     [getCurrency.rejected]: (state, action) => {
       state.error = action;
@@ -150,23 +146,39 @@ export const CurrencySlice = createSlice({
       state.error = action;
       // console.log('action', action);
     },
+
     // SendCurrency
     [SendCurrency.pending]: (state, action) => {
       state.error = null;
     },
     [SendCurrency.fulfilled]: (state, action) => {
-      state.currencies.push(action.payload);
+      state.currencies.push(action.payload.data);
       state.total = state.total + 1;
     },
     [SendCurrency.rejected]: (state, action) => {
-      state.error = action.payload;
-      // console.log(action);
+      const errors = action.payload.response.data.errors
+      state.error = errors;
+      console.log('errors', errors);
+
+      const errorArray = []
+
+      for (const error in errors) {
+        console.log(`${error}: ${errors[error]}`);
+        errorArray.push(errors[error])
+      }
+
+
+      swal(errorArray.join().replaceAll('.,', '  ///   '), {
+        icon: "error",
+        button: 'موافق'
+      });
     },
+
     [deleteCurrency.fulfilled]: (state, action) => {
       // state.isLoading = false;
       const filter = state.clientDrivers.filter(drivers => drivers.id != action.meta.arg.id);
       state.clientDrivers = filter
-      state.total = state.total - 1; 
+      state.total = state.total - 1;
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },

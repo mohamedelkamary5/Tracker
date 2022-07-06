@@ -98,9 +98,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                 <thead>
                                     <tr>
                                         <th >#</th>
-                                        <th>الاسم بالعربي</th>
                                         <th> الأسم بالانجليزي</th>
-                                        <th> الوصف بالعربي</th>
                                         <th> الوصف بالانجليزي</th>
                                         <th>رقم التسلسل </th>
                                         <th>التكلفه</th>
@@ -118,17 +116,12 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                     </td>
 
                                                     <td>
-                                                        <span>{user.ar_title}</span>
-                                                    </td>
-                                                    <td>
                                                         <span>{user.en_title}</span>
                                                     </td>
                                                     <td>
                                                         <span>{user.en_desc}</span>
                                                     </td>
-                                                    <td>
-                                                        <span>{user.ar_desc}</span>
-                                                    </td>
+                                                   
                                                     <td>
                                                         <span>{user.sequence}</span>
                                                     </td>
@@ -143,7 +136,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                                         <div className='select-clint'>
                                                             <Link to={`/admin/quotes/${user.id}`}> التفاصيل</Link>
-                                                            <Link to={`/admin/quotes/${user.id}`}>بيانات العميل</Link>
                                                         </div>
                                                     </td>
                                                 </tr>

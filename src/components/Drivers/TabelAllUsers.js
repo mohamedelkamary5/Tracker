@@ -142,7 +142,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                                         <div className='select-clint'>
                                                             <Link to={`/admin/drivers/${user.id}`}> التفاصيل</Link>
-                                                            <Link to={`/admin/drivers/${user.id}`}>بيانات العميل</Link>
                                                         </div>
                                                     </td>
                                                 </tr>

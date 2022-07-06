@@ -34,12 +34,12 @@ export const SendQuote = createAsyncThunk("quotes/SendQuote", async (dataClint, 
     const response = await postFromData("quotes/store", dataClint);
     // const data = res
     // console.log('data added to store', response.data);
-    return response.data
+    return response
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
     // console.log('rejectWithValue(err.message)', dataClint);
 
-    return rejectWithValue(err.message)
+    return rejectWithValue(err)
   }
 })
 
@@ -88,7 +88,7 @@ export const QuotesSlice = createSlice({
     quoteDetails: {},
     error: null,
     listView: true,
-    meta: 0
+    meta: {}
   },
   extraReducers: {
 
@@ -124,14 +124,25 @@ export const QuotesSlice = createSlice({
       state.error = null;
     },
     [SendQuote.fulfilled]: (state, action) => {
-      state.quotes.push(action.payload);
-      state.total = state.total + 1;
-      // TODO: ALERT 
-      // swal("تم تنفيذ الامر بنجاح", {
-      //   icon: "success",
-      //   button: 'موافق'
-      // });
+      state.quotes.push(action.payload.data);
+      state.meta.total = state.meta.total + 1;
+    },
+    [SendQuote.rejected]: (state, action) => {
+      const errors = action.payload.response.data.errors
+      state.error = errors;
+      console.log('errors', errors);
 
+      const errorArray = []
+
+      for (const error in errors) {
+        console.log(`${error}: ${errors[error]}`);
+        errorArray.push(errors[error])
+      }
+
+      swal(errorArray.join().replaceAll('.,', '  ///   '), {
+        icon: "error",
+        button: 'موافق'
+      });
 
 
     },
@@ -147,7 +158,7 @@ export const QuotesSlice = createSlice({
       // state.isLoading = false;
       const filter = state.quotes.filter(quotes => quotes.id != action.meta.arg.id);
       state.quotes = filter
-      state.total = state.total - 1;
+      state.meta.total = state.meta.total - 1;
       // console.log('filter', filter);
       // console.log('action form fulfilled', action.meta.arg);
     },

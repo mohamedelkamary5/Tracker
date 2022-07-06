@@ -152,10 +152,10 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                 </Link>
                                                 <div className="card-body text-center">
                                                     <h6 className="card-title mb-1">
-                                                        <Link to={`/admin/managers/${user.id}`}>{user.en_name}</Link>
+                                                        <Link to={`/admin/managers/${user.id}`}>{user.name}</Link>
                                                     </h6>
                                                     <p className='mt-2'>
-                                                        <a href={`tel:+${user.mobile}`}>{user.mobile}</a>
+                                                        <a href={`mailto:${user.email}`}>{user.email}</a>
                                                     </p>
                                                     <div className='row actions-btns'>
                                                         <div className='col-3 p-0 actions-list'>
