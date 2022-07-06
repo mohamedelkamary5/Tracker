@@ -14,14 +14,14 @@ const useAuthRestaurant = () => {
 
 
  const ProtectedRoutesAdmin = (e) => {
-   const isAuth = true;
-  //  const isAuth = useAuthAdmin();
+  //  const isAuth = true;
+   const isAuth = useAuthAdmin();
   return isAuth ? <Outlet /> : <Navigate to="admin/login" />;
 };
 
 export const ProtectedRoutesRestaurant = (e) => {
-  const isAuth = true;
-  // const isAuth = useAuthRestaurant();
+  // const isAuth = true;
+  const isAuth = useAuthRestaurant();
   return isAuth ? <Outlet /> : <Navigate to="/login" />;
 };
 
