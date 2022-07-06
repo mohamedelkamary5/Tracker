@@ -11,7 +11,7 @@ const AddClint = () => {
     <div >
       <button className='btn btn-main' onClick={AddUsers} >
         <MdPersonAddAlt className='MdPersonAddAlt' />
-        <span> إضافة اقتباس </span>
+        <span> إضافة باقه </span>
       </button>
     </div>
   )

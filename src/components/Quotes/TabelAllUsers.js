@@ -19,11 +19,8 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
-
     const UserDataSelector = useSelector(state => state.quotes)
     const listView = useSelector(state => state.quotes.listView)
-
-
     const [UserData, setUserData] = useState([])
 
     useEffect(() => {
@@ -62,9 +59,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const sortingItems = [
         { id: 1, name: 'id', title: '#' },
         { id: 2, name: 'en_name', title: 'الأسم' },
-        { id: 3, name: 'mobile', title: 'التليفون' },
-        { id: 4, name: 'email', title: 'الايميل' },
-        { id: 5, name: 'status', title: 'الحالة' },
+        { id: 3, name: 'sequence', title: 'التسلسل' },
+        { id: 4, name: 'cost', title: 'التكلفه' },
+        { id: 5, name: 'months', title: 'الشهور' },
     ]
 
     const inputSearch = (e) => {
@@ -100,12 +97,14 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th >الشعار</th>
                                         <th >#</th>
+                                        <th>الاسم بالعربي</th>
                                         <th> الأسم بالانجليزي</th>
-                                        <th>التليفون</th>
-                                        <th>الايميل</th>
-                                        <th>الحالة</th>
+                                        <th> الوصف بالعربي</th>
+                                        <th> الوصف بالانجليزي</th>
+                                        <th>رقم التسلسل </th>
+                                        <th>التكلفه</th>
+                                        <th>الشهور</th>
                                         <th>الخيارات</th>
                                     </tr>
                                 </thead>
@@ -114,15 +113,22 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         {resultData.map((user, index) => {
                                             return (
                                                 <tr key={index}>
-                                                    <td><Link className='my-2' to={`/admin/quotes/${user.id}`}><img src={Logo3} alt="logo" /></Link></td>
                                                     <td>
                                                         <Link className='text-link' to={`/admin/quotes/${user.id}`}>{user.id}#</Link>
+                                                    </td>
+
+                                                    <td>
+                                                        <span>{user.ar_title}</span>
                                                     </td>
                                                     <td>
                                                         <span>{user.en_title}</span>
                                                     </td>
-
-
+                                                    <td>
+                                                        <span>{user.en_desc}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>{user.ar_desc}</span>
+                                                    </td>
                                                     <td>
                                                         <span>{user.sequence}</span>
                                                     </td>

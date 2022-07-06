@@ -7,15 +7,14 @@ import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
 import { SendDirver } from '../../store/DriverSlice';
+import { getShipping } from '../../store/ShippingSlice';
 
 const ClintForm = ({ setShow }) => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.driver)
-
-  //get date today
-  const today = new Date();
-  const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
-  //redux toolkit
   const dispatch = useDispatch()
+
+
+ 
 
   const initialState = {
     photo: null,
@@ -59,7 +58,7 @@ const ClintForm = ({ setShow }) => {
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
       <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
         <SliderClint title="اضافه سائق"   >
-          <InputCustomer values={values} setValues={setValues} />
+          <InputCustomer values={values}  setValues={setValues} />
         </SliderClint>
         <StyleFotter>
           <button onClick={AddUser} className="btn btn-main">

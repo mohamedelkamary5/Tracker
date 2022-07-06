@@ -52,13 +52,13 @@ const ClintForm = ({ setShow }) => {
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
       <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
-        <SliderClint title="اضافه اقتباس"   >
+        <SliderClint title="اضافه باقه"   >
           <InputCustomer values={values} setValues={setValues} />
         </SliderClint>
         <StyleFotter>
           <button onClick={AddUser} className="btn btn-main">
             <MdPersonAddAlt className='MdPersonAddAlt' />
-            <span>اضافه اقتباس</span>
+            <span>اضافه باقه</span>
           </button>
 
           <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>

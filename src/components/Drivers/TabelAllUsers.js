@@ -15,16 +15,18 @@ import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
+import { getShipping } from '../../store/ShippingSlice';
 const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
-
     const UserDataSelector = useSelector(state => state.drivers)
+    
     const listView = useSelector(state => state.drivers.listView)
-
-
     const [UserData, setUserData] = useState([])
+    
+
+
 
     useEffect(() => {
         if (statusBlackList) {
@@ -34,6 +36,8 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         } else {
             setUserData(UserDataSelector.drivers)
             setSortValue('')
+            
+            
         }
     }, [UserDataSelector.drivers, statusBlackList])
 

@@ -1,24 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import Select from 'react-select'
 import Switch from "react-switch";
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getShipping } from '../../store/ShippingSlice';
 
-const FormAddShipping = ({ values, setValues }) => {
 
+const FormAddShipping = ({ values, setValues  }) => {
+    const UserDataSelector = useSelector(state => state.shipping.shipping)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getShipping())
+    }, [dispatch ])
     //select Shipping 
-    const shippingData = useSelector(state => state.shipping.shipping)
-    //const domyData = [{id:1,en_name:"mohamed"},{id:2,en_name:"ahmed"}]
-    const options = shippingData.map(d => ({
+    const options = UserDataSelector.map(d => ({
         "value" : d.id,
         "label" : d.en_name,
       }))
-      const [initOption , SetinitOption] = useState(options)
-     
- 
- console.log(initOption)
-
-
+      
 
     const [selectedFiles, setselectedFiles] = useState([]);
     const handleAcceptedFiles = (files) => {
@@ -74,7 +73,8 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-12'>
                 <div className="mb-3">
                 <label htmlFor="en_name" className="form-label">اختار شركه شحن<span>*</span> </label>
-                <Select options={initOption} name="اختار"  onChange={(e) => setValues({ ...values, user_id: e.value })}   />
+                <Select options={options} name="اختار"  onChange={(e) => setValues({ ...values, user_id: e.value })}   />
+
                 </div>
                 </div>
                 {/* Block Item */}
