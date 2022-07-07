@@ -14,7 +14,7 @@ const OrderDetails = ({HandelShow }) => {
     dispatch(getOrdreDetails(orderId))
   }, [getOrdreDetails])
 
-  const clientDetails = useSelector(state => state.ordersRestauantsSlice.orderDetails)
+  const clientDetails = useSelector(state => state.ordersRestauants.orderDetails)
   
   // console.log('clientDetails____1', clientDetails);
   return (

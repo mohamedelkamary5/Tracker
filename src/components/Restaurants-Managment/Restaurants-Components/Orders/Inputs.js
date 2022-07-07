@@ -43,6 +43,11 @@ const FormAddShipping = ({ values, setValues }) => {
 
     const centerMap = { lat: values.lat, lng: values.lon }
 
+    const handleMapInfo = (data) => {
+        console.log('data', data);
+        setValues({ ...values, address: data.address, lat: data.lat, lon: data.lng })
+    }
+
     return (
         <div className='main-input px-2'>
             <div className='row'>
@@ -96,6 +101,7 @@ const FormAddShipping = ({ values, setValues }) => {
                             center={centerMap}
                             height='300px'
                             zoom={15}
+                            handleMapInfo={handleMapInfo}
                         />
                     </div>
                 </div>

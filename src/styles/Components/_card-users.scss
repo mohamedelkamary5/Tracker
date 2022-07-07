@@ -28,7 +28,7 @@
 //header cards
 .main-card-users {
    
-    margin-top: 20px;
+    // margin-top: 20px;
 
 
 
@@ -173,6 +173,10 @@
 
                         p {
                             font-size: 14px;
+                            text-overflow: ellipsis;
+                            width: 96%;
+                            white-space: nowrap;
+                            overflow: hidden;
                         }
                     }
 

@@ -44,6 +44,11 @@ const FormAddShipping = ({ values, setValues }) => {
     // { lat: 18.5204, lng: 73.8567 }
     const centerMap = { lat: values.lat, lng: values.lon }
 
+    const handleMapInfo = (data) => {
+        console.log('data', data);
+        setValues({ ...values, address: data.address, lat: data.lat, lon: data.lng })
+    }
+
     return (
         <div className='main-input px-2'>
             <div className='row'>
@@ -68,12 +73,12 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                {/* <div className='col-lg-6'>
                     <div className="mb-3">
                         <label htmlFor="address" className="form-label">الاسم العنوان<span>*</span> </label>
                         <input type="text" className="form-control" id="address" placeholder="اكتب الاسم العنوان" value={values.address} required onChange={(e) => setValues({ ...values, address: e.target.value })} />
                     </div>
-                </div>
+                </div> */}
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
@@ -143,6 +148,7 @@ const FormAddShipping = ({ values, setValues }) => {
                             center={centerMap}
                             height='300px'
                             zoom={15}
+                            handleMapInfo={handleMapInfo}
                         />
                     </div>
                 </div>

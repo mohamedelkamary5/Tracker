@@ -87,7 +87,7 @@ export const OrdersRestauantsSlice = createSlice({
     orderDetails: {},
     error: null,
     listView: true,
-    meta: 0
+    meta: {}
   },
   extraReducers: {
 

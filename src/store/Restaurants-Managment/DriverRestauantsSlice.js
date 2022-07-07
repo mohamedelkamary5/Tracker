@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { get, post, postFromData } from '../../api/axios'
 import swal from 'sweetalert';
 // get data clints drivers
-export const getDrivers = createAsyncThunk('drivers/getDrivers', async (pageId, thunkAPI) => {
+export const getDrivers = createAsyncThunk('driversRestaurant/getDrivers', async (pageId, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get(`admins/drivers?page=${pageId}`) 
+    const res = await get(`restaurants/drivers?page=${pageId}`)
     return res
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -14,11 +14,11 @@ export const getDrivers = createAsyncThunk('drivers/getDrivers', async (pageId, 
   }
 })
 // get data Active drivers
-export const getActiveDrivers = createAsyncThunk('drivers/getActiveDrivers', async (_, thunkAPI) => {
+export const getActiveDrivers = createAsyncThunk('driversRestaurant/getActiveDrivers', async (_, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get('admins/drivers/active')
+    const res = await get('restaurants/drivers/active')
     return res.data
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -28,11 +28,11 @@ export const getActiveDrivers = createAsyncThunk('drivers/getActiveDrivers', asy
 
 
 // get data clint driver Details
-export const getDriverDetails = createAsyncThunk('drivers/getDriverDetails', async (id, thunkAPI) => {
+export const getDriverDetails = createAsyncThunk('driversRestaurant/getDriverDetails', async (id, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
 
   try {
-    const res = await get(`admins/drivers/show/${id}`)
+    const res = await get(`restaurants/drivers/show/${id}`)
     return res.data
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -40,27 +40,26 @@ export const getDriverDetails = createAsyncThunk('drivers/getDriverDetails', asy
   }
 })
 // send data  driver Details
-export const SendDirver = createAsyncThunk("drivers/SendDirver", async (dataClint, thunkApi) => {
-  const { rejectWithValue} = thunkApi
+export const SendDirver = createAsyncThunk("driversRestaurant/SendDirver", async (dataClint, thunkApi) => {
+  const {
+    rejectWithValue
+  } = thunkApi
   try {
-    const response = await postFromData("admins/drivers/store", dataClint);
-    // const data = res
-    // console.log('data added to store', response.data);
-    return response.data
+    const response = await postFromData("restaurants/drivers/store", dataClint);
+    return response
   } catch (err) {
-    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    // console.log('rejectWithValue(err.message)', dataClint);
-
-    return rejectWithValue(err.message)
+    return rejectWithValue(err)
   }
 })
 
 // changeStatusDriver
-export const changeStatusDriver = createAsyncThunk('drivers/changeStatusDriver', async (id, thunkAPI) => {
-  const { rejectWithValue} = thunkAPI
+export const changeStatusDriver = createAsyncThunk('driversRestaurant/changeStatusDriver', async (id, thunkAPI) => {
+  const {
+    rejectWithValue
+  } = thunkAPI
 
   try {
-    const res = await get(`admins/drivers/status/${id}`)
+    const res = await get(`restaurants/drivers/status/${id}`)
     return res.data
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -69,11 +68,13 @@ export const changeStatusDriver = createAsyncThunk('drivers/changeStatusDriver',
 })
 
 // deleteDriver
-export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, thunkAPI) => {
-  const { rejectWithValue } = thunkAPI
+export const deleteDriver = createAsyncThunk('driversRestaurant/deleteDriver', async (id, thunkAPI) => {
+  const {
+    rejectWithValue
+  } = thunkAPI
 
   try {
-    const res = await post(`admins/drivers/destroy/${id}`)
+    const res = await post(`restaurants/drivers/destroy/${id}`)
     return res.data
   } catch (err) {
     // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
@@ -83,22 +84,22 @@ export const deleteDriver = createAsyncThunk('drivers/deleteDriver', async (id, 
 
 
 // handleListView
-export const handleListView = createAsyncThunk('drivers/handleListView', (status) => {
+export const handleListView = createAsyncThunk('driversRestaurant/handleListView', (status) => {
 
   return status
 
 })
 
 
-export const DriverRestauantsSlice = createSlice({
-  name: 'drivers',
+export const DriverSlice = createSlice({
+  name: 'driversRestaurant',
   initialState: {
-    drivers: [],
+    driversRestaurant: [],
     activeDrivers: [],
     driverDetails: {},
     error: null,
     listView: true,
-    meta: 0
+    meta: {}
   },
   extraReducers: {
 
@@ -107,8 +108,9 @@ export const DriverRestauantsSlice = createSlice({
       state.error = null;
     },
     [getDrivers.fulfilled]: (state, action) => {
-      state.drivers = action.payload.data;
-      state.meta= action.payload.meta;
+      state.driversRestaurant = action.payload.data.user.drivers;
+      // state.meta = action.payload.meta;
+      console.log('action.payload.data.user.drivers', action.payload.data.user.drivers);
     },
     [getDrivers.rejected]: (state, action) => {
       state.error = action;
@@ -142,33 +144,47 @@ export const DriverRestauantsSlice = createSlice({
       state.error = action;
       // console.log('action', action);
     },
-    // SendDirver  
-    [SendDirver.pending]: (state, action) => {
-      state.error = null;
-    },
-    [SendDirver.fulfilled]: (state, action) => {
-      state.drivers.push(action.payload);
-      state.total = state.total + 1;
-    },
-    [SendDirver.rejected]: (state, action) => {
-      state.error = action.payload;
-      // console.log(action);
-    },
-    [deleteDriver.fulfilled]: (state, action) => {
-      // state.isLoading = false;
-      const filter = state.drivers.filter(drivers => drivers.id != action.meta.arg.id);
-      state.drivers = filter
-      state.total = state.total - 1;
-      // console.log('filter', filter);
-      // console.log('action form fulfilled', action.meta.arg);
-    },
-    [changeStatusDriver.fulfilled]: (state, action) => {      
-      // state.isLoading = false;
-      // const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
-      // state.clients2 = filter
-      // // console.log('filter', filter);
-      // // console.log('action form fulfilled', action.meta.arg);
-    },
+    // // SendDirver  
+    // [SendDirver.pending]: (state, action) => {
+    //   state.error = null;
+    // },
+    // [SendDirver.fulfilled]: (state, action) => {
+    //   state.drivers.push(action.payload.data);
+    //   state.meta = state.meta.total + 1;
+    // },
+    // [SendDirver.rejected]: (state, action) => {
+    //   const errors = action.payload.response.data.errors
+    //   state.error = errors;
+    //   console.log('errors', errors);
+
+    //   const errorArray = []
+
+    //   for (const error in errors) {
+    //     console.log(`${error}: ${errors[error]}`);
+    //     errorArray.push(errors[error])
+    //   }
+
+
+    //   swal(errorArray.join().replaceAll('.,', '  ///   '), {
+    //     icon: "error",
+    //     button: 'موافق'
+    //   });
+    // },
+    // [deleteDriver.fulfilled]: (state, action) => {
+    //   // state.isLoading = false;
+    //   const filter = state.drivers.filter(drivers => drivers.id != action.meta.arg.id);
+    //   state.drivers = filter
+    //   state.meta = state.meta.total - 1;
+    //   // console.log('filter', filter);
+    //   // console.log('action form fulfilled', action.meta.arg);
+    // },
+    // [changeStatusDriver.fulfilled]: (state, action) => {
+    //   // state.isLoading = false;
+    //   // const filter = state.clients2.filter(client => client.id != action.meta.arg.id);
+    //   // state.clients2 = filter
+    //   // // console.log('filter', filter);
+    //   // // console.log('action form fulfilled', action.meta.arg);
+    // },
 
 
   },
@@ -183,4 +199,4 @@ export const DriverRestauantsSlice = createSlice({
 // Action creators are generated for each case reducer function
 
 
-export default DriverRestauantsSlice.reducer
+export default DriverSlice.reducer

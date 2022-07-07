@@ -65,7 +65,7 @@ const CardUsers = () => {
     dispatch(getOrders(1))
   }, [dispatch])
 
-  const orderList = useSelector(state => state.ordersRestauantsSlice.orders)
+  const orderList = useSelector(state => state.ordersRestauants.orders)
 
 
   const tConvert = (time) => {
@@ -135,12 +135,12 @@ const CardUsers = () => {
                   <div className='img-go'>
                     <img src={go} alt="go-to" />
                     <div>
-                      <div className='pickup-point'>
+                      <div className='pickup-point w-100'>
                         <h5>نقطه الالتقاط</h5>
                         <p>30 شارع ااميثاق - مطعم الاصدقاء</p>
 
                       </div>
-                      <div className='delivery-point'>
+                      <div className='delivery-point w-100'>
                         <h5>نقطه التوصيل</h5>
                         <p>{item.address}</p>
                       </div>
@@ -149,12 +149,12 @@ const CardUsers = () => {
                   <div className='fotter-item'>
                     {item.status === "pending" ?
                       <>
-                        <div className='right-fotter'>
-                          <p>لم يتم تعيين سائق بعد</p>
+                        <div className='right-fotter m-auto'>
+                          <p className='fw-bolder text-danger'>لم يقوم اي سائق باختيار الطلب بعد</p>
                         </div>
-                        <div className='left-fotter'>
+                        {/* <div className='left-fotter'>
                           <button onClick={() => showDriverToSelect(item.id)} className='btn btn-main'>تعيين سائق</button>
-                        </div>
+                        </div> */}
                       </>
                       : <>
                         <div className='right-fotter'>

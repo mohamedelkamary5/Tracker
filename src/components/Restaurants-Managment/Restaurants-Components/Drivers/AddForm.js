@@ -6,10 +6,10 @@ import SliderClint from '../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
-import { SendDirver } from '../../store/DriverSlice';
+import { SendDirver } from '../../../../store/Restaurants-Managment/DriverRestauantsSlice';
 
 const ClintForm = ({ setShow }) => {
-  const toogleslider = useSelector((state) => state.ShowAndHide.value.driver)
+  const toogleslider = useSelector((state) => state.ShowAndHide.value.driverRestaurant)
 
   //get date today
   const today = new Date();
@@ -62,7 +62,7 @@ const ClintForm = ({ setShow }) => {
         <StyleFotter>
           <button onClick={AddUser} className="btn btn-main">
             <MdPersonAddAlt className='MdPersonAddAlt' />
-            <span>اضافه سائق</span>
+            <span>222222222اضافه سائق</span>
           </button>
 
           <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>

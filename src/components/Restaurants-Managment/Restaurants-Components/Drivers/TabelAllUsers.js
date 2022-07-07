@@ -11,7 +11,7 @@ import { AiOutlineBars } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { AiOutlineAppstore } from 'react-icons/ai';
 
-import { getOrders, handleListView } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
+import { getDrivers, handleListView } from '../../../../store/Restaurants-Managment/DriverRestauantsSlice';
 import ButtonReturn from '../../../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
@@ -42,12 +42,11 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
     useEffect(() => {
-        dispatch(getOrders(1))
+        dispatch(getDrivers(1))
     }, [dispatch])
 
     const handlePageClick = (data) => {
-        console.log('handlePageClick', data.selected);
-        dispatch(getOrders(data.selected + 1))
+        dispatch(getDrivers(data.selected + 1))
     }
 
 

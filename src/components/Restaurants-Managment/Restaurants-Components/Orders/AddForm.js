@@ -24,7 +24,6 @@ const AddOrderForm = ({ setShow }) => {
     price: "",
     mobile: '',
     telephone: '',
-    address: "",
     email: "",
     lon: 0,
     lat: 0

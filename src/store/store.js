@@ -8,8 +8,8 @@ import ManagersSlice from './ManagersSlice'
 import QuotesSlice from './QuotesSlice'
 import DriverSlice from './DriverSlice'
 import CurrencySlice from './CurrencySlice'
-import { DriverRestauantsSlice } from './Restaurants-Managment/DriverRestauantsSlice'
 import OrdersRestauantsSlice from './Restaurants-Managment/OrdersRestauantsSlice'
+import  DriverRestauantsSlice  from './Restaurants-Managment/DriverRestauantsSlice'
 
 export const store = configureStore({
   reducer: {
@@ -24,7 +24,7 @@ export const store = configureStore({
     auth: auth,
 
     // restaurantsManagment
-    ordersRestauantsSlice: OrdersRestauantsSlice,
-    //   driverRestauantsSlice: DriverRestauantsSlice,
+    ordersRestauants: OrdersRestauantsSlice,
+    driversRestaurant: DriverRestauantsSlice,
   },
 })

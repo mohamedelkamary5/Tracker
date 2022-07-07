@@ -271,27 +271,27 @@ function App() {
                   />
                   <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
                 </Route>
-               </Route>
+              </Route>
               {/* End    Routes Admin */}
 
 
 
 
-{/* My Account */}
-<Route path="admin/my-account">
-  <Route path="" element={<MyAccount
-    HandelShow={HandelShow}
-    HandelClose={HandelClose} />}
-  />
-  <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
-</Route>
-</Route>
-{/* End Routes Admin */}
-            
-            
-            
-   
-   
+              {/* My Account */}
+              <Route path="admin/my-account">
+                <Route path="" element={<MyAccount
+                  HandelShow={HandelShow}
+                  HandelClose={HandelClose} />}
+                />
+                <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
+              </Route>
+            </Route>
+            {/* End Routes Admin */}
+
+
+
+
+
 
 
 
