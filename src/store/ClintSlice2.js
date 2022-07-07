@@ -32,8 +32,7 @@ export const getClientDetails = createAsyncThunk('clients2/getClientDetails', as
      const res = await get(`restaurants/show/${id}`)
      return res.data
   } catch (err) {
-    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-      return rejectWithValue(err.message)
+      return rejectWithValue(err)
   }
 })
 // send data clint 
@@ -43,14 +42,10 @@ export const SendClint = createAsyncThunk("clients2/SendClint" , async (dataClin
   const {rejectWithValue} = thunkApi
   try {
     const response = await postFromData("restaurants/store", dataClint);
-    // const data = res
-    // console.log('data added to store', response.data);
-    return response.data
+    return response
  }catch (err) {
-  // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-  // console.log('rejectWithValue(err.message)', dataClint);
 
-  return rejectWithValue(err.message)
+  return rejectWithValue(err)
  }
 })
 
@@ -104,9 +99,6 @@ export const ClintSlice = createSlice({
     error: null ,
     listView: true,
     meta: 0
-    // blackList:localStorage.getItem("blackList")  ? JSON.parse(localStorage.getItem("blackList")) :[
-
-    // ]
     
     },
   extraReducers: {
@@ -144,12 +136,26 @@ export const ClintSlice = createSlice({
         state.error = null;
       },
       [SendClint.fulfilled]: (state, action) => {
-        state.clients2.push(action.payload);     
+        state.clients2.push(action.payload.data);     
         state.total = state.total + 1;
       },
       [SendClint.rejected]: (state, action) => {
-        state.error = action.payload;
-        // console.log(action);
+        const errors = action.payload.response.data.errors
+        state.error = errors;
+        console.log('errors', errors);
+
+        const errorArray = []
+
+        for (const error in errors) {
+          console.log(`${error}: ${errors[error]}`);
+          errorArray.push(errors[error])
+        }
+
+
+        swal(errorArray.join().replaceAll('.,', '  ///   '), {
+          icon: "error",
+          button: 'موافق'
+        });
       },
 
      

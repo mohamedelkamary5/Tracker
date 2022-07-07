@@ -33,14 +33,10 @@ export const SendManager = createAsyncThunk("managers/SendManager", async (dataC
   const { rejectWithValue } = thunkApi
   try {
     const response = await postFromData("admins/store", dataClint);
-    // const data = res
-    // console.log('data added to store', response.data);
-    return response.data
+    return response
   } catch (err) {
-    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
-    // console.log('rejectWithValue(err.message)', dataClint);
 
-    return rejectWithValue(err.message)
+    return rejectWithValue(err)
   }
 })
 
@@ -124,15 +120,26 @@ export const ManagersSlice = createSlice({
       state.error = null;
     },
     [SendManager.fulfilled]: (state, action) => {
-      state.managers.push(action.payload);
+      state.managers.push(action.payload.data);
       state.total = state.total + 1;
-      // TODO: ALERT 
-      // swal("تم تنفيذ الامر بنجاح", {
-      //   icon: "success",
-      //   button: 'موافق'
-      // });
+    },
+    [SendManager.rejected]: (state, action) => {
+      const errors = action.payload.response.data.errors
+      state.error = errors;
+      console.log('errors', errors);
+
+      const errorArray = []
+
+      for (const error in errors) {
+        console.log(`${error}: ${errors[error]}`);
+        errorArray.push(errors[error])
+      }
 
 
+      swal(errorArray.join().replaceAll('.,', '  ///   '), {
+        icon: "error",
+        button: 'موافق'
+      });
 
     },
 
