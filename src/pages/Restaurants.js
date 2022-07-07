@@ -6,6 +6,7 @@ import TabelAllUsers from '../components/Restaurants/TabelAllUsers'
 // import GlopalTabel from '../components/glopal/GlopalTabel'
 import {MarginPages} from '../styles/MarginPages'
 import { useSelector, useDispatch } from 'react-redux'
+import { getShipping } from '../store/ShippingSlice'
 
 const Restaurants = ({HandelShow ,HandelShowCustomer  }
   
@@ -14,7 +15,12 @@ const Restaurants = ({HandelShow ,HandelShowCustomer  }
   //sort search
   const [searchSort , setSortSearch] = useState("") 
   const UserData = useSelector((state) => state.clint.DataUser)
-
+  //use effect select shipping
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getShipping())
+    
+}, [dispatch ])
   return (
     <div className='lay-out-wrapp'>
         <TopBar title={"المطاعم"} HandelShow={HandelShow} />

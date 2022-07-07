@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
-
+import Select from 'react-select'
 import Switch from "react-switch";
 import LocationSearchInput from './Location';
 import TestSvg from './Map';
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
 import GoogleMapComponet from '../../Shared/Components/Google-Map/Map';
+import { useSelector } from 'react-redux';
 
 const FormAddShipping = ({ values, setValues }) => {
+         //select Shipping 
+         const UserDataSelector = useSelector(state => state.shipping.shipping)
+         const options = UserDataSelector.map(d => ({
+             "value" : d.id,
+             "label" : d.en_name,
+           }))
+
     const [selectedFiles, setselectedFiles] = useState([]);
     const handleAcceptedFiles = (files) => {
         files.map(file =>
@@ -52,6 +60,12 @@ const FormAddShipping = ({ values, setValues }) => {
                     <div className="mb-3">
                         <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
                     </div>
+                </div>
+                {/* Block Item */}
+                <div className="mb-3">
+                <label htmlFor="en_name" className="form-label">اختار شركه شحن<span>*</span> </label>
+                <Select options={options} name="اختار"  onChange={(e) => setValues({ ...values, user_id: e.value })}   />
+
                 </div>
                 {/* Block Item */}
                 <div className='col-lg-6'>

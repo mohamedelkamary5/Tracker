@@ -7,15 +7,8 @@ import { getShipping } from '../../store/ShippingSlice';
 
 
 const FormAddShipping = ({ values, setValues  }) => {
-     const UserDataSelector = useSelector(state => state.shipping.shipping)
-     
-     const dispatch = useDispatch()
-
-
-   
-   
-  
-    //select Shipping 
+     //select Shipping 
+    const UserDataSelector = useSelector(state => state.shipping.shipping)
     const options = UserDataSelector.map(d => ({
         "value" : d.id,
         "label" : d.en_name,
