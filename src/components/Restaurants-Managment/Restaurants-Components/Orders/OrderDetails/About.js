@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import { AiFillStar } from 'react-icons/ai';
+import { MdOutlinePriceChange } from 'react-icons/md';
 import request from '../../../../../photo/icons/requestswedget.svg'
 import delevery from '../../../../../photo/icons/deleverywedget.svg'
 import Logo3 from "../../../../../photo/slogan/user-avatar.svg"
@@ -17,8 +18,14 @@ const AboutClint = (props) => {
         <div className='apout'>
 
           <h5>  اسم العميل : {clientDetails.client_name}</h5>
-          <p>رقم الموبايل : {mobile}</p>
+          <p>
+            رقم الموبايل :
+            <a className='text-link' href={`tel:+${clientDetails.mobile}`}>
+              {mobile}
+            </a>
+          </p>
           <h5> السعر : {clientDetails.price}</h5>
+          <h5> العنوان : {clientDetails.address}</h5>
 
         </div>
       </MainRightAbout>
@@ -29,25 +36,26 @@ const AboutClint = (props) => {
             <p>حالة الطلب</p>
           </div>
           <div className='type'>
-            <h2 className='text-white'>{clientDetails.status == 'pending' ? 'قيد التوصيل' : 'قيد التوصيل' }</h2>
+            <h2 className='text-white'>{clientDetails.status == 'pending' ? 'قيد الإنتظار' : 'قيد التوصيل'}</h2>
           </div>
         </div>
-        <div className='item-wedget'>
+        <div className='item-wedget price'>
           <div className='header-wedget'>
-            <img src={request} />
-            {/* <p>عدد الطلبات</p> */}
+            {/* <img src={request} /> */}
+            <MdOutlinePriceChange />
+            <p>سعر الطلب</p>
           </div>
-          <div className='type'>
-            <h2>350</h2>
+          <div className='type mt-3'>
+            <h4>{clientDetails.price}</h4>
           </div>
         </div>
         <div className='item-wedget'>
           <div className='header-wedget'>
             <img src={delevery} />
-            {/* <p>عدد السائقين</p> */}
+            <p>العنوان</p>
           </div>
           <div className='type'>
-            <h2>250</h2>
+            <h5>{clientDetails.address}</h5>
           </div>
         </div>
 
@@ -127,8 +135,21 @@ align-items: center;
   border-radius: 8px;
   width: 250px;
   height: 150px;
-  .icon-wedget , img{
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+  .icon-wedget , img, svg{
     margin-left: 18px;
+  }
+  &.price{
+    svg{
+      font-size: 38px;
+      outline: 10px solid #faa30d1f;
+      border-radius: 50%;
+      margin-left: 18px;
+      color: #FBA30D;
+      background-color: #faa30d1f;
+    }
   }
   
   h2{
