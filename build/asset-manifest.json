@@ -1,17 +1,7 @@
 {
   "files": {
-<<<<<<< HEAD
-    "main.css": "/static/css/main.f958734c.css",
-    "main.js": "/static/js/main.01242c27.js",
-=======
-<<<<<<< HEAD
-    "main.css": "/static/css/main.52e87ba4.css",
-    "main.js": "/static/js/main.939bbaa1.js",
-=======
-    "main.css": "/static/css/main.bc1458fb.css",
-    "main.js": "/static/js/main.0c6ff87b.js",
->>>>>>> 95b5dc483d4dab3525970d21f0f4215483bbe4c0
->>>>>>> 67520a99cea4dc72341218b0b7b39a6216ebd835
+    "main.css": "/static/css/main.f8010b35.css",
+    "main.js": "/static/js/main.1d039730.js",
     "static/media/personlogin.jpg": "/static/media/personlogin.e6f8030138417ad353d7.jpg",
     "static/media/img.png": "/static/media/img.13ebe73e3b66cb5ddcf0.png",
     "static/media/pattern-1.png": "/static/media/pattern-1.684928c6dd791afe1081.png",
@@ -31,29 +21,11 @@
     "static/media/notifications.svg": "/static/media/notifications.cee44213a890381f6931ad967ebba51a.svg",
     "static/media/customerswedget.svg": "/static/media/customerswedget.4444752a3fc44b158471709d2d845c4a.svg",
     "static/media/user-avatar.svg": "/static/media/user-avatar.f8aae15758f36b95d71622868d64a5bb.svg",
-<<<<<<< HEAD
-    "main.f958734c.css.map": "/static/css/main.f958734c.css.map",
-    "main.01242c27.js.map": "/static/js/main.01242c27.js.map"
+    "main.f8010b35.css.map": "/static/css/main.f8010b35.css.map",
+    "main.1d039730.js.map": "/static/js/main.1d039730.js.map"
   },
   "entrypoints": [
-    "static/css/main.f958734c.css",
-    "static/js/main.01242c27.js"
-=======
-<<<<<<< HEAD
-    "main.52e87ba4.css.map": "/static/css/main.52e87ba4.css.map",
-    "main.939bbaa1.js.map": "/static/js/main.939bbaa1.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.52e87ba4.css",
-    "static/js/main.939bbaa1.js"
-=======
-    "main.bc1458fb.css.map": "/static/css/main.bc1458fb.css.map",
-    "main.0c6ff87b.js.map": "/static/js/main.0c6ff87b.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.bc1458fb.css",
-    "static/js/main.0c6ff87b.js"
->>>>>>> 95b5dc483d4dab3525970d21f0f4215483bbe4c0
->>>>>>> 67520a99cea4dc72341218b0b7b39a6216ebd835
+    "static/css/main.f8010b35.css",
+    "static/js/main.1d039730.js"
   ]
 }

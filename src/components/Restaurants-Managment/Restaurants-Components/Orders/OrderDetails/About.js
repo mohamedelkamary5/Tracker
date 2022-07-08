@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import { AiFillStar } from 'react-icons/ai';
 import { MdOutlinePriceChange } from 'react-icons/md';
+import { BsCurrencyDollar } from 'react-icons/bs';
 import request from '../../../../../photo/icons/requestswedget.svg'
 import delevery from '../../../../../photo/icons/deleverywedget.svg'
 import Logo3 from "../../../../../photo/slogan/user-avatar.svg"
@@ -42,7 +43,8 @@ const AboutClint = (props) => {
         <div className='item-wedget price'>
           <div className='header-wedget'>
             {/* <img src={request} /> */}
-            <MdOutlinePriceChange />
+            {/* <MdOutlinePriceChange /> */}
+            <BsCurrencyDollar className='icon-wedget' />
             <p>سعر الطلب</p>
           </div>
           <div className='type mt-3'>

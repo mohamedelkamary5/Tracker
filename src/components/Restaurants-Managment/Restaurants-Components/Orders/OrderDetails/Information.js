@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import AboutClint from './About';
 import HeaderButton from './HeaderButton';
-import TabelClient from './TabelUser';
+import TabelClient from './TrackingOrder';
 
 const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetails }) => {
 
@@ -36,7 +36,7 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
           mobile={clientDetails.mobile}
           telephone={clientDetails.telephone}
         />
-        {/* <TabelClient
+        <TabelClient
           logo={clientDetails.photo}
           id={clientDetails.id}
           name={clientDetails.en_name}
@@ -48,7 +48,7 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
           websitelink={clientDetails.address}
           tradetype={clientDetails.email}
           currencypaid={clientDetails.status}
-        /> */}
+        />
 
 
 

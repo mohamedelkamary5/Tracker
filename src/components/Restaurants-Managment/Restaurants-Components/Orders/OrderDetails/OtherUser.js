@@ -31,7 +31,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
       </div>
       <div className='item-wedget'>
         <div className='header-wedget'>
-          <BsCurrencyDollar className='icon-wedget' />
+          <BsCurrencyDollar className='icon-wedget' /> 
           <p>العمله المدفوع بها</p>
         </div>
         <div className='type'>
