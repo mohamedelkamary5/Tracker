@@ -1,28 +1,21 @@
 import React from 'react'
 import styled from "styled-components"
 import TopBar from '../../bars/TopBar'
-import {MarginPages} from '../../../styles/MarginPages'
-// import ClintInformation from './ClintInformation'
-// import DeleteClint from './DeleteClint'
-// import StopClint from './StopClint_R_R'
 
 
-const WrapperContainer = ({children, HandelShow , showCustomer ,HandelShowCustomer ,HandelClose ,HandelStopCustomer ,showStopClint }) => {
-  // <ClintInformation HandelShowCustomer={HandelShowCustomer} HandelStopCustomer={HandelStopCustomer}  />
-  // <DeleteClint showCustomer={showCustomer} HandelClose={HandelClose} />
-  // <StopClint  HandelClose={HandelClose} showStopClint={showStopClint} />
+const WrapperContainer = ({ children, HandelShow }) => {
   return (
     <div className='lay-out-wrapp'>
       <TopBar title={"حسابي"} HandelShow={HandelShow} />
-      
-      
+
+
       <div className='style-flex-page'>
         {children}
 
       </div>
-    
+
     </div>
-  
+
   )
 }
 

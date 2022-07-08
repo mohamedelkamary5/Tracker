@@ -1,23 +1,16 @@
 import React from 'react'
 import styled from "styled-components"
 import { AiFillStar } from 'react-icons/ai';
-import { MdOutlinePriceChange } from 'react-icons/md';
 import { BsCurrencyDollar } from 'react-icons/bs';
-import request from '../../../../../photo/icons/requestswedget.svg'
 import delevery from '../../../../../photo/icons/deleverywedget.svg'
-import Logo3 from "../../../../../photo/slogan/user-avatar.svg"
-const AboutClint = (props) => {
-  const { clientDetails, id, ar_name, en_name, logo, mobile, telephone, idUser } = props
+const AboutClint = ({ clientDetails, id, mobile }) => {
 
   console.log('clientDetails', clientDetails);
   return (
     <MainStyleAbout key={id}>
       <MainRightAbout>
-        {/* <div className='photo-logo'>
-          <img src={Logo3} alt="logo" />
-        </div> */}
+       
         <div className='apout'>
-
           <h5>  اسم العميل : {clientDetails.client_name}</h5>
           <p>
             رقم الموبايل :
@@ -42,8 +35,6 @@ const AboutClint = (props) => {
         </div>
         <div className='item-wedget price'>
           <div className='header-wedget'>
-            {/* <img src={request} /> */}
-            {/* <MdOutlinePriceChange /> */}
             <BsCurrencyDollar className='icon-wedget' />
             <p>سعر الطلب</p>
           </div>

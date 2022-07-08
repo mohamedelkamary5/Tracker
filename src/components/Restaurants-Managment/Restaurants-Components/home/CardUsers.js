@@ -137,13 +137,13 @@ const CardUsers = () => {
                     <img src={go} alt="go-to" />
                     <div>
                       <div className='pickup-point w-100'>
-                        <h5>نقطه الالتقاط</h5>
+                        <h5>نقطة الانطلاق</h5>
                         <p>{item.restaurant.address}</p>
                         <p>{item.restaurant.ar_name}</p>
 
                       </div>
                       <div className='delivery-point w-100 mt-3'>
-                        <h5>نقطه التوصيل</h5>
+                        <h5>نقطة التوصيل</h5>
                         <p>{item.address}</p>
                       </div>
                     </div>

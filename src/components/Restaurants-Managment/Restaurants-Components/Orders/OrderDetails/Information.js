@@ -1,30 +1,14 @@
-import React from 'react';
-import styled from "styled-components";
+import React, { useState } from 'react';
 import AboutClint from './About';
-import HeaderButton from './HeaderButton';
-import TabelClient from './TrackingOrder';
+import TrackingGoogleMapComponet from '../../../../../Shared/Components/Google-Map-Container/Tracking-Google-Map/TrackingMap';
 
-const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetails }) => {
+const ClintInformation = ({ clientDetails }) => {
 
-
-  // console.log('clientDetails', clientDetails.id);
-
+  console.log('clientDetails', clientDetails);
 
   return (
-    <MainStyleClint>
-
-      <ItemStyleClint key={clientDetails.idUser} >
-
-        {/* <HeaderButton
-          HandelShowCustomer={HandelShowCustomer}
-          HandelStopCustomer={HandelStopCustomer}
-          logo={clientDetails.logo}
-          name={clientDetails.en_name}
-          mobile={clientDetails.mobile}
-          compony={clientDetails.compony}
-          id={clientDetails.id}
-          status={clientDetails.status}
-        /> */}
+    <div className='w-100'>
+      <div key={clientDetails.idUser} >
         <AboutClint
           clientDetails={clientDetails}
           id={clientDetails.user_id}
@@ -32,40 +16,18 @@ const ClintInformation = ({ HandelShowCustomer, HandelStopCustomer, clientDetail
           idUser={clientDetails.user_id}
           ar_name={clientDetails.ar_name}
           en_name={clientDetails.en_name}
-
           mobile={clientDetails.mobile}
           telephone={clientDetails.telephone}
         />
-        <TabelClient
-          logo={clientDetails.photo}
-          id={clientDetails.id}
-          name={clientDetails.en_name}
-          idUser={clientDetails.user_id}
-          number={clientDetails.mobile}
-          telephone={clientDetails.telephone}
-          state={clientDetails.status}
-          clintemail={clientDetails.email}
-          websitelink={clientDetails.address}
-          tradetype={clientDetails.email}
-          currencypaid={clientDetails.status}
-        />
 
+        <TrackingGoogleMapComponet address={clientDetails} />
 
+      </div>
 
-      </ItemStyleClint>
-
-
-
-
-
-    </MainStyleClint>
+    </div>
   )
 }
-const MainStyleClint = styled.div`
-width: 100%;
 
-`
-const ItemStyleClint = styled.div`
-`
+
 
 export default ClintInformation

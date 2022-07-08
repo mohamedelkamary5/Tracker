@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import TopBar from '../../bars/TopBar';
 import ClintInformation from './Information';
@@ -7,7 +7,7 @@ import { getOrdreDetails } from '../../../../../store/Restaurants-Managment/Orde
 import { useParams } from 'react-router';
 
 
-const OrderDetails = ({HandelShow }) => {
+const OrderDetails = ({ HandelShow }) => {
   const dispatch = useDispatch()
   let { orderId } = useParams();
   useEffect(() => {
@@ -15,18 +15,17 @@ const OrderDetails = ({HandelShow }) => {
   }, [getOrdreDetails])
 
   const clientDetails = useSelector(state => state.ordersRestauants.orderDetails)
-  
-  // console.log('clientDetails____1', clientDetails);
+
   return (
     <div className='lay-out-wrapp'>
-    <TopBar title={"الطلب"} HandelShow={HandelShow} />
-    
-    <div className='style-flex-page'>
-     <ClintInformation clientDetails={clientDetails}  />
+      <TopBar title={"الطلب"} HandelShow={HandelShow} />
+
+      <div className='style-flex-page'>
+        <ClintInformation clientDetails={clientDetails} />
+      </div>
+
     </div>
-    
-    </div>
-  
+
   )
 }
 
