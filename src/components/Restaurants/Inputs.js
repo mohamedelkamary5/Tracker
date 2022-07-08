@@ -4,7 +4,7 @@ import Switch from "react-switch";
 import LocationSearchInput from './Location';
 import TestSvg from './Map';
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
-import GoogleMapComponet from '../../Shared/Components/Google-Map/Map';
+import GoogleMapComponet from '../../Shared/Components/Google-Map-Container/Google-Map/Map';
 import { useSelector } from 'react-redux';
 
 const FormAddShipping = ({ values, setValues }) => {
