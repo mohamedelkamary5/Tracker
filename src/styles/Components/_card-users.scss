@@ -18,6 +18,8 @@
 
 .rec.rec-pagination {
     // direction: ltr;
+    margin-top: 0px;
+    margin-bottom: 15px;
 
     .rec.rec-dot.rec.rec-dot_active {
         background-color: var(--primary-color);
@@ -29,6 +31,8 @@
 .main-card-users {
    
     // margin-top: 20px;
+    overflow: auto;
+    height: 84vh;
 
 
 
