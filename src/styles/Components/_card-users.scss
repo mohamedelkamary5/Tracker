@@ -184,9 +184,9 @@
                         }
                     }
 
-                    .delivery-point {
-                        margin-top: 30px;
-                    }
+                    // .delivery-point {
+                    //     margin-top: 30px;
+                    // }
 
                 }
             }
@@ -194,7 +194,7 @@
             //end body one item
             //start fotter one item
             .fotter-item {
-                padding: 25px 10px 5px 10px;
+                padding: 6px 10px 0px;
                 @extend %flex-box;
 
                 .right-fotter {

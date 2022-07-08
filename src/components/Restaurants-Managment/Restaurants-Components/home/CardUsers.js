@@ -122,7 +122,8 @@ const CardUsers = () => {
                       item.status === "done" ? 'header-item py-2 green' : "header-item py-2 yallow"
 
                 }>
-                  <h4>{item.status == 'pending' ? 'طلب جديد' :'' }</h4>
+                  <h4>{item.status == 'pending' ? 'طلب جديد' : ''} </h4> 
+                  <Link className='text-white' to={`orders/${item.id}`}><i className="fa fa-solid fa-eye" /></Link>
                   <div className='date-order'>
                     <p>{new Date(item.updated_at).toISOString().slice(0, 11).replace('T', ' ')}</p>
                     <p className='tiem'>
@@ -137,10 +138,11 @@ const CardUsers = () => {
                     <div>
                       <div className='pickup-point w-100'>
                         <h5>نقطه الالتقاط</h5>
-                        <p>30 شارع ااميثاق - مطعم الاصدقاء</p>
+                        <p>{item.restaurant.address}</p>
+                        <p>{item.restaurant.ar_name}</p>
 
                       </div>
-                      <div className='delivery-point w-100'>
+                      <div className='delivery-point w-100 mt-3'>
                         <h5>نقطه التوصيل</h5>
                         <p>{item.address}</p>
                       </div>
@@ -170,22 +172,19 @@ const CardUsers = () => {
 
                         </div>
                         <div className='left-fotter'>
-                          <button className='btn btn-dark'>عرض الحساب</button>
+                          <Link to={'#'} className='btn btn-dark'>عرض الحساب</Link>
                         </div>
                       </>
                     }
                   </div>
-
-
                 </div>
-
-
               </div>
-
             )
           })
           }
         </Carousel>
+
+
         {/* <Carousel breakPoints={breakPoints} enableAutoPlay={false} isRTL={false} outerSpacing={20} >
           {domydata.map(item => {
             return (
