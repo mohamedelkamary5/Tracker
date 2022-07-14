@@ -56,7 +56,7 @@ const AboutClint = (props) => {
     </MainStyleAbout>
   )
 }
-const MainStyleAbout = styled.div` 
+const MainStyleAbout =  styled.div` 
 display: flex;
 justify-content: space-between;
 padding: 30px;
@@ -65,17 +65,15 @@ border-bottom:1px solid var(--font-opacity) ;
     flex-direction: column;
   }
 `
-const MainRightAbout = styled.div`
+const MainRightAbout =  styled.div`
 display: flex;
 align-items: center;
-@media (max-width:688px ) {
-    justify-content: space-between;
-  }
+
 .photo-logo{
   img{
     width: 160px;
     @media (max-width:688px ) {
-    width: 110px;
+    width: 80px;
   }
   }
 
@@ -85,9 +83,13 @@ align-items: center;
   p ,h5 {
     padding: 4px 0;
     color: var(--font);
+
   }
   h5{
     font-size: 17px;
+    @media (max-width:688px ) {
+    font-size: 15px;
+  }
   }
 
   @media (max-width:550px ) {
@@ -109,7 +111,7 @@ align-items: center;
   
 }
 `
-const MainLiftAbout = styled.div`
+const MainLiftAbout =  styled.div`
 display: flex;
 align-items: center;
   @media (max-width:1000px ) {

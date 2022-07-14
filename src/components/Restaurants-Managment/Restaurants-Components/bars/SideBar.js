@@ -187,6 +187,9 @@ span img{
            font-size:28px;
            transition: 0.6s;
         }
+        @media (max-width:767px) {
+            padding: 6px 40px ;
+        } 
         &:hover{
             background-color:  var(--background-opacity) ;
             li{

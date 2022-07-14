@@ -63,12 +63,15 @@ box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.56);
 -webkit-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.30);
 -moz-box-shadow: -2px 5px 13px -4px rgba(0,0,0,0.86);
 overflow: auto;
+@media (max-width:767px) {
+    left: 7px;
+}
 &::-webkit-scrollbar{
-        width: 4px;
+    width: 4px;
 }
 &::-webkit-scrollbar-thumb {
-        background-color: var(--secound-color);
-        border-radius: 10px;
+    background-color: var(--secound-color);
+    border-radius: 10px;
 }
 &::-webkit-scrollbar-track {
 	background: var(--primary-color);
