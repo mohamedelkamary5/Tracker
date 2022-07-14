@@ -59,7 +59,7 @@ import DriversRestaurant from "./components/Restaurants-Managment/pages/Drivers"
 import './styles/glopal-style.scss'
 import Setting from "./pages/Setting";
 import SidebarLayout from "./components/bars/NotBar";
-import ProtectedRoutesAdmin, { ProtectedRoutesRestaurant } from "./components/Auth/ProtectedRoutes";
+import ProtectedRoutesAdmin, { ProtectedRoutesRestaurant, ProtectedRoutesShipping } from "./components/Auth/ProtectedRoutes";
 import PreLoader from "./Shared/Components/PreLoader/PreLoader";
 // import LoginRestaurant from "./components/Restaurants-Managment/pages/Login";
 import HomeRestaurant from "./components/Restaurants-Managment/pages/Home";
@@ -330,9 +330,9 @@ function App() {
 
             {/* Start Routes shipping */}
             <Route path="/shipping/login" element={<Login />} />
-            <Route element={<ProtectedRoutesRestaurant />}>
+            <Route element={<ProtectedRoutesShipping />}>
               <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
-                <Route path="/shipping" element={<HomeRestaurant />} />                
+                <Route path="/shipping" element={<HomeRestaurant />} />
                 {/* Start Route orders */}
                 <Route path="/shipping/orders" >
                   <Route path="" element={<Orders />}

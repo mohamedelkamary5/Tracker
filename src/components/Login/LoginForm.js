@@ -18,8 +18,8 @@ const LoginFrom = () => {
     // const from = location.state?.from?.pathname || "/Customers";
 
     const isAdmin = location.pathname.includes('admin')
-
-    const LOGIN_URL = isAdmin ? 'admins/login' : 'restaurants/login'; 
+    const isShipping = window.location.pathname.includes('shipping')
+    const LOGIN_URL = isAdmin ? 'admins/login' : isShipping ? "login" : 'restaurants/login'; 
     console.log('LOGIN_URL', LOGIN_URL);
 
     
@@ -57,10 +57,10 @@ const LoginFrom = () => {
                 },
             }
             );
-            localStorage.setItem(isAdmin ? "tokenAdmin" : "tokenRestaurant", response.data.data.token)
-            localStorage.setItem(isAdmin ? "authDataAdmin" : "authDataRestaurant", JSON.stringify(response.data.data))
-            localStorage.setItem(isAdmin ? "loggedInAdmin" : "loggedInRestaurant", true)
-            window.location.href = isAdmin ? '/admin/Triple-zero' : '/'
+            localStorage.setItem(isAdmin ? "tokenAdmin" : isShipping ? "tokenShipping" : "tokenRestaurant", response.data.data.token)
+            localStorage.setItem(isAdmin ? "authDataAdmin" : isShipping ? "authDataShipping" : "authDataRestaurant", JSON.stringify(response.data.data))
+            localStorage.setItem(isAdmin ? "loggedInAdmin" : isShipping ? "loggedInShipping" : "loggedInRestaurant", true)
+            window.location.href = isAdmin ? '/admin/Triple-zero' : isShipping ? "/shipping" : '/'
           
             setEmail('');
             setPassword('');
@@ -120,13 +120,23 @@ const LoginFrom = () => {
                 </span>
                 <button className='btn btn-dark btn-lg w-100'>تسجيل الدخول</button>
             </form>
-            <p>
+            <div>
                 
-                <span className="line">
-                    {/* <Link to="/register">انشئ حساب جديد</Link> */}
-                    <Link to="#">انشئ حساب جديد</Link>
-                </span>
-            </p>
+                <div className="line d-flex justify-content-evenly">
+                    <Link to="/shipping/login">دخول كشركة شحن</Link>
+                    <Link to="/login">دخول كمطعم</Link> 
+                </div>
+                {/* <div className="line d-flex justify-content-evenly">
+                    <Link to="#">انشئ حساب جديد</Link> 
+                    <Link to="/shipping/login">تسجيل كشركة شحن</Link>
+                </div> */}
+
+
+                {/* <div className="line d-flex justify-content-evenly">
+                    <Link to="#">انشئ حساب جديد</Link> 
+                    <Link to="/shipping/login">تسجيل كشركة شحن</Link>
+                </div> */}
+            </div>
         </>
 
     )

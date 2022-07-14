@@ -45,7 +45,8 @@ axios1.interceptors.response.use(
   error => {
     if (error.message == 'Request failed with status code 401' || error.message == 'Unauthenticated') {
       const isAdmin = window.location.pathname.includes('admin')
-      window.location.pathname = isAdmin ? "/admin/login" : '/login'
+      const isShipping = window.location.pathname.includes('shipping')
+      window.location.pathname = isAdmin ? "/admin/login" : isShipping ? "/shipping/login" : '/login'
     }
     // return error
     return Promise.reject(error);
