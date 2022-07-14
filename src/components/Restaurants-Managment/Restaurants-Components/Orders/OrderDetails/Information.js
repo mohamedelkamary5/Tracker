@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import AboutClint from './About';
 import TrackingGoogleMapComponet from '../../../../../Shared/Components/Google-Map-Container/Tracking-Google-Map/TrackingMap';
+import TrackingOrder from './TrackingOrder';
 
 const ClintInformation = ({ clientDetails }) => {
 
-  console.log('clientDetails', clientDetails);
+  // console.log('clientDetails', clientDetails);
 
   return (
     <div className='w-100'>
@@ -20,7 +21,8 @@ const ClintInformation = ({ clientDetails }) => {
           telephone={clientDetails.telephone}
         />
 
-        <TrackingGoogleMapComponet address={clientDetails} />
+        {/* <TrackingGoogleMapComponet address={clientDetails} /> */}
+        <TrackingOrder address={clientDetails} />
 
       </div>
 
