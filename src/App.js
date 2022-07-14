@@ -289,13 +289,6 @@ function App() {
             {/* End Routes Admin */}
 
 
-
-
-
-
-
-
-
             {/* Start Routes Restaurant */}
             <Route path="/login" element={<Login />} />
             {/* <Route path="/login" element={<LoginRestaurant />} /> */}
@@ -334,6 +327,43 @@ function App() {
               </Route>
             </Route>
             {/* End Routes Restaurant */}
+
+            {/* Start Routes shipping */}
+            <Route path="/shipping/login" element={<Login />} />
+            <Route element={<ProtectedRoutesRestaurant />}>
+              <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
+                <Route path="/shipping" element={<HomeRestaurant />} />                
+                {/* Start Route orders */}
+                <Route path="/shipping/orders" >
+                  <Route path="" element={<Orders />}
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow} >
+                  </Route>
+
+                  <Route path=":orderId" element={<OrderDetails
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+
+                </Route>
+                {/* Start Route Drivers  */}
+                <Route path="/shipping/drivers" element={<DriversRestaurant />}> </Route>
+
+                {/* My Account */}
+                <Route path="/shipping/my-account">
+                  <Route path="" element={<MyAccountRestaurant
+                    HandelShow={HandelShow}
+                    HandelClose={HandelClose} />}
+                  />
+                  <Route path="edit" element={<EditMyAccountRestaurant HandelShow={HandelShow} />} />
+                </Route>
+
+              </Route>
+            </Route>
+            {/* End Routes shipping */}
 
 
           </Routes>
