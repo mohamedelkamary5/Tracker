@@ -401,9 +401,9 @@ class GoogleMapComponetTracking extends Component {
 			map = <div>
 				<div>
 					{/* <LocationSearchInput value={this.state.address} onPlaceOut={this.onPlaceOut} /> */}
-					parseInt
+					{/* parseInt
 					{parseInt(this.props.center.lat)} <br/>
-					{this.props.center.lat}
+					{this.props.center.lat} */}
 					{/* <div className="form-group">
 						<label htmlFor="">City</label>
 						<input type="text" name="city" className="form-control" onChange={this.onChange} readOnly="readOnly" value={this.state.city} />
