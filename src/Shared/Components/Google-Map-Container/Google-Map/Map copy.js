@@ -66,7 +66,7 @@ class GoogleMapComponetTracking extends Component {
 
 		console.log('this.props.center.la this.props.center.lng', this.props.center);
 		// {
-		// 	mapPosition: {
+			// 	mapPosition: {
 		// 		lat: 30.78650859999999,
 		// 		lng: 31.0003757,
 		// 	},
@@ -75,8 +75,9 @@ class GoogleMapComponetTracking extends Component {
 		// 		lng: 31.0003757,
 		// 	}
 		// }
-
+		
 		setTimeout(() => {
+			console.log('this.props.center.la this.props.center.lng set', this.props.center);
 
 			this.setState(
 				{
@@ -89,13 +90,14 @@ class GoogleMapComponetTracking extends Component {
 						lat: parseFloat(this.props.center.lat),
 						lng: parseFloat(this.props.center.lon),
 					},
+					addressRestaurant: this.props.center.restaurant.address,
 					markerPositionRestaurant: {
 						lat: parseFloat(this.props.center.restaurant.lat),
 						lng: parseFloat(this.props.center.restaurant.lon),
 					}
 				}
 			)
-		},1300);
+		},1700);
 
 
 
@@ -113,6 +115,7 @@ class GoogleMapComponetTracking extends Component {
 
 
 	shouldComponentUpdate() {
+		console.log('this.props.center.la this.props.center.lng2', this.props.center);
 
 		this.setState(
 			{
@@ -125,6 +128,7 @@ class GoogleMapComponetTracking extends Component {
 					lat: parseFloat(this.props.center.lat),
 					lng: parseFloat(this.props.center.lon),
 				},
+				addressRestaurant: this.props.center.restaurant.address,
 				markerPositionRestaurant: {
 					lat: parseFloat(this.props.center.restaurant.lat),
 					lng: parseFloat(this.props.center.restaurant.lon),
@@ -152,6 +156,25 @@ class GoogleMapComponetTracking extends Component {
 		} else if (this.props.center.lat === nextProps.center.lat) {
 			return false
 		}
+
+		this.setState(
+			{
+				address: this.props.center.address,
+				mapPosition: {
+					lat: parseFloat(this.props.center.lat),
+					lng: parseFloat(this.props.center.lon),
+				},
+				markerPosition: {
+					lat: parseFloat(this.props.center.lat),
+					lng: parseFloat(this.props.center.lon),
+				},
+				addressRestaurant: this.props.center.restaurant.address,
+				markerPositionRestaurant: {
+					lat: parseFloat(this.props.center.restaurant.lat),
+					lng: parseFloat(this.props.center.restaurant.lon),
+				}
+			}
+		)
 
 	}
 	/**
@@ -325,8 +348,10 @@ class GoogleMapComponetTracking extends Component {
 								onClose={this.onInfoWindowClose}
 								position={{ lat: (this.state.markerPosition.lat + 0.0018), lng: this.state.markerPosition.lng }}
 							>
-								<div>
-									<span style={{ padding: 0, margin: 0 }}>{this.state.address}</span>
+								<div className='text-center'>
+									<span className='text-main'>نقطة التوصيل</span>
+									<br />
+									<span style={{ padding: '0 6px', margin: 0 }}>{this.state.address}</span>
 								</div>
 							</InfoWindow>
 							{/*Marker*/}
@@ -336,12 +361,22 @@ class GoogleMapComponetTracking extends Component {
 								// onDragEnd={this.onMarkerDragEnd}
 								position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
 							/>
-							{/* <Marker google={this.props.google}
+							<Marker google={this.props.google}
 								// name={'Dolores park'}
 								// draggable={true}
 								// onDragEnd={this.onMarkerDragEnd}
 								position={{ lat: this.state.markerPositionRestaurant.lat, lng: this.state.markerPositionRestaurant.lng }}
-							/> */}
+							/>
+							<InfoWindow
+								onClose={this.onInfoWindowClose}
+								position={{ lat: (this.state.markerPositionRestaurant.lat + 0.0018), lng: this.state.markerPositionRestaurant.lng }}
+							>
+								<div className='text-center'>
+									<span className='text-main'>نقطة الانطلاق</span>									
+									<br/>
+									<span style={{ padding: '0 6px', margin: 0 }}>{this.state.addressRestaurant}</span>
+								</div>
+							</InfoWindow>
 							<Marker />
 							{/* For Auto complete Search Box */}
 							{/* <Autocomplete
@@ -366,9 +401,9 @@ class GoogleMapComponetTracking extends Component {
 			map = <div>
 				<div>
 					{/* <LocationSearchInput value={this.state.address} onPlaceOut={this.onPlaceOut} /> */}
-					{/* parseInt
+					parseInt
 					{parseInt(this.props.center.lat)} <br/>
-					{this.props.center.lat} */}
+					{this.props.center.lat}
 					{/* <div className="form-group">
 						<label htmlFor="">City</label>
 						<input type="text" name="city" className="form-control" onChange={this.onChange} readOnly="readOnly" value={this.state.city} />

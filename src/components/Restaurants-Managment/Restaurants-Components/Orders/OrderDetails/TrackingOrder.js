@@ -44,7 +44,7 @@ const TrackingOrder = ({ address }) => {
         google={'this.props.google'}
         center={address}
         height='60vh'
-        zoom={15}
+        zoom={14}
         handleMapInfo={handleMapInfo}
       />
     </div>
