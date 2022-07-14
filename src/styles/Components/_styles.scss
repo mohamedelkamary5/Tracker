@@ -1392,3 +1392,7 @@ button:disabled{
 ::-webkit-scrollbar-track {
   background: var(--primary-color);
 }
+
+.text-main{
+  color: $primary-color !important;
+}

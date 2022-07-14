@@ -48,7 +48,7 @@ const AboutClint = ({ clientDetails, id, mobile }) => {
             <p>العنوان</p>
           </div>
           <div className='type'>
-            <h5>{clientDetails.address}</h5>
+            <p className='text-dark'>{clientDetails.address}</p>
           </div>
         </div>
 
