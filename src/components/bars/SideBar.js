@@ -1,16 +1,16 @@
-import React ,{useState ,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import logo from "../../photo/glopal/logo.svg"
 import logout from "../../photo/icons/logout.svg"
-import { AiOutlineAppstore  } from 'react-icons/ai';
-import {  BsPerson } from 'react-icons/bs';
-import {  NavLink, useLocation, useNavigate } from 'react-router-dom'
-import {  MdOutlineSettings } from 'react-icons/md';
-import {  MdSupervisorAccount } from 'react-icons/md';
-import {  MdDirectionsCar } from 'react-icons/md';
-import {  FaShoppingCart } from 'react-icons/fa';
-import {  BsPersonCircle } from 'react-icons/bs';
-import {  HiCurrencyDollar } from 'react-icons/hi';
+import { AiOutlineAppstore } from 'react-icons/ai';
+import { BsPerson } from 'react-icons/bs';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { MdOutlineSettings } from 'react-icons/md';
+import { MdSupervisorAccount } from 'react-icons/md';
+import { MdDirectionsCar } from 'react-icons/md';
+import { FaShoppingCart } from 'react-icons/fa';
+import { BsPersonCircle } from 'react-icons/bs';
+import { HiCurrencyDollar } from 'react-icons/hi';
 import { FiPackage } from 'react-icons/fi';
 
 
@@ -18,148 +18,148 @@ import { useDispatch, useSelector } from 'react-redux';
 import { HideSlider } from '../../store/StateSlice';
 
 
-const SideBar = ({showBar,HandelClose }) => {
+const SideBar = ({ showBar, HandelClose }) => {
     const toogleslider = useSelector((state) => state.ShowAndHide.value.nav)
     const dispatch = useDispatch()
     let location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/admin/login";
-    const [stateNav , setStateNav] = useState({
-        activeNav : null ,
-        NavBar : [
+    const [stateNav, setStateNav] = useState({
+        activeNav: null,
+        NavBar: [
             {
-                id:1 ,
-                name: "الرئيسية" ,
-                link: "/admin/Triple-zero" ,
+                id: 1,
+                name: "الرئيسية",
+                link: "/admin/Triple-zero",
                 icon: AiOutlineAppstore,
-            
+
             },
             {
-                id:2 ,
-                name : "المطاعم" ,
-                link: "/admin/restaurants" ,
+                id: 2,
+                name: "المطاعم",
+                link: "/admin/restaurants",
                 icon: MdSupervisorAccount,
-            
+
             },
             {
-                id:8 ,
-                name : "المشرفين" ,
+                id: 8,
+                name: "المشرفين",
                 link: "/admin/managers",
                 icon: BsPerson,
-            
+
             },
             {
-                id:3 ,
-                name : "شركات الشحن" ,
-                link: "/admin/shipping-companies" ,
+                id: 3,
+                name: "شركات الشحن",
+                link: "/admin/shipping-companies",
                 icon: FaShoppingCart,
-            
+
             },
             {
-                id:6 ,
-                name : "السائقين" ,
+                id: 6,
+                name: "السائقين",
                 link: "/admin/drivers",
                 icon: MdDirectionsCar,
-            
+
             },
             {
-                id:7 ,
-                name : "العملات" ,
+                id: 7,
+                name: "العملات",
                 link: "/admin/currencies",
                 icon: HiCurrencyDollar,
-            
+
             },
             {
-                id:11 ,
-                name : "الباقات" ,
+                id: 11,
+                name: "الباقات",
                 link: "/admin/quotes",
                 icon: FiPackage,
-            
+
             },
             {
-                id:9 ,
-                name : "حسابي" ,
-                link: "/admin/my-account" ,
+                id: 9,
+                name: "حسابي",
+                link: "/admin/my-account",
                 icon: BsPersonCircle,
-            
+
             },
             {
-                id:10 ,
-                name : "الأعداد ات" ,
-                link: "/admin/setting" ,
+                id: 10,
+                name: "الأعداد ات",
+                link: "/admin/setting",
                 icon: MdOutlineSettings,
-            
+
             },
         ]
 
     })
-      //start Active Class and state sort
-  useEffect(() => {
-    setStateNav(
-      {...stateNav ,activeSort:stateNav.NavBar[0] }
-    )
-  }, [setStateNav ])
-   
-  const HandelIndex = (index , item) =>{
-    setStateNav(
-      {...stateNav ,activeSort:stateNav.NavBar[index] }
-    )
-    // //start Active Class and state sort
+    //start Active Class and state sort
+    useEffect(() => {
+        setStateNav(
+            { ...stateNav, activeSort: stateNav.NavBar[0] }
+        )
+    }, [setStateNav])
+
+    const HandelIndex = (index, item) => {
+        setStateNav(
+            { ...stateNav, activeSort: stateNav.NavBar[index] }
+        )
+        // //start Active Class and state sort
 
         dispatch(HideSlider())
- 
-  
-    
-  }
-  const HandelClassName= (index) =>{
-    if(stateNav.NavBar[index] ==stateNav.activeSort ){
-      return "item-widget"
-    }else{
-      return "item-widget"
+
+
+
     }
-  }
-//end Active Class
+    const HandelClassName = (index) => {
+        if (stateNav.NavBar[index] == stateNav.activeSort) {
+            return "item-widget"
+        } else {
+            return "item-widget"
+        }
+    }
+    //end Active Class
 
 
-const logOut = () => {
-    localStorage.removeItem('tokenAdmin') 
-    localStorage.removeItem("loggedInAdmin")
-    localStorage.removeItem('authDataAdmin')
-    // window.location.hostname('/login')
-    navigate(from, { replace: true });
-}
+    const logOut = () => {
+        localStorage.removeItem('tokenAdmin')
+        localStorage.removeItem("loggedInAdmin")
+        localStorage.removeItem('authDataAdmin')
+        // window.location.hostname('/login')
+        navigate(from, { replace: true });
+    }
 
-  return (
-     
-    <StyleSideBar toogleslider={toogleslider}    >
-        <StyleTop >
-        <div className='img-logo'>
-            <NavLink to="/Triple-zero"><img src={logo} /></NavLink>
-        </div>
-        <div className='widget'>
-            <ul >
-            {stateNav.NavBar.map((item ,index) =>{
-                return (
-                    <NavLink key={item.id} to={item.link}   >
-                    <div className={HandelClassName(index)} onClick={()=>HandelIndex(index)} >
-                        <item.icon className='icon-name' />
-                        <li>{item.name}</li>
-                    </div>
-                    </NavLink>
-                )
-            })}
-            </ul>
-        </div>
-        </StyleTop>
-        <Stylebutton>
-            <button onClick={logOut}>
-                <img src={logout} />
-                <span>تسجيل الخروج</span>
-            </button>
-        </Stylebutton>
-    </StyleSideBar>
-    
-  )
+    return (
+
+        <StyleSideBar toogleslider={toogleslider}    >
+            <StyleTop >
+                <div className='img-logo'>
+                    <NavLink to="/Triple-zero"><img src={logo} /></NavLink>
+                </div>
+                <div className='widget'>
+                    <ul >
+                        {stateNav.NavBar.map((item, index) => {
+                            return (
+                                <NavLink key={item.id} to={item.link}   >
+                                    <div className={HandelClassName(index)} onClick={() => HandelIndex(index)} >
+                                        <item.icon className='icon-name' />
+                                        <li>{item.name}</li>
+                                    </div>
+                                </NavLink>
+                            )
+                        })}
+                    </ul>
+                </div>
+            </StyleTop>
+            <Stylebutton>
+                <button onClick={logOut}>
+                    <img src={logout} />
+                    <span>تسجيل الخروج</span>
+                </button>
+            </Stylebutton>
+        </StyleSideBar>
+
+    )
 }
 // style StyleSideBar--
 const StyleSideBar = styled.div`
@@ -215,11 +215,14 @@ span img{
         cursor: pointer;
         margin: 6px 0;
         transition: 0.6s;
-        padding: 8px 40px ;
+        padding: 8px 35px ;
         .icon-name{
            font-size:28px;
-           transition: 0.6s;
+           transition: 0.4s;
         }
+        @media (max-width:767px) {
+            padding: 3px 40px ;
+        } 
         &:hover{
             background-color:  var(--background-opacity) ;
             li{
@@ -249,10 +252,10 @@ span img{
     ul li{
         transition: 0.6s;
         font-size: 17px;
-        margin-right: 10px;  
-       
-       
-       
+        margin-right: 10px; 
+        @media (max-width:767px) {
+            font-size: 15px;
+        } 
     }
 }
 
