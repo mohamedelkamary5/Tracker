@@ -16,12 +16,13 @@ import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
 import { getShipping } from '../../store/ShippingSlice';
+import BtnActiveList from './BtnActiveList';
 const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
+    const statusActiveDrivers = location.pathname.includes('active-drivers')
     const UserDataSelector = useSelector(state => state.drivers)
-    
     const listView = useSelector(state => state.drivers.listView)
     const [UserData, setUserData] = useState([])
     
@@ -33,13 +34,20 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
             const BlackList = UserDataSelector.drivers.filter(statusItem => statusItem.status == 0)
             setUserData(BlackList)
             setSortValue('')
+        }else if(statusActiveDrivers) {
+            const BtnActiveList = UserDataSelector.drivers.filter(statusItem => statusItem.status == 1)
+            setUserData(BtnActiveList)
+            setSortValue('')
+
+
         } else {
             setUserData(UserDataSelector.drivers)
-            setSortValue('')
-            
-            
+            setSortValue('') 
         }
-    }, [UserDataSelector.drivers, statusBlackList])
+        
+
+
+    }, [UserDataSelector.drivers, statusBlackList ,statusActiveDrivers])
 
 
     useEffect(() => {
@@ -102,6 +110,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                     : <>
                         {listView ?
                             <table>
+                                
                                 <thead>
                                     <tr>
                                         <th >الشعار</th>
@@ -199,6 +208,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
             <div className='style-main-sort'>
                 {statusBlackList ? null : <BlackList />}
+                {statusActiveDrivers ? null : <BtnActiveList />}
+
+               
 
                 <div className='style-icons-sort'>
                     <AiOutlineBars className={`sort-icon ${listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(true))} />
