@@ -78,7 +78,7 @@ const FormAddShipping = ({ values, setValues }) => {
                             name="emailShipping"
                             rules={[{ required: true, message: 'الايميل مطلوب!' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
                         >
-                            <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                            <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => { setValues({ ...values, email: e.target.value }); seterrorMsg({ ...errorMsg, email: null }) }} />
                         </Form.Item>
                         <span className='text-error'> {errorMsg ? errorMsg.email : null} </span>
                     </div>

@@ -158,20 +158,20 @@ export const CurrencySlice = createSlice({
     [SendCurrency.rejected]: (state, action) => {
       const errors = action.payload.response.data.errors
       state.error = errors;
-      console.log('errors', errors);
+      // console.log('errors', errors);
 
-      const errorArray = []
+      // const errorArray = []
 
-      for (const error in errors) {
-        console.log(`${error}: ${errors[error]}`);
-        errorArray.push(errors[error])
-      }
+      // for (const error in errors) {
+      //   console.log(`${error}: ${errors[error]}`);
+      //   errorArray.push(errors[error])
+      // }
 
 
-      swal(errorArray.join().replaceAll('.,', '  ///   '), {
-        icon: "error",
-        button: 'موافق'
-      });
+      // swal(errorArray.join().replaceAll('.,', '  ///   '), {
+      //   icon: "error",
+      //   button: 'موافق'
+      // });
     },
 
     [deleteCurrency.fulfilled]: (state, action) => {

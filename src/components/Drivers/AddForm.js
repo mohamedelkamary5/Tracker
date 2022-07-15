@@ -8,23 +8,25 @@ import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
 import { SendDirver } from '../../store/DriverSlice';
 import { getShipping } from '../../store/ShippingSlice';
-
+import { Button, Form } from 'antd';
 const ClintForm = () => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.driver)
   const dispatch = useDispatch()
-
+  const [form] = Form.useForm();
   const initialState = {
     photo: null,
-    user_id: null,
+    user_id: [],
     en_name: "",
     ar_name: "",
     mobile: '',
     telephone: '',
     address: "",
     email: "",
-    status: 1,
+    status: 0,
     isOnline: 0,
     password: '',
+    lat: 0.000000,
+    lon: 0.000000,
 
   }
 
@@ -37,27 +39,35 @@ const ClintForm = () => {
       .then(() => {
         setValues(initialState)
         dispatch(HideSlider())
+        form.resetFields();
         swal("تم تنفيذ الامر بنجاح", {
           icon: "success",
           button: 'موافق',
         });
       })
-      
+
   }
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
-      <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
-        <SliderClint title="اضافه سائق"   >
-          <InputCustomer values={values}  setValues={setValues} />
-        </SliderClint>
-        <StyleFotter>
-          <button onClick={AddUser} className="btn btn-main">
-            <MdPersonAddAlt className='MdPersonAddAlt' />
-            <span>اضافه سائق</span>
-          </button>
+      <div className='style-form p-3 px-lg-5' toogleslider={toogleslider ? "true" : 'false'}>
+        <Form
+          layout={'vertical'}
+          form={form}
+          className="px-lg-5"
+        >
+          <SliderClint title="اضافه سائق"   >
+            <InputCustomer values={values} setValues={setValues} />
+          </SliderClint>
+          <StyleFotter>
+            <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
+              <MdPersonAddAlt className='MdPersonAddAlt' />
+              <span>اضافه سائق</span>
+            </Button>
 
-          <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
-        </StyleFotter>
+            <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
+          </StyleFotter>
+
+        </Form>
       </div>
     </StyleForm>
   )
@@ -78,14 +88,14 @@ position: fixed;
 top: 0;
 bottom: 0;
 right: 0;
-width: 550px;
+width: 100%;
 background-color: white;
 z-index: 101;
 transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'scale(1)  ' : '  scale(0)  '};
 
 `
 
