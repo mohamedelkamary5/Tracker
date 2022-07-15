@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Select from 'react-select'
 import Switch from "react-switch";
 import LocationSearchInput from './Location';
@@ -6,16 +6,26 @@ import TestSvg from './Map';
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
 import GoogleMapComponet from '../../Shared/Components/Google-Map-Container/Google-Map/Map';
 import { useSelector } from 'react-redux';
+import { Form, Input } from 'antd';
 
 const FormAddShipping = ({ values, setValues }) => {
-         //select Shipping 
-         const UserDataSelector = useSelector(state => state.shipping.shipping)
-         const options = UserDataSelector.map(d => ({
-             "value" : d.id,
-             "label" : d.en_name,
-           }))
+    //select Shipping 
+    const UserDataSelector = useSelector(state => state.shipping.shipping)
+    const options = UserDataSelector.map(d => ({
+        "value": d.id,
+        "label": d.en_name,
+    }))
 
     const [selectedFiles, setselectedFiles] = useState([]);
+    const errorMsgStore = useSelector(state => state.clients2.error)
+
+    const [errorMsg, seterrorMsg] = useState(errorMsgStore);
+    useEffect(() => {
+        seterrorMsg(errorMsgStore)
+    }, [errorMsgStore]);
+
+
+
     const handleAcceptedFiles = (files) => {
         files.map(file =>
             Object.assign(file, {
@@ -25,6 +35,7 @@ const FormAddShipping = ({ values, setValues }) => {
         );
         setselectedFiles(files)
         setValues({ ...values, photo: files[0] })
+        seterrorMsg({ ...errorMsg, photo: null })
     }
 
 
@@ -53,85 +64,102 @@ const FormAddShipping = ({ values, setValues }) => {
     const centerMap = { lat: values.lat, lng: values.lon }
 
     const handleMapInfo = (data) => {
-        console.log('data', data);
         setValues({ ...values, address: data.address, lat: data.lat, lon: data.lng })
+        seterrorMsg({ ...errorMsg, address: null })
     }
 
     return (
         <div className='main-input px-2'>
             <div className='row'>
+               
                 {/* Block Item */}
-                <div className='col-lg-12'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
-                        <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
+                        <Form.Item
+                            label="الايميل"
+                            name="emailRestaurant"
+                            rules={[{ required: true, message: 'الايميل مطلوب!' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
+                        >
+                            <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => { setValues({ ...values, email: e.target.value }); seterrorMsg({ ...errorMsg, email: null }) }} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.email : null} </span>
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className="mb-3">
-                <label htmlFor="en_name" className="form-label">اختار شركه شحن<span>*</span> </label>
-                <Select options={options} name="اختار"  onChange={(e) => setValues({ ...values, user_id: e.value })}   />
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="الاسم بالانجليزي"
+                            name="en_nameaRestaurant"
+                            rules={[{ required: true, message: 'الاسم بالانجليزي مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.en_name} placeholder="اكتب الاسم بالانجليزي" onChange={(e) => setValues({ ...values, en_name: e.target.value })} />
+                        </Form.Item>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="الاسم بالعربي"
+                            name="ar_nameaRestaurant"
+                            rules={[{ required: true, message: 'الاسم بالعربي مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.ar_name} placeholder="اكتب الاسم بالعربي" onChange={(e) => setValues({ ...values, ar_name: e.target.value })} />
+                        </Form.Item>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="الموبيل"
+                            name="mobilRestaurant"
+                            rules={[{ required: true, message: '' }]}
+                        >
+                            <Input type='number' className='form-control' value={values.mobile} placeholder="اكتب الموبيل" onChange={(e) => { setValues({ ...values, mobile: e.target.value }); seterrorMsg({ ...errorMsg, mobile: null }) }} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.mobile : null} </span>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="التليفون"
+                            name="mobilRestaurant"
+                            rules={[{ required: true, message: '' }]}
+                        // rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم' }]}
+                        >
+                            <Input type='number' className='form-control' value={values.telephone} placeholder="اكتب التليفون" onChange={(e) => { setValues({ ...values, telephone: e.target.value }); seterrorMsg({ ...errorMsg, telephone: null }) }} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.telephone : null} </span>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="كلة السر"
+                            name="passwordRestaurant"
+                            rules={[{ required: true, message: 'كلة السر مطلوب!' }]}
+                        >
+                            <Input.Password className='form-control' value={values.password} placeholder="اكتب كلة السر" onChange={(e) => setValues({ ...values, password: e.target.value })} />
+                        </Form.Item>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
 
-                </div>
-                {/* Block Item */}
-                <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="email" className="form-label">الايميل<span>*</span> </label>
-                        <input type="email" className="form-control" id="email" placeholder="اكتب الايميل" value={values.email} required onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                        <label htmlFor="en_name" className="form-label">اختار شركه شحن<span>*</span> </label>
+                        <Select options={options} name="اختار" onChange={(e) => setValues({ ...values, user_id: e.value })} />
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
-                        <label htmlFor="en_name" className="form-label">الاسم بالانجليزي<span>*</span> </label>
-                        <input type="text" className="form-control" id="en_name" placeholder="اكتب الاسم بالانجليزي" value={values.en_name} required onChange={(e) => setValues({ ...values, en_name: e.target.value })} />
-                    </div>
-                </div>
-                {/* Block Item */}
-                {/* <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="address" className="form-label">الاسم العنوان<span>*</span> </label>
-                        <input type="text" className="form-control" id="address" placeholder="اكتب الاسم العنوان" value={values.address} required onChange={(e) => setValues({ ...values, address: e.target.value })} />
-                    </div>
-                </div> */}
-                {/* Block Item */}
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="ar_name" className="form-label">الاسم بالعربي<span>*</span> </label>
-                        <input type="text" className="form-control" id="ar_name" placeholder="اكتب الاسم بالعربي" value={values.ar_name} required onChange={(e) => setValues({ ...values, ar_name: e.target.value })} />
-                    </div>
-                </div>
-                {/* Block Item */}
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="mobile" className="form-label">الموبيل<span>*</span> </label>
-                        <input type="number" className="form-control" id="mobile" placeholder="اكتب الموبيل" value={values.mobile} required onChange={(e) => setValues({ ...values, mobile: e.target.value })} />
-                    </div>
-                </div>
-                {/* Block Item */}
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="tellphone" className="form-label">التليفون<span>*</span> </label>
-                        <input type="number" className="form-control" id="tellphone" placeholder="اكتب التليفون" value={values.telephone} required onChange={(e) => setValues({ ...values, telephone: e.target.value })} />
-                    </div>
-                </div>
-                {/* Block Item */}
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="password" className="form-label"> كلة السر<span>*</span> </label>
-                        <input type="password" className="form-control" id="password" placeholder="اكتب  كلة السر" value={values.password} required onChange={(e) => setValues({ ...values, password: e.target.value })} />
-                    </div>
-                </div>
-                {/* Block Item */}
-                {/* <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="address" className="form-label"> العنوان<span>*</span> </label>
-                        <input type="text" className="form-control" id="address" placeholder="اكتب  العنوان" value={values.address} required onChange={(e) => setValues({ ...values, address: e.target.value })} />
-                    </div>
-                </div> */}
-                {/* Block Item */}
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="switch-add-shipping" className="form-label d-block">الحالة</label>
+                        <label htmlFor="switch-add-Restaurant" className="form-label d-block">الحالة</label>
                         <label className="switch-item" htmlFor='switch-add-shipping'>
                             <Switch
                                 checked={valueSwitch}
@@ -153,9 +181,8 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
 
-                <div className='col-12'>
+                <div className='col-6'>
                     <div className="mb-3 position-relative">
-                        {/* <LocationSearchInput values={values} setValues={setValues} /> */}
 
                         <GoogleMapComponet
                             google={'this.props.google'}
@@ -164,8 +191,18 @@ const FormAddShipping = ({ values, setValues }) => {
                             zoom={15}
                             handleMapInfo={handleMapInfo}
                         />
+                        <span className='text-error'> {errorMsg ? errorMsg.address : null} </span>
                     </div>
                 </div>
+                {/* Block Item */}
+                <div className='col-lg-6'>
+                    <div className="mb-3">
+                        <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
+                        <span className='text-error'> {errorMsg ? errorMsg.photo : null} </span>
+                    </div>
+                </div>
+               
+
 
                 {/* <TestSvg values={values} /> */}
             </div>

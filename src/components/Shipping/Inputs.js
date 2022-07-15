@@ -1,77 +1,5 @@
-// import React from 'react';
-// import { Button, Form, Input } from 'antd';
-// import "antd/dist/antd.css";
-
-// const App = () => (
-//     <Form
-//         // name="wrap"
-//         // labelCol={{
-//         //     flex: '110px',
-//         // }}
-//         // labelAlign="left"
-//         // labelWrap
-//         // wrapperCol={{
-//         //     flex: 1,
-//         // }}
-//         // colon={false}
-//     >
-//         <Form.Item
-//             label="正常标签文案"
-//             name="username"
-//             rules={[
-//                 {
-//                     required: true,
-//                     message: 'الاسم بالانجليزي مطلوب!' 
-//                 },
-//                 {
-//                     type: 'email',
-//                     message: 'Email!' 
-//                 },
-//             ]}
-//         >
-//             <Input />
-//         </Form.Item>
-
-//         <Form.Item
-//             label="超长标签文案超长标签文案"
-//             name="password"
-//             rules={[
-//                 {
-//                     required: true,
-//                 },
-//             ]}
-//         >
-//             <Input />
-//         </Form.Item>
-
-//         <Form.Item label=" ">
-//             <Button type="primary" htmlType="submit">
-//                 Submit
-//             </Button>
-//         </Form.Item>
-//     </Form>
-// );
-
-// export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react'
-import { Button, Form, Input } from 'antd';
+import { Form, Input } from 'antd';
 import "antd/dist/antd.css";
 import Switch from "react-switch";
 // import LocationSearchInput from './Location';
@@ -131,7 +59,6 @@ const FormAddShipping = ({ values, setValues }) => {
     const centerMap = { address: values.address, lat: values.lat, lng: values.lon }
 
     const handleMapInfo = (data) => {
-        console.log('data', data);
         setValues({ ...values, address: data.address, lat: data.lat, lon: data.lng })
         seterrorMsg({ ...errorMsg, address: null })
     }
@@ -142,19 +69,18 @@ const FormAddShipping = ({ values, setValues }) => {
                 layout={'vertical'}
             > */}
             <div className='row'>
-               
+
                 {/* Block Item */}
                 <div className='col-lg-3'>
                     <div className="mb-3">
-                        <div className="mb-3">
-                            <Form.Item
-                                label="الايميل"
-                                name="emailShipping"
-                                rules={[{ required: true, message: 'الايميل مطلوب!' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
-                            >
-                                <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => setValues({ ...values, email: e.target.value })} />
-                            </Form.Item>
-                        </div>
+                        <Form.Item
+                            label="الايميل"
+                            name="emailShipping"
+                            rules={[{ required: true, message: 'الايميل مطلوب!' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
+                        >
+                            <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.email : null} </span>
                     </div>
                 </div>
                 {/* Block Item */}
@@ -172,8 +98,6 @@ const FormAddShipping = ({ values, setValues }) => {
                 {/* Block Item */}
                 <div className='col-lg-3'>
                     <div className="mb-3">
-                        {/* <label htmlFor="ar_name" className="form-label">الاسم بالعربي<span>*</span> </label>
-                        <input type="text" className="form-control" id="ar_name" placeholder="اكتب الاسم بالعربي" value={values.ar_name} required onChange={(e) => setValues({ ...values, ar_name: e.target.value })} /> */}
                         <Form.Item
                             label="الاسم بالعربي"
                             name="ar_nameaShipping"
@@ -186,13 +110,11 @@ const FormAddShipping = ({ values, setValues }) => {
                 {/* Block Item */}
                 <div className='col-lg-3'>
                     <div className="mb-3">
-                        {/* <label htmlFor="mobile" className="form-label">التليفون<span>*</span> </label>
-                        <input type="number" className="form-control" id="mobile" placeholder="اكتب التليفون" value={values.mobile} required onChange={(e) => setValues({ ...values, mobile: e.target.value })} /> */}
                         <Form.Item
                             label="التليفون"
                             name="mobilShipping"
                             rules={[{ required: true, message: '' }]}
-                            // rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم' }]}
+                        // rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم' }]}
                         >
                             <Input type='number' className='form-control' value={values.mobile} placeholder="اكتب التليفون" onChange={(e) => { setValues({ ...values, mobile: e.target.value }); seterrorMsg({ ...errorMsg, mobile: null }) }} />
                         </Form.Item>

@@ -7,7 +7,7 @@ import SliderClint from '../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form } from 'antd';
 const ClintForm = () => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.Shipping)
 
