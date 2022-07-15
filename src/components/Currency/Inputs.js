@@ -6,191 +6,103 @@ import styled from "styled-components"
 import { SendCurrency } from '../../store/CurrencySlice';
 import { MdPersonAddAlt } from 'react-icons/md';
 import { HideSlider } from '../../store/StateSlice';
-import swal from 'sweetalert';
+import { Form, Input } from 'antd';
 
 
 const FormAddCurrency = ({ setDeleted, values, setValues }) => {
 
     const dispatch = useDispatch()
-    //uniqe id
-    const uid = new ShortUniqueId({ length: 6 });
-    //values input
+    const errorMsgStore = useSelector(state => state.currency.error)
 
-    // const initialState = {
-
-    //     en_title: "",
-    //     ar_title: "",
-    //     symbol: "",
-    //     exchange_rate: "",
-    //     sequence: "",
-
-    // }
+    const [errorMsg, seterrorMsg] = useState(errorMsgStore);
 
 
-    // const [values, setValues] = useState(initialState)
-    // // console.log(values)
-    // click add Manager
-    // const AddUser = () => {
-    //     dispatch(SendCurrency(values))
-    //         .unwrap()
-    //         .then(() => {
-    //             setValues(values)
-    //             dispatch(HideSlider())
-    //             swal("تم تنفيذ الامر بنجاح", {
-    //                 icon: "success",
-    //                 button: 'موافق',
-    //             });
-    //         }).catch(() => {
-    //             swal("عفوا لم يتم تنفيذ الامر", {
-    //                 icon: "error",
-    //                 button: 'موافق'
-    //             });
-
-    //         })
+    useEffect(() => {
+        seterrorMsg(errorMsgStore)
+    }, [errorMsgStore]);
 
 
-    //     setDeleted(false)
 
-    // }
     return (
-        <StyleMainInput>
-            <StyleForm>
+        <div className='main-input px-2'>
+            <div className='row'>
 
 
-                <StyleSmaleDiv>
-                    <div className='one-input'>
-                        <StyleLabel>الأسم بالانجليزي  <span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب اسم العمله بالانجليزي' value={values.en_title} onChange={(e) => setValues({ ...values, en_title: e.target.value })} />
-                        <StyleLabel> الاسم بالعربي <span>*</span></StyleLabel>
-                        <input type="email" placeholder='اكتب اسم العمله بالعربي ' value={values.ar_title} onChange={(e) => setValues({ ...values, ar_title: e.target.value })} />
-                        <StyleLabel>رمز العمله<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب الاسم ' value={values.symbol} onChange={(e) => setValues({ ...values, symbol: e.target.value })} />
-                        {/* <select value={values.symbol} onChange={(e) => setValues({ ...values, symbol: e.target.value })} className="currency">
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="الاسم بالانجليزي"
+                            name="en_nameaShipping"
+                            rules={[{ required: true, message: 'الاسم بالانجليزي مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.en_name} placeholder="اكتب الاسم بالانجليزي" onChange={(e) => setValues({ ...values, en_name: e.target.value })} />
+                        </Form.Item>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="الاسم بالعربي"
+                            name="ar_nameaShipping"
+                            rules={[{ required: true, message: 'الاسم بالعربي مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.ar_name} placeholder="اكتب الاسم بالعربي" onChange={(e) => setValues({ ...values, ar_name: e.target.value })} />
+                        </Form.Item>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="الاسم رمز العمله"
+                            name="ar_nameaShipping"
+                            rules={[{ required: true, message: 'الاسم رمز العمله مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.symbol} placeholder="اكتب الاسم رمز العمله" onChange={(e) => setValues({ ...values, symbol: e.target.value })} />
+                        </Form.Item>
+                    </div>
+                </div>
+                {/* <StyleLabel>رمز العمله<span>*</span></StyleLabel>
+                        <input type="text" placeholder='اكتب الاسم ' value={values.symbol} onChange={(e) => setValues({ ...values, symbol: e.target.value })} /> */}
+                {/* <select value={values.symbol} onChange={(e) => setValues({ ...values, symbol: e.target.value })} className="currency">
                             <option value="EGP">EGP</option>
                             <option value="KWD">KWD</option>
                             <option value="USD">USD</option>
                         </select> */}
-                        <StyleLabel>سعر الصرف<span>*</span></StyleLabel>
-                        <input type="text" placeholder='اكتب سعر الصرف ' value={values.exchange_rate} onChange={(e) => setValues({ ...values, exchange_rate: e.target.value })} />
-                        <StyleLabel>رقم تسلسل<span>*</span></StyleLabel>
-                        <input type="email" placeholder='اكتب رقم تسلسل  ' value={values.sequence} onChange={(e) => setValues({ ...values, sequence: e.target.value })} />
-
+                {/* <StyleLabel>سعر الصرف<span>*</span></StyleLabel>
+                        <input type="text" placeholder='اكتب سعر الصرف ' value={values.exchange_rate} onChange={(e) => setValues({ ...values, exchange_rate: e.target.value })} /> */}
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="سعر الصرف"
+                            name="mobilShipping"
+                            rules={[{ required: true, message: 'سعر الصرف مطلوب!' }]}
+                        >
+                            <Input type='number' className='form-control' value={values.mobile} placeholder="اكتب سعر الصرف" onChange={(e) => { setValues({ ...values, mobile: e.target.value }); seterrorMsg({ ...errorMsg, mobile: null }) }} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.mobile : null} </span>
                     </div>
-                </StyleSmaleDiv>
+                </div>
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="رقم تسلسل"
+                            name="mobilShipping"
+                            rules={[{ required: true, message: 'رقم تسلسل مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.sequence} placeholder="اكتب رقم تسلسل" onChange={(e) => { setValues({ ...values, sequence: e.target.value }); seterrorMsg({ ...errorMsg, mobile: null }) }} />
+                        </Form.Item>
+                    </div>
+                </div>
+                {/* <StyleLabel>رقم تسلسل<span>*</span></StyleLabel>
+                        <input type="email" placeholder='اكتب رقم تسلسل  ' value={values.sequence} onChange={(e) => setValues({ ...values, sequence: e.target.value })} /> */}
 
-            </StyleForm>
-        </StyleMainInput>
+
+            </div>
+        </div>
     )
 }
-const StyleMainInput = styled.div`
-overflow-y: auto;
-overflow-x: hidden;
-padding: 20px 0;
-margin-top: 30px;
-display: flex;
-flex-direction: column;
-align-items: center;
-
-::-webkit-scrollbar {
-  width: 0px;
-}
-`
-const StyleForm = styled.form`
-
-`
-const StyleLabel = styled.label`
-font-weight: bold;
-span{
-    color: var(--danger-color);
-}
-`
-const StyleSmaleDiv = styled.div`
-display: flex;
-align-items: center;
-@media (max-width:550px ) {
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-start;
-}
-
-&:nth-child(4){
-    input {
-    width: 470px;
-    @media (max-width:550px ) {
-    width:290px;
-    padding: 10px 30px;
-    }
-    @media (max-width:370px ) {
-    width:220px;
-    padding: 10px 30px;
-}
-
-    }
-}
-
-input,.currency{
-    font-size: 14px;
-    width: 430px;
-    margin: 8px 0 8px 10px;
-    padding: 8px 12px;
-    border: 1px solid var(--font-opacity);
-    border-radius: 20px;
-@media (max-width:550px ) {
-    width:290px;
-    padding: 10px 30px;
-}
-@media (max-width:370px ) {
-    width:220px;
-    padding: 10px 30px;
-}
-}
-input[type=file] {
-background-color: var(--secound-color);
-color: white;
-opacity: 0.9;
-}
-//class
-.one-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-}
-.currency{
-    font-weight: bold;
-}
-
-
-
-`
-
-
-const StyleButtonAdd = styled.div`
-display: flex;
-align-items: center;
-background-color: var(--primary-color);
-padding: 8px 20px;
-width: 166px;
-text-align: center;
-cursor: pointer;
-color: white;
-margin-top: 20px;
-border-radius: 7px;
-transition: 0.6s;
-display: flex;
-justify-content: space-evenly;
-:hover{
-  opacity: 0.7;
-}
-p{
-    padding: 0 10px ;
-}
-.MdPersonAddAlt{
-    font-size: 25px;
-}
-@media (max-width:1160px) {  
-margin: 10px;
-           
-}
-`
 export default FormAddCurrency

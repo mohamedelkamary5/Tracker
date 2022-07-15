@@ -15,7 +15,6 @@ const FormAddShipping = ({ values, setValues }) => {
 
     const [errorMsg, seterrorMsg] = useState(errorMsgStore);
 
-    // console.log('errorMsg', errorMsg.error);
 
     useEffect(() => {
         seterrorMsg(errorMsgStore)
