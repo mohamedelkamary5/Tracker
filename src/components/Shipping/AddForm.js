@@ -48,7 +48,7 @@ const ClintForm = () => {
       })
   }
   return (
-    <StyleForm toogleslider={!toogleslider ? "true" : 'false'}>
+    <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
       <div className='style-form p-3' toogleslider={toogleslider ? "true" : 'false'}>
         <Form
           layout={'vertical'}
@@ -104,14 +104,16 @@ position: fixed;
 top: 0;
 bottom: 0;
 right: 0;
-width: 550px;
+width: 100%;
+// width: 550px;
 background-color: white;
 z-index: 101;
 transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'scale(1)  ' : '  scale(0)  '};
+// transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
 
 `
 

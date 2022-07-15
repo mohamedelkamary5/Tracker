@@ -70,7 +70,7 @@
 
 
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Form, Input } from 'antd';
 import "antd/dist/antd.css";
 import Switch from "react-switch";
@@ -79,9 +79,19 @@ import TestSvg from './Map';
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
 import GoogleMapComponet from '../../Shared/Components/Google-Map-Container/Google-Map/Map';
 import { type } from '@testing-library/user-event/dist/type';
+import { useDispatch, useSelector } from 'react-redux'
 
 const FormAddShipping = ({ values, setValues }) => {
     const [selectedFiles, setselectedFiles] = useState([]);
+    const errorMsgStore = useSelector(state => state.shipping.error)
+
+    const [errorMsg, seterrorMsg] = useState(errorMsgStore);
+
+    // console.log('errorMsg', errorMsg.error);
+
+    useEffect(() => {
+        seterrorMsg(errorMsgStore)
+    }, [errorMsgStore]);
 
 
     const handleAcceptedFiles = (files) => {
@@ -93,6 +103,7 @@ const FormAddShipping = ({ values, setValues }) => {
         );
         setselectedFiles(files)
         setValues({ ...values, photo: files[0] })
+        seterrorMsg({ ...errorMsg, photo: null })
     }
 
 
@@ -117,11 +128,12 @@ const FormAddShipping = ({ values, setValues }) => {
 
     const valueSwitch = values.status == 1 ? true : false;
 
-    const centerMap = {address: values.address, lat: values.lat, lng: values.lon }
+    const centerMap = { address: values.address, lat: values.lat, lng: values.lon }
 
     const handleMapInfo = (data) => {
         console.log('data', data);
         setValues({ ...values, address: data.address, lat: data.lat, lon: data.lng })
+        seterrorMsg({ ...errorMsg, address: null })
     }
 
     return (
@@ -134,6 +146,7 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-12'>
                     <div className="mb-3">
                         <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
+                        <span className='text-error'> {errorMsg ? errorMsg.photo : null} </span>
                     </div>
                 </div>
                 {/* Block Item */}
@@ -184,10 +197,12 @@ const FormAddShipping = ({ values, setValues }) => {
                         <Form.Item
                             label="التليفون"
                             name="mobilShipping"
-                            rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم'}]}
+                            rules={[{ required: true, message: '' }]}
+                            // rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم' }]}
                         >
-                            <Input type='number' className='form-control' value={values.mobile} placeholder="اكتب التليفون" onChange={(e) => setValues({ ...values, mobile: e.target.value })} />
+                            <Input type='number' className='form-control' value={values.mobile} placeholder="اكتب التليفون" onChange={(e) => { setValues({ ...values, mobile: e.target.value }); seterrorMsg({ ...errorMsg, mobile: null }) }} />
                         </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.mobile : null} </span>
                     </div>
                 </div>
                 {/* Block Item */}
@@ -238,7 +253,7 @@ const FormAddShipping = ({ values, setValues }) => {
                             zoom={15}
                             handleMapInfo={handleMapInfo}
                         />
-
+                        <span className='text-error'> {errorMsg ? errorMsg.address : null} </span>
                     </div>
                 </div>
 
