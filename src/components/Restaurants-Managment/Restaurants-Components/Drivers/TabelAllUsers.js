@@ -22,7 +22,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
-
     const UserDataSelector = useSelector(state => state.driversRestaurant) 
     const listView = useSelector(state => state.driversRestaurant.listView)
 

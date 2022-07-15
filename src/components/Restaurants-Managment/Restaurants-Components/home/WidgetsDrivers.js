@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 import "../../../../styles/Components/_widgets-divers.scss"
-
+import { getDrivers } from '../../../../store/Restaurants-Managment/DriverRestauantsSlice';
+import { useSelector ,useDispatch } from 'react-redux';
 const WidgetsDrivers = () => {
 
 
   const arrow = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11">
     <path id="Polygon_4" data-name="Polygon 4" d="M6,0l6,11H0Z" fill="#fff" />
   </svg>
+  const UserDataSelector = useSelector(state => state.driversRestaurant.driversRestaurant) 
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getDrivers(1))
+}, [dispatch])
+console.log(UserDataSelector)
+
 
   const domydata = [
     {
@@ -105,12 +113,12 @@ const WidgetsDrivers = () => {
 
 
   ]
-  const [resultData, setResultData] = useState(domydata)
+  const [resultData, setResultData] = useState(UserDataSelector)
   const [sortValue, setSortValue] = useState('')
   const sortingItems = [
-    { id: 2, name: 'nameDriver', title: 'الأسم' },
-    { id: 1, name: 'iserid', title: 'الرقم' },
-    { id: 3, name: 'state', title: 'الحاله' },
+    { id: 2, name: 'en_name', title: 'الأسم' },
+    { id: 1, name: 'id', title: 'الرقم' },
+    { id: 3, name: 'isOnline', title: 'الحاله' },
 
   ]
   const handleSort = (name) => {
@@ -140,9 +148,9 @@ const WidgetsDrivers = () => {
             {resultData.map(item => {
               return (
                 <tr>
-                  <td>{item.nameDriver}</td>
-                  <td>{item.iserid}</td>
-                  <td className={item.state === "متاح" ? "success" : item.state === "غير متاح" ? "danger" : "orange"}>{item.state}</td>
+                  <td>{item.en_name}</td>
+                  <td>{item.id}</td>
+                  <td className={item.isOnline === 1 ? "success" : item.isOnline === 0 ? "danger" : "orange"}>{item.isOnline === 0 ? "غير متصل" : "متصل"}</td>
                 </tr>
               )
             })}
