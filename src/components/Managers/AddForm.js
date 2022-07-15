@@ -7,10 +7,11 @@ import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
 import { SendManager } from '../../store/ManagersSlice';
+import { Button, Form } from 'antd';
 
 const ClintForm = ({ setShow }) => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.manager)
-
+  const [form] = Form.useForm();
   //get date today
   const today = new Date();
   const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
@@ -19,17 +20,10 @@ const ClintForm = ({ setShow }) => {
 
   const initialState = {
     photo: null,
-    user_id: 2,
-    en_name: "",
-    ar_name: "",
-    mobile: '',
-    telephone: '',
-    address: "",
+    name: "",
     email: "",
     status: 1,
     password: '',
-    lon: -5650,
-    lat: 2365,
 
   }
 
@@ -49,18 +43,23 @@ const ClintForm = ({ setShow }) => {
   }
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
-      <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
-        <SliderClint title="اضافه مشرف"   >
-          <InputCustomer values={values} setValues={setValues} />
-        </SliderClint>
-        <StyleFotter>
-          <button onClick={AddUser} className="btn btn-main">
-            <MdPersonAddAlt className='MdPersonAddAlt' />
-            <span>اضافه مشرف</span>
-          </button>
+      <div className='style-form  p-3 px-lg-5' toogleslider={toogleslider ? "true" : 'false'}>
+        <Form
+          layout={'vertical'}
+          form={form}
+          className="px-lg-5"
+        >
+          <SliderClint title="اضافه مشرف"   >
+            <InputCustomer values={values} setValues={setValues} />
+          </SliderClint>
+          <StyleFotter>
+            <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
+              <MdPersonAddAlt className='MdPersonAddAlt' />
+              <span>اضافه مشرف</span>
+            </Button>
 
-          <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
-        </StyleFotter>
+          </StyleFotter>
+        </Form>
       </div>
     </StyleForm>
   )
@@ -81,14 +80,14 @@ position: fixed;
 top: 0;
 bottom: 0;
 right: 0;
-width: 550px;
+width: 100%;
 background-color: white;
 z-index: 101;
 transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'scale(1)  ' : '  scale(0)  '};
 
 `
 

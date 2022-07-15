@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import Switch from "react-switch";
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
+import { Form, Input } from 'antd';
 
 const FormAddShipping = ({ values, setValues }) => {
     const [selectedFiles, setselectedFiles] = useState([]);
+
+    const errorMsgStore = useSelector(state => state.managers.error)
+
+    const [errorMsg, seterrorMsg] = useState(errorMsgStore);
+
+
+    useEffect(() => {
+        seterrorMsg(errorMsgStore)
+    }, [errorMsgStore]);
+
     const handleAcceptedFiles = (files) => {
         files.map(file =>
             Object.assign(file, {
@@ -14,6 +25,7 @@ const FormAddShipping = ({ values, setValues }) => {
         );
         setselectedFiles(files)
         setValues({ ...values, photo: files[0] })
+        seterrorMsg({ ...errorMsg, photo: null })
     }
 
 
@@ -45,35 +57,52 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-12'>
                     <div className="mb-3">
                         <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
+                        <span className='text-error'> {errorMsg ? errorMsg.photo : null} </span>
                     </div>
                 </div>
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="email" className="form-label">الايميل<span>*</span> </label>
-                        <input type="email" className="form-control" id="email" placeholder="اكتب الايميل" value={values.email} required onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                        <Form.Item
+                            label="الايميل"
+                            name="emailManager"
+                            rules={[{ required: true, message: 'الايميل مطلوب!' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
+                        >
+                            <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.email : null} </span>
                     </div>
                 </div>
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="name" className="form-label">الاسم <span>*</span> </label>
-                        <input type="text" className="form-control" id="name" placeholder="اكتب الاسم " value={values.name} required onChange={(e) => setValues({ ...values, name: e.target.value })} />
+                        <Form.Item
+                            label="الاسم"
+                            name="nameaManager"
+                            rules={[{ required: true, message: 'الاسم مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.name} placeholder="اكتب الاسم" onChange={(e) => setValues({ ...values, name: e.target.value })} />
+                        </Form.Item>
                     </div>
                 </div>
-               
+
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="password" className="form-label"> كلة السر<span>*</span> </label>
-                        <input type="password" className="form-control" id="password" placeholder="اكتب  كلة السر" value={values.password} required onChange={(e) => setValues({ ...values, password: e.target.value })} />
+                        <Form.Item
+                            label="كلة السر"
+                            name="passwordManager"
+                            rules={[{ required: true, message: 'كلة السر مطلوب!' }]}
+                        >
+                            <Input.Password className='form-control' value={values.password} placeholder="اكتب كلة السر" onChange={(e) => setValues({ ...values, password: e.target.value })} />
+                        </Form.Item>
                     </div>
                 </div>
-               
+
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
-                        <label htmlFor="switch-add-shipping" className="form-label d-block">الحالة</label>
+                        <label htmlFor="switch-add-Manager" className="form-label d-block">الحالة</label>
                         <label className="switch-item" htmlFor='switch-add-shipping'>
                             <Switch
                                 checked={valueSwitch}

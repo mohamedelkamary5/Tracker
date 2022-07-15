@@ -59,7 +59,7 @@ const ClintForm = ({ showCustomer, HandelClose, show, setShow }) => {
   }
   return (
     <StyleForm showCustomer={showCustomer} toogleslider={toogleslider ? "true" : 'false'}>
-      <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
+      <div className='style-form p-3 px-lg-5' toogleslider={toogleslider ? "true" : 'false'}>
         <Form
           layout={'vertical'}
           form={form}
