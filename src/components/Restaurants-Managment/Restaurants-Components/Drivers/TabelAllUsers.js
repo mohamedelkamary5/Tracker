@@ -13,7 +13,7 @@ import { AiOutlineAppstore } from 'react-icons/ai';
 
 import { getDrivers, handleListView } from '../../../../store/Restaurants-Managment/DriverRestauantsSlice';
 import ButtonReturn from '../../../glopal/ButtonReturn';
-import ButtonAdd from './ButtonAdd';
+// import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
 
 import PaginateComponent from '../../../../Shared/Components/Paginate/Paginate';
@@ -23,22 +23,22 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
 
-    const UserDataSelector = useSelector(state => state.drivers)
-    const listView = useSelector(state => state.drivers.listView)
+    const UserDataSelector = useSelector(state => state.driversRestaurant) 
+    const listView = useSelector(state => state.driversRestaurant.listView)
 
 
     const [UserData, setUserData] = useState([])
 
     useEffect(() => {
         if (statusBlackList) {
-            const BlackList = UserDataSelector.drivers.filter(statusItem => statusItem.status == 0)
+            const BlackList = UserDataSelector.driversRestaurant.filter(statusItem => statusItem.status == 0)
             setUserData(BlackList)
             setSortValue('')
         } else {
-            setUserData(UserDataSelector.drivers)
+            setUserData(UserDataSelector.driversRestaurant)
             setSortValue('')
         }
-    }, [UserDataSelector.drivers, statusBlackList])
+    }, [UserDataSelector.driversRestaurant, statusBlackList])
 
 
     useEffect(() => {
@@ -224,7 +224,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
                 {statusBlackList ? <ButtonReturn title='/drivers' />
-                    : <ButtonAdd HandelShowCustomer={HandelShowCustomer} />}
+                    : null}
 
             </div>
 

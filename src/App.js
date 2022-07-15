@@ -314,6 +314,7 @@ function App() {
                 </Route>
                 {/* Start Route Drivers  */}
                 <Route path="drivers" element={<DriversRestaurant />}> </Route>
+                <Route path="drivers/black-list" element={<DriversRestaurant />}> </Route>
 
                 {/* My Account */}
                 <Route path="/my-account">
