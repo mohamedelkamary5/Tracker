@@ -142,15 +142,9 @@ const FormAddShipping = ({ values, setValues }) => {
                 layout={'vertical'}
             > */}
             <div className='row'>
+               
                 {/* Block Item */}
-                <div className='col-lg-12'>
-                    <div className="mb-3">
-                        <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
-                        <span className='text-error'> {errorMsg ? errorMsg.photo : null} </span>
-                    </div>
-                </div>
-                {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
                         <div className="mb-3">
                             <Form.Item
@@ -164,7 +158,7 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
                         <Form.Item
                             label="الاسم بالانجليزي"
@@ -176,7 +170,7 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
                         {/* <label htmlFor="ar_name" className="form-label">الاسم بالعربي<span>*</span> </label>
                         <input type="text" className="form-control" id="ar_name" placeholder="اكتب الاسم بالعربي" value={values.ar_name} required onChange={(e) => setValues({ ...values, ar_name: e.target.value })} /> */}
@@ -190,7 +184,7 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
                         {/* <label htmlFor="mobile" className="form-label">التليفون<span>*</span> </label>
                         <input type="number" className="form-control" id="mobile" placeholder="اكتب التليفون" value={values.mobile} required onChange={(e) => setValues({ ...values, mobile: e.target.value })} /> */}
@@ -208,6 +202,13 @@ const FormAddShipping = ({ values, setValues }) => {
                 {/* Block Item */}
                 <div className='col-lg-6'>
                     <div className="mb-3">
+                        <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
+                        <span className='text-error'> {errorMsg ? errorMsg.photo : null} </span>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
                         <Form.Item
                             label="كلة السر"
                             name="passwordShipping"
@@ -218,7 +219,7 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
                         <label htmlFor="switch-add-shipping" className="form-label d-block">الحالة</label>
                         <label className="switch-item" htmlFor='switch-add-shipping'>
@@ -241,7 +242,6 @@ const FormAddShipping = ({ values, setValues }) => {
                         </label>
                     </div>
                 </div>
-
                 <div className='col-12'>
                     <div className="mb-3 position-relative">
                         {/* <LocationSearchInput values={values} setValues={setValues} /> */}
