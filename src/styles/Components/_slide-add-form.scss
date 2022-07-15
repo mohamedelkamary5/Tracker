@@ -12,12 +12,15 @@
         }
     }
 
-    input {
+    .form-control {
         font-size: 14px;
         border: 1px solid var(--font-opacity);
-        border-radius: 20px;
+        border-radius: 2px;
 
-        &.form-control:focus {
+        &:hover {
+            border-color: #b9b9b9;
+        }
+        &:focus {
             border-color: #FBA30D;
             box-shadow: 0 0 0 0.25rem #faa30d40;
         }

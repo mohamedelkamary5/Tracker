@@ -12,7 +12,7 @@ class GoogleMapComponet extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			address: '',
+			address: this.props.center.address,
 			city: '',
 			area: '',
 			state: '',
@@ -210,7 +210,7 @@ class GoogleMapComponet extends Component {
 	};
 
 	onPlaceOut = (e, address) => {
-		console.log('e', e, 'address', address);
+		// console.log('e', e, 'address', address);
 		this.setState({
 			address: address,
 			markerPosition: {
@@ -224,6 +224,22 @@ class GoogleMapComponet extends Component {
 		})
 		this.props.handleMapInfo({ address: this.state.address, lat: e.lat, lng: e.lng })
 	}
+
+	returnItalVal = () => {
+		this.setState({
+			address: '',
+			markerPosition: {
+				lat: '',
+				lng: ''
+			},
+			mapPosition: {
+				lat: '',
+				lng: ''
+			},
+		})
+	}
+
+
 
 	render() {
 		const AsyncMap = withScriptjs(

@@ -7,10 +7,11 @@ import SliderClint from '../glopal/SliderClint';
 import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
-
-const ClintForm = ({ setShow }) => {
+import { Button, Checkbox, Form, Input } from 'antd';
+const ClintForm = () => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.Shipping)
 
+  const [form] = Form.useForm();
   //get date today
   const today = new Date();
   const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
@@ -19,7 +20,6 @@ const ClintForm = ({ setShow }) => {
 
   const initialState = {
     photo: [],
-    user_id: 2,
     en_name: "",
     ar_name: "",
     mobile: '',
@@ -30,8 +30,6 @@ const ClintForm = ({ setShow }) => {
     password: '',
     lat: 0.000000,
     lon: 0.000000,
-    // lat: 29.375859,
-    // lon: 47.9774052,
 
   }
 
@@ -42,6 +40,7 @@ const ClintForm = ({ setShow }) => {
       .then(() => {
         setValues(initialState)
         dispatch(HideSlider())
+        form.resetFields();
         swal("تم تنفيذ الامر بنجاح", {
           icon: "success",
           button: 'موافق',
@@ -49,19 +48,32 @@ const ClintForm = ({ setShow }) => {
       })
   }
   return (
-    <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
+    <StyleForm toogleslider={!toogleslider ? "true" : 'false'}>
       <div className='style-form p-3' toogleslider={toogleslider ? "true" : 'false'}>
-        <SliderClint title="إضافة شركة شحن"   >
-          <InputCustomer values={values} setValues={setValues} />
-        </SliderClint>
-        <StyleFotter>
-          <button onClick={AddUser} className="btn btn-main">
-            <MdPersonAddAlt className='MdPersonAddAlt' />
-            <span>إضافة شركة شحن</span>
-          </button>
+        <Form
+          layout={'vertical'}
+          form={form}
+        >
+          <SliderClint title="إضافة شركة شحن"   >
+            <InputCustomer values={values} setValues={setValues} />
+          </SliderClint>
+          <StyleFotter>
+            <Form.Item label=" ">
 
-          {/* <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span> */}
-        </StyleFotter>
+              <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
+                <MdPersonAddAlt className='MdPersonAddAlt' />
+                <span> شركة شحن</span>
+              </Button>
+            </Form.Item>
+            {/* <button onClick={AddUser} className="btn btn-main">
+            <MdPersonAddAlt className='MdPersonAddAlt' />
+            <span> شركة شحن</span>
+          </button> */}
+
+            {/* <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span> */}
+          </StyleFotter>
+
+        </Form>
       </div>
     </StyleForm>
   )
