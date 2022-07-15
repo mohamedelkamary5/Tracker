@@ -102,6 +102,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                     : <>
                         {listView ?
                             <table>
+                                
                                 <thead>
                                     <tr>
                                         <th >الشعار</th>

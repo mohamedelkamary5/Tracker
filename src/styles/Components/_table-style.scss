@@ -1,9 +1,18 @@
+
 .main-table {
-    overflow-x: auto;
+    .gird-show{
+        @media (max-width:550px) {
+            overflow-x: auto; 
+        }
+    }
+    @media (max-width:550px) {
+        overflow-x: hidden; 
+    }
+    overflow-x: auto; 
     width: 100%;
     height: 84vh;
     padding: 50px;
-
+    
 
     @media (max-width:1180px) {
         padding: 0 0px;
