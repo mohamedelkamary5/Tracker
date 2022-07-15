@@ -210,6 +210,13 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
+                    <Route path="active-drivers" element={<Drivers
+                    HandelShow={HandelShow}
+                    showBar={showBar}
+                    HandelClose={HandelClose}
+                    show={show}
+                    setShow={setShow}
+                  />} />
                   <Route path=":driverId" element={<DriverDetails
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />}
