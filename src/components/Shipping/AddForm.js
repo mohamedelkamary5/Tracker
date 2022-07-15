@@ -59,13 +59,11 @@ const ClintForm = () => {
             <InputCustomer values={values} setValues={setValues} />
           </SliderClint>
           <StyleFotter>
-            <Form.Item label=" ">
 
               <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
                 <MdPersonAddAlt className='MdPersonAddAlt' />
                 <span> شركة شحن</span>
               </Button>
-            </Form.Item>
             {/* <button onClick={AddUser} className="btn btn-main">
             <MdPersonAddAlt className='MdPersonAddAlt' />
             <span> شركة شحن</span>

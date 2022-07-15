@@ -130,19 +130,19 @@ export const OrdersRestauantsSlice = createSlice({
       state.total = state.total + 1;
     },
     [SendOrder.rejected]: (state, action) => {
-      state.error = action.payload;
       const errors = action.payload.response.data.errors
-      const errorArray = []
+      state.error = errors;
+      // const errorArray = []
 
-      for (const error in errors) {
-        errorArray.push(errors[error])
-      }
+      // for (const error in errors) {
+      //   errorArray.push(errors[error])
+      // }
 
 
-      swal(errorArray.join().replaceAll('.,', '  ///   '), {
-        icon: "error",
-        button: 'موافق'
-      });
+      // swal(errorArray.join().replaceAll('.,', '  ///   '), {
+      //   icon: "error",
+      //   button: 'موافق'
+      // });
     },
     [deleteDriver.fulfilled]: (state, action) => {
       // state.isLoading = false;

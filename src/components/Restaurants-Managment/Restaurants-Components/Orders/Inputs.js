@@ -1,50 +1,26 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { Form, Input } from 'antd';
 import Switch from "react-switch";
 import LocationSearchInput from './Location';
 import TestSvg from './Map';
 import UploadComponent from '../../../../Shared/Components/Upload/UploadComponent';
 import GoogleMapComponet from '../../../../Shared/Components/Google-Map-Container/Google-Map/Map';
+import { useDispatch, useSelector } from 'react-redux'
 
-const FormAddShipping = ({ values, setValues }) => {
-    const [selectedFiles, setselectedFiles] = useState([]);
-    const handleAcceptedFiles = (files) => {
-        files.map(file =>
-            Object.assign(file, {
-                preview: URL.createObjectURL(file),
-                formattedSize: formatBytes(file.size)
-            })
-        );
-        setselectedFiles(files)
-        setValues({ ...values, photo: files[0] })
-    }
+const FormAddOrder = ({ values, setValues }) => {
+    const errorMsgStore = useSelector(state => state.ordersRestauants.error)
+
+    console.log('errorMsgStore errorMsgStore errorMsgStore', errorMsgStore);
+    const [errorMsg, seterrorMsg] = useState(errorMsgStore);
 
 
-
-    const staustSwittch = (e) => {
-        if (values.status == 1) {
-            setValues({ ...values, status: 0 })
-        } else {
-            setValues({ ...values, status: 1 })
-        }
-    }
-
-    const formatBytes = (bytes, decimals = 2) => {
-        if (bytes === 0) return "0 Bytes";
-        const k = 1024;
-        const dm = decimals < 0 ? 0 : decimals;
-        const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
-    };
-
-    const valueSwitch = values.status == 1 ? true : false;
+    useEffect(() => {
+        seterrorMsg(errorMsgStore)
+    }, [errorMsgStore]);
 
     const centerMap = { lat: values.lat, lng: values.lon }
 
     const handleMapInfo = (data) => {
-        console.log('data', data);
         setValues({ ...values, address: data.address, lat: data.lat, lon: data.lng })
     }
 
@@ -58,44 +34,78 @@ const FormAddShipping = ({ values, setValues }) => {
                     </div>
                 </div> */}
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
-                        <label htmlFor="order_no" className="form-label">رقم الطلب<span>*</span> </label>
-                        <input type="text" className="form-control" id="order_no" placeholder="اكتب رقم الطلب" value={values.order_no} required onChange={(e) => setValues({ ...values, order_no: e.target.value })} />
+                        <Form.Item
+                            label="رقم الطلب"
+                            name="en_nameaOrder"
+                            rules={[{ required: true, message: 'رقم الطلب مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.en_name} placeholder="اكتب رقم الطلب" onChange={(e) => setValues({ ...values, order_no: e.target.value })} />
+                        </Form.Item>
+                    </div>
+
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="الاسم"
+                            name="ar_nameaOrder"
+                            rules={[{ required: true, message: 'الاسم مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.client_name} placeholder="اكتب الاسم" onChange={(e) => setValues({ ...values, client_name: e.target.value })} />
+                        </Form.Item>
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
-                    <div className="mb-3">
-                        <label htmlFor="client_name" className="form-label">اسم العميل<span>*</span> </label>
-                        <input type="text" className="form-control" id="client_name" placeholder="اكتب اسم العميل" value={values.client_name} required onChange={(e) => setValues({ ...values, client_name: e.target.value })} />
-                    </div>
-                </div>
-                {/* Block Item */}
-                <div className='col-lg-6'>
+                {/* <div className='col-lg-6'>
                     <div className="mb-3">
                         <label htmlFor="price" className="form-label">السعر<span>*</span> </label>
                         <input type="text" className="form-control" id="price" placeholder="اكتب السعر" value={values.price} required onChange={(e) => setValues({ ...values, price: e.target.value })} />
                     </div>
-                </div>
+                </div> */}
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
-                        <label htmlFor="mobile" className="form-label">التليفون<span>*</span> </label>
-                        <input type="number" className="form-control" id="mobile" placeholder="اكتب التليفون" value={values.mobile} required onChange={(e) => setValues({ ...values, mobile: e.target.value })} />
+                        <Form.Item
+                            label="السعر"
+                            name="priceOrder"
+                            rules={[{ required: true, message: '' }]}
+                        >
+                            <Input type='number' className='form-control' value={values.price} placeholder="اكتب السعر" onChange={(e) => { setValues({ ...values, price: e.target.value }); seterrorMsg({ ...errorMsg, price: null }) }} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.price : null} </span>
                     </div>
                 </div>
                 {/* Block Item */}
-                <div className='col-lg-6'>
+                <div className='col-lg-3'>
                     <div className="mb-3">
-                        <label htmlFor="details" className="form-label"> التفاصيل<span>*</span> </label>
-                        <input type="text" className="form-control" id="details" placeholder="اكتب  التفاصيل" value={values.details} required onChange={(e) => setValues({ ...values, details: e.target.value })} />
+                        <Form.Item
+                            label="التليفون"
+                            name="mobilOrder"
+                            rules={[{ required: true, message: '' }]}
+                        >
+                            <Input type='number' className='form-control' value={values.mobile} placeholder="اكتب التليفون" onChange={(e) => { setValues({ ...values, mobile: e.target.value }); seterrorMsg({ ...errorMsg, mobile: null }) }} />
+                        </Form.Item>
+                        <span className='text-error'> {errorMsg ? errorMsg.mobile : null} </span>
+                    </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                    <div className="mb-3">
+                        <Form.Item
+                            label="التفاصيل"
+                            name="details"
+                            rules={[{ required: true, message: 'التفاصيل مطلوب!' }]}
+                        >
+                            <Input className='form-control' value={values.details} placeholder="اكتب التفاصيل" onChange={(e) => setValues({ ...values, details: e.target.value })} />
+                        </Form.Item>
                     </div>
                 </div>
               
                 <div className='col-12'>
                     <div className="mb-3 position-relative">
-                        {/* <LocationSearchInput values={values} setValues={setValues} /> */}
                         <GoogleMapComponet
                             google={'this.props.google'}
                             center={centerMap}
@@ -103,14 +113,14 @@ const FormAddShipping = ({ values, setValues }) => {
                             zoom={15}
                             handleMapInfo={handleMapInfo}
                         />
+                        <span className='text-error'> {errorMsg ? errorMsg.address : null} </span>
                     </div>
                 </div>
 
-                {/* <TestSvg values={values} /> */}
             </div>
 
         </div>
     )
 }
 
-export default FormAddShipping
+export default FormAddOrder

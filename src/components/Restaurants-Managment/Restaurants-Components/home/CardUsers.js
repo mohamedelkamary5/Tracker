@@ -122,7 +122,7 @@ const CardUsers = () => {
                       item.status === "done" ? 'header-item py-2 green' : "header-item py-2 yallow"
 
                 }>
-                  <h4>{item.status == 'pending' ? 'طلب جديد' : ''} </h4> 
+                  <h4 className='text-white'>{item.status == 'pending' ? 'طلب جديد' : ''} </h4> 
                   <Link className='text-white' to={`orders/${item.id}`}><i className="fa fa-solid fa-eye" /></Link>
                   <div className='date-order'>
                     <p>{new Date(item.updated_at).toISOString().slice(0, 11).replace('T', ' ')}</p>

@@ -7,6 +7,7 @@ import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../../../store/StateSlice';
 import { SendOrder } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
+import { Button, Form } from 'antd';
 
 const AddOrderForm = ({ setShow }) => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.order)
@@ -16,7 +17,7 @@ const AddOrderForm = ({ setShow }) => {
   const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
   //redux toolkit
   const dispatch = useDispatch()
-
+  const [form] = Form.useForm();
   const initialState = {
     order_no: 0,
     client_name: '',
@@ -37,6 +38,7 @@ const AddOrderForm = ({ setShow }) => {
       .then(() => {
         setValues(initialState)
         dispatch(HideSlider())
+        form.resetFields();
         swal("تم تنفيذ الامر بنجاح", {
           icon: "success",
           button: 'موافق',
@@ -53,17 +55,24 @@ const AddOrderForm = ({ setShow }) => {
   }
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
-      <div className='style-form' toogleslider={toogleslider ? "true" : 'false'}>
-        <SliderClint title="اضافه طلب"   >
-          <InputCustomer values={values} setValues={setValues} />
-        </SliderClint>
-        <StyleFotter>
-          <button onClick={AddUser} className="btn btn-main">
-            <MdPersonAddAlt className='MdPersonAddAlt' />
-            <span>اضافه طلب</span>
-          </button>
+      <div className='style-form p-3 px-lg-5' toogleslider={toogleslider ? "true" : 'false'}>
+        <Form
+          layout={'vertical'}
+          form={form}
+          className="px-lg-5"
+        >
+          <SliderClint title="اضافه طلب"   >
+            <InputCustomer values={values} setValues={setValues} />
+          </SliderClint>
+          <StyleFotter>
+            <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
+              <MdPersonAddAlt className='MdPersonAddAlt' />
+              <span>اضافه طلب</span>
+            </Button>
 
-        </StyleFotter>
+          </StyleFotter>
+
+        </Form>
       </div>
     </StyleForm>
   )
@@ -84,14 +93,14 @@ position: fixed;
 top: 0;
 bottom: 0;
 right: 0;
-width: 550px;
+width: 100%;
 background-color: white;
 z-index: 101;
 transition: 0.5s ease;
 @media (max-width:625px ) {
   width: 100%;
 }
-transform: ${(props) => JSON.parse(props.toogleslider) ? 'translateX(0)  ' : '  translateX(590px)  '};
+transform: ${(props) => JSON.parse(props.toogleslider) ? 'scale(1)  ' : '  scale(0)  '};
 
 `
 
