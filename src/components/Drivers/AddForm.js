@@ -155,7 +155,6 @@ const ClintForm = () => {
           className="px-lg-5"
         >
           <SliderClint title="اضافه سائق"   >
-            {/* <InputCustomer values={values} setValues={setValues} /> */}
             <div className='main-input px-2'>
               <div className='row'>
                 {/* Block Item */}
@@ -289,8 +288,6 @@ const ClintForm = () => {
                 </div>
                 <div className='col-12'>
                   <div className="mb-3 position-relative">
-                    {/* <LocationSearchInput values={values} setValues={setValues} /> */}
-                    {/* <LocationSearchInput onPlaceOut={this.onPlaceOut} /> */}
                     <GoogleMapComponet
                       google={'this.props.google'}
                       center={centerMap}
