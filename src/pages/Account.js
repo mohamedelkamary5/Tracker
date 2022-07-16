@@ -68,7 +68,7 @@ const Account = ({ HandelShowCustomer }) => {
         </MainRightAbout>
 
 
-        <TabelAllUsersMyAccount searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
+        {/* <TabelAllUsersMyAccount searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} /> */}
       </WrapperContainer>
 
 

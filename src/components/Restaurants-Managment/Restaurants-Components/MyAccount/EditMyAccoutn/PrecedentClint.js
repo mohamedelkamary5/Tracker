@@ -16,7 +16,7 @@ const PrecedentClint = ({ dataMyAccount }) => {
 
   return (
     <MainStylePrecedent>
-      <h2>البيانات القديمة</h2>
+      <h2 className='text-white'>البيانات القديمة</h2>
       <div className='main-cart' >
         <div className='header-cart'>
           <div className='img'>
@@ -28,13 +28,13 @@ const PrecedentClint = ({ dataMyAccount }) => {
         </div>
         <div className='item-apout'>
           <div className='item'>
-            <h3># : <span>{dataMyAccount.id}</span></h3>
+            <h3 className='text-white'># : <span>{dataMyAccount.id}</span></h3>
           </div>
           <div className='item'>
-            <h3>الاسم : <span>{dataMyAccount.en_name}</span></h3>
+            <h3 className='text-white'>الاسم : <span>{dataMyAccount.en_name}</span></h3>
           </div>
           <div className='item'>
-            <h3>الايميل : <span>{dataMyAccount.email}</span></h3>
+            <h3 className='text-white'>الايميل : <span>{dataMyAccount.email}</span></h3>
           </div>
         </div>
       </div>

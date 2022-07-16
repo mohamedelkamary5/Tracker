@@ -16,6 +16,7 @@ import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
+import truncateText from '../../Shared/Services/Truncate';
 const TableAllUsers = ({ HandelShowCustomer }) => {
     const location = useLocation();
     const dispatch = useDispatch()
@@ -50,7 +51,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         console.log('useEffect');
     }, [UserDataSelector])
 
-   
+
 
 
     const handlePageClick = (data) => {
@@ -143,7 +144,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                         <span>{user.email}</span>
                                                     </td>
                                                     <td>
-                                                        <span>{user.address}</span>
+                                                        <span>
+                                                            {truncateText(user.address, 15)}
+                                                        </span>
                                                     </td>
 
                                                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>

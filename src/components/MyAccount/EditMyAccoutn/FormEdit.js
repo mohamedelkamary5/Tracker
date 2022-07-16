@@ -43,7 +43,7 @@ const FormEdit = ({ dataMyAccount }) => {
     postFromData('admins/profile/update', valuesData)
       .then((res) => {
         const userData = JSON.stringify({ user: res.data })
-        localStorage.setItem('authData', userData)
+        localStorage.setItem('authDataAdmin', userData)
         swal("تم تنفيذ الامر بنجاح", {
           icon: "success",
           button: 'موافق',
@@ -60,17 +60,11 @@ const FormEdit = ({ dataMyAccount }) => {
 
   }
 
-  const tesW = (e) => {
-    e.preventDefault()
-    // console.log('djklf');
-  }
-
-
 
   return (
-    <StyleMainInput>
+    <div className='input-edit-account'>
       <h2>تعديل البيانات</h2>
-      <StyleForm>
+      <div className='edit-account-section'>
 
         <form>
           <div className='display-input' >
@@ -214,126 +208,13 @@ const FormEdit = ({ dataMyAccount }) => {
 
 
 
-      </StyleForm>
-    </StyleMainInput>
+      </div>
+    </div>
 
   )
 }
-const StyleMainInput = styled.div`
-width: 50%;
-border-radius: 10px 0px 0px 10px;
-display: flex;
-flex-direction: column;
-overflow: auto;
-@media (max-width: 780px) {
-  
-  height: 100%;
-}
-//scroll
-::-webkit-scrollbar {
-  width: 5px;
-}
- 
-::-webkit-scrollbar-track {
-  background-color: var(--background-opacity);
-}
- 
-::-webkit-scrollbar-thumb {
-  background-color: var(--secound-color);
-  outline: 1px solid slategrey;
-}
 
 
-h2{
-  text-align: center;
-  position: relative;
-  margin: 20px 0 10px;
-  &::before{
-    position: absolute;
-    content: "";
-    transform: rotate(2deg);
-    width: 150px;
-    height: 6%;
-    bottom: -4px;
-    background-color: var(--primary-color);
-  }
-}
-
-@media (max-width:950px) {
-  width: 100%;
-  height: 100%; 
-  margin: 10px 0;
-}
-
-.edit{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 25px 0 0 0;
-  // button{
-  //   all: unset;
-    
-  //   font-weight: bold;
-  //   border-radius: 5px;
-  //   cursor: pointer;
-  //   background-color: var(--secound-color);
-  //   transition: 0.6s;
-  //   :hover{
-  //     opacity: 0.6;
-  //   }
-
-  // }
-  a{
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 10px 50px;
-      svg{
-        margin-left: 10px;
-        font-size: 25px;
-      }
-    }
-}
-`
-const StyleForm = styled.form`
-margin: 10px 20px;
-.display-input{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  height: 100%;
-  @media (max-width:1500px ) {
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  }
-    
-    gap: 15px;
-    margin-top: 18px;
-    .input{
-      display: flex;
-      flex-direction: column;
-      input[type="file"] {
-          padding: 6px 12px;
-          background-color: var(--secound-color);
-          color: white;
-        }
-      .disabled{
-          opacity: 0.6;
-        }
-      input,.currency{
-        padding: 7px 12px;
-        border-radius: 20px;
-        border: 1px solid var(--font-opacity);
-
-      }
-      label{
-        padding: 8px 0;
-        font-weight: bold;
-        span{
-          color: var(--danger-color);
-        }
-      }
-    }
-}
-`
 
 
 export default FormEdit

@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Logo3 from "../../photo/slogan/user-avatar.svg"
 import { getClients2 } from './../../store/ClintSlice2'
 import { getDrivers } from "../../store/DriverSlice"
+import truncateText from '../../Shared/Services/Truncate';
 const TabelUsers = () => {
     const UserData = useSelector((state) => state.clients2)
     const counterCustomer = UserData.meta.total 
@@ -41,7 +42,7 @@ const TabelUsers = () => {
                                 <td>{user.id}</td>
                                 <td>{user.en_name}</td>
                                 <td>{user.mobile}</td>
-                                <td>{user.address}</td>
+                                <td>{truncateText(user.address, 15)}</td>
                                 <td>{user.email}</td>
 
                                 <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>
