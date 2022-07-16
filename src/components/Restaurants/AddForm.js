@@ -44,9 +44,9 @@ const ClintForm = ({ showCustomer }) => {
 
 
 
-  const showMsgErorr = () => {
-    seterrorMsg(errorMsgStore)
-  }
+  // const showMsgErorr = () => {
+  //   seterrorMsg(errorMsgStore)
+  // }
 
 
   const [values, setValues] = useState(initialState)
@@ -133,7 +133,7 @@ const ClintForm = ({ showCustomer }) => {
           button: 'موافق',
         });
       }).catch(() => {
-        showMsgErorr()
+        // showMsgErorr()
       })
   }
 

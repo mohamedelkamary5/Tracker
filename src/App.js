@@ -5,7 +5,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
-
+import "antd/dist/antd.css";
 // Auth
 import Login from "./pages/Login";
 import Register from "./pages/Register";
