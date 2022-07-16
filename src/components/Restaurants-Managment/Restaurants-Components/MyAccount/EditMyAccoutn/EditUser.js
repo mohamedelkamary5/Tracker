@@ -15,7 +15,7 @@ const EditUser = ({ HandelShow }) => {
       <div className='lay-out-wrapp'>
         <TopBar title={"تعديل"} HandelShow={HandelShow} />
         <PageEdit>
-          <PrecedentClint dataMyAccount={dataMyAccount} />
+          {/* <PrecedentClint dataMyAccount={dataMyAccount} /> */}
           <FormEdit dataMyAccount={dataMyAccount} />
         </PageEdit>
       </div>

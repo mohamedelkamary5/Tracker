@@ -60,7 +60,7 @@ const FormEdit = ({ dataMyAccount }) => {
 
 
   return (
-    <div className='input-edit-account'>
+    <div className='input-edit-account w-100'>
       <h2>تعديل البيانات</h2>
       <div className='edit-account-section'>
 
