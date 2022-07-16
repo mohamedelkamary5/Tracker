@@ -84,8 +84,8 @@ const ClintForm = () => {
     seterrorMsg({ ...errorMsg, [target.name]: null })
   }
 
- 
-  
+
+
   const AddUser = () => {
     dispatch(SendManager(values))
       .unwrap()
@@ -101,7 +101,7 @@ const ClintForm = () => {
   }
   return (
     <StyleForm toogleslider={toogleslider ? "true" : 'false'}>
-      <div className='style-form  p-3 px-lg-5' toogleslider={toogleslider ? "true" : 'false'}>
+      <div className='style-form p-3 px-lg-5' toogleslider={toogleslider ? "true" : 'false'}>
         <Form
           layout={'vertical'}
           form={form}
@@ -114,7 +114,7 @@ const ClintForm = () => {
                 {/* Block Item */}
                 <div className='col-lg-12'>
                   <div className="mb-3">
-                    <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />                    
+                    <UploadComponent handleAcceptedFiles={handleAcceptedFiles} selectedFiles={selectedFiles} />
                     {handelError('photo')}
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const ClintForm = () => {
                     <Form.Item
                       label="الايميل"
                       name="emailManager"
-                      rules={[{ required: true, message: '' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
+                      rules={[{ required: true, message: '' }]}
                     >
                       <Input className='form-control' name='email' value={values.email} placeholder="اكتب الايميل" onChange={handelChange} />
                     </Form.Item>

@@ -156,7 +156,7 @@ const ClintForm = ({ showCustomer }) => {
                     <Form.Item
                       label="الايميل"
                       name="emailRestaurant"
-                      rules={[{ required: true, message: '' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
+                      rules={[{ required: true, message: '' }]}
                     >
                       <Input className='form-control' name='email' value={values.email} placeholder="اكتب الايميل" onChange={handelChange} />
                     </Form.Item>

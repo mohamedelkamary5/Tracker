@@ -81,7 +81,7 @@ const FormAddShipping = ({ values, setValues }) => {
                         <Form.Item
                             label="الايميل"
                             name="emailRestaurant"
-                            rules={[{ required: true, message: 'الايميل مطلوب!' }, { type: 'email', message: 'البريد الإلكتروني ليس بريدًا إلكترونيًا صالحًا!' }]}
+                            rules={[{ required: true, message: 'الايميل مطلوب!' }]}
                         >
                             <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => { setValues({ ...values, email: e.target.value }); seterrorMsg({ ...errorMsg, email: null }) }} />
                         </Form.Item>
