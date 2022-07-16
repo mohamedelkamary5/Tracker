@@ -24,6 +24,9 @@ const FormAddShipping = ({ values, setValues }) => {
         seterrorMsg(errorMsgStore)
     }, [errorMsgStore]);
 
+    const showMsgErorr = () => {
+        seterrorMsg(errorMsgStore)
+    }
 
 
     const handleAcceptedFiles = (files) => {
