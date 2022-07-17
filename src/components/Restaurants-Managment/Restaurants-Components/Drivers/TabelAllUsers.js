@@ -25,7 +25,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const UserDataSelector = useSelector(state => state.driversRestaurant) 
     const listView = useSelector(state => state.driversRestaurant.listView)
 
-
     const [UserData, setUserData] = useState([])
 
     useEffect(() => {

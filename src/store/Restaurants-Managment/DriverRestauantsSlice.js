@@ -108,9 +108,8 @@ export const DriverSlice = createSlice({
       state.error = null;
     },
     [getDrivers.fulfilled]: (state, action) => {
-      state.driversRestaurant = action.payload.data.user.drivers;
-      // state.meta = action.payload.meta;
-      console.log('action.payload.data.user.drivers', action.payload.data.user.drivers);
+      state.driversRestaurant = action.payload.data;
+      state.meta = action.payload.meta;
     },
     [getDrivers.rejected]: (state, action) => {
       state.error = action;
