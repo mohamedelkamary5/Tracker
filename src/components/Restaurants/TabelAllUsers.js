@@ -122,7 +122,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         <th>{t("email")}</th>
                                         <th>{t("address")}</th>
                                         <th>{t("status")}</th>
-                                        <th>شركة الشحن</th>
+                                        <th>{t("shipping_company")}</th>
                                         <th>{t("options")}</th>
                                     </tr>
                                 </thead>

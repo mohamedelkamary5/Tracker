@@ -16,5 +16,8 @@
     "currencies" : "Currencies",
     "quotes" : "Quotes",
     "my_account" : "My Account",
-    "setting" : "Setting"
+    "setting" : "Setting",
+    "shipping_company" : "Shipping company",
+    "active" : "Active",
+    "in_active" : "Inactive"
 }

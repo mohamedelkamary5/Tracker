@@ -16,6 +16,9 @@
     "currencies" : "العملات",
     "quotes" : "الباقات",
     "my_account" : "حسابي",
-    "setting" : "الاعدادات"
+    "setting" : "الاعدادات",
+    "shipping_company" : "شركة الشحن",
+    "active" : "نشط",
+    "in_active" : "غير نشط"
 
 }
