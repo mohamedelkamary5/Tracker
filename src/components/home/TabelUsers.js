@@ -47,7 +47,7 @@ const TabelUsers = () => {
                                 <td>{truncateText(user.address, 15)}</td>
                                 <td>{user.email}</td>
 
-                                <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>
+                                <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active")}</span></td>
                                 <td >
                                     <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                     <div className='select-clint'>

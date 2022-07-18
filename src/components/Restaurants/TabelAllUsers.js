@@ -151,7 +151,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                         </span>
                                                     </td>
 
-                                                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span></td>
+                                                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active") }</span></td>
                                                     <td className='position-relative'>
                                                         <Link className='text-primary' to={`/admin/shipping-companies/${user.user.id}`}>{user.user.ar_name}</Link>
                                                         <div className="box-slide">
@@ -212,7 +212,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                             </span>
                                                         </div>
                                                         <div className='col-4 p-0 flex-center'>
-                                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span>
+                                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active") }</span>
                                                         </div>
                                                         <div className='col-5 p-0'>
                                                             <Link to={`/admin/restaurants/${user.id}`} className="btn btn-main">التفاصيل</Link>

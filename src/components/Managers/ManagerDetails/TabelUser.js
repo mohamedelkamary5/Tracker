@@ -33,7 +33,7 @@ const TabelClient = (props) => {
                 <td>{name}</td>         
                 <td>{telephone === null ? "01245456" : telephone}</td>
                 <td>{websitelink}</td>
-                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "نشط" : "غير نشط" }</span></td>
+                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? t("active") : t("in_active")} }</span></td>
             </TrBody>
         </Tbody>
     </Tabel>

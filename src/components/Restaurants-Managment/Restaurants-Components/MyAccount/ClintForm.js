@@ -28,7 +28,7 @@ const ClintForm = ({showCustomer ,HandelClose , show,setShow}) => {
       paymentDate: date,
       clintemail : "info@easymedia.agency" ,
       websitelink : "www.easymedia.agency" ,
-      state : "نشط" ,
+      state : t("active") ,
       currencypaid : "مصري"  
   })
   // click add customer

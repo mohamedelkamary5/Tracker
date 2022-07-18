@@ -169,7 +169,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                             </span>
                                                         </div>
                                                         <div className='col-4 p-0 flex-center'>
-                                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span>
+                                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active")}</span>
                                                         </div>
                                                         <div className='col-5 p-0'>
                                                             <Link to={`/admin/managers/${user.id}`} className="btn btn-main">التفاصيل</Link>

@@ -14,8 +14,10 @@ import { getCurrency, handleListView } from '../../store/CurrencySlice';
 import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
-import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
+import PaginateComponent from '../../Shared/Components/Paginate/Paginate'; 
+import { useTranslation } from "react-i18next";
 const TableAllUsers = ({ HandelShowCustomer }) => {
+    const { t } = useTranslation();
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
@@ -131,7 +133,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                         <span>{user.exchange_rate}</span>
                                                     </td>
                                                     <td ><span >{user.sequence}</span></td>
-                                                    <td ><span className={user.status === 1 ? "green my-2 d-inline-block" : "red my-2 d-inline-block"}>{user.status == 1 ? "نشط" : "غير نشط"}</span></td>
+                                                    <td ><span className={user.status === 1 ? "green my-2 d-inline-block" : "red my-2 d-inline-block"}>{user.status == 1 ? t("active") : t("in_active")}</span></td>
 
 
                                                     <td >
@@ -173,7 +175,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                             </span>
                                                         </div>
                                                         <div className='col-4 p-0 flex-center'>
-                                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "نشط" : "غير نشط"}</span>
+                                                            <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active")}</span>
                                                         </div>
                                                         <div className='col-5 p-0'>
                                                             <Link to={`/admin/currencies/${user.id}`} className="btn btn-main">التفاصيل</Link>
