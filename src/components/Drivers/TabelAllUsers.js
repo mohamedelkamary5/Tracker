@@ -17,7 +17,10 @@ import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
 import { getShipping } from '../../store/ShippingSlice';
 import BtnActiveList from './BtnActiveList';
+import { useTranslation } from "react-i18next";
+
 const TableAllUsers = ({ HandelShowCustomer }) => {
+    const { t } = useTranslation();
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
@@ -113,7 +116,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                 
                                 <thead>
                                     <tr>
-                                        <th >الشعار</th>
+                                        <th >{t("logo")}</th>
                                         <th >#</th>
                                         <th> الأسم بالانجليزي</th>
                                         <th>التليفون</th>
