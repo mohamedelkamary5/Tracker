@@ -1,5 +1,6 @@
 {
     "home" : "Home",
     "restaurants" : "Restaurants",
-    "logo" : "Logo"
+    "logo" : "Logo",
+    "name" : "name"
 }

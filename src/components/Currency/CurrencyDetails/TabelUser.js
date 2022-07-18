@@ -2,46 +2,48 @@ import React from 'react'
 import styled from "styled-components";
 import OtherClint from './OtherUser';
 import { AiOutlineCopy } from 'react-icons/ai';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useTranslation } from "react-i18next";
 
 const TabelClient = (props) => {
-    const {  name , idUser ,id, number , telephone , paymentDate ,
-          state , clintemail , websitelink  ,currencypaid  } = props
-    
-  return (
-      
-<StyleTabel>
-    <Tabel>
-        <Thead>
-            <TrHead>
-                <th >User id</th>
-                <th > id</th>
-                <th>الأسم</th>
-                <th>رقم اخر</th>
-                <th>العنوان</th>
-                <th>الحالة</th>
-            </TrHead>
-        </Thead>
-        <Tbody>
-            <TrBody >
-                <CopyToClipboard text={idUser}>
-                <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
-                </CopyToClipboard>
-                <td>{id}</td>
-                <td>{name}</td>         
-                <td>{telephone === null ? "01245456" : telephone}</td>
-                <td>{websitelink}</td>
-                <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "نشط" : "غير نشط" }</span></td>
-            </TrBody>
-        </Tbody>
-    </Tabel>
-    <OtherClint 
-    clintemail={clintemail}
-     websitelink={websitelink} 
-     currencypaid={currencypaid}
-     />
-</StyleTabel>
-  )
+    const { name, idUser, id, number, telephone, paymentDate,
+        state, clintemail, websitelink, currencypaid } = props
+    const { t } = useTranslation();
+
+    return (
+
+        <StyleTabel>
+            <Tabel>
+                <Thead>
+                    <TrHead>
+                        <th >User id</th>
+                        <th > id</th>
+                        <th>{t("name")}</th>
+                        <th>رقم اخر</th>
+                        <th>العنوان</th>
+                        <th>الحالة</th>
+                    </TrHead>
+                </Thead>
+                <Tbody>
+                    <TrBody >
+                        <CopyToClipboard text={idUser}>
+                            <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
+                        </CopyToClipboard>
+                        <td>{id}</td>
+                        <td>{name}</td>
+                        <td>{telephone === null ? "01245456" : telephone}</td>
+                        <td>{websitelink}</td>
+                        <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? "نشط" : "غير نشط"}</span></td>
+                    </TrBody>
+                </Tbody>
+            </Tabel>
+            <OtherClint
+                clintemail={clintemail}
+                websitelink={websitelink}
+                currencypaid={currencypaid}
+            />
+        </StyleTabel>
+    )
 }
 const StyleTabel = styled.div`
     padding: 33px;

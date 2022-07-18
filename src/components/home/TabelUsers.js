@@ -8,7 +8,9 @@ import Logo3 from "../../photo/slogan/user-avatar.svg"
 import { getClients2 } from './../../store/ClintSlice2'
 import { getDrivers } from "../../store/DriverSlice"
 import truncateText from '../../Shared/Services/Truncate';
+import { useTranslation } from "react-i18next";
 const TabelUsers = () => {
+    const { t } = useTranslation(); 
     const UserData = useSelector((state) => state.clients2)
     const counterCustomer = UserData.meta.total
     const dispatch = useDispatch();
@@ -22,9 +24,9 @@ const TabelUsers = () => {
             <Tabel>
                 <Thead>
                     <TrHead>
-                        <th>الشعار</th>
-                        <th>ID</th>
-                        <th>الأسم</th>
+                        <th>{t("logo")}</th>
+                        <th>#</th>
+                        <th>{t("name")}</th>
                         <th>التليفون</th>
                         <th>العنوان</th>
                         <th>الايميل</th>

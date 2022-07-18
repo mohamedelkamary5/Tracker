@@ -45,9 +45,9 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     <Tabel>
         <Thead>
             <TrHead>
-                <th >الشعار</th>
+                <th >{t("logo")}</th>
                 <th >#</th>
-                <th>الأسم</th>
+                <th>{t("name")}</th>
                 <th>تاريخ الاشتراك</th>
                 <th>السعر</th>
                 <th>المدة</th>

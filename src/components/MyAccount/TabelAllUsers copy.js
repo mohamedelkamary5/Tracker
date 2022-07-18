@@ -4,11 +4,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import SortTabel from './SortTabel';
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     const UserData = useSelector((state) => state.clint.DataUser)
-
+    const { t } = useTranslation();
     //sort tabel 
     const [sortedField, setSortedField] = useState([]);
     useEffect(() => {
@@ -45,9 +46,9 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
     <Tabel>
         <Thead>
             <TrHead>
-                <th >الشعار</th>
+                <th >{t("logo")}</th>
                 <th >#</th>
-                <th>الأسم</th>
+                <th>{t("name")}</th>
                 <th>تاريخ الاشتراك</th>
                 <th>السعر</th>
                 <th>المدة</th>

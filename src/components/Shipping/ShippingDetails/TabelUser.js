@@ -11,9 +11,10 @@ import { AiOutlineAppstore } from 'react-icons/ai';
 import { getShipping, handleListView } from '../../../store/ShippingSlice';
 // import ButtonReturn from '../glopal/ButtonReturn';
 // import ButtonAdd from './ButtonAdd';
-
+import { useTranslation } from "react-i18next";
 const TableAllUsers = ({ dataDrivers=[] }) => {
     const location = useLocation();
+    const { t } = useTranslation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
 
@@ -88,7 +89,7 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
 
                                 <thead>
                                     <tr>
-                                        <th>الشعار</th>
+                                        <th>{t("logo")}</th>
                                         <th>#</th>
                                         <th>الأسم بالانجليزي</th>
                                         <th>التليفون</th>
@@ -276,7 +277,7 @@ export default TableAllUsers
 //             <TrHead>
 //                 <th >User id</th>
 //                 <th > id</th>
-//                 <th>الأسم</th>
+//                 <th>{t("name")}</th>
 //                 <th>رقم اخر</th>
 //                 <th>العنوان</th>
 //                 <th>الحالة</th>

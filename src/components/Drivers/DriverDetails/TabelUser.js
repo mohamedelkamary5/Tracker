@@ -3,11 +3,13 @@ import styled from "styled-components";
 import OtherClint from './OtherUser';
 import { AiOutlineCopy } from 'react-icons/ai';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { useTranslation } from "react-i18next";
 
 const TabelClient = (props) => {
     const {  name , idUser ,id, number , telephone , paymentDate ,
           state , clintemail , websitelink  ,currencypaid  } = props
-    
+    const { t } = useTranslation();
+
   return (
       
 <StyleTabel>
@@ -16,7 +18,7 @@ const TabelClient = (props) => {
             <TrHead>
                 <th >User id</th>
                 <th > id</th>
-                <th>الأسم</th>
+                <th>{t("name")}</th>
                 <th>رقم اخر</th>
                 <th>العنوان</th>
                 <th>الحالة</th>

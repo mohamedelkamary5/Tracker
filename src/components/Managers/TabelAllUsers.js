@@ -15,7 +15,9 @@ import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
+import { useTranslation } from "react-i18next";
 const TableAllUsers = ({ HandelShowCustomer }) => {
+    const { t } = useTranslation();
     const location = useLocation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
@@ -100,9 +102,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>الشعار</th>
+                                        <th>{t("logo")}</th>
                                         <th>#</th>
-                                        <th>الأسم</th>
+                                        <th>{t("name")}</th>
                                         <th>الايميل</th>
                                         <th>حاله</th>
                                         <th>الخيارات</th>
