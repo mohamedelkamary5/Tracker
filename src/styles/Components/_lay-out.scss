@@ -2,11 +2,16 @@
     margin-right: 240px;
     padding: 20px;
     width: 100%;
-
+    
     @media (max-width: 1180px) {
         margin-right: 0px;
         padding: 10px;
     }
+}
+.lay-out-wrapp:lang(en) {
+    margin-left: 240px;
+    margin-right: auto;
+
 }
 
 .style-flex-page {

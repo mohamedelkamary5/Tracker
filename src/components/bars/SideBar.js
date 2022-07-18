@@ -12,7 +12,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { BsPersonCircle } from 'react-icons/bs';
 import { HiCurrencyDollar } from 'react-icons/hi';
 import { FiPackage } from 'react-icons/fi';
-
+import { useTranslation } from "react-i18next";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { HideSlider } from '../../store/StateSlice';
@@ -24,75 +24,84 @@ const SideBar = ({ showBar, HandelClose }) => {
     let location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/admin/login";
+    const { t } = useTranslation();
+
+    const initalNavBar = [
+        {
+            id: 1,
+            name: t("home"),
+            link: "/admin/Triple-zero",
+            icon: AiOutlineAppstore,
+
+        },
+        {
+            id: 2,
+            name: t("restaurants"),
+            link: "/admin/restaurants",
+            icon: MdSupervisorAccount,
+
+        },
+        {
+            id: 8,
+            name: "المشرفين",
+            link: "/admin/managers",
+            icon: BsPerson,
+
+        },
+        {
+            id: 3,
+            name: "شركات الشحن",
+            link: "/admin/shipping-companies",
+            icon: FaShoppingCart,
+
+        },
+        {
+            id: 6,
+            name: "السائقين",
+            link: "/admin/drivers",
+            icon: MdDirectionsCar,
+
+        },
+        {
+            id: 7,
+            name: "العملات",
+            link: "/admin/currencies",
+            icon: HiCurrencyDollar,
+
+        },
+        {
+            id: 11,
+            name: "الباقات",
+            link: "/admin/quotes",
+            icon: FiPackage,
+
+        },
+        {
+            id: 9,
+            name: "حسابي",
+            link: "/admin/my-account",
+            icon: BsPersonCircle,
+
+        },
+        {
+            id: 10,
+            name: "الأعداد ات",
+            link: "/admin/setting",
+            icon: MdOutlineSettings,
+
+        },
+    ]
+    
     const [stateNav, setStateNav] = useState({
         activeNav: null,
-        NavBar: [
-            {
-                id: 1,
-                name: "الرئيسية",
-                link: "/admin/Triple-zero",
-                icon: AiOutlineAppstore,
-
-            },
-            {
-                id: 2,
-                name: "المطاعم",
-                link: "/admin/restaurants",
-                icon: MdSupervisorAccount,
-
-            },
-            {
-                id: 8,
-                name: "المشرفين",
-                link: "/admin/managers",
-                icon: BsPerson,
-
-            },
-            {
-                id: 3,
-                name: "شركات الشحن",
-                link: "/admin/shipping-companies",
-                icon: FaShoppingCart,
-
-            },
-            {
-                id: 6,
-                name: "السائقين",
-                link: "/admin/drivers",
-                icon: MdDirectionsCar,
-
-            },
-            {
-                id: 7,
-                name: "العملات",
-                link: "/admin/currencies",
-                icon: HiCurrencyDollar,
-
-            },
-            {
-                id: 11,
-                name: "الباقات",
-                link: "/admin/quotes",
-                icon: FiPackage,
-
-            },
-            {
-                id: 9,
-                name: "حسابي",
-                link: "/admin/my-account",
-                icon: BsPersonCircle,
-
-            },
-            {
-                id: 10,
-                name: "الأعداد ات",
-                link: "/admin/setting",
-                icon: MdOutlineSettings,
-
-            },
-        ]
-
+        NavBar: initalNavBar
     })
+
+    useEffect(() => {
+        setStateNav({ ...stateNav, NavBar: initalNavBar })
+    }, [t]);
+
+
     //start Active Class and state sort
     useEffect(() => {
         setStateNav(
@@ -107,7 +116,6 @@ const SideBar = ({ showBar, HandelClose }) => {
         // //start Active Class and state sort
 
         dispatch(HideSlider())
-
 
 
     }
@@ -128,6 +136,8 @@ const SideBar = ({ showBar, HandelClose }) => {
         // window.location.hostname('/login')
         navigate(from, { replace: true });
     }
+
+  
 
     return (
 
@@ -164,7 +174,7 @@ const SideBar = ({ showBar, HandelClose }) => {
 // style StyleSideBar--
 const StyleSideBar = styled.div`
 position: fixed;
-right: 0;
+// right: 0;
 top: 0;
 bottom: 0;
 display: flex;
@@ -252,7 +262,7 @@ span img{
     ul li{
         transition: 0.6s;
         font-size: 17px;
-        margin-right: 10px; 
+        margin: 0 10px; 
         @media (max-width:767px) {
             font-size: 15px;
         } 

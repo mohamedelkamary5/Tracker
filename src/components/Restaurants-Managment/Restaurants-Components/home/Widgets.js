@@ -97,7 +97,7 @@ span{
     background-color: var(--danger-color);
     position: absolute;
     top: -10px;
-    left: -8px;
+    
 }
 
 

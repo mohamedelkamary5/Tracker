@@ -13,17 +13,14 @@ import { Link } from "react-router-dom";
 import ButtonsAdd from './ButtonsAdd';
 import { ShowNav } from '../../store/StateSlice';
 import swal from 'sweetalert';
+import { useTranslation } from "react-i18next";
+
 
 const TopBar = ({ title }) => {
     //show navBar 
+    const { t, i18n } = useTranslation();
     const dispatch = useDispatch()
 
-    // const inputSearch = useRef('')
-
-    // if (inputSearch.foucs) {
-    //     // setShowSearch(false)
-    //     console.log('ljkdfdklfjdfjkdfklj blue');
-    // }
 
     // adds button
     const [buttons, setbuttons] = useState(false)
@@ -60,16 +57,7 @@ const TopBar = ({ title }) => {
         }
 
 
-        // const NewData = UserData.filter((item) => {
-        //     return (
-        //         item.en_name.includes(valueInput) 
-        //     )
-        // })
-        // if (valueInput === "") {
-        //     setfilterSearch([])
-        // } else {
-        //     setfilterSearch(NewData)
-        // }
+
     }
     const handelLink = () => {
         setfilterSearch([])
@@ -104,6 +92,11 @@ const TopBar = ({ title }) => {
             setInputValue('')
         }, 500)
     }
+
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
+
 
     return (
         <StyleTopBar>
@@ -148,6 +141,10 @@ const TopBar = ({ title }) => {
                     </button>
                     <MdAddBox className='icon-topbar' onClick={HandelButton} />
                     <ButtonsAdd buttons={buttons} setbuttons={setbuttons} />
+
+                    {i18n.language == "ar" && <button className='btn-lang' onClick={() => changeLanguage("en")}> عربي </button>}
+                    {i18n.language == "en" && <button className='btn-lang' onClick={() => changeLanguage("ar")}> English </button>}
+
                 </div>
 
             </StyleRightTopBar>
@@ -167,6 +164,14 @@ align-items: center;
 flex-direction: column;
 justify-content: center;
 
+}
+.btn-lang{
+    padding: 0px 10px;
+    background: white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 10px;
 }
 `
 const StyleRightTopBar = styled.div`

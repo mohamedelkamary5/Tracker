@@ -7,7 +7,13 @@ import { store } from "./store/store"
 import { ToastProvider } from 'react-toast-notifications';
 import { ConfigProvider } from 'antd';
 import Gleap from "gleap";
+import './i18n';
+
+
 Gleap.initialize("VRGv3XWORjIxWyO3pyc20IQL8fgppSVE");
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <GlopalStyle />

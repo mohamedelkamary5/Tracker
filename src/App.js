@@ -5,6 +5,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import RequireAuth from './components/Auth/RequireAuth';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OverLay from "./components/glopal/OverLay";
+import { useTranslation } from "react-i18next";
 import "antd/dist/antd.css";
 // Auth
 import Login from "./pages/Login";
@@ -70,10 +71,11 @@ import OrderDetails from "./components/Restaurants-Managment/Restaurants-Compone
 import ModelPupup from "./components/Model/ModelPupup";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
+  const { i18n } = useTranslation();
   const [showBar, setShowBar] = useState(false) //side par
   const [show, setShow] = useState(false) // added clint massige
   const [loader, setLoader] = useState(true);
-
+  
   const HandelShow = () => {
     setShowBar(!showBar)
 
@@ -96,11 +98,11 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
-    }, 100);
+    }, 150);
   }, []);
 
   return (
-    <Fragment>
+    <div dir={i18n.language == "en" ? 'rtl' : "ltr"} lang={i18n.language == "en" ? "ar" : "en"} className={i18n.language == "en" ? 'wrapp-rtl' : "wrapp-ltr"}>
       {loader && <PreLoader />}
       <StyleApp>
         <BrowserRouter>
@@ -138,13 +140,6 @@ function App() {
                     HandelShow={HandelShow}
                     HandelClose={HandelClose} />}
                   />
-                  {/* <Route path="black-list" element={<RestaurantsBlackList
-    HandelShow={HandelShow}
-    showBar={showBar}
-    HandelClose={HandelClose}
-    show={show}
-    setShow={setShow}
-  />} /> */}
                 </Route>
                 {/* End Restaurants Routes */}
 
@@ -210,7 +205,7 @@ function App() {
                     show={show}
                     setShow={setShow}
                   />} />
-                    <Route path="active-drivers" element={<Drivers
+                  <Route path="active-drivers" element={<Drivers
                     HandelShow={HandelShow}
                     showBar={showBar}
                     HandelClose={HandelClose}
@@ -279,9 +274,7 @@ function App() {
                   <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
                 </Route>
               </Route>
-              {/* End    Routes Admin */}
-
-
+              {/* End Routes Admin */}
 
 
               {/* My Account */}
@@ -377,7 +370,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </StyleApp>
-    </Fragment>
+    </div>
 
   );
 }

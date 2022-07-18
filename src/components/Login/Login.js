@@ -5,7 +5,7 @@ import './Login.scss'
 import LoginFrom from './LoginForm';
 const Login = () => {
     return (
-        <div dir='ltr' className='auth-container'>
+        <div dir='ltr' className='auth-container'> 
             <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-lg-4 bg-dark h-100 pt-5 vh-100 text-center'>

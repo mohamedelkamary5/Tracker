@@ -12,51 +12,53 @@ import { useSelector, useDispatch } from 'react-redux'
 const Widgets = () => {
     const UserData = useSelector((state) => state.clients2)
     const UserDataDrivers = useSelector(state => state.drivers)
-    const counterCustomer = UserData.meta.total 
-    const counterDrivers = UserDataDrivers.meta.total 
+    const counterCustomer = UserData.meta.total
+    const counterDrivers = UserDataDrivers.meta.total
 
-  return (
-    <StyleWedget>
-        <StyleItemWedgetAlert>
-        <img src={alert}></img>
-        <h4>تنبيه تاخير الدفع</h4>
-        <span>2</span>
-        </StyleItemWedgetAlert>
-        <StyleItemWedgetAbout>
-            <WedgetAboutRight>
-            <img src={Customer}></img>
-            <p>عدد العملاء</p>
-            <h3>{counterCustomer}</h3>
-            </WedgetAboutRight>
-            <WedgetAboutLeft>
-            <BsThreeDotsVertical className='BsThreeDotsVertical' />
-            <p>زياده %23<AiOutlineArrowUp className='AiOutlineArrowUp'/></p>
-            </WedgetAboutLeft>
-        </StyleItemWedgetAbout>
-        <StyleItemWedgetAbout>
-            <WedgetAboutRight>
-            <img src={requests}></img>
-            <p>عدد الطلبات</p>
-            <h3>450</h3>
-            </WedgetAboutRight>
-            <WedgetAboutLeft>
-            <BsThreeDotsVertical className='BsThreeDotsVertical' />
-            <p>زياده %35<AiOutlineArrowUp className='AiOutlineArrowUp'/></p>
-            </WedgetAboutLeft>
-        </StyleItemWedgetAbout>
-        <StyleItemWedgetAbout>
-            <WedgetAboutRight>
-            <img src={delevery}></img>
-            <p>عدد السائقين</p>
-            <h3>{counterDrivers}</h3>
-            </WedgetAboutRight>
-            <WedgetAboutLeft>
-            <BsThreeDotsVertical className='BsThreeDotsVertical' />
-            <p>زياده %10<AiOutlineArrowUp className='AiOutlineArrowUp'/></p>
-            </WedgetAboutLeft>
-        </StyleItemWedgetAbout>
-    </StyleWedget>
-  )
+    return (
+        <StyleWedget>
+            <StyleItemWedgetAlert>
+                <div>
+                    <img src={alert}></img>
+                    <h4>تنبيه تاخير الدفع</h4>
+                </div>
+                <span>2</span>
+            </StyleItemWedgetAlert>
+            <StyleItemWedgetAbout>
+                <WedgetAboutRight>
+                    <img src={Customer}></img>
+                    <p>عدد العملاء</p>
+                    <h3>{counterCustomer}</h3>
+                </WedgetAboutRight>
+                <WedgetAboutLeft>
+                    <BsThreeDotsVertical className='BsThreeDotsVertical' />
+                    <p>زياده %23<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
+                </WedgetAboutLeft>
+            </StyleItemWedgetAbout>
+            <StyleItemWedgetAbout>
+                <WedgetAboutRight>
+                    <img src={requests}></img>
+                    <p>عدد الطلبات</p>
+                    <h3>450</h3>
+                </WedgetAboutRight>
+                <WedgetAboutLeft>
+                    <BsThreeDotsVertical className='BsThreeDotsVertical' />
+                    <p>زياده %35<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
+                </WedgetAboutLeft>
+            </StyleItemWedgetAbout>
+            <StyleItemWedgetAbout>
+                <WedgetAboutRight>
+                    <img src={delevery}></img>
+                    <p>عدد السائقين</p>
+                    <h3>{counterDrivers}</h3>
+                </WedgetAboutRight>
+                <WedgetAboutLeft>
+                    <BsThreeDotsVertical className='BsThreeDotsVertical' />
+                    <p>زياده %10<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
+                </WedgetAboutLeft>
+            </StyleItemWedgetAbout>
+        </StyleWedget>
+    )
 }
 
 //style Wedget
@@ -80,12 +82,14 @@ width: 25%;
 const StyleItemWedgetAlert = styled.div`
 position: relative;
 background-color: white;
-padding: 13px;
+
 display: flex;
 align-items: center;
 border-radius: 10px;
 margin: 10px 0;
-
+div{
+    padding: 13px;
+}
 h4{
     margin-right: 40px;
     font-size: 20px;
@@ -96,8 +100,7 @@ span{
     color: white;
     background-color: var(--danger-color);
     position: absolute;
-    top: -10px;
-    left: -8px;
+    top: -10px;    
 }
 
 

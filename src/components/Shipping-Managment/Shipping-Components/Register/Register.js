@@ -5,7 +5,7 @@ import './Register.scss'
 import RegisterForm from './RegisterForm';
 const Register = () => {
     return (
-        <div dir='ltr' className='auth-container'>
+        <div dir='ltr' className='auth-container'> 
             <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-lg-4 bg-dark h-100 pt-3 vh-100 text-center'>
