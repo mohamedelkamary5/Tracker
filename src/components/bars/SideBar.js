@@ -43,49 +43,49 @@ const SideBar = ({ showBar, HandelClose }) => {
         },
         {
             id: 8,
-            name: "المشرفين",
+            name: t("managers"),
             link: "/admin/managers",
             icon: BsPerson,
 
         },
         {
             id: 3,
-            name: "شركات الشحن",
+            name: t("shipping"),
             link: "/admin/shipping-companies",
             icon: FaShoppingCart,
 
         },
         {
             id: 6,
-            name: "السائقين",
+            name: t("drivers"),
             link: "/admin/drivers",
             icon: MdDirectionsCar,
 
         },
         {
             id: 7,
-            name: "العملات",
+            name: t("currencies"),
             link: "/admin/currencies",
             icon: HiCurrencyDollar,
 
         },
         {
             id: 11,
-            name: "الباقات",
+            name: t("quotes"),
             link: "/admin/quotes",
             icon: FiPackage,
 
         },
         {
             id: 9,
-            name: "حسابي",
+            name: t("my_account"),
             link: "/admin/my-account",
             icon: BsPersonCircle,
 
         },
         {
             id: 10,
-            name: "الأعداد ات",
+            name: t("setting"),
             link: "/admin/setting",
             icon: MdOutlineSettings,
 

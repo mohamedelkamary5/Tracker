@@ -1,9 +1,20 @@
 {
     "home" : "Home",
-    "restaurants" : "Restaurants",
     "logo" : "Logo",
-    "name" : "name",
+    "name" : "Name",
     "en_name" : "Name English",
     "telephone" : "Telephone",
-    "mobile" : "Mobile"
+    "mobile" : "Mobile",
+    "email" : "Email",
+    "address" : "Address",
+    "status" : "Status",
+    "options" : "Options",
+    "restaurants" : "Restaurants",
+    "managers" : "Managers",
+    "shipping" : "Shipping",
+    "drivers" : "Drivers",
+    "currencies" : "Currencies",
+    "quotes" : "Quotes",
+    "my_account" : "My Account",
+    "setting" : "Setting"
 }

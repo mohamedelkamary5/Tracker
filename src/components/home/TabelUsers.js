@@ -28,10 +28,10 @@ const TabelUsers = () => {
                         <th>#</th>
                         <th>{t("name")}</th>
                         <th>{t("telephone")}</th>
-                        <th>العنوان</th>
-                        <th>الايميل</th>
-                        <th>الحالة</th>
-                        <th>الخيارات</th>
+                        <th>{t("address")}</th>
+                        <th>{t("email")}</th>
+                        <th>{t("status")}</th>
+                        <th>{t("options")}</th>
                     </TrHead>
                 </Thead>
                 <Tbody>

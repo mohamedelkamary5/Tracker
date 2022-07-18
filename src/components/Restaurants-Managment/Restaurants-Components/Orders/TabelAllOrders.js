@@ -110,8 +110,8 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         <th> اسم العميل </th>
                                         <th>{t("telephone")}</th>
                                         <th>التفاصيل</th>
-                                        <th>الحالة</th>
-                                        <th>الخيارات</th>
+                                        <th>{t("status")}</th>
+                                        <th>{t("options")}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

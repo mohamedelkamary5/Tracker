@@ -1,10 +1,21 @@
 {
     "home" : "الرئيسية",
-    "restaurants" : "المطاعم",
     "logo" : "الشعار",
     "name" : "الإسم",
     "en_name" : "الأسم بالانجليزي",
     "telephone" : "التليفون",
-    "mobile" : "موبايل"
+    "mobile" : "موبايل",
+    "email" : "الايميل",
+    "address" : "العنوان",
+    "status" : "الحالة",
+    "options" : "الخيارات",
+    "restaurants" : "المطاعم",
+    "managers" : "المشرفين",
+    "shipping" : "الشحن",
+    "drivers" : "السائقين",
+    "currencies" : "العملات",
+    "quotes" : "الباقات",
+    "my_account" : "حسابي",
+    "setting" : "الاعدادات"
 
 }

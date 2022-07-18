@@ -93,10 +93,10 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
                                         <th>#</th>
                                         <th>الأسم بالانجليزي</th>
                                         <th>{t("telephone")}</th>
-                                        <th>الايميل</th>
-                                        <th>الحالة</th>
+                                        <th>{t("email")}</th>
+                                        <th>{t("status")}</th>
                                         <th>حالة الاتصال</th>
-                                        <th>الخيارات</th>
+                                        <th>{t("options")}</th>
                                     </tr>
                                 </thead>
 
@@ -279,8 +279,8 @@ export default TableAllUsers
 //                 <th > id</th>
 //                 <th>{t("name")}</th>
 //                 <th>رقم اخر</th>
-//                 <th>العنوان</th>
-//                 <th>الحالة</th>
+//                 <th>{t("address")}</th>
+//                 <th>{t("status")}</th>
 //             </TrHead>
 //         </Thead>
 //         <Tbody>

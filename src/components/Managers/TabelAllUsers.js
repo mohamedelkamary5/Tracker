@@ -105,9 +105,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         <th>{t("logo")}</th>
                                         <th>#</th>
                                         <th>{t("name")}</th>
-                                        <th>الايميل</th>
-                                        <th>حاله</th>
-                                        <th>الخيارات</th>
+                                        <th>{t("email")}</th>
+                                        <th>{t("status")}</th>
+                                        <th>{t("options")}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

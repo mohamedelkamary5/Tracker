@@ -18,8 +18,8 @@ const TabelClient = (props) => {
                 <th > id</th>
                 <th>{t("name")}</th>
                 <th>رقم اخر</th>
-                <th>العنوان</th>
-                <th>الحالة</th>
+                <th>{t("address")}</th>
+                <th>{t("status")}</th>
             </TrHead>
         </Thead>
         <Tbody>

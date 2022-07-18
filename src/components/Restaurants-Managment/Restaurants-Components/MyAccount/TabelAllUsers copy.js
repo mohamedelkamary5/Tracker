@@ -52,7 +52,7 @@ const TabelAllUsers = ({searchSort , setSortSearch ,HandelShowCustomer }) => {
                 <th>السعر</th>
                 <th>المدة</th>
                 <th>تاريخ الدفع</th>
-                <th>الحالة</th>
+                <th>{t("status")}</th>
                 <td>الخيارات</td>
             </TrHead>
         </Thead>
