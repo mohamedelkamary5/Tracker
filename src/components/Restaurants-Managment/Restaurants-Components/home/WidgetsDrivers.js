@@ -2,7 +2,9 @@ import React, { useState ,useEffect } from 'react'
 import "../../../../styles/Components/_widgets-divers.scss"
 import { getDrivers } from '../../../../store/Restaurants-Managment/DriverRestauantsSlice';
 import { useSelector ,useDispatch } from 'react-redux';
+import { useTranslation } from "react-i18next";
 const WidgetsDrivers = () => {
+  const { t } = useTranslation();
 
 
   const arrow = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11">
@@ -150,7 +152,7 @@ console.log(UserDataSelector)
                 <tr>
                   <td>{item.en_name}</td>
                   <td>{item.id}</td>
-                  <td className={item.isOnline === 1 ? "success" : item.isOnline === 0 ? "danger" : "orange"}>{item.isOnline === 0 ? "غير متصل" : "متصل"}</td>
+                  <td className={item.isOnline === 1 ? "success" : item.isOnline === 0 ? "danger" : "orange"}>{item.isOnline === 0 ? t("not_connected") : t("connected")}</td>
                 </tr>
               )
             })}

@@ -241,6 +241,11 @@
         position: absolute;
         top: 30px;
         left: -32px;
+        &:lang(en) {
+            right: -32px;
+            left: auto;
+
+        }
     }
 
     .box-slide .mark {

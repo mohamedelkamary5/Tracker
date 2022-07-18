@@ -19,5 +19,10 @@
     "setting" : "Setting",
     "shipping_company" : "Shipping company",
     "active" : "Active",
-    "in_active" : "Inactive"
+    "in_active" : "Inactive",
+    "connected" : "Connected",
+    "not_connected" : "Not Connected",
+    "details" : "Details",
+    "contact_status" : "Contact Status"
+    
 }

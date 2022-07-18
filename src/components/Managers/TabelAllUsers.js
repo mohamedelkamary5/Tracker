@@ -128,7 +128,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                     </td>
 
 
-                                                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? "متصل" : "غير متصل"}</span></td>
+                                                    <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active")}</span></td>
 
 
                                                     <td >

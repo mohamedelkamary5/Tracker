@@ -19,6 +19,10 @@
     "setting" : "الاعدادات",
     "shipping_company" : "شركة الشحن",
     "active" : "نشط",
-    "in_active" : "غير نشط"
+    "in_active" : "غير نشط",
+    "connected" : "متصل",
+    "not_connected" : "غير متصل",
+    "details" : "التفاصيل",
+    "contact_status" : "حالة الإتصال"
 
 }

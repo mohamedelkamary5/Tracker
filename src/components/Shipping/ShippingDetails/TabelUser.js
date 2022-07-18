@@ -122,7 +122,7 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
 
 
                                                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status == 1 ? t("active") : t("in_active")} </span></td>
-                                                    <td ><span className={user.isOnline == 1 ? "green" : "red"}>{user.isOnline == 1 ? "متصل" : "غير متصل"}  </span></td>
+                                                    <td ><span className={user.isOnline == 1 ? "green" : "red"}>{user.isOnline == 1 ? t("connected") : t("not_connected")}  </span></td>
 
                                                     <td >
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
