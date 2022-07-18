@@ -69,7 +69,6 @@ import Orders from "./components/Restaurants-Managment/pages/Orders";
 import OrderDetails from "./components/Restaurants-Managment/Restaurants-Components/Orders/OrderDetails/User";
 
 import ModelPupup from "./components/Model/ModelPupup";
-import CheckConnection from "./Shared/Services/CheckConnection";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const { i18n } = useTranslation();
@@ -103,8 +102,6 @@ function App() {
   }, []);
 
   return (
-    // <CheckConnection>
-
       <div dir={i18n.language == "en" ? 'rtl' : "ltr"} lang={i18n.language == "en" ? "ar" : "en"} className={i18n.language == "en" ? 'wrapp-rtl' : "wrapp-ltr"}>
         {loader && <PreLoader />}
         <StyleApp>
@@ -374,8 +371,6 @@ function App() {
           </BrowserRouter>
         </StyleApp>
       </div>
-    // </CheckConnection>
-
   );
 }
 const StyleApp = styled.div`
