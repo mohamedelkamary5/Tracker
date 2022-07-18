@@ -167,7 +167,8 @@ justify-content: center;
 }
 .btn-lang{
     padding: 0px 10px;
-    background: white;
+    background: #FBA30D;
+    color: white;
     border-radius: 5px;
     font-size: 14px;
     font-weight: 500;

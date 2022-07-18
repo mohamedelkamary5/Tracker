@@ -3,8 +3,10 @@ import ReactPaginate from "react-paginate";
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
+import { useTranslation } from "react-i18next";
 
 const PaginateComponent = ({ pageCount, handlePageClick }) => {
+    const { i18n } = useTranslation();
     return (
         <>
             {
@@ -12,8 +14,8 @@ const PaginateComponent = ({ pageCount, handlePageClick }) => {
                     : <>
                         <ReactPaginate
                             pageCount={pageCount / 10}
-                            previousLabel={<IoIosArrowForward />}
-                            nextLabel={<IoIosArrowBack />}
+                            previousLabel={i18n.language == "en" ? <IoIosArrowForward /> : <IoIosArrowBack /> }
+                            nextLabel={i18n.language == "ar" ? <IoIosArrowForward /> : <IoIosArrowBack /> }
                             breakLabel={<BiDotsHorizontalRounded />}
                             breakClassName={"break-me"}
                             marginPagesDisplayed={2}
