@@ -7,6 +7,8 @@ import TabelAllUsers from '../components/Restaurants/TabelAllUsers'
 import {MarginPages} from '../styles/MarginPages'
 import { useSelector, useDispatch } from 'react-redux'
 import { getShipping } from '../store/ShippingSlice'
+import { useTranslation } from "react-i18next";
+
 
 const Restaurants = ({HandelShow ,HandelShowCustomer  }
   
@@ -21,9 +23,12 @@ const Restaurants = ({HandelShow ,HandelShowCustomer  }
     dispatch(getShipping())
     
 }, [dispatch ])
+  //translate
+  const { t , i18n } = useTranslation();
+
   return (
     <div className='lay-out-wrapp'>
-        <TopBar title={"المطاعم"} HandelShow={HandelShow} />
+        <TopBar title={t("restaurants")} HandelShow={HandelShow} />
         
         <TabelAllUsers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer}  />
         

@@ -28,7 +28,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const UserDataSelector = useSelector(state => state.drivers)
     const listView = useSelector(state => state.drivers.listView)
     const [UserData, setUserData] = useState([])
-
+    
 
 
 
@@ -37,7 +37,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
             const BlackList = UserDataSelector.drivers.filter(statusItem => statusItem.status == 0)
             setUserData(BlackList)
             setSortValue('')
-        } else if (statusActiveDrivers) {
+        }else if(statusActiveDrivers) {
             const BtnActiveList = UserDataSelector.drivers.filter(statusItem => statusItem.status == 1)
             setUserData(BtnActiveList)
             setSortValue('')
@@ -45,12 +45,12 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
         } else {
             setUserData(UserDataSelector.drivers)
-            setSortValue('')
+            setSortValue('') 
         }
+        
 
 
-
-    }, [UserDataSelector.drivers, statusBlackList, statusActiveDrivers])
+    }, [UserDataSelector.drivers, statusBlackList ,statusActiveDrivers])
 
 
     useEffect(() => {
@@ -113,7 +113,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                     : <>
                         {listView ?
                             <table>
-
+                                
                                 <thead>
                                     <tr>
                                         <th >{t("logo")}</th>
@@ -122,7 +122,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         <th>{t("telephone")}</th>
                                         <th>{t("email")}</th>
                                         <th>{t("status")}</th>
-                                        <th>{t("contact_status")}</th>
+                                        <th>حالة الاتصال</th>
                                         <th>{t("options")}</th>
                                     </tr>
                                 </thead>
@@ -148,12 +148,12 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
                                                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status == 1 ? t("active") : t("in_active")}</span></td>
-                                                    <td ><span className={user.isOnline === 1 ? "green" : "red"}>{user.isOnline === 1 ? t("connected") : t("not_connected")}</span></td>
+                                                    <td ><span className={user.isOnline === 1 ? "green" : "red"}>{user.isOnline === 1 ? "متصل" : "غير متصل"}</span></td>
 
                                                     <td >
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                                         <div className='select-clint'>
-                                                            <Link to={`/admin/drivers/${user.id}`}> {t('details')}</Link>
+                                                            <Link to={`/admin/drivers/${user.id}`}> التفاصيل</Link>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -213,7 +213,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 {statusBlackList ? null : <BlackList />}
                 {statusActiveDrivers ? null : <BtnActiveList />}
 
-
+               
 
                 <div className='style-icons-sort'>
                     <AiOutlineBars className={`sort-icon ${listView ? 'active' : ''}`} onClick={() => dispatch(handleListView(true))} />
@@ -228,7 +228,8 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <div className='sort-by'>
 
-                    <p> {t("sort_by")} : </p>
+
+                    <p> ترتيب حسب : </p>
                     {sortingItems.map(item => {
                         return (
                             <div className='main-sort' key={item.id}>

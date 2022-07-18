@@ -1,4 +1,5 @@
 import React, { useState ,useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import styled from "styled-components"
 import TopBar from '../components/bars/TopBar'
@@ -14,9 +15,12 @@ const Drivers = ({HandelShow ,HandelShowCustomer }) => {
     dispatch(getShipping())
     
 }, [dispatch ])
+//translate
+const { t , i18n } = useTranslation();
+
   return (
     <div className='lay-out-wrapp'>
-    <TopBar title={"السائقين"} HandelShow={HandelShow} />
+    <TopBar title={t("drivers")} HandelShow={HandelShow} />
     <div className='style-flex-page'>
         <TabelDrivers searchSort={searchSort} setSortSearch={setSortSearch} HandelShowCustomer={HandelShowCustomer} />
         

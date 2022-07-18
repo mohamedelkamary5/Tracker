@@ -14,7 +14,7 @@
     "shipping" : "الشحن",
     "drivers" : "السائقين",
     "currencies" : "العملات",
-    "quotes" : "الباقات",
+    "packages" : "الباقات",
     "my_account" : "حسابي",
     "setting" : "الاعدادات",
     "shipping_company" : "شركة الشحن",
@@ -25,5 +25,6 @@
     "details" : "التفاصيل",
     "sort_by" : "ترتيب حسب",
     "contact_status" : "حالة الإتصال"
+
 
 }
