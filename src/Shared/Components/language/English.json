@@ -3,5 +3,7 @@
     "restaurants" : "Restaurants",
     "logo" : "Logo",
     "name" : "name",
-    "en_name" : "Name English"
+    "en_name" : "Name English",
+    "telephone" : "Telephone",
+    "mobile" : "Mobile"
 }
