@@ -14,6 +14,19 @@ export const getShipping = createAsyncThunk('shipping/getShipping', async (pageI
     return rejectWithValue(err.message)
   }
 })
+// get data clints Shipping
+export const SearchShipping = createAsyncThunk('shipping/SearchShipping', async (search, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+  try {
+    const res = await get(`users/search?search=${search}`)
+    console.log('res.data', res.data.length);
+    return res
+  } catch (err) {
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+  }
+})
 // get data clint Shipping Details
 export const getShippingDetails = createAsyncThunk('shipping/getShippingDetails', async (id, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
@@ -90,7 +103,7 @@ export const ShippingSlice = createSlice({
   },
   extraReducers: {
 
-    //get clint drivers
+    //get clint 
     [getShipping.pending]: (state, action) => {
       // state.error = null;
     },
@@ -100,8 +113,20 @@ export const ShippingSlice = createSlice({
     },
     [getShipping.rejected]: (state, action) => {
       state.error = action;
-      // console.log('action', action);
     },
+    //get clint 
+    [SearchShipping.pending]: (state, action) => {
+      // state.error = null;
+    },
+    [SearchShipping.fulfilled]: (state, action) => {
+      state.shipping = action.payload.data;
+      state.meta = action.payload.meta;
+    },
+    [SearchShipping.rejected]: (state, action) => {
+      state.error = action;
+    },
+
+
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload
     },

@@ -20,6 +20,19 @@ export const getClients2 = createAsyncThunk('clients2/getClients2', async (pageI
       return rejectWithValue(err.message)
   }
 })
+// get data clints resturant
+export const SearchClients2 = createAsyncThunk('clients2/SearchClients2', async (search, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI
+
+     try {
+       const res = await get(`restaurants/search?search=${search}`)
+       console.log('res', res);
+     return res
+  } catch (err) {
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+      return rejectWithValue(err)
+  }
+})
 
 
 
@@ -114,6 +127,21 @@ export const ClintSlice = createSlice({
           state.error = action;
           // console.log('action', action);
         },
+
+        [SearchClients2.pending]: (state, action) => {
+          state.error = null;
+        },
+        [SearchClients2.fulfilled]: (state, action) => {
+          state.clients2 = action.payload.data;
+          state.meta= action.payload.meta;
+        },
+        [SearchClients2.rejected]: (state, action) => {
+          state.error = action;
+          console.log('action', action);
+        },
+
+
+
         [handleListView.fulfilled]: (state, action) => {
           state.listView = action.payload
         },
