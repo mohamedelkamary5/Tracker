@@ -216,7 +216,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <div className='sort-by'>
 
-                    <p> ترتيب حسب : </p>
+                    <p> {t("sort_by")} : </p>
                     {sortingItems.map(item => {
                         return (
                             <div className='main-sort' key={item.id}>

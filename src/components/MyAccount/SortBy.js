@@ -1,8 +1,10 @@
 import React ,{useState ,useEffect} from 'react'
 import styled from "styled-components"
+import { useTranslation } from "react-i18next";
 
 const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDate,titleName ,titleDuration}) => {
   
+  const { t } = useTranslation();
 
   const [stateDataSort ,setDataSort ] = useState({
     activeSort:null ,
@@ -39,7 +41,7 @@ const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDa
 
   return (
     <StyleSortBy    >
-      <p> ترتيب حسب : </p>
+      <p> {t("sort_by")} : </p>
       {stateDataSort.dataSort.map((item , index )=>{
         return (
           <div className='main-sort' key={index}>

@@ -23,6 +23,7 @@
     "connected" : "Connected",
     "not_connected" : "Not Connected",
     "details" : "Details",
+    "sort_by" : "Sort By",
     "contact_status" : "Contact Status"
     
 }

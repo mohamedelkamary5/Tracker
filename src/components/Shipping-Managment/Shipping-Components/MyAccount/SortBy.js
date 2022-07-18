@@ -39,7 +39,7 @@ const SortBy = ({setSortedField ,sortData ,sortName ,sortDuration ,sortpaymentDa
 
   return (
     <StyleSortBy    >
-      <p> ترتيب حسب : </p>
+      <p> {t("sort_by")} : </p>
       {stateDataSort.dataSort.map((item , index )=>{
         return (
           <div className='main-sort' key={index}>

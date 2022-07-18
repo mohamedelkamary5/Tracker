@@ -23,6 +23,7 @@
     "connected" : "متصل",
     "not_connected" : "غير متصل",
     "details" : "التفاصيل",
+    "sort_by" : "ترتيب حسب",
     "contact_status" : "حالة الإتصال"
 
 }
