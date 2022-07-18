@@ -69,13 +69,14 @@ import Orders from "./components/Restaurants-Managment/pages/Orders";
 import OrderDetails from "./components/Restaurants-Managment/Restaurants-Components/Orders/OrderDetails/User";
 
 import ModelPupup from "./components/Model/ModelPupup";
+import CheckConnection from "./Shared/Services/CheckConnection";
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const { i18n } = useTranslation();
   const [showBar, setShowBar] = useState(false) //side par
   const [show, setShow] = useState(false) // added clint massige
   const [loader, setLoader] = useState(true);
-  
+
   const HandelShow = () => {
     setShowBar(!showBar)
 
@@ -102,168 +103,182 @@ function App() {
   }, []);
 
   return (
-    <div dir={i18n.language == "en-US" ? 'rtl' : "ltr"} lang={i18n.language == "en-US" ? "ar" : "en-US"} className={i18n.language == "en-US" ? 'wrapp-rtl' : "wrapp-ltr"}>
-      {loader && <PreLoader />}
-      <StyleApp>
-        <BrowserRouter>
-          {/* public sliders */}
-          <ModelPupup />
-          <Routes>
-            {/* Start Routes Admin */}
-            <Route path="/admin/login" element={<Login />} />
-            <Route path="/admin/register" element={<Register />} />
-            {/*------------*/}
-            <Route element={<ProtectedRoutesAdmin />}>
-              <Route element={<SidebarLayout HandelShow={HandelShow} show={show} />}>
+    // <CheckConnection>
 
-                <Route path="/admin" element={<Home HandelShow={HandelShow} />} />
-                <Route path="admin/Triple-zero" element={<Home HandelShow={HandelShow} />} />
-                <Route path="admin/setting" element={<Setting />} />
+      <div dir={i18n.language == "en" ? 'rtl' : "ltr"} lang={i18n.language == "en" ? "ar" : "en"} className={i18n.language == "en" ? 'wrapp-rtl' : "wrapp-ltr"}>
+        {loader && <PreLoader />}
+        <StyleApp>
+          <BrowserRouter>
+            {/* public sliders */}
+            <ModelPupup />
+            <Routes>
+              {/* Start Routes Admin */}
+              <Route path="/admin/login" element={<Login />} />
+              <Route path="/admin/register" element={<Register />} />
+              {/*------------*/}
+              <Route element={<ProtectedRoutesAdmin />}>
+                <Route element={<SidebarLayout HandelShow={HandelShow} show={show} />}>
 
-                {/* Start Restaurants Routes */}
-                <Route path="admin/restaurants">
-                  <Route path="" element={<Restaurants
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path="black-list" element={<Restaurants
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path=":restaurantId" element={<RestaurantDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
+                  <Route path="/admin" element={<Home HandelShow={HandelShow} />} />
+                  <Route path="admin/Triple-zero" element={<Home HandelShow={HandelShow} />} />
+                  <Route path="admin/setting" element={<Setting />} />
+
+                  {/* Start Restaurants Routes */}
+                  <Route path="admin/restaurants">
+                    <Route path="" element={<Restaurants
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path="black-list" element={<Restaurants
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path=":restaurantId" element={<RestaurantDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                  </Route>
+                  {/* End Restaurants Routes */}
+
+                  {/* Start shipping Routes */}
+                  <Route path="admin/shipping-companies">
+                    <Route path="" element={<Shipping
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path="black-list" element={<Shipping
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path=":shippingId" element={<ShippingDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                  </Route>
+                  {/* End shipping Routes */}
+
+                  {/* Start Managers Routes */}
+                  <Route path="admin/managers">
+                    <Route path="" element={<Managers
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path="black-list" element={<Managers
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path=":managerId" element={<ManagerDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                  </Route>
+                  {/* End Managers Routes */}
+
+                  {/* Start Drivers Routes */}
+                  <Route path="admin/drivers">
+                    <Route path="" element={<Drivers
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path="black-list" element={<Drivers
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path="active-drivers" element={<Drivers
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path=":driverId" element={<DriverDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                  </Route>
+                  {/* End Drivers Routes */}
+
+                  {/* Start Currencies Routes */}
+                  <Route path="admin/currencies">
+                    <Route path="" element={<Currencies
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path="black-list" element={<Currencies
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path=":currencyId" element={<CurrencyDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                  </Route>
+                  {/* End Currencies Routes */}
+
+                  {/* Start Quotes Routes */}
+                  <Route path="admin/quotes">
+                    <Route path="" element={<Quotes
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path="black-list" element={<Quotes
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow}
+                    />} />
+                    <Route path=":quotesId" element={<QuotesDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                  </Route>
+                  {/* End Quotes Routes */}
+
+                  {/* My Account */}
+                  <Route path="admin/my-account">
+                    <Route path="" element={<MyAccount
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                    <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
+                  </Route>
                 </Route>
-                {/* End Restaurants Routes */}
+                {/* End Routes Admin */}
 
-                {/* Start shipping Routes */}
-                <Route path="admin/shipping-companies">
-                  <Route path="" element={<Shipping
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path="black-list" element={<Shipping
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path=":shippingId" element={<ShippingDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                </Route>
-                {/* End shipping Routes */}
-
-                {/* Start Managers Routes */}
-                <Route path="admin/managers">
-                  <Route path="" element={<Managers
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path="black-list" element={<Managers
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path=":managerId" element={<ManagerDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                </Route>
-                {/* End Managers Routes */}
-
-                {/* Start Drivers Routes */}
-                <Route path="admin/drivers">
-                  <Route path="" element={<Drivers
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path="black-list" element={<Drivers
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path="active-drivers" element={<Drivers
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path=":driverId" element={<DriverDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                </Route>
-                {/* End Drivers Routes */}
-
-                {/* Start Currencies Routes */}
-                <Route path="admin/currencies">
-                  <Route path="" element={<Currencies
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path="black-list" element={<Currencies
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path=":currencyId" element={<CurrencyDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                </Route>
-                {/* End Currencies Routes */}
-
-                {/* Start Quotes Routes */}
-                <Route path="admin/quotes">
-                  <Route path="" element={<Quotes
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path="black-list" element={<Quotes
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow}
-                  />} />
-                  <Route path=":quotesId" element={<QuotesDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                </Route>
-                {/* End Quotes Routes */}
 
                 {/* My Account */}
                 <Route path="admin/my-account">
@@ -277,100 +292,89 @@ function App() {
               {/* End Routes Admin */}
 
 
-              {/* My Account */}
-              <Route path="admin/my-account">
-                <Route path="" element={<MyAccount
-                  HandelShow={HandelShow}
-                  HandelClose={HandelClose} />}
-                />
-                <Route path="edit" element={<EditMyAccount HandelShow={HandelShow} />} />
-              </Route>
-            </Route>
-            {/* End Routes Admin */}
+              {/* Start Routes Restaurant */}
+              <Route path="/login" element={<Login />} />
+              {/* <Route path="/login" element={<LoginRestaurant />} /> */}
+              <Route element={<ProtectedRoutesRestaurant />}>
+                <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
+                  <Route path="/Triple-zero" element={<HomeRestaurant />} />
+                  <Route path="/" element={<HomeRestaurant />} />
+                  {/* Start Route orders */}
+                  <Route path="/orders" >
+                    <Route path="" element={<Orders />}
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow} >
+                    </Route>
 
+                    <Route path=":orderId" element={<OrderDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
 
-            {/* Start Routes Restaurant */}
-            <Route path="/login" element={<Login />} />
-            {/* <Route path="/login" element={<LoginRestaurant />} /> */}
-            <Route element={<ProtectedRoutesRestaurant />}>
-              <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
-                <Route path="/Triple-zero" element={<HomeRestaurant />} />
-                <Route path="/" element={<HomeRestaurant />} />
-                {/* Start Route orders */}
-                <Route path="/orders" >
-                  <Route path="" element={<Orders />}
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow} >
+                  </Route>
+                  {/* Start Route Drivers  */}
+                  <Route path="drivers" element={<DriversRestaurant />}> </Route>
+                  <Route path="drivers/black-list" element={<DriversRestaurant />}> </Route>
+
+                  {/* My Account */}
+                  <Route path="/my-account">
+                    <Route path="" element={<MyAccountRestaurant
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                    <Route path="edit" element={<EditMyAccountRestaurant HandelShow={HandelShow} />} />
                   </Route>
 
-                  <Route path=":orderId" element={<OrderDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-
                 </Route>
-                {/* Start Route Drivers  */}
-                <Route path="drivers" element={<DriversRestaurant />}> </Route>
-                <Route path="drivers/black-list" element={<DriversRestaurant />}> </Route>
-
-                {/* My Account */}
-                <Route path="/my-account">
-                  <Route path="" element={<MyAccountRestaurant
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                  <Route path="edit" element={<EditMyAccountRestaurant HandelShow={HandelShow} />} />
-                </Route>
-
               </Route>
-            </Route>
-            {/* End Routes Restaurant */}
+              {/* End Routes Restaurant */}
 
-            {/* Start Routes shipping */}
-            <Route path="/shipping/login" element={<Login />} />
-            <Route element={<ProtectedRoutesShipping />}>
-              <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
-                <Route path="/shipping" element={<HomeRestaurant />} />
-                {/* Start Route orders */}
-                <Route path="/shipping/orders" >
-                  <Route path="" element={<Orders />}
-                    HandelShow={HandelShow}
-                    showBar={showBar}
-                    HandelClose={HandelClose}
-                    show={show}
-                    setShow={setShow} >
+              {/* Start Routes shipping */}
+              <Route path="/shipping/login" element={<Login />} />
+              <Route element={<ProtectedRoutesShipping />}>
+                <Route element={<SidebarLayoutRestaurant HandelShow={HandelShow} show={show} />}>
+                  <Route path="/shipping" element={<HomeRestaurant />} />
+                  {/* Start Route orders */}
+                  <Route path="/shipping/orders" >
+                    <Route path="" element={<Orders />}
+                      HandelShow={HandelShow}
+                      showBar={showBar}
+                      HandelClose={HandelClose}
+                      show={show}
+                      setShow={setShow} >
+                    </Route>
+
+                    <Route path=":orderId" element={<OrderDetails
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+
+                  </Route>
+                  {/* Start Route Drivers  */}
+                  <Route path="/shipping/drivers" element={<DriversRestaurant />}> </Route>
+
+                  {/* My Account */}
+                  <Route path="/shipping/my-account">
+                    <Route path="" element={<MyAccountRestaurant
+                      HandelShow={HandelShow}
+                      HandelClose={HandelClose} />}
+                    />
+                    <Route path="edit" element={<EditMyAccountRestaurant HandelShow={HandelShow} />} />
                   </Route>
 
-                  <Route path=":orderId" element={<OrderDetails
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-
                 </Route>
-                {/* Start Route Drivers  */}
-                <Route path="/shipping/drivers" element={<DriversRestaurant />}> </Route>
-
-                {/* My Account */}
-                <Route path="/shipping/my-account">
-                  <Route path="" element={<MyAccountRestaurant
-                    HandelShow={HandelShow}
-                    HandelClose={HandelClose} />}
-                  />
-                  <Route path="edit" element={<EditMyAccountRestaurant HandelShow={HandelShow} />} />
-                </Route>
-
               </Route>
-            </Route>
-            {/* End Routes shipping */}
+              {/* End Routes shipping */}
 
 
-          </Routes>
-        </BrowserRouter>
-      </StyleApp>
-    </div>
+            </Routes>
+          </BrowserRouter>
+        </StyleApp>
+      </div>
+    // </CheckConnection>
 
   );
 }

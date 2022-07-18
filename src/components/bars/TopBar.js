@@ -165,8 +165,8 @@ const TopBar = ({ title }) => {
                     <MdAddBox className='icon-topbar' onClick={HandelButton} />
                     <ButtonsAdd buttons={buttons} setbuttons={setbuttons} />
 
-                    {i18n.language == "ar" && <button className='btn-lang' onClick={() => changeLanguage("en-US")}> عربي </button>}
-                    {i18n.language == "en-US" && <button className='btn-lang' onClick={() => changeLanguage("ar")}> English </button>}
+                    {i18n.language == "ar" && <button className='btn-lang' onClick={() => changeLanguage("en")}> عربي </button>}
+                    {i18n.language == "en" && <button className='btn-lang' onClick={() => changeLanguage("ar")}> English </button>}
 
                 </div>
 

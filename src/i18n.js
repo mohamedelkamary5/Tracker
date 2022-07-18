@@ -10,10 +10,10 @@ i18n.use(LanguageDetector)
     .init({
         // we init with resources
         resources: {
-            'en-US': { translations: translationAR },
+            en: { translations: translationAR },
             ar: { translations: translationEN },
         },
-        fallbackLng: "en-US",
+        fallbackLng: "en",
         // lng: "en",
         // debug: true,
 
