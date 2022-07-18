@@ -57,7 +57,7 @@ import EditMyAccountRestaurant from "./components/Restaurants-Managment/Restaura
 import DriversRestaurant from "./components/Restaurants-Managment/pages/Drivers";
 
 // import EditUser from "./components/clint copy/EditUser";
-import './styles/glopal-style.scss'
+import './styles/main-style.scss'
 import Setting from "./pages/Setting";
 import SidebarLayout from "./components/bars/NotBar";
 import ProtectedRoutesAdmin, { ProtectedRoutesRestaurant, ProtectedRoutesShipping } from "./components/Auth/ProtectedRoutes";

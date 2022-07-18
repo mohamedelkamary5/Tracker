@@ -11,6 +11,10 @@
 .lay-out-wrapp:lang(en) {
     margin-left: 240px;
     margin-right: auto;
+     @media (max-width: 1180px) {
+         margin-left: 0px;
+         padding: 10px;
+     }
 
 }
 

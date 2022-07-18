@@ -10,7 +10,7 @@ import { getDrivers } from "../../store/DriverSlice"
 import truncateText from '../../Shared/Services/Truncate';
 const TabelUsers = () => {
     const UserData = useSelector((state) => state.clients2)
-    const counterCustomer = UserData.meta.total 
+    const counterCustomer = UserData.meta.total
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getClients2())
@@ -59,18 +59,31 @@ const TabelUsers = () => {
                 </Tbody>
             </Tabel>
             <MoreTabel >
-                <b>{counterCustomer} مطعم</b> 
+                <b>{counterCustomer} مطعم</b>
                 <Link to="/admin/restaurants">المزيد<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
             </MoreTabel>
         </MainTabel>
     )
 }
 const MainTabel = styled.div`
-overflow-x: auto;
-width: 73%;
-@media (max-width:910px ) {
-     width:100% ;
-}
+    overflow-x: auto;
+    width: 73%;
+    @media (max-width:910px ) {
+        width:100% ;
+    }
+    ::-webkit-scrollbar {
+        // width: 1px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--primary-color);
+    }
+
 `
 const Tabel = styled.table`
     text-align: center;

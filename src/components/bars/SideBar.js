@@ -24,8 +24,8 @@ const SideBar = ({ showBar, HandelClose }) => {
     let location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/admin/login";
-    const { t } = useTranslation();
-
+    const { t , i18n } = useTranslation();
+    const language = i18n.language
     const initalNavBar = [
         {
             id: 1,
@@ -141,7 +141,7 @@ const SideBar = ({ showBar, HandelClose }) => {
 
     return (
 
-        <StyleSideBar toogleslider={toogleslider}    >
+        <StyleSideBar toogleslider={toogleslider} language={language}   >
             <StyleTop >
                 <div className='img-logo'>
                     <NavLink to="/Triple-zero"><img src={logo} /></NavLink>
@@ -172,6 +172,9 @@ const SideBar = ({ showBar, HandelClose }) => {
     )
 }
 // style StyleSideBar--
+
+const transformAr = (props) => props.toogleslider ? 'translateX(0)' : 'translateX(290px)';
+const transformEn = (props) => props.toogleslider ? 'translateX(0)' : 'translateX(-290px)';
 const StyleSideBar = styled.div`
 position: fixed;
 // right: 0;
@@ -192,11 +195,13 @@ overflow: hidden;
 -moz-box-shadow: -4px 5px 24px -13px rgba(105,105,105,1);
 box-shadow: -4px 5px 24px -13px rgba(105,105,105,1);
 @media (max-width:1180px ) {
-    transform: ${(props) => props.toogleslider ? 'translateX(0)  ' : '  translateX(290px)  '};
+    transform: ${(props) => props.language == 'en' ? transformAr : transformEn };
 }
 
 
 `
+    // ${language == "en" }
+
 const StyleTop = styled.div`
 //logo 
 .img-logo{
@@ -274,7 +279,7 @@ span img{
 const Stylebutton = styled.div`
 display: flex;
 padding: 15px;
-margin-bottom: 18px;
+margin-bottom: 52px;
 cursor: pointer;
 span{
     padding-right:12px ;
