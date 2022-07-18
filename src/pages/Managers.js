@@ -4,12 +4,16 @@ import TopBar from '../components/bars/TopBar'
 // import AddManager from '../components/Managers/AddManager'
 import TabelManagers from '../components/Managers/TabelAllUsers'
 import {MarginPages} from '../styles/MarginPages'
+import { useTranslation } from "react-i18next";
 
 const Managers = ({HandelShow }) => {
   const [searchSort , setSortSearch] = useState("") 
+    //translate
+    const { t , i18n } = useTranslation();
+    
   return (
     <div className='lay-out-wrapp'>
-    <TopBar title={"المشرفين"} HandelShow={HandelShow} />
+    <TopBar title={t("managers")} HandelShow={HandelShow} />
     <div className='style-flex-page'>
         <TabelManagers searchSort={searchSort} setSortSearch={setSortSearch} />
         
