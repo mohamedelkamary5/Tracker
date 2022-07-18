@@ -102,7 +102,7 @@ function App() {
   }, []);
 
   return (
-    <div dir={i18n.language == "en" ? 'rtl' : "ltr"} lang={i18n.language == "en" ? "ar" : "en"} className={i18n.language == "en" ? 'wrapp-rtl' : "wrapp-ltr"}>
+    <div dir={i18n.language == "en-US" ? 'rtl' : "ltr"} lang={i18n.language == "en-US" ? "ar" : "en-US"} className={i18n.language == "en-US" ? 'wrapp-rtl' : "wrapp-ltr"}>
       {loader && <PreLoader />}
       <StyleApp>
         <BrowserRouter>

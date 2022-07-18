@@ -5,17 +5,16 @@ import translationAR from './Shared/Components/language/Arabic.json'
 import translationEN from './Shared/Components/language/English.json'
 
 
-i18n
-    .use(LanguageDetector)
+i18n.use(LanguageDetector)
     .use(initReactI18next)
     .init({
         // we init with resources
         resources: {
-            en: { translations: translationAR },
+            'en-US': { translations: translationAR },
             ar: { translations: translationEN },
         },
-        // fallbackLng: "ar",
-        // lng: "ar",
+        fallbackLng: "en-US",
+        // lng: "en",
         // debug: true,
 
         // have a common namespace used around the full app

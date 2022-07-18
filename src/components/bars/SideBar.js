@@ -71,7 +71,7 @@ const SideBar = ({ showBar, HandelClose }) => {
         },
         {
             id: 11,
-            name: t("quotes"),
+            name: t("packages"),
             link: "/admin/quotes",
             icon: FiPackage,
 
