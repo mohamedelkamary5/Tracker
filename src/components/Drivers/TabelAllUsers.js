@@ -118,7 +118,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                     <tr>
                                         <th >{t("logo")}</th>
                                         <th >#</th>
-                                        <th> الأسم بالانجليزي</th>
+                                        <th>{t("en_name")}</th>
                                         <th>التليفون</th>
                                         <th>الايميل</th>
                                         <th>الحالة</th>

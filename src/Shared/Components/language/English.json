@@ -2,5 +2,6 @@
     "home" : "Home",
     "restaurants" : "Restaurants",
     "logo" : "Logo",
-    "name" : "name"
+    "name" : "name",
+    "en_name" : "Name English"
 }
