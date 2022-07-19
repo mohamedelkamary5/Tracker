@@ -310,7 +310,7 @@ const ClintForm = () => {
               <span>اضافه سائق</span>
             </Button>
 
-            <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span>
+            {/* <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span> */}
           </StyleFotter>
 
         </Form>
