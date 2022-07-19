@@ -14,6 +14,16 @@ export const getCurrency = createAsyncThunk('currency/getCurrency', async (pageI
     return rejectWithValue(err.message)
   }
 })
+export const searchCurrency = createAsyncThunk('currency/searchCurrency', async (pageId, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+  try {
+    const res = await get(`currency/search?search=${pageId}`)
+    return res
+  } catch (err) {
+    return rejectWithValue(err)
+  }
+})
 // get data Active Currency
 export const getActiveDrivers = createAsyncThunk('currency/getActiveDrivers', async (_, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
@@ -117,6 +127,18 @@ export const CurrencySlice = createSlice({
     [getCurrency.rejected]: (state, action) => {
       state.error = action;
       // console.log('action', action);
+    },
+    //get  Currency
+    [searchCurrency.pending]: (state, action) => {
+      state.error = null;
+    },
+    [searchCurrency.fulfilled]: (state, action) => {
+      state.currencies = action.payload.data;
+      state.meta = action.payload.meta;
+    },
+    [searchCurrency.rejected]: (state, action) => {
+      state.error = action;
+      state.currencies = [];
     },
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload

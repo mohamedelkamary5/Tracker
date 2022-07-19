@@ -13,6 +13,17 @@ export const getDrivers = createAsyncThunk('drivers/getDrivers', async (pageId, 
     return rejectWithValue(err.message)
   }
 })
+export const searchDrivers = createAsyncThunk('drivers/searchDrivers', async (search, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+  try {
+    const res = await get(`admins/drivers/search?search=${search}`) 
+    return res
+  } catch (err) {
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+  }
+})
 // get data Active drivers
 export const getActiveDrivers = createAsyncThunk('drivers/getActiveDrivers', async (_, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
@@ -113,6 +124,20 @@ export const DriverSlice = createSlice({
     },
     [getDrivers.rejected]: (state, action) => {
       state.error = action;
+      // console.log('action', action);
+    },
+    //get clint drivers
+    [searchDrivers.pending]: (state, action) => {
+      state.error = null;
+    },
+    [searchDrivers.fulfilled]: (state, action) => {
+      state.drivers = action.payload.data;
+      state.meta= action.payload.meta;
+    },
+    [searchDrivers.rejected]: (state, action) => {
+      state.error = action;
+      state.drivers = [];
+      alert('kldfkjdfjkldfdfjkljkl');
       // console.log('action', action);
     },
     [handleListView.fulfilled]: (state, action) => {

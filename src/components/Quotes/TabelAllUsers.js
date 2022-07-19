@@ -73,7 +73,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         } else {
             const searchString = e.target.value.toLowerCase();
             const filteredItems = UserData.filter((item) => {
-                return item.en_name.toLowerCase().includes(searchString);
+                return item.en_title.toLowerCase().includes(searchString);
             });
             setResultData(filteredItems)
         }
