@@ -11,9 +11,8 @@ const SidebarLayoutRestaurant = () => {
       <OverLay />
       <SideBar />
       <OverLay />
-      <CheckConnection>
-        <Outlet />
-      </CheckConnection>
+      <CheckConnection />
+      <Outlet />
     </>
 
   )
