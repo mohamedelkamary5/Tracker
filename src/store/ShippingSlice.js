@@ -124,6 +124,7 @@ export const ShippingSlice = createSlice({
     },
     [SearchShipping.rejected]: (state, action) => {
       state.error = action;
+      state.shipping = [];
     },
 
 

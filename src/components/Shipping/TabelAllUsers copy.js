@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
 import { Link, useLocation } from "react-router-dom";
 import BlackList from './BtnBlackList';
 import Logo3 from "../../photo/slogan/user-avatar.svg"
@@ -8,9 +10,10 @@ import Logo1 from "../../photo/slogan/logo-rest.png"
 import { AiOutlineBars } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { AiOutlineAppstore } from 'react-icons/ai';
-import { getShipping, SearchShipping, handleListView } from '../../store/ShippingSlice';
+import { getShipping, handleListView } from '../../store/ShippingSlice';
 import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
+import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
 import { useTranslation } from "react-i18next";
 const TableAllUsers = ({ HandelShowCustomer }) => {
@@ -26,7 +29,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
     const [UserData, setUserData] = useState([])
-    const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
         if (statusBlackList) {
@@ -69,20 +71,20 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         { id: 5, name: 'status', title: 'الحالة' },
     ]
 
-    // const handleRef = (e) => {
+    const handleRef = (e) => {
 
-    //     if (refSearch.current.value == '') {
-    //         setResultData(UserData)
-    //     } else {
-    //         const searchString = refSearch.current.value.toLowerCase();
-    //         const filteredItems = UserData.filter((item) => {
-    //             return item.en_name.toLowerCase().includes(searchString);
-    //         });
-    //         setResultData(filteredItems)
-    //     }
+        if (refSearch.current.value == '') {
+            setResultData(UserData)
+        } else {
+            const searchString = refSearch.current.value.toLowerCase();
+            const filteredItems = UserData.filter((item) => {
+                return item.en_name.toLowerCase().includes(searchString);
+            });
+            setResultData(filteredItems)
+        }
 
 
-    // }
+    }
 
     const handleSort = (e) => {
         setResultData([...resultData].sort((a, b) => a[e] < b[e] ? 1 : -1))
@@ -93,45 +95,6 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     useEffect(() => {
         setResultData(UserData)
     }, [UserData])
-
-    const handelChange = ({ target }) => {
-        setInputValue(target.value)
-    }
-
-    useEffect(() => {
-        const search = () => {
-
-            if (inputValue) {
-                dispatch(SearchShipping(inputValue))
-                    // .unwrap()
-                    // .then(() => { })
-                    // .catch(err => {
-                    //     // alert('klfdljkdfdfjkl');
-                    //     // setfilterSearch([])
-                    //     // setTextResultSearch('لا يوجد نتائج بحث')
-
-                    // })
-                // console.log('term1', valueInput);
-            } else {
-                // setResult([])
-                dispatch(getShipping(1))
-                // console.log('emit');
-            }
-
-        }
-        // setShowSearch(true)
-        const debounceSearch = setTimeout(function () {
-            search()
-
-        }, 500)
-
-        return () => {
-            clearTimeout(debounceSearch)
-        }
-
-    }, [inputValue]);
-
-
 
     const dataRender = (
         <>
@@ -245,8 +208,9 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <form className='form-search'>
                     <input type="search" placeholder='أبحث عن اسم الشركة'
-                        value={inputValue}
-                        onChange={handelChange}
+                        // onChange={inputSearch} 
+                        ref={refSearch}
+                        onChange={() => handleRef(refSearch.current.value)}
                         />
                     <AiOutlineSearch className='icon-search' />
                 </form>
