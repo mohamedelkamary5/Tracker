@@ -13,6 +13,17 @@ export const getDrivers = createAsyncThunk('driversRestaurant/getDrivers', async
     return rejectWithValue(err.message)
   }
 })
+export const searchDrivers = createAsyncThunk('driversRestaurant/searchDrivers', async (search, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+  try {
+    const res = await get(`restaurants/drivers/search?search=${search}`)
+    return res
+  } catch (err) {
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err.message)
+  }
+})
 // get data Active drivers
 export const getActiveDrivers = createAsyncThunk('driversRestaurant/getActiveDrivers', async (_, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
@@ -112,6 +123,18 @@ export const DriverSlice = createSlice({
       state.meta = action.payload.meta;
     },
     [getDrivers.rejected]: (state, action) => {
+      state.error = action;
+      // console.log('action', action);
+    },
+    //get clint drivers
+    [searchDrivers.pending]: (state, action) => {
+      state.error = null;
+    },
+    [searchDrivers.fulfilled]: (state, action) => {
+      state.driversRestaurant = action.payload.data;
+      state.meta = action.payload.meta;
+    },
+    [searchDrivers.rejected]: (state, action) => {
       state.error = action;
       // console.log('action', action);
     },

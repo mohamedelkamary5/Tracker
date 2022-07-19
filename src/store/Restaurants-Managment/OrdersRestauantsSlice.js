@@ -13,6 +13,17 @@ export const getOrders = createAsyncThunk('orders/getOrders', async (pageId, thu
     return rejectWithValue(err.message)
   }
 })
+export const searchOrders = createAsyncThunk('orders/searchOrders', async (search, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+  try {
+    const res = await get(`orders/search?search=${search}`) 
+    return res
+  } catch (err) {
+    // console.log('rejectWithValue(err.message)', rejectWithValue(err.message));
+    return rejectWithValue(err)
+  }
+})
 
 
 // get data clint driver Details
@@ -100,6 +111,18 @@ export const OrdersRestauantsSlice = createSlice({
       state.meta= action.payload.meta;
     },
     [getOrders.rejected]: (state, action) => {
+      state.error = action;
+      // console.log('action', action);
+    },
+    //get clint drivers
+    [searchOrders.pending]: (state, action) => {
+      state.error = null;
+    },
+    [searchOrders.fulfilled]: (state, action) => {
+      state.orders = action.payload.data;
+      state.meta= action.payload.meta;
+    },
+    [searchOrders.rejected]: (state, action) => {
       state.error = action;
       // console.log('action', action);
     },

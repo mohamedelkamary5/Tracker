@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import { IoIosArrowBack } from 'react-icons/io';
-import { IoIosArrowForward } from 'react-icons/io';
 import { Link, useLocation } from "react-router-dom";
 import BlackList from './BtnBlackList';
 import Logo3 from "../../../../photo/slogan/user-avatar.svg"
@@ -11,7 +9,7 @@ import { AiOutlineBars } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { AiOutlineAppstore } from 'react-icons/ai';
 
-import { getDrivers, handleListView } from '../../../../store/Restaurants-Managment/DriverRestauantsSlice';
+import { getDrivers, searchDrivers, handleListView } from '../../../../store/Restaurants-Managment/DriverRestauantsSlice';
 import ButtonReturn from '../../../glopal/ButtonReturn';
 // import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
@@ -27,6 +25,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const listView = useSelector(state => state.driversRestaurant.listView)
 
     const [UserData, setUserData] = useState([])
+    const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
         if (statusBlackList) {
@@ -91,6 +90,29 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     useEffect(() => {
         setResultData(UserData)
     }, [UserData])
+
+    const handelChange = ({ target }) => {
+        setInputValue(target.value)
+    }
+
+    useEffect(() => {
+        const search = () => {
+
+            if (inputValue) {
+                dispatch(searchDrivers(inputValue))
+            } else {
+                dispatch(getDrivers(1))
+            }
+        }
+        const debounceSearch = setTimeout(function () {
+            search()
+        }, 500)
+        return () => {
+            clearTimeout(debounceSearch)
+        }
+    }, [inputValue]);
+
+
 
     const dataRender = (
         <>
@@ -205,7 +227,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <form className='form-search'>
                     <input type="search" placeholder='أبحث عن اسم السائق'
-                        onChange={inputSearch} />
+                        onChange={handelChange} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
 
