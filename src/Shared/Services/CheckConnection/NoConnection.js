@@ -1,6 +1,10 @@
 import React from 'react';
 
 const NoConnection = () => {
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <>
             <div className='no-conneciont-component flex-center'>
@@ -47,7 +51,9 @@ const NoConnection = () => {
                     </g>
                 </svg>
                 <h1 className='mb-4'>No internet</h1>
-                <h6>Please Check your network conneciont</h6>
+                <h6 className='mb-3'>Please Check your network conneciont</h6>
+                <button className='btn btn-main' onClick={refreshPage}>Reload!</button>
+
             </div>
         </>
     );

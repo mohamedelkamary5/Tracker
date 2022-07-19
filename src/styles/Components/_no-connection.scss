@@ -4,6 +4,10 @@
     width: 100vw;
     svg {
         width: 300px;
+        @media (max-width: 750px) {
+            width: 200px;
+            
+        }
     }
     *{
         font-weight: bolder;
