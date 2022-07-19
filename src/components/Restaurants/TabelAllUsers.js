@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BiDotsHorizontalRounded } from 'react-icons/bi';
-import { IoIosArrowBack } from 'react-icons/io';
-import { IoIosArrowForward } from 'react-icons/io';
 import { Link, useLocation } from "react-router-dom";
 import BlackList from './BtnBlackList';
 import Logo3 from "../../photo/slogan/user-avatar.svg"
@@ -10,11 +8,9 @@ import Logo1 from "../../photo/slogan/logo-rest.png"
 import { AiOutlineBars } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { AiOutlineAppstore } from 'react-icons/ai';
-import { getClients2, handleListView } from '../../store/ClintSlice2';
-// import { getClients2 } from '../../store/ClintSlice2'
+import { getClients2, SearchClients2, handleListView } from '../../store/ClintSlice2';
 import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
-import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../Shared/Components/Paginate/Paginate';
 import truncateText from '../../Shared/Services/Truncate';
 import { useTranslation } from "react-i18next";
@@ -31,6 +27,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
     const [UserData, setUserData] = useState([])
+    const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
         if (statusBlackList) {
@@ -105,6 +102,28 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     useEffect(() => {
         setResultData(UserData)
     }, [UserData])
+
+    const handelChange = ({ target }) => {
+        setInputValue(target.value)
+    }
+
+    useEffect(() => {
+        const search = () => {
+
+            if (inputValue) {
+                dispatch(SearchClients2(inputValue))
+            } else {
+                dispatch(getClients2(1))
+            }
+        }
+        const debounceSearch = setTimeout(function () {
+            search()
+        }, 500)
+        return () => {
+            clearTimeout(debounceSearch)
+        }
+    }, [inputValue]);
+
 
     const dataRender = (
         <>
@@ -230,6 +249,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         </>
     )
 
+
     return (
         <div className="main-table">
 
@@ -243,7 +263,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <form className='form-search'>
                     <input type="search" placeholder='أبحث عن اسم المطعم'
-                        onChange={inputSearch} />
+                        onChange={handelChange} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
 

@@ -137,7 +137,7 @@ export const ClintSlice = createSlice({
         },
         [SearchClients2.rejected]: (state, action) => {
           state.error = action;
-          console.log('action', action);
+          state.clients2 = [];
         },
 
 
