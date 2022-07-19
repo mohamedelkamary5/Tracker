@@ -7,7 +7,7 @@ import { MdPersonAddAlt } from 'react-icons/md';
 import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
 import { SendCurrency } from '../../store/CurrencySlice';
-import { Button, Form } from 'antd';
+import { Button, Form, Input } from 'antd';
 
 
 const ClintForm = ({ setShow }) => {
@@ -29,6 +29,30 @@ const ClintForm = ({ setShow }) => {
   }
 
   const [values, setValues] = useState(initialState)
+  const errorMsgStore = useSelector(state => state.currency.error)
+
+  const [errorMsg, seterrorMsg] = useState(errorMsgStore);
+
+
+  useEffect(() => {
+    seterrorMsg(errorMsgStore)
+  }, [errorMsgStore]);
+
+  const handelError = (key) => {
+    return (
+      <span className='text-error'> {errorMsg ? errorMsg[key] : null} </span>
+    )
+  }
+
+  const handelChange = ({ target }) => {
+    setValues({ ...values, [target.name]: target.value })
+    seterrorMsg({ ...errorMsg, [target.name]: null })
+  }
+  useEffect(() => {
+    seterrorMsg(errorMsgStore)
+  }, [errorMsgStore]);
+
+
   const AddUser = () => {
     dispatch(SendCurrency(values))
       .unwrap()
@@ -52,7 +76,88 @@ const ClintForm = ({ setShow }) => {
           className="px-lg-5"
         >
           <SliderClint title="اضافه عملة"   >
-            <InputCustomer values={values} setValues={setValues} />
+            {/* <InputCustomer values={values} setValues={setValues} /> */}
+            <div className='main-input px-2'>
+              <div className='row'>
+
+
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                  <div className="mb-3">
+                    <Form.Item
+                      label="الاسم بالانجليزي"
+                      name="en_titleaCurrency"
+                      rules={[{ required: true, message: '' }]}
+                    >
+                      <Input className='form-control' name='en_title' value={values.en_title} placeholder="اكتب الاسم بالانجليزي" onChange={handelChange} />
+                    </Form.Item>
+                    {handelError('en_title')}
+                  </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                  <div className="mb-3">
+                    <Form.Item
+                      label="الاسم بالعربي"
+                      name="ar_nameaCurrency"
+                      rules={[{ required: true, message: '' }]}
+                    >
+                      <Input className='form-control' name='ar_title' value={values.ar_title} placeholder="اكتب الاسم بالعربي" onChange={handelChange} />
+                    </Form.Item>
+                    {handelError('ar_title')}
+                  </div>
+                </div>
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                  <div className="mb-3">
+                    <Form.Item
+                      label="الاسم رمز العمله"
+                      name="symbol"
+                      rules={[{ required: true, message: '' }]}
+                    >
+                      <Input className='form-control' name='symbol' value={values.symbol} placeholder="اكتب الاسم رمز العمله" onChange={handelChange} />
+                    </Form.Item>
+                    {handelError('symbol')}
+                  </div>
+                </div>
+                {/* <StyleLabel>رمز العمله<span>*</span></StyleLabel>
+                        <input type="text" placeholder='اكتب الاسم ' name='symbol' value={values.symbol} onChange={(e) => setValues({ ...values, symbol: e.target.value })} /> */}
+                {/* <select name='symbol' value={values.symbol} onChange={(e) => setValues({ ...values, symbol: e.target.value })} className="currency">
+                            <option value="EGP">EGP</option>
+                            <option value="KWD">KWD</option>
+                            <option value="USD">USD</option>
+                        </select> */}
+                {/* <StyleLabel>سعر الصرف<span>*</span></StyleLabel>
+                        <input type="text" placeholder='اكتب سعر الصرف ' name='exchange_rate' value={values.exchange_rate} onChange={(e) => setValues({ ...values, exchange_rate: e.target.value })} /> */}
+                {/* Block Item */}
+                <div className='col-lg-3'>
+                  <div className="mb-3">
+                    <Form.Item
+                      label="سعر الصرف"
+                      name="exchange_rateCurrency"
+                      rules={[{ required: true, message: '' }]}
+                    >
+                      <Input type='number' className='form-control' name='exchange_rate' value={values.exchange_rate} placeholder="اكتب سعر الصرف" onChange={handelChange} />
+                    </Form.Item>
+                    {handelError('exchange_rate')}
+                  </div>
+                </div>
+                <div className='col-lg-3'>
+                  <div className="mb-3">
+                    <Form.Item
+                      label="رقم تسلسل"
+                      name="mobilCurrency"
+                      rules={[{ required: true, message: '' }]}
+                    >
+                      <Input type='number' className='form-control' name='sequence' value={values.sequence} placeholder="اكتب رقم تسلسل" onChange={handelChange} />
+                    </Form.Item>
+                    {handelError('sequence')}
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
           </SliderClint>
           <StyleFotter>
             <Button htmlType="submit" onClick={AddUser} className="btn btn-main m-1">
