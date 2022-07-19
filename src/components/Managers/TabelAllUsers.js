@@ -10,7 +10,7 @@ import Logo1 from "../../photo/slogan/logo-rest.png"
 import { AiOutlineBars } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { AiOutlineAppstore } from 'react-icons/ai';
-import { getManagers, handleListView } from '../../store/ManagersSlice';
+import { getManagers, searchManagers, handleListView } from '../../store/ManagersSlice';
 import ButtonReturn from '../glopal/ButtonReturn';
 import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
@@ -27,6 +27,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
 
     const [UserData, setUserData] = useState([])
+    const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
         if (statusBlackList) {
@@ -92,6 +93,30 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     useEffect(() => {
         setResultData(UserData)
     }, [UserData])
+
+
+
+    const handelChange = ({ target }) => {
+        setInputValue(target.value)
+    }
+
+    useEffect(() => {
+        const search = () => {
+
+            if (inputValue) {
+                dispatch(searchManagers(inputValue))
+            } else {
+                dispatch(getManagers(1))
+            }
+        }
+        const debounceSearch = setTimeout(function () {
+            search()
+        }, 500)
+        return () => {
+            clearTimeout(debounceSearch)
+        }
+    }, [inputValue]);
+
 
     const dataRender = (
         <>
@@ -200,7 +225,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <form className='form-search'>
                     <input type="search" placeholder='أبحث عن اسم المشرف'
-                        onChange={inputSearch} />
+                        onChange={handelChange} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
 

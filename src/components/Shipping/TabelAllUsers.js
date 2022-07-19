@@ -103,32 +103,16 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
             if (inputValue) {
                 dispatch(SearchShipping(inputValue))
-                    // .unwrap()
-                    // .then(() => { })
-                    // .catch(err => {
-                    //     // alert('klfdljkdfdfjkl');
-                    //     // setfilterSearch([])
-                    //     // setTextResultSearch('لا يوجد نتائج بحث')
-
-                    // })
-                // console.log('term1', valueInput);
             } else {
-                // setResult([])
                 dispatch(getShipping(1))
-                // console.log('emit');
             }
-
         }
-        // setShowSearch(true)
         const debounceSearch = setTimeout(function () {
             search()
-
         }, 500)
-
         return () => {
             clearTimeout(debounceSearch)
         }
-
     }, [inputValue]);
 
 

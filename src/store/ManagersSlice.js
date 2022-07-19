@@ -14,6 +14,17 @@ export const getManagers = createAsyncThunk('managers/getManagers', async (pageI
     return rejectWithValue(err.message)
   }
 })
+// get data Managers 
+export const searchManagers = createAsyncThunk('managers/searchManagers', async (search, thunkAPI) => {
+  const { rejectWithValue } = thunkAPI
+
+  try {
+    const res = await get(`admins/search?search=${search}`)
+    return res
+  } catch (err) {
+    return rejectWithValue(err)
+  }
+})
 // get data clint Managers Details
 export const getManagerDetails = createAsyncThunk('managers/getManagerDetails', async (id, thunkAPI) => {
   const { rejectWithValue } = thunkAPI
@@ -100,6 +111,19 @@ export const ManagersSlice = createSlice({
       state.error = action;
       // console.log('action', action);
     },
+    //get clint drivers
+    [searchManagers.pending]: (state, action) => {
+      state.error = null;
+    },
+    [searchManagers.fulfilled]: (state, action) => {
+      state.managers = action.payload.data;
+      state.meta= action.payload.meta;
+    },
+    [searchManagers.rejected]: (state, action) => {
+      state.error = action;
+      // console.log('action', action);
+    },
+
     [handleListView.fulfilled]: (state, action) => {
       state.listView = action.payload
     },
@@ -115,6 +139,7 @@ export const ManagersSlice = createSlice({
       state.error = action;
       // console.log(action);
     },
+    
     //send data clint  
     [SendManager.pending]: (state, action) => {
       state.error = null;
