@@ -5,7 +5,7 @@ const CheckConnection = (props) => {
     return (
         <Detector
             render={({ online }) => (
-                !online ? props.children : <NoConnection />
+                online ? props.children : <NoConnection />
             )}
         />
     );
