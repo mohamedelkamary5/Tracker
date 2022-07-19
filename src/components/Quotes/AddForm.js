@@ -13,6 +13,8 @@ const ClintForm = () => {
   const initialState = {
     en_title: '',
     ar_title: '',
+    en_desc: "",
+    ar_desc: "",
     sequence: '',
     cost: '',
     months: "",
