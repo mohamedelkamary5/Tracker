@@ -10,7 +10,7 @@ const NoConnection = ({ online }) => {
     useEffect(() => {
         setTimeout(() => {
             setShow(true)
-        }, 5000);
+        },7000);
     }, []);
     // }, [online]);
 
