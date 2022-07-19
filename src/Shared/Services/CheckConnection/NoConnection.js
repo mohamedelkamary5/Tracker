@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const NoConnection = () => {
+const NoConnection = ({ online }) => {
     function refreshPage() {
         window.location.reload(false);
     }
 
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShow(true)
+        }, 5000);
+    }, []);
+    // }, [online]);
+
+
+
     return (
         <>
-            <div className='no-conneciont-component flex-center'>
+            {show && <div className='no-conneciont-component flex-center'>
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 549.76 549.76" style={{ enableBackground: 'new 0 0 549.76 549.76' }} xmlSpace="preserve">
                     <g>
                         <path d="M332.622,454.776c0,31.58-25.582,57.162-57.161,57.162S218.3,486.356,218.3,454.776c0-31.578,25.582-57.16,57.161-57.16
@@ -54,7 +65,7 @@ const NoConnection = () => {
                 <h6 className='mb-3'>Please Check your network conneciont</h6>
                 <button className='btn btn-main' onClick={refreshPage}>Reload!</button>
 
-            </div>
+            </div>}
         </>
     );
 }
