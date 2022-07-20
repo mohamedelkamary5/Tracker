@@ -8,8 +8,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getOrders } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
 import { Link } from 'react-router-dom';
 import truncateText from '../../../../Shared/Services/Truncate';
-const CardUsers = () => {
+import { useTranslation } from "react-i18next";
+const CardUsers =() => {
   const dispatch = useDispatch()
+  const { t, i18n } = useTranslation();
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 1 },
@@ -110,9 +112,8 @@ const CardUsers = () => {
         </div>
       </div>
       {/*Cards Slider */}
-      <div className='cards' >
-
-        <Carousel breakPoints={breakPoints} enableAutoPlay={false} isRTL={true} outerSpacing={20} >
+      <div className='cards'>
+        <Carousel breakPoints={breakPoints} enableAutoPlay={false} isRTL={i18n.language == 'en' ? true : false } outerSpacing={20} >
           {orderList.map(item => {
             return (
 
@@ -140,7 +141,7 @@ const CardUsers = () => {
                       <div className='pickup-point w-100'>
                         <h5>نقطة الانطلاق</h5>
                         <p>
-                          {truncateText(item.restaurant.address, 40)}
+                          {truncateText(item.restaurant.address, 36)}
                         </p>
                         <p>{item.restaurant.ar_name}</p>
 
@@ -148,7 +149,7 @@ const CardUsers = () => {
                       <div className='delivery-point w-100 mt-3'>
                         <h5>نقطة التوصيل</h5>
                         <p>
-                          {truncateText(item.address, 40)}
+                          {truncateText(item.address, 36)}
                         </p>
                       </div>
                     </div>
