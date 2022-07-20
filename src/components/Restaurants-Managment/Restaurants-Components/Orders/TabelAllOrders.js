@@ -16,6 +16,7 @@ import ButtonAdd from './ButtonAdd';
 import ReactPaginate from "react-paginate";
 import PaginateComponent from '../../../../Shared/Components/Paginate/Paginate';
 import { useTranslation } from "react-i18next";
+import truncateText from '../../../../Shared/Services/Truncate';
 const TableAllUsers = ({ HandelShowCustomer }) => {
     const { t } = useTranslation();
 
@@ -159,7 +160,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                         <span>{user.mobile}</span>
                                                     </td>
                                                     <td>
-                                                        <span>{user.details}</span>
+                                                        <span>{truncateText(user.details, 30)}</span>
                                                     </td>
 
 

@@ -36,7 +36,7 @@ const TopBar = ({ title }) => {
     const UserData = useSelector((state) => state.clients2.clients2)
     //filter search 
     const [filterSearch, setfilterSearch] = useState([])
-    const [valueInput, setValueInput] = useState([])
+    const [valueInput, setValueInput] = useState('')
     const [showSearch, setShowSearch] = useState(false);
     const [textResultSearch, setTextResultSearch] = useState('ادخل اسم العميل');
 

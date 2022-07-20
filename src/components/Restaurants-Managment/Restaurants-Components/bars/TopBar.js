@@ -1,22 +1,24 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import LoginManager from "./loginManager"
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdAddBox } from 'react-icons/md';
 import { BsArrowClockwise } from 'react-icons/bs';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import { FaSpinner } from 'react-icons/fa';
 import { BsTextParagraph } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux'
-import { getClients2 } from '../../../../store/ClintSlice2';
+import { getOrders, searchOrders } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
 import { Link } from "react-router-dom";
 // import ButtonsAdd from './ButtonsAdd';
-import { ShowNav } from '../../../../store/StateSlice';
+import { AddOrder, ShowNav } from '../../../../store/StateSlice';
 import swal from 'sweetalert';
 
 const TopBar = ({ title }) => {
     //show navBar 
     const dispatch = useDispatch()
+    const [filterSearch, setfilterSearch] = useState([])
+    const [showSearch, setShowSearch] = useState(false);
+    const [textResultSearch, setTextResultSearch] = useState('ادخل اسم العميل');
+    const [valueInput, setValueInput] = useState('')
 
     // const inputSearch = useRef('')
 
@@ -28,56 +30,91 @@ const TopBar = ({ title }) => {
     // adds button
     const [buttons, setbuttons] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [inputValue, setInputValue] = useState('')
     const HandelToggleBar = () => {
         dispatch(ShowNav())
     }
 
     const HandelButton = () => {
-        setbuttons(!buttons)
+        // setbuttons(!buttons)
+        dispatch(AddOrder(true))
     }
     const UserData = useSelector((state) => state.clients2.clients2)
     //filter search 
-    const [filterSearch, setfilterSearch] = useState([])
-    const [showSearch, setShowSearch] = useState(false);
-    const [textResultSearch, setTextResultSearch] = useState('ادخل اسم العميل');
-    const handelChange = (e) => {
-        const valueInput = e.target.value
-        setShowSearch(true)
-        setInputValue(valueInput)
-        if (valueInput == '') {
-            setfilterSearch([])
-            setTextResultSearch('لا يوجد نتائج بحث')
-        } else {
-            const searchString = valueInput.toLowerCase();
-            const filteredItems = UserData.filter((item) => {
-                return item.en_name.toLowerCase().includes(searchString);
-            });
-            setfilterSearch(filteredItems)
-            if (filteredItems.length == 0) {
-                setTextResultSearch('لا يوجد نتائج بحث')
+    // const handelChange = (e) => {
+    //     const valueInput = e.target.value
+    //     setShowSearch(true)
+    //     setInputValue(valueInput)
+    //     if (valueInput == '') {
+    //         setfilterSearch([])
+    //         setTextResultSearch('لا يوجد نتائج بحث')
+    //     } else {
+    //         const searchString = valueInput.toLowerCase();
+    //         const filteredItems = UserData.filter((item) => {
+    //             return item.en_name.toLowerCase().includes(searchString);
+    //         });
+    //         setfilterSearch(filteredItems)
+    //         if (filteredItems.length == 0) {
+    //             setTextResultSearch('لا يوجد نتائج بحث')
+    //         }
+    //     }
+
+
+    //     // const NewData = UserData.filter((item) => {
+    //     //     return (
+    //     //         item.en_name.includes(valueInput) 
+    //     //     )
+    //     // })
+    //     // if (valueInput === "") {
+    //     //     setfilterSearch([])
+    //     // } else {
+    //     //     setfilterSearch(NewData)
+    //     // }
+    // }
+
+    const handelChange = ({ target }) => {
+        setValueInput(target.value)
+    }
+
+
+    useEffect(() => {
+        const search = () => {
+
+            if (valueInput) {
+                dispatch(searchOrders(valueInput))
+                    .unwrap()
+                    .then(() => { })
+                    .catch(err => {
+                        setfilterSearch([])
+                        setTextResultSearch('لا يوجد نتائج بحث')
+
+                    })
+                console.log('term1', valueInput);
+            } else {
+                // setResult([])
+                dispatch(getOrders(1))
+                console.log('emit');
             }
+
+        }
+        // setShowSearch(true)
+        const debounceSearch = setTimeout(function () {
+            search()
+
+        }, 0)
+
+        return () => {
+            clearTimeout(debounceSearch)
         }
 
+    }, [valueInput]);
 
-        // const NewData = UserData.filter((item) => {
-        //     return (
-        //         item.en_name.includes(valueInput) 
-        //     )
-        // })
-        // if (valueInput === "") {
-        //     setfilterSearch([])
-        // } else {
-        //     setfilterSearch(NewData)
-        // }
-    }
     const handelLink = () => {
         setfilterSearch([])
     }
 
     const refrechRestaurants = () => {
         setLoading(true)
-        dispatch(getClients2(1))
+        dispatch(getOrders(1))
             .unwrap()
             .then(() => {
                 swal("تم تنفيذ الامر بنجاح", {
@@ -96,13 +133,12 @@ const TopBar = ({ title }) => {
 
     const handelFocus = () => {
         setShowSearch(true)
-        dispatch(getClients2(1))
+        // dispatch(getClients2(1))
     }
     const handelBlue = () => {
         setTimeout(() => {
             setShowSearch(false)
-            setInputValue('')
-        }, 500)
+        }, 200)
     }
 
     return (
@@ -110,7 +146,7 @@ const TopBar = ({ title }) => {
             <StyleRightTopBar>
                 <div className='title-page'><h2>{title}</h2></div>
                 <div className='search'>
-                    <input type="search" placeholder='أبحث عن اسم العميل' onFocus={handelFocus} onBlur={handelBlue} value={inputValue} onChange={handelChange} />
+                    <input type="search" placeholder='أبحث عن اسم العميل' onFocus={handelFocus} onBlur={handelBlue} value={valueInput} onChange={handelChange} />
                     <AiOutlineSearch className='icon-search' />
                     {/* <div className='filter-Search'> */}
                     {showSearch ?

@@ -293,8 +293,8 @@ class GoogleMapComponet extends Component {
 		if (this.props.center.lat !== undefined) {
 			map = <div>
 				<div>
-					1{this.props.center.lat} <br/>
-					2{this.props.center.lng} <br/>
+					{/* 1{this.props.center.lat} <br/>
+					2{this.props.center.lng} <br/> */}
 
 					<LocationSearchInput value={this.state.address} onPlaceOut={this.onPlaceOut} />
 					{/* <div className="form-group">

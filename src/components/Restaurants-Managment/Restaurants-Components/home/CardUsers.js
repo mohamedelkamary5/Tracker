@@ -7,6 +7,7 @@ import Carousel from 'react-elastic-carousel';
 import { useDispatch, useSelector } from 'react-redux'
 import { getOrders } from '../../../../store/Restaurants-Managment/OrdersRestauantsSlice';
 import { Link } from 'react-router-dom';
+import truncateText from '../../../../Shared/Services/Truncate';
 const CardUsers = () => {
   const dispatch = useDispatch()
   const breakPoints = [
@@ -122,7 +123,7 @@ const CardUsers = () => {
                       item.status === "done" ? 'header-item py-2 green' : "header-item py-2 yallow"
 
                 }>
-                  <h4 className='text-white'>{item.status == 'pending' ? 'طلب جديد' : ''} </h4> 
+                  <h4 className='text-white'>{item.status == 'pending' ? 'طلب جديد' : ''} </h4>
                   <Link className='text-white' to={`orders/${item.id}`}><i className="fa fa-solid fa-eye" /></Link>
                   <div className='date-order'>
                     <p>{new Date(item.updated_at).toISOString().slice(0, 11).replace('T', ' ')}</p>
@@ -138,13 +139,17 @@ const CardUsers = () => {
                     <div>
                       <div className='pickup-point w-100'>
                         <h5>نقطة الانطلاق</h5>
-                        <p>{item.restaurant.address}</p>
+                        <p>
+                          {truncateText(item.restaurant.address, 40)}
+                        </p>
                         <p>{item.restaurant.ar_name}</p>
 
                       </div>
                       <div className='delivery-point w-100 mt-3'>
                         <h5>نقطة التوصيل</h5>
-                        <p>{item.address}</p>
+                        <p>
+                          {truncateText(item.address, 40)}
+                        </p>
                       </div>
                     </div>
                   </div>
