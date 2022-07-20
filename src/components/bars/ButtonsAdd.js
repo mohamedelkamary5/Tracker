@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
 import { addShipping ,AddManager, ShowAdd ,AddDriver ,AddCurrency, AddQuotes} from '../../store/StateSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 const ButtonsAdd = ({buttons,setbuttons}) => {
 
     const dispatch = useDispatch()
@@ -30,16 +31,16 @@ const ButtonsAdd = ({buttons,setbuttons}) => {
         dispatch(AddQuotes(true))
         setbuttons(false)
     }
-   
+   const {t}= useTranslation()
   return (
     <StyleButtonAdd buttons={buttons}>
 
-        <button onClick={AddResturant}><MdPersonAddAlt  /> اضافه  مطعم</button>
-        <button onClick={AddShipping}><MdPersonAddAlt />اضافه  شركة</button>
-        <button onClick={AddDrivers}><MdPersonAddAlt  />اضافه  سائق</button>
-        <button onClick={AddManagers}><MdPersonAddAlt />اضافه  مشرق</button>
-        <button onClick={AddCurrencys}><MdPersonAddAlt />اضافه  عمله</button>
-        <button onClick={AddQuote}><MdPersonAddAlt />اضافه  اقتباس</button>
+        <button onClick={AddResturant}><MdPersonAddAlt  /> {t("btnAddRestaurants")}</button>
+        <button onClick={AddShipping}><MdPersonAddAlt /> {t("btnAddShipping")}</button>
+        <button onClick={AddDrivers}><MdPersonAddAlt  /> {t("btnAddDriver")}</button>
+        <button onClick={AddManagers}><MdPersonAddAlt /> {t("btnAddManagers")}</button>
+        <button onClick={AddCurrencys}><MdPersonAddAlt />{t("btnAddCurrency")}</button>
+        <button onClick={AddQuote}><MdPersonAddAlt /> {t("btnAddPackage")}</button>
 
 
        
@@ -83,7 +84,7 @@ button{
     align-items: center;
     padding: 7px 15px;
     background-color: var(--primary-color);
-    width: 160px;
+    width: 170px;
     color: white;
     margin: 7px 0;
     border-radius: 10px;
@@ -92,7 +93,7 @@ button{
         opacity: 0.8;
     }
     svg{
-        margin-left: 8px;
+        margin: 0 8px;
         font-size: 24px;
     }
 }

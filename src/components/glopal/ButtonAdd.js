@@ -3,15 +3,17 @@ import styled from "styled-components"
 import { MdPersonAddAlt } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 import { ShowAdd } from '../../store/StateSlice';
+import { useTranslation } from 'react-i18next';
 const ButtonAdd = ({AddUser}) => {
   const dispatch = useDispatch()
   const AddUsers = () =>{
     dispatch(ShowAdd(true))
   }
+  const {t} = useTranslation()
   return (
     <StyleButtonAdd onClick={AddUsers} >
       <MdPersonAddAlt className='MdPersonAddAlt' />
-      <span onClick={AddUser} > إضافة مطعم </span>
+      <span onClick={AddUser} >{t("btnAddRestaurants")}</span>
     </StyleButtonAdd>
   )
 }

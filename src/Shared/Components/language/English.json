@@ -23,7 +23,42 @@
     "connected" : "Connected",
     "not_connected" : "Not Connected",
     "details" : "Details",
-    "sort_by" : "Sort By",
-    "contact_status" : "Contact Status"
+    "contact_status" : "Contact Status",
+    "signOut" : "Sign out",
+
+    "searchRestaurant"  : "Search for the name of the restaurant" ,
+    "searchManagers" : "Search for admin name" ,
+    "searchShipping" : "Search for the name of the company" ,
+    "searchDrivers" : "Search for the driver's name" ,
+    "searchCurrencies" : "Search for the name of the currency" ,
+    "searchPackages" :  "Search for the name of the Packages",
+    
+    "sort_by" : "Sort by",
+    "sortName" : "Name",
+    "sortNumber" : "Telephone",
+    "sortEmail" : "Email",
+    "sortState" : "Status",
+    "sortSequence" : "Sequence",
+    "sortCost" : "cost",
+    "sortMonths" : "months",
+
+    "btnAddRestaurants" : "Add Restaurant",
+    "btnAddDriver" : "Add Driver",
+    "btnAddManagers" : "Add Manager",
+    "btnAddShipping" : "Add Shipping",
+    "btnAddCurrency" : "Add Currency",
+    "btnAddPackage" : "Add Package",
+    "btnBlackList" : "Black List",
+    "btnActiveDrivers" : "Active Drivers"
+
+
+
+
+
+    
+    
+
+
+
     
 }

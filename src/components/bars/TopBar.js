@@ -125,7 +125,7 @@ const TopBar = ({ title }) => {
             <StyleRightTopBar>
                 <div className='title-page'><h2>{title}</h2></div>
                 <div className='search'>
-                    <input type="search" placeholder='أبحث عن اسم العميل' onFocus={handelFocus} onBlur={handelBlue} value={valueInput} onChange={handelChange} />
+                    <input type="search" placeholder={t("searchRestaurant")} onFocus={handelFocus} onBlur={handelBlue} value={valueInput} onChange={handelChange} />
                     {/* <input type="search" placeholder='أبحث عن اسم العميل' onFocus={handelFocus} onBlur={handelBlue} value={inputValue} onChange={handelChange} /> */}
                     <AiOutlineSearch className='icon-search' />
                     {/* <div className='filter-Search'> */}

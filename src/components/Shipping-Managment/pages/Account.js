@@ -224,7 +224,7 @@ border-radius: 8px;
 cursor: pointer;
 color: var(--font);
 .HiDocumentDuplicate{
-    font-size: 30px;
+    font-size:40px;
 }
 a{
   color: var(--font);

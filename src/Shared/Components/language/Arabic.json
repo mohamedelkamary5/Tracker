@@ -1,4 +1,5 @@
 {
+    
     "home" : "الرئيسية",
     "logo" : "الشعار",
     "name" : "الإسم",
@@ -23,8 +24,35 @@
     "connected" : "متصل",
     "not_connected" : "غير متصل",
     "details" : "التفاصيل",
+    "contact_status" : "حالة الإتصال",
+    "signOut" : "تسجيل الخروج",
+
+    "searchRestaurant"  : "أبحث عن اسم المطعم" ,
+    "searchManagers" : "أبحث عن اسم المشرف" ,
+    "searchShipping" : "أبحث عن اسم الشركه" ,
+    "searchDrivers" : "أبحث عن اسم السائق" ,
+    "searchCurrencies" : "أبحث عن اسم العمله" ,
+    "searchPackages" :  "أبحث عن اسم الباقه",
+
     "sort_by" : "ترتيب حسب",
-    "contact_status" : "حالة الإتصال"
+    "sortName" : "الاسم",
+    "sortNumber" : "التلفون",
+    "sortEmail" : "الاميل",
+    "sortState" : "الحاله",
+    "sortSequence" : "التسلسل",
+    "sortCost" : "التكلفه",
+    "sortMonths" : "الشهور",
+
+    "btnAddRestaurants" : "أضافه مطعم",
+    "btnAddDriver" : "أضافه سائق",
+    "btnAddManagers" : "أضافه مشرف",
+    "btnAddShipping" : "أضافه شركه",
+    "btnAddCurrency" : "أضافه عمله",
+    "btnAddPackage" : "أضافه باقه",
+    "btnBlackList" : "القائمه السوداء",
+    "btnActiveDrivers" : "السائقين النشطاء"
+
+
 
 
 }

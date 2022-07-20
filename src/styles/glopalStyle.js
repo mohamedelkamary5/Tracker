@@ -44,6 +44,9 @@ body{
   outline: 1px solid slategrey;
 }
 }
+.MdPersonAddAlt ,.HiDocumentDuplicate{
+  font-size: 23px;
+}
 
 
 

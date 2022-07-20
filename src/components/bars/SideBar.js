@@ -164,7 +164,7 @@ const SideBar = ({ showBar, HandelClose }) => {
             <Stylebutton>
                 <button onClick={logOut}>
                     <img src={logout} />
-                    <span>تسجيل الخروج</span>
+                    <span>{t("signOut")}</span>
                 </button>
             </Stylebutton>
         </StyleSideBar>
@@ -282,8 +282,9 @@ padding: 15px;
 margin-bottom: 52px;
 cursor: pointer;
 span{
-    padding-right:12px ;
+    padding: 0 15px;
     color: white;
+    font-size: 18px;
 }
 `
 export default SideBar

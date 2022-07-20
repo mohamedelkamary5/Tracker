@@ -73,10 +73,10 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
     const sortingItems = [
         { id: 1, name: 'id', title: '#' },
-        { id: 2, name: 'en_name', title: 'الأسم' },
-        { id: 3, name: 'mobile', title: 'التليفون' },
-        { id: 4, name: 'email', title: 'الايميل' },
-        { id: 5, name: 'status', title: 'الحالة' },
+        { id: 2, name: 'en_name', title: t("sortName") },
+        { id: 3, name: 'mobile', title: t("sortNumber")},
+        { id: 4, name: 'email', title: t("sortEmail")},
+        { id: 5, name: 'status', title: t("sortState")},
     ]
 
     const inputSearch = (e) => {
@@ -262,7 +262,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                 </div>
 
                 <form className='form-search'>
-                    <input type="search" placeholder='أبحث عن اسم المطعم'
+                    <input type="search" placeholder={t("searchRestaurant")}
                         onChange={handelChange} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
