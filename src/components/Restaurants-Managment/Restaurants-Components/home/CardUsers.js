@@ -69,7 +69,7 @@ const CardUsers = () => {
   const orderList = useSelector(state => state.ordersRestauants.orders)
 
 
-  const tConvert = (time) => {
+  const tConvertTime = (time) => {
     // Check correct time format and split into components
     time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
@@ -128,7 +128,7 @@ const CardUsers = () => {
                   <div className='date-order'>
                     <p>{new Date(item.updated_at).toISOString().slice(0, 11).replace('T', ' ')}</p>
                     <p className='tiem'>
-                      {tConvert(new Date(item.updated_at).toISOString().slice(11, 19).replace('T', ' '))}
+                      {tConvertTime(new Date(item.updated_at).toISOString().slice(11, 19).replace('T', ' '))}
                     </p>
 
                   </div>
