@@ -131,7 +131,7 @@ const logOut = () => {
 // style StyleSideBar--
 const StyleSideBar = styled.div`
 position: fixed;
-right: 0;
+// right: 0;
 top: 0;
 bottom: 0;
 display: flex;
@@ -219,7 +219,7 @@ span img{
     ul li{
         transition: 0.6s;
         font-size: 17px;
-        margin-right: 10px;  
+        margin:0 10px;  
        
        
        
@@ -231,7 +231,7 @@ span img{
 const Stylebutton = styled.div`
 display: flex;
 padding: 15px;
-margin-bottom: 18px;
+margin-bottom: 52px;
 cursor: pointer;
 span{
     padding-right:12px ;
