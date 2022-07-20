@@ -14,8 +14,8 @@ const WidgetsDrivers = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getDrivers(1))
+    console.log('UserDataSelector', UserDataSelector);
 }, [dispatch])
-console.log(UserDataSelector)
 
 
   const domydata = [
@@ -123,6 +123,12 @@ console.log(UserDataSelector)
     { id: 3, name: 'isOnline', title: 'الحاله' },
 
   ]
+
+
+  useEffect(() => {
+    setResultData(UserDataSelector)
+  }, [UserDataSelector]);
+
   const handleSort = (name) => {
     setResultData([...resultData].sort((a, b) => a[name] > b[name] ? 1 : -1))
     setSortValue(name)
