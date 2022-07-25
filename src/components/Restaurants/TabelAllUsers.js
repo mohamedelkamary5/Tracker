@@ -107,7 +107,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         setInputValue(target.value)
     }
 
-    useEffect(() => {
+  /*  useEffect(() => {
         const search = () => {
 
             if (inputValue) {
@@ -118,17 +118,17 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
         }
         const debounceSearch = setTimeout(function () {
             search()
-        }, 500)
+        }, 100)
         return () => {
             clearTimeout(debounceSearch)
         }
-    }, [inputValue]);
+    }, [inputValue]);*/
 
 
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد مطاعم</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>{t("messageRestaurants")}</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -263,7 +263,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                 <form className='form-search'>
                     <input type="search" placeholder={t("searchRestaurant")}
-                        onChange={handelChange} />
+                        onChange={inputSearch} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
 

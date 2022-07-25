@@ -51,8 +51,7 @@ const TabelUsers = () => {
                                 <td >
                                     <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                     <div className='select-clint'>
-                                        <Link to={`/admin/restaurants/${user.id}`}>التفاصيل</Link>
-                                        <Link to={`/admin/restaurants/${user.id}`}>بيانات العميل</Link>
+                                        <Link to={`/admin/restaurants/${user.id}`}>{t("details")}</Link>
                                     </div>
                                 </td>
                             </TrBody>
@@ -61,8 +60,8 @@ const TabelUsers = () => {
                 </Tbody>
             </Tabel>
             <MoreTabel >
-                <b>{counterCustomer} مطعم</b>
-                <Link to="/admin/restaurants">المزيد<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
+                <b>{counterCustomer} {t("restaurants")}</b>
+                <Link to="/admin/restaurants">{t("more")}<BsArrowLeftShort className='BsArrowLeftShort' /></Link>
             </MoreTabel>
         </MainTabel>
     )

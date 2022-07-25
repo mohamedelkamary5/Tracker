@@ -119,7 +119,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد شركات شحن</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>{t("messageShipping")}</h3></div>
                     : <>
                         {listView ?
                             <table>

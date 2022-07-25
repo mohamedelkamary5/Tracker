@@ -26,7 +26,9 @@
     "details" : "التفاصيل",
     "contact_status" : "حالة الإتصال",
     "signOut" : "تسجيل الخروج",
-
+    "isOnline" : "حالة الاتصال",
+    "desEnglish" : "الوصف بالانجليزي" ,
+    "more" : "المزيد" ,
     "searchRestaurant"  : "أبحث عن اسم المطعم" ,
     "searchManagers" : "أبحث عن اسم المشرف" ,
     "searchShipping" : "أبحث عن اسم الشركه" ,
@@ -50,7 +52,25 @@
     "btnAddCurrency" : "أضافه عمله",
     "btnAddPackage" : "أضافه باقه",
     "btnBlackList" : "القائمه السوداء",
-    "btnActiveDrivers" : "السائقين النشطاء"
+    "btnActiveDrivers" : "السائقين النشطاء",
+
+    "curNameEn" : "الأسم بالانجليزي",
+    "curSymbol" : "رمز العمله",
+    "curRate" : "سعر الصرف",
+    "curSequence" : "تسلسل" ,
+
+    "wedget-alert" : "تنبيه تاخير الدفع",
+    "increase" : "زياده ",
+    "NumRestaurants" : "عدد المطاعم",
+    "NumOrders" : "عدد الطلبات",
+    "NumDrivers" : "عدد السائقين" ,
+
+    "messageRestaurants" : "لا يوجد مطاعم",
+    "messageManagers" : "لا يوجد مشرفين",
+    "messageShipping" : "لا يوجد شركات شحن",
+    "messageDrivers" : "لا يوجد سائقين",
+    "messageCurrencies" : "لا يوجد عملات",
+    "messagePackages" : "لا يوجد باقات"
 
 
 

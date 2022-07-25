@@ -131,7 +131,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد سائقين</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>{t("messageDrivers")}</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -144,7 +144,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                         <th>{t("telephone")}</th>
                                         <th>{t("email")}</th>
                                         <th>{t("status")}</th>
-                                        <th>حالة الاتصال</th>
+                                        <th>{t("isOnline")}</th>
                                         <th>{t("options")}</th>
                                     </tr>
                                 </thead>

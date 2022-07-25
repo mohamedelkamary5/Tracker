@@ -7,6 +7,7 @@ import delevery from "../../photo/icons/deleverywedget.svg"
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { AiOutlineArrowUp } from 'react-icons/ai';
 import { useSelector, useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 
 const Widgets = () => {
@@ -14,47 +15,47 @@ const Widgets = () => {
     const UserDataDrivers = useSelector(state => state.drivers)
     const counterCustomer = UserData.meta.total
     const counterDrivers = UserDataDrivers.meta.total
-
+    const { t } = useTranslation();
     return (
         <StyleWedget>
             <StyleItemWedgetAlert>
                 <div>
                     <img src={alert}></img>
-                    <h4>تنبيه تاخير الدفع</h4>
+                    <h4>{t("wedget-alert")}</h4>
                 </div>
                 <span>2</span>
             </StyleItemWedgetAlert>
             <StyleItemWedgetAbout>
                 <WedgetAboutRight>
                     <img src={Customer}></img>
-                    <p>عدد المطاعم</p>
+                    <p>{t("NumRestaurants")}</p>
                     <h3>{counterCustomer}</h3>
                 </WedgetAboutRight>
                 <WedgetAboutLeft>
                     <BsThreeDotsVertical className='BsThreeDotsVertical' />
-                    <p>زياده %23<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
+                    <p>{t("increase")} %23<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
                 </WedgetAboutLeft>
             </StyleItemWedgetAbout>
             <StyleItemWedgetAbout>
                 <WedgetAboutRight>
                     <img src={requests}></img>
-                    <p>عدد الطلبات</p>
+                    <p>{t("NumOrders")}</p>
                     <h3>450</h3>
                 </WedgetAboutRight>
                 <WedgetAboutLeft>
                     <BsThreeDotsVertical className='BsThreeDotsVertical' />
-                    <p>زياده %35<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
+                    <p>{t("increase")} %35<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
                 </WedgetAboutLeft>
             </StyleItemWedgetAbout>
             <StyleItemWedgetAbout>
                 <WedgetAboutRight>
                     <img src={delevery}></img>
-                    <p>عدد السائقين</p>
+                    <p>{t("NumDrivers")}</p>
                     <h3>{counterDrivers}</h3>
                 </WedgetAboutRight>
                 <WedgetAboutLeft>
                     <BsThreeDotsVertical className='BsThreeDotsVertical' />
-                    <p>زياده %10<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
+                    <p>{t("increase")} %10<AiOutlineArrowUp className='AiOutlineArrowUp' /></p>
                 </WedgetAboutLeft>
             </StyleItemWedgetAbout>
         </StyleWedget>

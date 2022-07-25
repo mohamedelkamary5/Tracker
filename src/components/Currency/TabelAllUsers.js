@@ -121,19 +121,19 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد عملات</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>{t("messageCurrencies")}</h3></div>
                     : <>
                         {listView ?
                             <table>
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>الأسم بالانجليزي </th>
-                                        <th>رمز العمله </th>
-                                        <th>سعر الصرف </th>
-                                        <th>تسلسل </th>
-                                        <th>الحالة </th>
-                                        <th>الخيارات </th>
+                                        <th>{t("curNameEn")}</th>
+                                        <th>{t("curSymbol")}</th>
+                                        <th>{t("curRate")}</th>
+                                        <th>{t("curSequence")}</th>
+                                        <th>{t("status")} </th>
+                                        <th>{t("options")}</th>
                                     </tr>
 
                                 </thead>

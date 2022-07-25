@@ -25,14 +25,17 @@
     "details" : "Details",
     "contact_status" : "Contact Status",
     "signOut" : "Sign out",
-
+    "isOnline" : "contact status",
+    "desEnglish" : "Description English" ,
     "searchRestaurant"  : "Search for the name of the restaurant" ,
     "searchManagers" : "Search for admin name" ,
     "searchShipping" : "Search for the name of the company" ,
     "searchDrivers" : "Search for the driver's name" ,
     "searchCurrencies" : "Search for the name of the currency" ,
     "searchPackages" :  "Search for the name of the Packages",
-    
+    "more" : "More" ,
+
+
     "sort_by" : "Sort by",
     "sortName" : "Name",
     "sortNumber" : "Telephone",
@@ -49,7 +52,28 @@
     "btnAddCurrency" : "Add Currency",
     "btnAddPackage" : "Add Package",
     "btnBlackList" : "Black List",
-    "btnActiveDrivers" : "Active Drivers"
+    "btnActiveDrivers" : "Active Drivers",
+
+    "curNameEn" : "Name English",
+    "curSymbol" : "symbol",
+    "curRate" : "exchange rate",
+    "curSequence" : "sequence" ,
+
+    "wedget-alert" : "Payment delay alert",
+    "increase" : "increase",
+    "NumRestaurants" : "Number of restaurants",
+    "NumOrders" : "Number of orders",
+    "NumDrivers" : "Number of drivers",
+
+    "messageRestaurants" : "There are no restaurants",
+    "messageManagers" : "There are no shipping companies",
+    "messageShipping" : "There are no shipping companies",
+    "messageDrivers" : "There are no drivers",
+    "messageCurrencies" : "There are no currencies",
+    "messagePackages" : "There are no Packages"
+
+    
+    
 
 
 

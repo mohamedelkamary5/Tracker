@@ -92,7 +92,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد اقتباسات</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>{t("messagePackages")}</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -100,10 +100,10 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                     <tr>
                                         <th >#</th>
                                         <th>{t("en_name")}</th>
-                                        <th> الوصف بالانجليزي</th>
-                                        <th>رقم التسلسل </th>
-                                        <th>التكلفه</th>
-                                        <th>الشهور</th>
+                                        <th>{t("desEnglish")}</th>
+                                        <th>{t("sortSequence")}</th>
+                                        <th>{t("sortCost")}</th>
+                                        <th>{t("sortMonths")}</th>
                                         <th>{t("options")}</th>
                                     </tr>
                                 </thead>
