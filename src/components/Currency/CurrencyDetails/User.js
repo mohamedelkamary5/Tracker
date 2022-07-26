@@ -6,9 +6,11 @@ import ClintInformation from './Information';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrencyDetails } from '../../../store/CurrencySlice';
 import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 
 const Clint = ({ HandelShow }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch()
   let { currencyId } = useParams();
   useEffect(() => {
@@ -19,7 +21,7 @@ const Clint = ({ HandelShow }) => {
   const clientDetails = useSelector(state => state.currency.CurrencyDetails)
   return (
     <div className='lay-out-wrapp'>
-      <TopBar title={"العملة"} HandelShow={HandelShow} />
+      <TopBar title={t("currency")} HandelShow={HandelShow} />
 
       <div className='style-flex-page'>
         <ClintInformation clientDetails={clientDetails} />

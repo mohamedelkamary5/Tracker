@@ -10,6 +10,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 // import { ShowStop } from '../../store/StateSlice';
 // import { ShowDelete } from '../../store/StateSlice';
 import { deleteClient, changeStatusClient } from '../../../store/ClintSlice2'
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -17,6 +18,7 @@ import { deleteClient, changeStatusClient } from '../../../store/ClintSlice2'
 
 
 const HeaderButton = ({ HandelShowCustomer, id, status }) => {
+    const {t} = useTranslation()
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const location = useLocation();
@@ -104,16 +106,16 @@ const HeaderButton = ({ HandelShowCustomer, id, status }) => {
                     {
                         handelStatus ?
                             <Fragment>
-                                <FiPause className='icon-button' />أقاف مؤقت
+                                <FiPause className='icon-button' />{t("btnPause")} 
                             </Fragment>
                             :
                             <Fragment>
-                                <GrPlay className='icon-button' /> اعادة تفيعل
+                                <GrPlay className='icon-button' />{t("btnReactivate")} 
                             </Fragment>
                     }
 
                 </button>
-                <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />حذف المطعم</button>
+                <button onClick={handelDeleteClient} ><AiOutlineDelete className='icon-button' />{t("btnDelRestaurant")} </button>
             </MainButtonClint>
             <ButtonReturn title="/admin/restaurants" />
 

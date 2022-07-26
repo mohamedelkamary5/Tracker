@@ -6,9 +6,11 @@ import ClintInformation from './Information';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { getQuoteDetails } from '../../../store/QuotesSlice';
+import { useTranslation } from 'react-i18next';
 
 
 const Clint = ({ HandelShow }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch()
   let { quotesId } = useParams();
   useEffect(() => {
@@ -19,7 +21,7 @@ const Clint = ({ HandelShow }) => {
   const clientDetails = useSelector(state => state.quotes.quoteDetails)
   return (
     <div className='lay-out-wrapp'>
-      <TopBar title={"الباقه"} HandelShow={HandelShow} />
+      <TopBar title={t("package")} HandelShow={HandelShow} />
 
       <div className='style-flex-page'>
         <ClintInformation clientDetails={clientDetails} />

@@ -6,9 +6,11 @@ import ClintInformation from './Information';
 import { useSelector, useDispatch } from 'react-redux';
 import { getManagerDetails } from '../../../store/ManagersSlice';
 import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 
 const Clint = ({HandelShow }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch()
   let { managerId } = useParams();
   useEffect(() => {
@@ -19,7 +21,7 @@ const Clint = ({HandelShow }) => {
   const clientDetails = useSelector(state => state.managers.ManagerDetails)
   return (
     <div className='lay-out-wrapp'>
-    <TopBar title={"المشرف"} HandelShow={HandelShow} />
+    <TopBar title={t("manager")} HandelShow={HandelShow} />
     
     <div className='style-flex-page'>
      <ClintInformation clientDetails={clientDetails}  />

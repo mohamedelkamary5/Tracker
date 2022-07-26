@@ -10,11 +10,16 @@
     "status" : "Status",
     "options" : "Options",
     "restaurants" : "Restaurants",
+    "restaurant" : "Restaurant",
     "managers" : "Managers",
+    "manager" : "Manager",
     "shipping" : "Shipping",
     "drivers" : "Drivers",
+    "driver" : "Driver",
     "currencies" : "Currencies",
-    "packages" : "Packages",
+    "currency" : "currency",
+    "packages" : "packages",
+    "package" : "package",
     "my_account" : "My Account",
     "setting" : "Setting",
     "shipping_company" : "Shipping company",
@@ -53,6 +58,17 @@
     "btnAddPackage" : "Add Package",
     "btnBlackList" : "Black List",
     "btnActiveDrivers" : "Active Drivers",
+    "btnReactivate" : "Reactivate" ,
+    "btnPause" : "Pause" ,
+    "btnDelRestaurant" : "Delete Restaurant",
+    "btnDelDriver" : "Delete Driver",
+    "btnDelManager" : "Delete Manager",
+    "btnDelShipping" : "Delete Shipping",
+    "btnDelCurrency" : "Delete Currency",
+    "btnDelPackage" : "Delete Package",
+
+
+
 
     "curNameEn" : "Name English",
     "curSymbol" : "symbol",
@@ -71,6 +87,7 @@
     "messageDrivers" : "There are no drivers",
     "messageCurrencies" : "There are no currencies",
     "messagePackages" : "There are no Packages"
+    
 
     
     

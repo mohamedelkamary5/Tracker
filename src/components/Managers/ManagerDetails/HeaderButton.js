@@ -10,6 +10,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 // import { ShowStop } from '../../store/StateSlice';
 // import { ShowDelete } from '../../store/StateSlice';
 import { deleteManager, changeStatusManager} from '../../../store/ManagersSlice'
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -17,6 +18,8 @@ import { deleteManager, changeStatusManager} from '../../../store/ManagersSlice'
 
 
 const HeaderButton = ({id, status }) => {
+   const {t} = useTranslation()
+
    const dispatch = useDispatch()
    const navigate = useNavigate();
    const location = useLocation();
@@ -104,16 +107,16 @@ const handelDelete = () => {
             {
                 handelStatus ?
                 <Fragment>
-                    <FiPause className='icon-button' />أقاف مؤقت
+                    <FiPause className='icon-button' />{t("btnPause")}  
                 </Fragment>
                 : 
                 <Fragment>
-                    <GrPlay className='icon-button' /> اعادة تفيعل
+                    <GrPlay className='icon-button' />{t("btnReactivate")}  
                 </Fragment>
             }
                 
             </button>
-            <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />حذف المشرف</button>
+            <button onClick={handelDelete} ><AiOutlineDelete className='icon-button' />{t("btnDelManager")}</button>
         </MainButtonClint>
         <ButtonReturn title="/admin/managers" />
         

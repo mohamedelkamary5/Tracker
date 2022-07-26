@@ -6,9 +6,11 @@ import ClintInformation from './Information';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDriverDetails } from '../../../store/DriverSlice';
 import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 
 const Clint = ({HandelShow }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch()
   let { driverId } = useParams();
   useEffect(() => {
@@ -21,7 +23,7 @@ const Clint = ({HandelShow }) => {
   // console.log('clientDetails____1', clientDetails);
   return (
     <div className='lay-out-wrapp'>
-    <TopBar title={"السائق"} HandelShow={HandelShow} />
+    <TopBar title={t("driver")} HandelShow={HandelShow} />
     
     <div className='style-flex-page'>
      <ClintInformation clientDetails={clientDetails}  />
