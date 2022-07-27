@@ -221,7 +221,7 @@ margin-left: 20px;
         all:unset ;
         background-color: var(--white-color);
         padding: 7px 50px 7px 15px;
-        width: 750px;
+        width: 650px;
         
         border-radius: 7px;
        

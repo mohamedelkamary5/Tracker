@@ -10,7 +10,8 @@ const loginManager = () => {
         <span>مرحبا, سالم</span>
         </StyleRightloginManager>
         <StyleLeftloginManager>
-        <Notifications/>
+        
+        
         </StyleLeftloginManager>
     </StyleloginManager>
   )
@@ -22,7 +23,8 @@ border-radius: 8px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-width: 280px;
+width: 100%;
+margin: 0 20px;
 @media (max-width:460px) {
     margin: 10px 0;
     width: 260px;
@@ -32,7 +34,9 @@ width: 280px;
 const StyleRightloginManager= styled.div`
 display: flex;
 align-items: center;
-
+svg{
+  padding: 10px;
+}
 img{
     width: 35px;
     height: 35px;
