@@ -3,10 +3,12 @@ import styled from "styled-components";
 import OtherClint from './OtherUser';
 import { AiOutlineCopy } from 'react-icons/ai';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { useTranslation } from 'react-i18next';
 
 const TabelClient = (props) => {
     const { id  ,en_desc ,ar_desce ,sequence ,cost , months } = props
-    
+    const { t } = useTranslation();
+
   return (
       
 <StyleTabel>
@@ -14,12 +16,12 @@ const TabelClient = (props) => {
         <Thead>
             <TrHead>
                 
-                <th > id</th>
-                <th>الوصف بالعربي</th>
-                <th>الوصف بالانجليز</th>
-                <th>رقم التسلسل	</th>
-                <th>التكلفه</th>
-                <th>الشهور</th>
+                <th>id</th>
+                <th>{t("desEnglish")}</th>
+                <th>{t("desArabic")}</th>
+                <th>{t("sortSequence")}</th>
+                <th>{t("sortCost")}</th>
+                <th>{t("sortMonths")}</th>
 
             </TrHead>
         </Thead>

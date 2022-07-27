@@ -4,8 +4,11 @@ import { AiFillStar } from 'react-icons/ai';
 import request from '../../../photo/icons/requestswedget.svg'
 import delevery from '../../../photo/icons/deleverywedget.svg'
 import Logo3 from "../../../photo/slogan/user-avatar.svg"
+import { useTranslation } from 'react-i18next';
+
 const AboutClint = (props) => {
     const {id,ar_title , en_title ,logo ,symbol ,telephone ,idUser } = props
+    const {t} = useTranslation()
 
   return (
     <MainStyleAbout key={id}>
@@ -15,44 +18,15 @@ const AboutClint = (props) => {
       </div>
       <div className='apout'>
         
-        <h5>  الاسم بالانجليزي : {en_title}</h5>
-        <h5>  الاسم بالعربي : {ar_title}</h5>
+        <h5>{t("en_name")} : {en_title}</h5>
+        <h5>{t("ar_name")} : {ar_title}</h5>
 
-        <p>رقم الموبايل : {symbol}</p>
+        <p>{t("curSymbol")} : {symbol}</p>
         
 
       </div>
       </MainRightAbout>
-      <MainLiftAbout>
-      <div className='item-wedget'>
-        <div className='header-wedget'>
-          <AiFillStar className='icon-wedget' />
-          <p>نوع الاشتراك</p>
-        </div>
-        <div className='type'>
-          <h2 className='text-white'>Basic</h2>
-        </div>
-      </div>
-      <div className='item-wedget'>
-        <div className='header-wedget'>
-          <img src={request} />
-          <p>عدد الطلبات</p>
-        </div>
-        <div className='type'>
-          <h2>350</h2>
-        </div>
-      </div>
-      <div className='item-wedget'>
-        <div className='header-wedget'>
-        <img src={delevery} />
-          <p>عدد السائقين</p>
-        </div>
-        <div className='type'>
-          <h2>250</h2>
-        </div>
-      </div>
 
-      </MainLiftAbout>
     </MainStyleAbout>
   )
 }

@@ -4,7 +4,9 @@
     "logo" : "الشعار",
     "name" : "الإسم",
     "en_name" : "الأسم بالانجليزي",
+    "ar_name" : "الاسم بالعربي",
     "telephone" : "التليفون",
+    "othermobile" : "رقم اخر",
     "mobile" : "موبايل",
     "email" : "الايميل",
     "address" : "العنوان",
@@ -29,10 +31,13 @@
     "connected" : "متصل",
     "not_connected" : "غير متصل",
     "details" : "التفاصيل",
+    "detailsClint" : "بيانات العميل" ,
     "contact_status" : "حالة الإتصال",
     "signOut" : "تسجيل الخروج",
     "isOnline" : "حالة الاتصال",
     "desEnglish" : "الوصف بالانجليزي" ,
+    "desArabic" : "الوصف بالعربي" ,
+
     "more" : "المزيد" ,
     "searchRestaurant"  : "أبحث عن اسم المطعم" ,
     "searchManagers" : "أبحث عن اسم المشرف" ,
@@ -40,7 +45,6 @@
     "searchDrivers" : "أبحث عن اسم السائق" ,
     "searchCurrencies" : "أبحث عن اسم العمله" ,
     "searchPackages" :  "أبحث عن اسم الباقه",
-
     "sort_by" : "ترتيب حسب",
     "sortName" : "الاسم",
     "sortNumber" : "التلفون",
@@ -78,13 +82,20 @@
     "NumRestaurants" : "عدد المطاعم",
     "NumOrders" : "عدد الطلبات",
     "NumDrivers" : "عدد السائقين" ,
+    "subtype" : "نوع الاشتراك" ,
+
 
     "messageRestaurants" : "لا يوجد مطاعم",
     "messageManagers" : "لا يوجد مشرفين",
     "messageShipping" : "لا يوجد شركات شحن",
     "messageDrivers" : "لا يوجد سائقين",
     "messageCurrencies" : "لا يوجد عملات",
-    "messagePackages" : "لا يوجد باقات"
+    "messagePackages" : "لا يوجد باقات",
+
+    
+    "emailClint" : "اميل العميل",
+    "addressClint" : "موقع العميل",
+    "CurrencyPaid" : "العمله المدفوع به"
 
 
 

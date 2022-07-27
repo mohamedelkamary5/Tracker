@@ -24,19 +24,7 @@ const ClintInformation = ({  clientDetails }) => {
           mobile={clientDetails.mobile}
           telephone={clientDetails.telephone}
         />
-        <TabelClient
-          ar_title={clientDetails.ar_title}
-          id={clientDetails.id}
-          name={clientDetails.en_name}
-          idUser={clientDetails.user_id}
-          number={clientDetails.mobile}
-          telephone={clientDetails.telephone}
-          state={clientDetails.status}
-          clintemail={clientDetails.email}
-          websitelink={clientDetails.address}
-          tradetype={clientDetails.email}
-          currencypaid={clientDetails.status}
-        />
+        <TabelClient {...clientDetails} />
 
 
 

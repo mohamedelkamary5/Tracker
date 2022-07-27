@@ -6,8 +6,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useTranslation } from "react-i18next";
 
 const TabelClient = (props) => {
-    const { name, idUser, id, number, telephone, paymentDate,
-        state, clintemail, websitelink, currencypaid } = props
+    const { en_title, id , symbol ,exchange_rate ,sequence ,status  } = props
     const { t } = useTranslation();
 
     return (
@@ -16,32 +15,27 @@ const TabelClient = (props) => {
             <Tabel>
                 <Thead>
                     <TrHead>
-                        <th >User id</th>
-                        <th > id</th>
-                        <th>{t("name")}</th>
-                        <th>رقم اخر</th>
-                        <th>{t("address")}</th>
-                        <th>{t("status")}</th>
+                        <th>#</th>
+                        <th>{t("curNameEn")}</th>
+                        <th>{t("curSymbol")}</th>
+                        <th>{t("curRate")}</th>
+                        <th>{t("curSequence")}</th>
+                        <th>{t("status")} </th>
                     </TrHead>
                 </Thead>
                 <Tbody>
                     <TrBody >
-                        <CopyToClipboard text={idUser}>
-                            <td><p><AiOutlineCopy className='copy' /></p>{idUser}</td>
+                        <CopyToClipboard text={id}>
+                            <td><p><AiOutlineCopy className='copy' /></p>{id}</td>
                         </CopyToClipboard>
-                        <td>{id}</td>
-                        <td>{name}</td>
-                        <td>{telephone === null ? "01245456" : telephone}</td>
-                        <td>{websitelink}</td>
-                        <td ><span className={state === 1 ? "green" : "red"}>{state === 1 ? t("active") : t("in_active")}</span></td>
+                        <td>{en_title}</td>
+                        <td>{symbol}</td>
+                        <td>{exchange_rate}</td>
+                        <td>{sequence}</td>
+                        <td ><span className={status === 1 ? "green" : "red"}>{status === 1 ? t("active") : t("in_active")}</span></td>
                     </TrBody>
                 </Tbody>
             </Tabel>
-            <OtherClint
-                clintemail={clintemail}
-                websitelink={websitelink}
-                currencypaid={currencypaid}
-            />
         </StyleTabel>
     )
 }

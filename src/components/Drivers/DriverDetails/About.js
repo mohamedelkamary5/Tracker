@@ -4,9 +4,10 @@ import { AiFillStar } from 'react-icons/ai';
 import request from '../../../photo/icons/requestswedget.svg'
 import delevery from '../../../photo/icons/deleverywedget.svg'
 import Logo3 from "../../../photo/slogan/user-avatar.svg"
+import { useTranslation } from 'react-i18next';
 const AboutClint = (props) => {
   const { id, ar_name, en_name, logo, mobile, telephone, idUser } = props
-
+  const {t} = useTranslation()
   return (
     <MainStyleAbout key={id}>
       <MainRightAbout>
@@ -15,9 +16,9 @@ const AboutClint = (props) => {
         </div>
         <div className='apout'>
 
-          <h5> الاسم بالانجليزي : {en_name}</h5>
-          <h5> الاسم بالعربي : {ar_name}</h5>
-          <p>رقم الموبايل : {mobile}</p>
+          <h5> {t("en_name")}: {en_name}</h5>
+          <h5> {t("ar_name")} : {ar_name}</h5>
+          <p> {t("telephone")} : {mobile}</p>
 
 
           {/* <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link> */}
@@ -27,7 +28,7 @@ const AboutClint = (props) => {
         <div className='item-wedget'>
           <div className='header-wedget'>
             <AiFillStar className='icon-wedget' />
-            <p>نوع الاشتراك</p>
+            <p>{t("subtype")}</p>
           </div>
           <div className='type'>
             <h2 className='text-white'>Basic</h2>
@@ -36,7 +37,7 @@ const AboutClint = (props) => {
         <div className='item-wedget'>
           <div className='header-wedget'>
             <img src={request} />
-            <p>عدد الطلبات</p>
+            <p>{t("NumOrders")}</p>
           </div>
           <div className='type'>
             <h2>350</h2>
@@ -45,7 +46,7 @@ const AboutClint = (props) => {
         <div className='item-wedget'>
           <div className='header-wedget'>
             <img src={delevery} />
-            <p>عدد السائقين</p>
+            <p>{t("NumDrivers")}</p>
           </div>
           <div className='type'>
             <h2>250</h2>

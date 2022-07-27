@@ -4,8 +4,9 @@ import { AiFillStar } from 'react-icons/ai';
 import request from '../../../photo/icons/requestswedget.svg'
 import delevery from '../../../photo/icons/deleverywedget.svg'
 import Logo3 from "../../../photo/slogan/user-avatar.svg"
-const AboutClint = (props) => {
-    const {id,ar_title , en_title ,logo ,drivers_count ,telephone ,idUser } = props
+import { useTranslation } from 'react-i18next';
+const AboutClint = ({id,ar_title , en_title ,logo ,drivers_count ,telephone ,idUser} ) => {
+    const { t } = useTranslation();
 
   return (
     <MainStyleAbout key={id}>
@@ -14,9 +15,9 @@ const AboutClint = (props) => {
         <img src={Logo3} alt="logo" />
       </div>
       <div className='apout'>
-        <h5>  الاسم بالانجليزي : {en_title}</h5>
-        <h5>  الاسم بالعربي : {ar_title}</h5>
-        <p>عدد السائقين : {drivers_count}</p>
+        <h5>  {t("en_name")}: {en_title}</h5>
+        <h5>  {t("ar_name")}: {ar_title}</h5>
+        <p>{t("telephone")}: {drivers_count}</p>
        {/* <Link to={`/EditUser/${nameAr}`}><button>تعديل العميل</button></Link> */}
       </div>
       </MainRightAbout>
@@ -24,7 +25,7 @@ const AboutClint = (props) => {
       <div className='item-wedget'>
         <div className='header-wedget'>
           <AiFillStar className='icon-wedget' />
-          <p>نوع الاشتراك</p>
+          <p>{t("subtype")}</p>
         </div>
         <div className='type'>
           <h2 className='text-white'>Basic</h2>
@@ -33,7 +34,7 @@ const AboutClint = (props) => {
       <div className='item-wedget'>
         <div className='header-wedget'>
           <img src={request} />
-          <p>عدد الطلبات</p>
+          <p>{t("NumOrders")}</p>
         </div>
         <div className='type'>
           <h2>350</h2>
@@ -42,7 +43,7 @@ const AboutClint = (props) => {
       <div className='item-wedget'>
         <div className='header-wedget'>
         <img src={delevery} />
-          <p>عدد السائقين</p>
+          <p>{t("NumDrivers")}</p>
         </div>
         <div className='type'>
           <h2>250</h2>

@@ -3,8 +3,10 @@
     "logo" : "Logo",
     "name" : "Name",
     "en_name" : "Name English",
+    "ar_name" : "Name Arabic",
     "telephone" : "Telephone",
     "mobile" : "Mobile",
+    "othermobile" : "Other Mobile",
     "email" : "Email",
     "address" : "Address",
     "status" : "Status",
@@ -28,10 +30,12 @@
     "connected" : "Connected",
     "not_connected" : "Not Connected",
     "details" : "Details",
+    "detailsClint" : "Customer Data" ,
     "contact_status" : "Contact Status",
     "signOut" : "Sign out",
     "isOnline" : "contact status",
     "desEnglish" : "Description English" ,
+    "desArabic" : "Description Arabic" ,
     "searchRestaurant"  : "Search for the name of the restaurant" ,
     "searchManagers" : "Search for admin name" ,
     "searchShipping" : "Search for the name of the company" ,
@@ -80,15 +84,19 @@
     "NumRestaurants" : "Number of restaurants",
     "NumOrders" : "Number of orders",
     "NumDrivers" : "Number of drivers",
+    "subtype" : "Subtype" ,
+
 
     "messageRestaurants" : "There are no restaurants",
     "messageManagers" : "There are no shipping companies",
     "messageShipping" : "There are no shipping companies",
     "messageDrivers" : "There are no drivers",
     "messageCurrencies" : "There are no currencies",
-    "messagePackages" : "There are no Packages"
+    "messagePackages" : "There are no Packages",
     
-
+    "addressClint" : "Address Clint",
+    "emailClint" : "Email  Client",
+    "CurrencyPaid" : "currency paid"
     
     
 

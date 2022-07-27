@@ -13,10 +13,6 @@ import { deleteQuote, changeStatusQuotes } from '../../../store/QuotesSlice'
 import { useTranslation } from 'react-i18next';
 
 
-
-
-
-
 const HeaderButton = ({ id, status }) => {
     const {t} = useTranslation()
     const dispatch = useDispatch()

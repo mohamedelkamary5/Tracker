@@ -4,17 +4,19 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { BsLink } from 'react-icons/bs';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 
 
 const OtherClint = (props) => {
+  const {t} = useTranslation()
 const {clintemail , websitelink  ,currencypaid  } = props
   return (
     <MainStyleOther>
      <div className='item-wedget'>
         <div className='header-wedget'>
           <AiOutlineMail className='icon-wedget' />
-          <p>اميل العميل</p>
+          <p>{t("emailClint")}</p>
         </div>
         <div className='type'>
           <h6>{clintemail}</h6>
@@ -23,7 +25,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsLink className='icon-wedget' />
-          <p>موقع العميل</p>
+          <p>{t("addressClint")}</p>
         </div>
         <div className='type'>
           <h6><Link to={`${websitelink}`} target="_blank" >{websitelink}</Link></h6>
@@ -32,7 +34,7 @@ const {clintemail , websitelink  ,currencypaid  } = props
       <div className='item-wedget'>
         <div className='header-wedget'>
           <BsCurrencyDollar className='icon-wedget' />
-          <p>العمله المدفوع بها</p>
+          <p>{t("CurrencyPaid")}</p>
         </div>
         <div className='type'>
           <h6>{currencypaid}</h6>

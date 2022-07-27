@@ -17,10 +17,8 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
     const { t } = useTranslation();
     const dispatch = useDispatch()
     const statusBlackList = location.pathname.includes('black-list')
-
     const UserDataSelector = dataDrivers
     const listView = useSelector(state => state.shipping.listView)
-
     const [UserData, setUserData] = useState([])
 
 
@@ -49,10 +47,10 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
 
     const sortingItems = [
         { id: 1, name: 'id', title: '#' },
-        { id: 2, name: 'en_name', title: 'الأسم' },
-        { id: 3, name: 'mobile', title: 'التليفون' },
-        { id: 4, name: 'email', title: 'الايميل' },
-        { id: 5, name: 'status', title: 'الحالة' },
+        { id: 2, name: 'en_name', title: t("en_name") },
+        { id: 3, name: 'mobile', title: t("telephone") },
+        { id: 4, name: 'email', title: t("email") },
+        { id: 5, name: 'status', title: t("status") },
     ]
 
     const inputSearch = (e) => {
@@ -82,7 +80,7 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
     const dataRender = (
         <>
             {
-                resultData.length == 0 ? <div><h3 className='text-center mt-5'>لا يوجد سائقين</h3></div>
+                resultData.length == 0 ? <div><h3 className='text-center mt-5'>{t("messageDrivers")}</h3></div>
                     : <>
                         {listView ?
                             <table>
@@ -91,11 +89,11 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
                                     <tr>
                                         <th>{t("logo")}</th>
                                         <th>#</th>
-                                        <th>الأسم بالانجليزي</th>
+                                        <th>{t("en_name")}</th>
                                         <th>{t("telephone")}</th>
                                         <th>{t("email")}</th>
                                         <th>{t("status")}</th>
-                                        <th>حالة الاتصال</th>
+                                        <th>{t("isOnline")}</th>
                                         <th>{t("options")}</th>
                                     </tr>
                                 </thead>
@@ -127,8 +125,8 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
                                                     <td >
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                                         <div className='select-clint'>
-                                                            <Link to={`/drivers/${user.id}`}> التفاصيل</Link>
-                                                            <Link to={`/drivers/${user.id}`}>بيانات العميل</Link>
+                                                            <Link to={`/drivers/${user.id}`}> {t("details")}</Link>
+                                                            <Link to={`/drivers/${user.id}`}>{t("detailsClint")}</Link>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -158,7 +156,7 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
                                                             <span>
                                                                 <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 24 24" className="BiDotsHorizontalRounded" height="30" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>
                                                                 <div className='select-clint'>
-                                                                    <Link to={`/drivers/${user.id}`}>التفاصيل</Link>
+                                                                    <Link to={`/drivers/${user.id}`}>{t("details")}</Link>
                                                                 </div>
                                                             </span>
                                                         </div>
@@ -166,7 +164,7 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
                                                             <span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active")}</span>
                                                         </div>
                                                         <div className='col-5 p-0'>
-                                                            <Link to={`/drivers/${user.id}`} className="btn btn-main">التفاصيل</Link>
+                                                            <Link to={`/drivers/${user.id}`} className="btn btn-main">{t("details")}</Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -192,7 +190,7 @@ const TableAllUsers = ({ dataDrivers=[] }) => {
                 </div>
 
                 <form className='form-search'>
-                    <input type="search" placeholder='أبحث عن اسم السائق'
+                    <input type="search" placeholder={t("searchDrivers")}
                         onChange={inputSearch} />
                     <AiOutlineSearch className='icon-search' />
                 </form>
