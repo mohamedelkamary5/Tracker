@@ -172,19 +172,19 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
 
                                                     <td ><span className={user.status === 1 ? "green" : "red"}>{user.status === 1 ? t("active") : t("in_active") }</span></td>
                                                     <td className='position-relative'>
-                                                        <Link className='text-primary' to={`/admin/shipping-companies/${user.user.id}`}>{user.user.ar_name}</Link>
+                                                        <Link className='text-primary' to={`/admin/shipping-companies/${user.id}`}>{user.en_name}</Link>
                                                         <div className="box-slide">
                                                             <span className="mark">?</span>
                                                             <div className="title">
-                                                                <Link to={`/admin/shipping-companies/${user.user.id}`}><img src={Logo3} alt="logo" /></Link>
+                                                                <Link to={`/admin/shipping-companies/${user.id}`}><img src={Logo3} alt="logo" /></Link>
                                                             </div>
                                                             <div className="content mt-2">
-                                                                <Link className='text-primary' to={`/admin/shipping-companies/${user.user.id}`}><h6>{user.user.ar_name}</h6></Link>
+                                                                <Link className='text-primary' to={`/admin/shipping-companies/${user.id}`}><h6>{user.en_name}</h6></Link>
                                                                 <div>
-                                                                    <a className='text-primary' href={`tel:+${user.user.mobile}`} >{user.user.mobile}</a>
+                                                                    <a className='text-primary' href={`tel:+${user.mobile}`} >{user.mobile}</a>
                                                                 </div>
                                                                 <small>
-                                                                    {user.user.address}
+                                                                    {user.address}
                                                                 </small>
 
                                                             </div>
@@ -195,7 +195,7 @@ const TableAllUsers = ({ HandelShowCustomer }) => {
                                                         <BiDotsHorizontalRounded className='BiDotsHorizontalRounded' />
                                                         <div className='select-clint'>
                                                             <Link to={`/admin/restaurants/${user.id}`}>التفاصيل</Link>
-                                                            <Link to={`/admin/shipping-companies/${user.user.id}`}>شركة الشحن</Link>
+                                                            <Link to={`/admin/shipping-companies/${user.id}`}>شركة الشحن</Link>
                                                         </div>
                                                     </td>
                                                 </tr>
