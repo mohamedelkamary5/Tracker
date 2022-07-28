@@ -100,8 +100,11 @@
     "CurrencyPaid" : "العمله المدفوع به",
     "lapelPassword" : "كلمة السر",
     "lapelSelsectShipping" : "اختار شركه شحن",
+    
     "lapelAddLogo" : "اضف شعار" ,
     "writeMail" : "اكتب الايميل" ,
+    "writeName" : "اكتب الاسم" ,
+
     "writeNameEn" : "اكتب الاسم بالانجليزي",
     "writeNameAr" : "اكتب الاسم بالعربي" ,
     "writeMopile" : "اكتب الموبيل" ,

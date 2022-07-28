@@ -10,6 +10,7 @@ import { SendManager } from '../../store/ManagersSlice';
 import { Button, Form, Input } from 'antd';
 import Switch from "react-switch";
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -17,6 +18,8 @@ const ClintForm = () => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.manager)
   const [form] = Form.useForm();
   const dispatch = useDispatch()
+  const {t} = useTranslation()
+
   const initialState = {
     photo: null,
     name: "",
@@ -107,7 +110,7 @@ const ClintForm = () => {
           form={form}
           className="px-lg-5"
         >
-          <SliderClint title="اضافه مشرف"   >
+          <SliderClint title={t("btnAddManagers")}  >
             {/* <InputCustomer values={values} setValues={setValues} /> */}
             <div className='main-input px-2'>
               <div className='row'>
@@ -122,11 +125,11 @@ const ClintForm = () => {
                 <div className='col-lg-6'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الايميل"
+                      label={t("email")}
                       name="emailManager"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='email' value={values.email} placeholder="اكتب الايميل" onChange={handelChange} />
+                      <Input className='form-control' name='email' value={values.email} placeholder={t("writeMail")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('email')}
                   </div>
@@ -135,11 +138,11 @@ const ClintForm = () => {
                 <div className='col-lg-6'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم"
+                      label={t("name")}
                       name="nameaManager"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='name' value={values.name} placeholder="اكتب الاسم" onChange={handelChange} />
+                      <Input className='form-control' name='name' value={values.name} placeholder={t("writeName")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('name')}
                   </div>
@@ -149,11 +152,11 @@ const ClintForm = () => {
                 <div className='col-lg-6'>
                   <div className="mb-3">
                     <Form.Item
-                      label="كلة السر"
+                      label={t("lapelPassword")}
                       name="passwordManager"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input.Password className='form-control' name='password' value={values.password} placeholder="اكتب كلة السر" onChange={handelChange} />
+                      <Input.Password className='form-control' name='password' value={values.password} placeholder={t("writePassword")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('password')}
                   </div>
@@ -162,7 +165,7 @@ const ClintForm = () => {
                 {/* Block Item */}
                 <div className='col-lg-6'>
                   <div className="mb-3">
-                    <label htmlFor="switch-add-Manager" className="form-label d-block">الحالة</label>
+                    <label htmlFor="switch-add-Manager" className="form-label d-block"><span>*</span>{t("state")}</label>
                     <label className="switch-item" htmlFor='switch-add-shipping'>
                       <Switch
                         checked={valueSwitch}
@@ -190,7 +193,7 @@ const ClintForm = () => {
           <StyleFotter>
             <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
               <MdPersonAddAlt className='MdPersonAddAlt' />
-              <span>اضافه مشرف</span>
+              <span>{t("btnAddManagers")} </span>
             </Button>
 
           </StyleFotter>
