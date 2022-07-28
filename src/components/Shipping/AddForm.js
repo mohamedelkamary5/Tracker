@@ -10,6 +10,7 @@ import { Button, Form, Input } from 'antd';
 import Switch from "react-switch";
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
 import GoogleMapComponet from '../../Shared/Components/Google-Map-Container/Google-Map/Map';
+import { useTranslation } from 'react-i18next';
 
 const ClintForm = () => {
   const initialState = {
@@ -110,6 +111,7 @@ const ClintForm = () => {
     setValues({ ...values, [target.name]: target.value })
     seterrorMsg({ ...errorMsg, [target.name]: null })
   }
+  const {t} = useTranslation()
 
 
 
@@ -121,7 +123,7 @@ const ClintForm = () => {
           form={form}
           className="px-lg-5"
         >
-          <SliderClint title="إضافة شركة شحن"   >
+          <SliderClint title={t("btnAddShipping")}   >
             {/* <InputCustomer values={values} setValues={setValues} /> */}
             <div className='main-input px-2'>
               {/* <Form
@@ -133,11 +135,11 @@ const ClintForm = () => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الايميل"
+                      label={t("email")} 
                       name="emailShipping"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='email' value={values.email} placeholder="اكتب الايميل" onChange={handelChange} />
+                      <Input className='form-control' name='email' value={values.email} placeholder={t("writeMail")} onChange={handelChange} />
                     </Form.Item>                    
                     {handelError('email')}
                   </div>
@@ -146,11 +148,11 @@ const ClintForm = () => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم بالانجليزي"
+                      label={t("en_name")}
                       name="en_nameaShipping"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='en_name' value={values.en_name} placeholder="اكتب الاسم بالانجليزي" onChange={handelChange} />
+                      <Input className='form-control' name='en_name' value={values.en_name} placeholder={t("writeNameEn")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('en_name')}
                   </div>
@@ -159,11 +161,11 @@ const ClintForm = () => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم بالعربي"
+                      label={t("ar_name")}
                       name="ar_nameaShipping"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='ar_name' value={values.ar_name} placeholder="اكتب الاسم بالعربي" onChange={handelChange} />
+                      <Input className='form-control' name='ar_name' value={values.ar_name} placeholder={t("writeNameAr")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('ar_name')}
                   </div>
@@ -172,12 +174,12 @@ const ClintForm = () => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="التليفون"
+                      label={t("telephone")}
                       name="mobilShipping"
                       rules={[{ required: true, message: '' }]}
                     // rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم' }]}
                     >
-                      <Input type='number' className='form-control' name='mobile' value={values.mobile} placeholder="اكتب التليفون" onChange={handelChange} />
+                      <Input type='number' className='form-control' name='mobile' value={values.mobile} placeholder={t("writeTelephone")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('mobile')}
                   </div>
@@ -193,11 +195,11 @@ const ClintForm = () => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="كلة السر"
+                      label={t("lapelPassword")}
                       name="passwordShipping"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input.Password className='form-control' name='password' value={values.password} placeholder="اكتب كلة السر" onChange={handelChange} />
+                      <Input.Password className='form-control' name='password' value={values.password} placeholder={t("writePassword")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('password')}
                   </div>
@@ -205,7 +207,7 @@ const ClintForm = () => {
                 {/* Block Item */}
                 <div className='col-lg-3'>
                   <div className="mb-3">
-                    <label htmlFor="switch-add-shipping" className="form-label d-block">الحالة</label>
+                    <label htmlFor="switch-add-shipping" className="form-label d-block">{t("state")}</label>
                     <label className="switch-item" htmlFor='switch-add-shipping'>
                       <Switch
                         checked={valueSwitch}
@@ -256,7 +258,7 @@ const ClintForm = () => {
 
               <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
                 <MdPersonAddAlt className='MdPersonAddAlt' />
-                <span> شركة شحن</span>
+                <span>{t("btnAddShipping")} </span>
               </Button>
             {/* <button onClick={AddUser} className="btn btn-main">
             <MdPersonAddAlt className='MdPersonAddAlt' />
