@@ -96,7 +96,18 @@
     
     "addressClint" : "Address Clint",
     "emailClint" : "Email  Client",
-    "CurrencyPaid" : "currency paid"
+    "CurrencyPaid" : "currency paid",
+    "lapelPassword" : "Password",
+    "lapelSelsectShipping" : "choose a shipping company",
+    "lapelAddLogo" : "Add Logo" ,
+    "writeMail" : "Write an email" ,
+    "writeNameEn" : "Write the name in English",
+    "writeNameAr" : "write the name in Arabic" ,
+    "writeMopile" : "write the mobile" ,
+    "writeTelephone" : "write the phone" ,
+    "writePassword" : "Write the password" ,
+    "chooseShipping" : "choose" ,
+    "uploadLogoMassege" : "Drag files here or click to upload.." 
     
     
 

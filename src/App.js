@@ -70,6 +70,8 @@ import SidebarLayoutRestaurant from "./components/Restaurants-Managment/Restaura
 import Orders from "./components/Restaurants-Managment/pages/Orders";
 import OrderDetails from "./components/Restaurants-Managment/Restaurants-Components/Orders/OrderDetails/User";
 import ModelPupup from "./components/Model/ModelPupup";
+import { AddCurrency } from "./store/StateSlice";
+import { ConfigProvider } from 'antd';
 // import PrecedentClint from "./components/clint copy/PrecedentClint";
 function App() {
   const { i18n } = useTranslation();
@@ -108,7 +110,9 @@ function App() {
       <StyleApp>
         <BrowserRouter>
           {/* public sliders */}
+          <ConfigProvider direction="rtl" >
           <ModelPupup />
+          </ConfigProvider>
           <Routes>
             {/* Start Routes Admin */}
             <Route path="/admin/login" element={<Login />} />

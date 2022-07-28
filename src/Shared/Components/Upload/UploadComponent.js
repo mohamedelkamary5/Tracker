@@ -1,15 +1,17 @@
 import React from 'react';
 import Dropzone from "react-dropzone";
+import { useTranslation } from 'react-i18next';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 
 
 
 
 const UploadComponent = ({ handleAcceptedFiles, selectedFiles }) => {
+    const {t} = useTranslation()
     return (
         <div className='row'>
             <div className='col-8'>
-                <label htmlFor="logo" className="form-label">اضف شعار<span>*</span> </label>
+                <label htmlFor="logo" className="form-label">{t("lapelAddLogo")}<span>*</span> </label>
                 <Dropzone
                     onDrop={acceptedFiles =>
                         handleAcceptedFiles(acceptedFiles)
@@ -23,7 +25,7 @@ const UploadComponent = ({ handleAcceptedFiles, selectedFiles }) => {
                             >
                                 <input {...getInputProps()} />
                                 <AiOutlineCloudUpload className='icon-wedget' />
-                                <h6>قم بسحب الملفات هنا أو انقر للتحميل..</h6>
+                                <h6>{t("uploadLogoMassege")}</h6>
                             </div>
                         </div>
                     )}

@@ -100,7 +100,21 @@
     "CurrencyPaid" : "العمله المدفوع به",
     "lapelPassword" : "كلمة السر",
     "lapelSelsectShipping" : "اختار شركه شحن",
-    "lapelAddLogo" : "اضف شعار"
+    "lapelAddLogo" : "اضف شعار" ,
+    "writeMail" : "اكتب الايميل" ,
+    "writeNameEn" : "اكتب الاسم بالانجليزي",
+    "writeNameAr" : "اكتب الاسم بالعربي" ,
+    "writeMopile" : "اكتب الموبيل" ,
+    "writeTelephone" : "اكتب التليفون" ,
+    "writePassword" : "اكتب كلة السر" ,
+    "chooseShipping" : "اختار" ,
+    "uploadLogoMassege" : "قم بسحب الملفات هنا أو انقر للتحميل.." 
+
+
+
+
+
+
 
 
 

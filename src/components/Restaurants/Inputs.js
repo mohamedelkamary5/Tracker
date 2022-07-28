@@ -7,6 +7,7 @@ import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
 import GoogleMapComponet from '../../Shared/Components/Google-Map-Container/Google-Map/Map';
 import { useSelector } from 'react-redux';
 import { Form, Input } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 const FormAddShipping = ({ values, setValues }) => {
     //select Shipping 
@@ -70,6 +71,7 @@ const FormAddShipping = ({ values, setValues }) => {
         setValues({ ...values, address: data.address, lat: data.lat, lon: data.lng })
         seterrorMsg({ ...errorMsg, address: null })
     }
+    const {t} = useTranslation()
 
     return (
         <div className='main-input px-2'>
@@ -79,11 +81,11 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-3'>
                     <div className="mb-3">
                         <Form.Item
-                            label="الايميل"
+                            label={t("email")}
                             name="emailRestaurant"
                             rules={[{ required: true, message: 'الايميل مطلوب!' }]}
                         >
-                            <Input className='form-control' value={values.email} placeholder="اكتب الايميل" onChange={(e) => { setValues({ ...values, email: e.target.value }); seterrorMsg({ ...errorMsg, email: null }) }} />
+                            <Input className='form-control' value={values.email} placeholder={t("writeMail")} onChange={(e) => { setValues({ ...values, email: e.target.value }); seterrorMsg({ ...errorMsg, email: null }) }} />
                         </Form.Item>
                         <span className='text-error'> {errorMsg ? errorMsg.email : null} </span>
                     </div>
@@ -92,7 +94,7 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-3'>
                     <div className="mb-3">
                         <Form.Item
-                            label="الاسم بالانجليزي"
+                            label={t("en_name")}
                             name="en_nameaRestaurant"
                             rules={[{ required: true, message: 'الاسم بالانجليزي مطلوب!' }]}
                         >
@@ -104,7 +106,7 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-3'>
                     <div className="mb-3">
                         <Form.Item
-                            label="الاسم بالعربي"
+                            label={t("ar_name")}
                             name="ar_nameaRestaurant"
                             rules={[{ required: true, message: 'الاسم بالعربي مطلوب!' }]}
                         >
@@ -116,7 +118,7 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-3'>
                     <div className="mb-3">
                         <Form.Item
-                            label="الموبيل"
+                            label={t("mobile")}
                             name="mobilRestaurant"
                             rules={[{ required: true, message: '' }]}
                         >
@@ -129,7 +131,7 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-3'>
                     <div className="mb-3">
                         <Form.Item
-                            label="التليفون"
+                            label={t("telephone")}
                             name="mobilRestaurant"
                             rules={[{ required: true, message: '' }]}
                         // rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم' }]}
@@ -143,7 +145,7 @@ const FormAddShipping = ({ values, setValues }) => {
                 <div className='col-lg-3'>
                     <div className="mb-3">
                         <Form.Item
-                            label="كلة السر"
+                            label={t("lapelPassword")}
                             name="passwordRestaurant"
                             rules={[{ required: true, message: 'كلة السر مطلوب!' }]}
                         >
