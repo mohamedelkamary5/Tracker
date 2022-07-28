@@ -106,6 +106,7 @@
     "writeNameAr" : "اكتب الاسم بالعربي" ,
     "writeMopile" : "اكتب الموبيل" ,
     "writeTelephone" : "اكتب التليفون" ,
+    "writeAddress" : "اكتب  العنوان ...",
     "writePassword" : "اكتب كلة السر" ,
     "chooseShipping" : "اختار" ,
     "uploadLogoMassege" : "قم بسحب الملفات هنا أو انقر للتحميل.." 

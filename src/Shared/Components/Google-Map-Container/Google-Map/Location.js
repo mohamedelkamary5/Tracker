@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -13,6 +14,7 @@ const LocationSearchInput = ({ onPlaceOut, valueP }) => {
   const handleChange = addressVal => {
     setSddress(addressVal);
   };
+  
 
   // console.log("results", results[0].formatted_address);
 
@@ -32,7 +34,7 @@ const LocationSearchInput = ({ onPlaceOut, valueP }) => {
       })
       .catch(error => console.error('Error', error));
   };
-
+const {t} = useTranslation()
   return (
     <PlacesAutocomplete
       value={address}
@@ -47,10 +49,10 @@ const LocationSearchInput = ({ onPlaceOut, valueP }) => {
                 <input type="text" className="form-control" id="address" placeholder="اكتب  العنوان" value={values.address} required onChange={(e) => setValues({ ...values, address: e.target.value })} />
               </div>
             </div> */}
-          <label htmlFor="address" className="form-label"> العنوان<span>*</span> </label>
+          <label htmlFor="address" className="form-label"> {t("address")}<span>*</span> </label>
           <input value={valueP}
             {...getInputProps({
-              placeholder: 'اكتب  العنوان ...',
+              placeholder:t("writeAddress") ,
               className: 'location-search-input form-control mb-2',
               id: 'address',
             })}

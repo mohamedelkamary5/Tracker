@@ -59,6 +59,7 @@ export const SendClint = createAsyncThunk("clients2/SendClint" , async (dataClin
  }catch (err) {
 
   return rejectWithValue(err)
+  
  }
 })
 
@@ -164,6 +165,7 @@ export const ClintSlice = createSlice({
       [SendClint.rejected]: (state, action) => {
         const errors = action.payload.response.data.errors
         state.error = errors;
+        console.log(action)
         // console.log('errors', errors);
 
         // const errorArray = []

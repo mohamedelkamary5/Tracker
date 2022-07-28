@@ -12,6 +12,7 @@ import Select from 'react-select'
 import Switch from "react-switch";
 import UploadComponent from '../../Shared/Components/Upload/UploadComponent';
 import GoogleMapComponet from '../../Shared/Components/Google-Map-Container/Google-Map/Map';
+import { useTranslation } from 'react-i18next';
 
 
 const ClintForm = ({ showCustomer }) => {
@@ -136,6 +137,8 @@ const ClintForm = ({ showCustomer }) => {
         // showMsgErorr()
       })
   }
+  const {t} = useTranslation()
+
 
   return (
     <StyleForm showCustomer={showCustomer} toogleslider={toogleslider ? "true" : 'false'}>
@@ -145,7 +148,7 @@ const ClintForm = ({ showCustomer }) => {
           form={form}
           className="px-lg-5"
         >
-          <SliderClint title="اضافه مطعم"   >
+          <SliderClint title={t("btnAddRestaurants")}   >
             {/* input Feild */}
             <div className='main-input px-2'>
               <div className='row'>
@@ -154,11 +157,11 @@ const ClintForm = ({ showCustomer }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الايميل"
+                      label={t("email")}
                       name="emailRestaurant"
-                      rules={[{ required: true, message: '' }]}
+                      rules={[{ message: '' }]}
                     >
-                      <Input className='form-control' name='email' value={values.email} placeholder="اكتب الايميل" onChange={handelChange} />
+                      <Input className='form-control' name='email' value={values.email} placeholder={t("writeMail")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('email')}
                   </div>
@@ -167,11 +170,11 @@ const ClintForm = ({ showCustomer }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم بالانجليزي"
+                      label={t("en_name")}
                       name="en_nameaRestaurant"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='en_name' value={values.en_name} placeholder="اكتب الاسم بالانجليزي" onChange={handelChange} />
+                      <Input className='form-control' name='en_name' value={values.en_name} placeholder={t("writeNameEn")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('en_name')}
                   </div>
@@ -180,11 +183,11 @@ const ClintForm = ({ showCustomer }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم بالعربي"
+                      label={t("ar_name")}
                       name="ar_nameaRestaurant"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='ar_name' value={values.ar_name} placeholder="اكتب الاسم بالعربي" onChange={handelChange} />
+                      <Input className='form-control' name='ar_name' value={values.ar_name} placeholder={t("writeNameAr")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('ar_name')}
                   </div>
@@ -193,11 +196,11 @@ const ClintForm = ({ showCustomer }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الموبيل"
+                      label={t("mobile")}
                       name="tellRestaurant"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input type='number' className='form-control' name='mobile' value={values.mobile} placeholder="اكتب الموبيل" onChange={handelChange} />
+                      <Input type='number' className='form-control' name='mobile' value={values.mobile} placeholder={t("writeMopile")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('mobile')}
                   </div>
@@ -206,12 +209,12 @@ const ClintForm = ({ showCustomer }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="التليفون"
+                      label={t("telephone")}
                       name="mobilRestaurant"
                       rules={[{ required: true, message: '' }]}
                     // rules={[{ required: true, message: 'التليفون مطلوب!' }, { len: 11, message: 'التليفون يجب ان يكون 11 رقم' }]}
                     >
-                      <Input type='number' className='form-control' name='telephone' value={values.telephone} placeholder="اكتب التليفون" onChange={handelChange} />
+                      <Input type='number' className='form-control' name='telephone' value={values.telephone} placeholder={t("writeTelephone")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('telephone')}
                   </div>
@@ -220,11 +223,11 @@ const ClintForm = ({ showCustomer }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="كلة السر"
+                      label={t("lapelPassword")}
                       name="passwordRestaurant"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input.Password className='form-control' name='password' value={values.password} placeholder="اكتب كلة السر" onChange={handelChange} />
+                      <Input.Password className='form-control' name='password' value={values.password} placeholder={t("writePassword")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('password')}
                   </div>
@@ -233,7 +236,7 @@ const ClintForm = ({ showCustomer }) => {
                 <div className='col-lg-3'>
 
                   <div className="mb-3">
-                    <label htmlFor="en_name" className="form-label">اختار شركه شحن<span>*</span> </label>
+                    <label htmlFor="en_name" className="form-label"><span>*</span> {t("lapelSelsectShipping")} </label>
                     <Select options={options} name="user_id" onChange={handleSelect} />
                     {handelError('user_id')}
                   </div>
@@ -241,7 +244,7 @@ const ClintForm = ({ showCustomer }) => {
                 {/* Block Item */}
                 <div className='col-lg-3'>
                   <div className="mb-3">
-                    <label htmlFor="switch-add-Restaurant" className="form-label d-block">الحالة</label>
+                    <label htmlFor="switch-add-Restaurant" className="form-label d-block"><span>*</span> {t("state")}</label>
                     <label className="switch-item" htmlFor='switch-add-shipping'>
                       <Switch
                         checked={valueSwitch}
@@ -294,7 +297,7 @@ const ClintForm = ({ showCustomer }) => {
           <StyleFotter>
             <Button htmlType="submit" onClick={AddUser} className="btn btn-main">
               <MdPersonAddAlt className='MdPersonAddAlt' />
-              <span>اضافه مطعم</span>
+              <span>{t("btnAddRestaurants")}</span>
             </Button>
 
             {/* <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span> */}
