@@ -133,6 +133,10 @@ align-items: center;
     justify-content: space-between;
   .icon-wedget , img, svg{
     margin-left: 18px;
+    &:lang(en){
+      margin-left: 0px;
+      margin-right: 10px;
+    }
   }
   &.price{
     svg{

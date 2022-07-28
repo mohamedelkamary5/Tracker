@@ -76,6 +76,8 @@
     "curSymbol" : "رمز العمله",
     "curRate" : "سعر الصرف",
     "curSequence" : "تسلسل" ,
+    "curSequenceNum" : "رقم التسلسل" ,
+
 
     "wedget-alert" : "تنبيه تاخير الدفع",
     "increase" : "زياده ",
@@ -95,9 +97,14 @@
     
     "emailClint" : "اميل العميل",
     "addressClint" : "موقع العميل",
-    "CurrencyPaid" : "العمله المدفوع به"
+    "CurrencyPaid" : "العمله المدفوع به",
+    "lapelPassword" : "كلمة السر",
+    "lapelSelsectShipping" : "اختار شركه شحن",
+    "lapelAddLogo" : "اضف شعار"
 
 
+
+        
 
 
 }

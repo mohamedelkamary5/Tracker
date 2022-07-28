@@ -104,8 +104,10 @@ align-items: center;
   border-radius: 8px;
   width: 250px;
   height: 150px;
+
   .icon-wedget , img{
-    margin-left: 18px;
+   
+
   }
   
   h2{

@@ -98,12 +98,6 @@ export const handleListView = createAsyncThunk('clients2/handleListView', (statu
 
 
 
-
-
-
-
-
-
 export const ClintSlice = createSlice({
   name: 'clients2',
   initialState: {

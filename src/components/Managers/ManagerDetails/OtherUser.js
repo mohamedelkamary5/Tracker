@@ -58,6 +58,10 @@ flex-wrap: wrap;
   background-color: white;
   .icon-wedget {
     margin-left: 18px;
+    &:lang(en){
+      margin-left: 0px;
+      margin-right: 10px;
+    }
   }
   p{
     color: var(--primary-color);

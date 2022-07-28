@@ -130,6 +130,10 @@ align-items: center;
   height: 150px;
   .icon-wedget , img{
     margin-left: 18px;
+    &:lang(en){
+      margin-left: 0px;
+      margin-right: 10px;
+    }
   }
   
   h2{

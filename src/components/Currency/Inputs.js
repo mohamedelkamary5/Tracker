@@ -13,7 +13,6 @@ const FormAddCurrency = ({ setDeleted, values, setValues }) => {
 
     const dispatch = useDispatch()
     const errorMsgStore = useSelector(state => state.currency.error)
-
     const [errorMsg, seterrorMsg] = useState(errorMsgStore);
 
 
