@@ -111,6 +111,17 @@
     "writeTelephone" : "اكتب التليفون" ,
     "writeAddress" : "اكتب  العنوان ...",
     "writePassword" : "اكتب كلة السر" ,
+    "writeSymbol" : "اكتب اسم رمز العمله",
+    "writeExchange_rate" : "اكتب سعر الصرف",
+    "writeCurSequence" : "اكتب رقم التسلسل",
+    "writeNumDrivers" : "اكتب عدد السائقين",
+    "writeMonth" : "اكتب الاشهور",
+    "writeCost" : "اكتب التكلفه",
+
+
+
+
+
     "chooseShipping" : "اختار" ,
     "uploadLogoMassege" : "قم بسحب الملفات هنا أو انقر للتحميل.." 
 

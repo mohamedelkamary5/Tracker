@@ -8,10 +8,12 @@ import swal from 'sweetalert';
 import { HideSlider } from '../../store/StateSlice';
 import { SendCurrency } from '../../store/CurrencySlice';
 import { Button, Form, Input } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 
 const ClintForm = ({ setShow }) => {
   const toogleslider = useSelector((state) => state.ShowAndHide.value.currency)
+  const {t} = useTranslation()
 
   //get date today
   const today = new Date();
@@ -75,7 +77,7 @@ const ClintForm = ({ setShow }) => {
           form={form}
           className="px-lg-5"
         >
-          <SliderClint title="اضافه عملة"   >
+          <SliderClint title={t("btnAddCurrency")}   >
             {/* <InputCustomer values={values} setValues={setValues} /> */}
             <div className='main-input px-2'>
               <div className='row'>
@@ -85,11 +87,11 @@ const ClintForm = ({ setShow }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم بالانجليزي"
+                      label={t("en_name")}
                       name="en_titleaCurrency"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='en_title' value={values.en_title} placeholder="اكتب الاسم بالانجليزي" onChange={handelChange} />
+                      <Input className='form-control' name='en_title' value={values.en_title} placeholder={t("writeNameEn")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('en_title')}
                   </div>
@@ -98,11 +100,11 @@ const ClintForm = ({ setShow }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم بالعربي"
+                      label={t("ar_name")}
                       name="ar_nameaCurrency"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='ar_title' value={values.ar_title} placeholder="اكتب الاسم بالعربي" onChange={handelChange} />
+                      <Input className='form-control' name='ar_title' value={values.ar_title} placeholder={t("writeNameAr")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('ar_title')}
                   </div>
@@ -111,11 +113,11 @@ const ClintForm = ({ setShow }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="الاسم رمز العمله"
+                      label={t("curSymbol")}
                       name="symbol"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input className='form-control' name='symbol' value={values.symbol} placeholder="اكتب الاسم رمز العمله" onChange={handelChange} />
+                      <Input className='form-control' name='symbol' value={values.symbol} placeholder={t("writeSymbol")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('symbol')}
                   </div>
@@ -133,11 +135,11 @@ const ClintForm = ({ setShow }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="سعر الصرف"
+                      label={t("curRate")}
                       name="exchange_rateCurrency"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input type='number' className='form-control' name='exchange_rate' value={values.exchange_rate} placeholder="اكتب سعر الصرف" onChange={handelChange} />
+                      <Input type='number' className='form-control' name='exchange_rate' value={values.exchange_rate} placeholder={t("writeExchange_rate")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('exchange_rate')}
                   </div>
@@ -145,11 +147,11 @@ const ClintForm = ({ setShow }) => {
                 <div className='col-lg-3'>
                   <div className="mb-3">
                     <Form.Item
-                      label="رقم تسلسل"
+                      label={t("curSequenceNum")}
                       name="mobilCurrency"
                       rules={[{ required: true, message: '' }]}
                     >
-                      <Input type='number' className='form-control' name='sequence' value={values.sequence} placeholder="اكتب رقم تسلسل" onChange={handelChange} />
+                      <Input type='number' className='form-control' name='sequence' value={values.sequence} placeholder={t("writeCurSequence")} onChange={handelChange} />
                     </Form.Item>
                     {handelError('sequence')}
                   </div>
@@ -162,7 +164,7 @@ const ClintForm = ({ setShow }) => {
           <StyleFotter>
             <Button htmlType="submit" onClick={AddUser} className="btn btn-main m-1">
               <MdPersonAddAlt className='MdPersonAddAlt' />
-              <span>اضافه عملة</span>
+              <span>{t("btnAddCurrency")}</span>
             </Button>
 
             {/* <span>تريد المساعدة ؟ <a href='#'>اضغط هنا</a></span> */}

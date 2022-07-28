@@ -75,9 +75,10 @@
 
 
     "curNameEn" : "Name English",
-    "curSymbol" : "symbol",
-    "curRate" : "exchange rate",
-    "curSequence" : "sequence" ,
+    "curSymbol" : "Symbol",
+    "curRate" : "Exchange rate",
+    "curSequence" : "Sequence" ,
+    "curSequenceNum" : "Sequence Number" ,
 
     "wedget-alert" : "Payment delay alert",
     "increase" : "increase",
@@ -104,8 +105,13 @@
     "writeMopile" : "write the mobile" ,
     "writeTelephone" : "write the phone" ,
     "writeAddress" : "write the address...",
-
     "writePassword" : "Write the password" ,
+    "writeSymbol" : "Write the name of the currency symbol",
+    "writeExchange_rate" : "Write the exchange rate",
+    "writeCurSequence" : "Write the sequence number",
+    "writeNumDrivers" : "Write the number of drivers",
+    "writeMonth" : "Write the months",
+    "writeCost" : "write the cost",
     "chooseShipping" : "choose" ,
     "uploadLogoMassege" : "Drag files here or click to upload.." 
     
